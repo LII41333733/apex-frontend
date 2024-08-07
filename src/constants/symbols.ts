@@ -1,0 +1,16 @@
+export default [
+  "SPY",
+  "QQQ",
+  "AMD",
+  "TSLA",
+  "AMZN",
+  "MSFT",
+  "ROKU",
+  "QCOM",
+  "NFLX",
+  "HOOD",
+  "NVDA",
+  "BAC",
+  "GME",
+  "AMC",
+];
