@@ -1,5 +1,6 @@
 import { LiveOptionOptional } from "@/types/LiveOptionOptional";
 import { LiveOptionPriceOptional } from "@/types/LiveOptionPriceOptional";
+import { TradeRequest } from "@/types/TradeRequest";
 
 export interface OptionsChainProps {
   activeSymbol: string;
@@ -10,4 +11,7 @@ export interface OptionsChainProps {
     newPrice: number,
     isFromOnMessage: boolean
   ) => void;
+  handlePlaceTrade: TradeRequest;
+  selectedSymbol: string;
+  setSelectedSymbol: (selectedSymbol: string) => void;
 }

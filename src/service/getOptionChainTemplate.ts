@@ -3,6 +3,7 @@ export default async function (symbol: string, optionType: string) {
     const response = await fetch(
       `http://localhost:8080/api/market/getOptionChainTemplate?symbol=${symbol}&optionType=${optionType.toLowerCase()}`
     );
+
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }

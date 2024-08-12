@@ -16,21 +16,23 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
   updateQuotePrices,
   selectedSymbol,
   setSelectedSymbol,
+  handlePlaceTrade,
 }) => {
-  //   const [confirm, setConfirm] = React.useState<boolean>(false);
+  // console.log(quotesMap);
+  // console.log(quotePrices);
 
   const updateQuotePrice = (symbol: string, isIncrease: boolean) => {
     const updateDifference = 0.01;
 
     if (symbol) {
-      const price: number | null | undefined = quotePrices.get(symbol);
+      const price: number | null | undefined = quotePrices.get(symbol) ?? 0;
+      const newPrice: number = isIncrease
+        ? price + updateDifference
+        : price - updateDifference < 0
+        ? 0
+        : price - updateDifference;
 
-      if (price) {
-        const newPrice: number = isIncrease
-          ? price + updateDifference
-          : price - updateDifference;
-        updateQuotePrices(symbol, newPrice, false);
-      }
+      updateQuotePrices(symbol, newPrice, false);
     }
   };
 
@@ -47,14 +49,13 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
       </TableHeader>
       <TableBody>
         {[...quotesMap.entries()].map(([key, data]) => {
-          console.log(data);
-          const symbol = data?.symbol;
+          const symbol = data?.symbol ?? "";
           const isSelected = selectedSymbol === symbol;
+          const currentPrice = quotePrices.get(symbol) ?? 0;
+
           return (
             <TableRow key={key}>
-              <TableCell>
-                {convertTickerStringToLabel(data?.symbol ?? "")}
-              </TableCell>
+              <TableCell>{convertTickerStringToLabel(symbol)}</TableCell>
               <TableCell className="cursor-pointer">
                 {(data?.bid ?? 0).toFixed(2)}
               </TableCell>
@@ -118,8 +119,8 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                       stroke-width="2.5"
                       stroke="#facc15"
                       fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M5 12l5 5l10 -10" />
@@ -140,15 +141,16 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                       stroke-width="2.5"
                       stroke="#facc15"
                       fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M18 6l-12 12" />
                       <path d="M6 6l12 12" />
                     </svg>
-                    {quotePrices.get(symbol)}
+                    {currentPrice}
                     <svg
+                      onClick={() => {}}
                       xmlns="http://www.w3.org/2000/svg"
                       className="icon icon-tabler icon-tabler-checks"
                       width="24"
@@ -157,15 +159,20 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                       stroke-width="2.5"
                       stroke="#facc15"
                       fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M7 12l5 5l10 -10" />
                       <path d="M2 12l5 5m5 -5l5 -5" />
                     </svg>
                   </TableCell>
-                  <TableCell className="text-primary cursor-pointer">
+                  <TableCell
+                    className="text-primary cursor-pointer"
+                    onClick={() => {
+                      handlePlaceTrade(symbol, currentPrice);
+                    }}
+                  >
                     OK?
                   </TableCell>
                 </>

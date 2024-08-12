@@ -4,18 +4,10 @@ import "./index.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 
-// import WebSocketComponent from "./components/WebSocketComponent";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-import {
-  Card,
-  CardContent,
-  // CardDescription,
-  // CardFooter,
-  // CardHeader,
-  // CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 import { Input } from "@/components/ui/input";
 import symbols from "./constants/symbols";
@@ -27,8 +19,12 @@ import isOK from "./utils/statusUtils/isOK";
 import { BalanceBar } from "./components/BalanceBar";
 import OptionsChain from "./components/OptionsChain";
 import handleOptionChainState from "./hooks/handleOptionChainState";
+import handleTradeState from "./hooks/handleTradeState";
 
 function App() {
+  // const env = "DEV";
+  // const isDev = env === "DEV";
+
   const [cashAvailable, setCashAvailable] = React.useState<number>(0);
   const [unsettledFunds, setUnsettledFunds] = React.useState<number>(0);
   const [optionType, setOptionType] = React.useState<string>("Call");
@@ -59,6 +55,11 @@ function App() {
     selectedSymbol,
     setSelectedSymbol,
   } = handleOptionChainState();
+
+  const { handlePlaceTrade } = handleTradeState();
+
+  // console.log(quotePrices);
+  // console.log(quotesMap);
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -136,6 +137,7 @@ function App() {
           updateQuotePrices={updateQuotePrices}
           selectedSymbol={selectedSymbol}
           setSelectedSymbol={setSelectedSymbol}
+          handlePlaceTrade={handlePlaceTrade}
         />
       </div>
       <WebSocketComponent
