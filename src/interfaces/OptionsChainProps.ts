@@ -12,6 +12,4 @@ export interface OptionsChainProps {
     isFromOnMessage: boolean
   ) => void;
   handlePlaceTrade: TradeRequest;
-  selectedSymbol: string;
-  setSelectedSymbol: (selectedSymbol: string) => void;
 }

@@ -1,5 +1,6 @@
+import Balance from "./Balance";
+
 export interface BalanceBarProps {
-  cashAvailable: number;
-  unsettledFunds: number;
-  isOpen: boolean;
+  balance: Balance;
+  webSocketConnected: boolean;
 }

@@ -1,48 +1,54 @@
-import { LiveOption } from "@/interfaces/LiveOption";
+import { WebSocketData } from "@/constants";
+import Balance from "@/interfaces/Balance";
+import Quote from "@/interfaces/Quote";
 import React, { useEffect, useRef } from "react";
-import { toast } from "sonner";
+import { useAppDispatch } from "@/state/hooks";
+import { updateAll } from "@/state/balanceSlice";
+import { updateQuotesMap } from "@/state/optionsChainSlice";
+// import { useToast } from "@/components/ui/use-toast";
 
-// type LiveOptionMap = Map<string, LiveOption | null>;
-// type LiveQuoteMap = Map<string, number | null>;
+// interface WebSocketComponentProps {
+//   setWebSocketConnected: (webSocketConnected: boolean) => void;
+//   updateQuote: (symbol: string, newQuote: Quote) => void;
+// }
 
-interface WebSocketComponentProps {
-  setIsOpen: (isOpen: boolean) => void;
-  updateQuote: (symbol: string, newQuote: LiveOption | null) => void;
-  updateQuotePrices: (
-    symbol: string,
-    newPrice: number | null,
-    isFromOnMessage: boolean
-  ) => void;
-  // quotePrices: LiveOptionMap;
-}
+const WebSocketComponent: React.FC = () => {
+  const dispatch = useAppDispatch();
 
-const WebSocketComponent: React.FC<WebSocketComponentProps> = ({
-  setIsOpen,
-  updateQuote,
-  updateQuotePrices,
-}) => {
   const ws = useRef<WebSocket | null>(null);
+  // const { toast } = useToast();
 
   useEffect(() => {
     ws.current = new WebSocket("ws://localhost:8080/ws");
 
     ws.current.onopen = () => {
-      toast("WebSocket connection open", {
-        duration: 3000,
-        position: "bottom-center",
-      });
-
-      setIsOpen(true);
+      // setWebSocketConnected(true);
+      console.log("WebSocket connection Open");
     };
 
     ws.current.onmessage = (event) => {
-      const newMessage: LiveOption = JSON.parse(event.data);
-      updateQuote(newMessage.symbol, newMessage);
-      updateQuotePrices(newMessage.symbol, newMessage.ask, true);
+      const { type, data } = JSON.parse(event.data);
+
+      switch (type) {
+        case WebSocketData.BALANCE:
+          dispatch(updateAll(data));
+          break;
+        case WebSocketData.QUOTE:
+          dispatch(updateQuotesMap(data));
+          break;
+        default:
+        // console.error(event);
+        // console.error(data);
+      }
     };
 
     ws.current.onclose = (event) => {
-      setIsOpen(false);
+      // toast({
+      //   title: "WebSocket connection closed",
+      //   description: "",
+      // });
+
+      // setWebSocketConnected(false);
       console.log("WebSocket connection closed:", event);
       if (event.code !== 1000) {
         // Automatically try to reconnect if not a normal closure

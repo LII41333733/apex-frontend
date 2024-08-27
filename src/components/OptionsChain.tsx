@@ -1,3 +1,4 @@
+import { useAppDispatch, useAppSelector } from "@/state/hooks";
 import {
   Table,
   TableHeader,
@@ -5,53 +6,68 @@ import {
   TableRow,
   TableCell,
 } from "@/components/ui/table";
-import { OptionsChainProps } from "@/interfaces/OptionsChainProps";
+// import { OptionsChainProps } from "@/interfaces/OptionsChainProps";
+import {
+  useGetOptionsChainMutation,
+  usePlaceTradeMutation,
+} from "@/state/api/apex";
 import convertTickerStringToLabel from "@/utils/convertTickerStringToLabel";
 import React from "react";
+import { useSelector } from "react-redux";
+import {
+  updateConfirmedSymbol,
+  updateQuotesPrices,
+} from "@/state/optionsChainSlice";
+import placeTrade from "@/service/placeTrade";
+import Quote from "@/interfaces/Quote";
 
-const OptionsChain: React.FC<OptionsChainProps> = ({
-  activeSymbol,
-  quotesMap,
-  quotePrices,
-  updateQuotePrices,
-  selectedSymbol,
-  setSelectedSymbol,
-  handlePlaceTrade,
-}) => {
-  // console.log(quotesMap);
-  // console.log(quotePrices);
+const OptionsChain: React.FC = () => {
+  const {
+    quotesMap,
+    quotesPrices,
+    optionType,
+    symbolInput,
+    activeSymbol,
+    confirmedSymbol,
+  } = useAppSelector((state) => state.optionsChain);
+
+  const quotes: [string, Quote][] = Object.entries(quotesMap);
+
+  const dispatch = useAppDispatch();
+
+  const [placeTrade] = usePlaceTradeMutation();
 
   const updateQuotePrice = (symbol: string, isIncrease: boolean) => {
     const updateDifference = 0.01;
 
     if (symbol) {
-      const price: number | null | undefined = quotePrices.get(symbol) ?? 0;
+      const price: number = quotesPrices[symbol] ?? 0;
       const newPrice: number = isIncrease
         ? price + updateDifference
         : price - updateDifference < 0
         ? 0
         : price - updateDifference;
 
-      updateQuotePrices(symbol, newPrice, false);
+      dispatch(updateQuotesPrices({ symbol, price: newPrice }));
     }
   };
 
   return (
-    <Table>
+    <Table className={activeSymbol ? "" : "hide-oc"}>
       <TableHeader>
         <TableRow>
           <TableCell>{activeSymbol}</TableCell>
           <TableCell>Bid</TableCell>
           <TableCell>Ask</TableCell>
-          <TableCell></TableCell>
+          <TableCell>Price</TableCell>
           <TableCell></TableCell>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {[...quotesMap.entries()].map(([key, data]) => {
+        {[...quotes].map(([key, data]) => {
           const symbol = data?.symbol ?? "";
-          const isSelected = selectedSymbol === symbol;
-          const currentPrice = quotePrices.get(symbol) ?? 0;
+          const showConfirm = confirmedSymbol === symbol;
+          const currentPrice = quotesPrices[symbol] ?? 0;
 
           return (
             <TableRow key={key}>
@@ -62,7 +78,7 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
               <TableCell className="cursor-pointer">
                 {(data?.ask ?? 0).toFixed(2)}
               </TableCell>
-              {!isSelected && (
+              {!showConfirm && (
                 <>
                   <TableCell>
                     <div className="edit-price">
@@ -72,8 +88,8 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                         }}
                         xmlns="http://www.w3.org/2000/svg"
                         className="icon icon-tabler icon-tabler-circle-minus inline"
-                        width="24"
-                        height="24"
+                        width="22"
+                        height="22"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="#facc15"
@@ -85,15 +101,15 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                         <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
                         <path d="M9 12l6 0" />
                       </svg>
-                      <span>{quotePrices.get(symbol)?.toFixed(2) ?? ""}</span>
+                      <span>{quotesPrices[symbol]?.toFixed(2) ?? ""}</span>
                       <svg
                         onClick={() => {
                           updateQuotePrice(symbol, true);
                         }}
                         xmlns="http://www.w3.org/2000/svg"
                         className="icon icon-tabler icon-tabler-circle-plus inline"
-                        width="24"
-                        height="24"
+                        width="22"
+                        height="22"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="#facc15"
@@ -110,13 +126,13 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                   </TableCell>
                   <TableCell>
                     <svg
-                      onClick={() => setSelectedSymbol(symbol)}
+                      onClick={() => dispatch(updateConfirmedSymbol(symbol))}
                       xmlns="http://www.w3.org/2000/svg"
                       className="icon icon-tabler icon-tabler-check"
-                      width="24"
-                      height="24"
+                      width="22"
+                      height="22"
                       viewBox="0 0 24 24"
-                      stroke-width="2.5"
+                      strokeWidth="2.5"
                       stroke="#facc15"
                       fill="none"
                       strokeLinecap="round"
@@ -128,17 +144,17 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                   </TableCell>
                 </>
               )}
-              {isSelected && (
+              {showConfirm && (
                 <>
                   <TableCell className="selected-symbol">
                     <svg
-                      onClick={() => setSelectedSymbol("")}
+                      onClick={() => dispatch(updateConfirmedSymbol(""))}
                       xmlns="http://www.w3.org/2000/svg"
                       className="icon icon-tabler icon-tabler-x"
-                      width="24"
-                      height="24"
+                      width="22"
+                      height="22"
                       viewBox="0 0 24 24"
-                      stroke-width="2.5"
+                      strokeWidth="2.5"
                       stroke="#facc15"
                       fill="none"
                       strokeLinecap="round"
@@ -148,15 +164,27 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                       <path d="M18 6l-12 12" />
                       <path d="M6 6l12 12" />
                     </svg>
-                    {currentPrice}
+                    {currentPrice.toFixed(2)}
+                  </TableCell>
+                  <TableCell
+                    className="text-primary cursor-pointer"
+                    onClick={async () => {
+                      await placeTrade({ option: symbol, price: currentPrice });
+                    }}
+                  >
                     <svg
-                      onClick={() => {}}
+                      onClick={async () => {
+                        await placeTrade({
+                          option: symbol,
+                          price: currentPrice,
+                        });
+                      }}
                       xmlns="http://www.w3.org/2000/svg"
                       className="icon icon-tabler icon-tabler-checks"
-                      width="24"
-                      height="24"
+                      width="22"
+                      height="22"
                       viewBox="0 0 24 24"
-                      stroke-width="2.5"
+                      strokeWidth="2.5"
                       stroke="#facc15"
                       fill="none"
                       strokeLinecap="round"
@@ -166,14 +194,6 @@ const OptionsChain: React.FC<OptionsChainProps> = ({
                       <path d="M7 12l5 5l10 -10" />
                       <path d="M2 12l5 5m5 -5l5 -5" />
                     </svg>
-                  </TableCell>
-                  <TableCell
-                    className="text-primary cursor-pointer"
-                    onClick={() => {
-                      handlePlaceTrade(symbol, currentPrice);
-                    }}
-                  >
-                    OK?
                   </TableCell>
                 </>
               )}

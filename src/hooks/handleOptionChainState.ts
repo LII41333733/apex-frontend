@@ -1,61 +1,45 @@
-import { LiveOption } from "@/interfaces/LiveOption";
-import startOptionChainStream from "@/service/startOptionChainStream";
+import Quote from "@/interfaces/Quote";
 import React from "react";
 
 export default () => {
   const [quotesMap, setQuotesMap] = React.useState(() => new Map());
   const [quotePrices, setQuotesPrices] = React.useState(() => new Map());
-  const [selectedSymbol, setSelectedSymbol] = React.useState<string>("");
 
-  // Function to update the Map
-  const updateQuote = (symbol: string, newQuote: LiveOption | null) => {
+  const updateQuote = (symbol: string, newQuote: Quote) => {
     setQuotesMap((prevQuotesMap) => {
       const updatedMap = new Map(prevQuotesMap);
-      updatedMap.set(symbol, newQuote);
+      updatedMap.set(symbol, {
+        ...prevQuotesMap.get(symbol),
+        ...newQuote,
+        strike: newQuote.strike ?? prevQuotesMap.get(symbol)?.strike ?? null,
+      });
       return updatedMap;
     });
   };
 
-  const updateQuotePrices = (
-    symbol: string,
-    newPrice: number | null,
-    isFromOnMessage: boolean
-  ) => {
+  const updateQuotePrices = (symbol: string, newPrice: number) => {
     setQuotesPrices((prevQuotesPrices) => {
       const updatedPrices = new Map(prevQuotesPrices);
-
-      if (isFromOnMessage) {
-        const currentValue = updatedPrices.get(symbol);
-        if (currentValue === null) {
-          updatedPrices.set(symbol, newPrice);
-        }
-      } else {
-        updatedPrices.set(symbol, newPrice);
-      }
-
+      updatedPrices.set(symbol, newPrice);
       return updatedPrices;
     });
   };
 
-  const setTemplate = (data: string[]) => {
+  const setInitialOptionsChain = (dataList: Quote[]) => {
     setQuotesMap(new Map());
     setQuotesPrices(new Map());
 
-    data.forEach((symbol) => {
-      updateQuote(symbol, null);
-      updateQuotePrices(symbol, null, false);
+    dataList.forEach((data) => {
+      updateQuote(data.symbol, data);
+      updateQuotePrices(data.symbol, data.ask);
     });
-
-    startOptionChainStream();
   };
 
   return {
-    setTemplate,
+    setInitialOptionsChain,
     quotesMap,
     quotePrices,
     updateQuote,
     updateQuotePrices,
-    selectedSymbol,
-    setSelectedSymbol,
   };
 };

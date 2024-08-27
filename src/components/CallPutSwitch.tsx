@@ -1,30 +1,35 @@
+import { useAppDispatch } from "@/state/hooks";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { OptionType } from "@/constants";
+import { updateOptionType } from "@/state/optionsChainSlice";
+import { useDispatch } from "react-redux";
 
-interface CallPutSwitchProps {
-  setOptionType: (optionType: string) => void;
-}
+const CallPutSwitch: React.FC = () => {
+  const dispatch = useAppDispatch();
 
-const CallPutSwitch: React.FC<CallPutSwitchProps> = ({ setOptionType }) => (
-  <Tabs defaultValue="Call" className="w-[40%]">
-    <TabsList>
-      <TabsTrigger
-        onClick={(e) => {
-          setOptionType((e.target as HTMLElement).innerText);
-        }}
-        value="Call"
-      >
-        Call
-      </TabsTrigger>
-      <TabsTrigger
-        onClick={(e) => {
-          setOptionType((e.target as HTMLElement).innerText);
-        }}
-        value="Put"
-      >
-        Put
-      </TabsTrigger>
-    </TabsList>
-  </Tabs>
-);
+  return (
+    <Tabs defaultValue={OptionType.CALL} className="w-[40%]">
+      <TabsList>
+        <TabsTrigger
+          onClick={(e) => {
+            useDispatch;
+            dispatch(updateOptionType(OptionType.CALL));
+          }}
+          value={OptionType.CALL}
+        >
+          {OptionType.CALL}
+        </TabsTrigger>
+        <TabsTrigger
+          onClick={(e) => {
+            dispatch(updateOptionType(OptionType.PUT));
+          }}
+          value={OptionType.PUT}
+        >
+          {OptionType.PUT}
+        </TabsTrigger>
+      </TabsList>
+    </Tabs>
+  );
+};
 
 export default CallPutSwitch;
