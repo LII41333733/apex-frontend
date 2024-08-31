@@ -12,6 +12,11 @@ import handleTradeState from "./hooks/handleTradeState";
 import "./App.css";
 import "./index.css";
 import TradeSandbox from "./components/TradeSandbox";
+import DisplaySelector from "./components/DisplaySelector";
+import { useAppSelector } from "./state/hooks";
+import { Displays } from "./constants";
+import Orders from "./components/Orders";
+import TickerBar from "./components/TickerBar";
 
 function App() {
   // const [webSocketConnected, setWebSocketConnected] =
@@ -25,15 +30,14 @@ function App() {
   //   setInitialOptionsChain,
   // } = handleOptionChainState();
 
-  const { handlePlaceTrade } = handleTradeState();
-
   return (
     <Provider store={store}>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <div className="main-container px-4 py-4">
           <BalanceBar />
-          <SymbolSelector />
-          <OptionsChain />
+          <TickerBar />
+          <DisplaySelector />
+          <RenderDisplay />
         </div>
         <WebSocketComponent />
         <TradeSandbox />
@@ -42,6 +46,26 @@ function App() {
     </Provider>
   );
 }
+
+const RenderDisplay: React.FC = () => {
+  const { display } = useAppSelector((state) => state.main);
+
+  switch (display) {
+    case Displays.POSITIONS: {
+      return <Orders />;
+    }
+    case Displays.CHAIN: {
+      return (
+        <>
+          <SymbolSelector />
+          <OptionsChain />
+        </>
+      );
+    }
+    default:
+      return <></>;
+  }
+};
 
 export default App;
 

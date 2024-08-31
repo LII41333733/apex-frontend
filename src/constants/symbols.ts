@@ -1,1 +1,1 @@
-export default ["SPY", "QQQ", "IWM", "SPX"];
+export default ["SPY", "QQQ", "IWM"];

@@ -78,13 +78,24 @@
 
   .spaced {
     flex-flow: wrap;
-    justify-content: center;
+    justify-content: space-between;
   }
 
-  .badge {
-    flex-flow: wrap;
-    margin: 0.2rem 0.21rem;
+  .symbol-badge {
+    margin: 0.2rem 0rem;
     font-weight: 700 !important;
+    width: 31%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 2rem;
+    border: none;
+    background: #292524;
+  }
+
+  .display-tab {
+    display: flex;
+    justify-content: space-between;
   }
 
   .card {
@@ -93,6 +104,10 @@
   .main-container {
     width: 344px;
     margin: 0 auto;
+  }
+
+  .search-btn {
+    background: hsl(12deg 6.49% 15.1%) !important;
   }
 
   table {
@@ -121,7 +136,7 @@
     margin: 0 0.2rem;
   }
 
-  .badge,
+  .symbol-badge,
   svg {
     cursor: pointer;
   }
@@ -130,5 +145,72 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+  }
+
+  .accordion-title {
+    width: 7rem;
+  }
+
+  .order-filter button[data-state="active"],
+  .order-filter > div {
+    background-color: hsl(var(--muted));
+  }
+  .order-filter > div {
+    margin: 0;
+    justify-content: center;
+  }
+
+  #orders .badge,
+  .order-filter .badge {
+    width: 5rem;
+    justify-content: center;
+  }
+  .order-filter button {
+    padding: 0;
+  }
+  .order-filter button div {
+    display: block;
+  }
+  .order-filter .h-9 {
+    height: 2rem;
+  }
+  .order-accordion h3 > button {
+    padding: 0.5rem 1rem;
+  }
+  .order-filter .badge-all,
+  .order-filter .badge-all:hover {
+    background-color: hsl(var(--primary));
+  }
+  .order-filter .badge-open,
+  .order-filter .badge-open:hover {
+    background-color: #00e3ff;
+  }
+  .order-filter .badge-filled,
+  .order-filter .badge-filled:hover {
+    background-color: #00ff8e;
+  }
+  .order-filter .badge-canceled,
+  .order-filter .badge-canceled:hover {
+    background-color: #ee7e7e;
+  }
+  .order-filter .badge-pending,
+  .order-filter .badge-pending:hover {
+    background-color: #c4c4c4;
+  }
+
+  #ticker-bar hr {
+    height: 1.5px;
+    border: none;
+    background-color: #2c6e52;
+  }
+  #ticker-bar span {
+    font-size: 0.58rem;
+    line-height: 1.9rem;
+  }
+  #ticker-bar section {
+    padding: 0 0.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }

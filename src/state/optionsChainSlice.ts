@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Quote from "@/interfaces/Quote";
 import { OptionType } from "@/constants";
 import { apexApi } from "./api/apex";
+import dateFormatter from "@/utils/dateFormatter";
 
-// Define a type for the slice state
 export interface OptionsChainState {
   quotesMap: { [key: string]: Quote };
   quotesPrices: { [key: string]: number };
@@ -11,9 +11,9 @@ export interface OptionsChainState {
   symbolInput: string;
   activeSymbol: string;
   confirmedSymbol: string;
+  expirationDate: string;
 }
 
-// Define the initial state using that type
 const initialState: OptionsChainState = {
   quotesMap: {},
   quotesPrices: {},
@@ -21,13 +21,14 @@ const initialState: OptionsChainState = {
   symbolInput: "",
   activeSymbol: "",
   confirmedSymbol: "",
+  expirationDate: "",
 };
 
 export const optionsChainSlice = createSlice({
   name: "optionsChain",
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
+    resetState: () => initialState,
     updateSymbolInput: (state, action: PayloadAction<string>) => {
       state.symbolInput = action.payload;
     },
@@ -40,10 +41,23 @@ export const optionsChainSlice = createSlice({
         [action.payload.symbol]: action.payload.price,
       };
     },
-    updateQuotesMap: (state, action: PayloadAction<Quote>) => {
+    updateQuotesMap: (
+      state,
+      { payload: { symbol, ask, bid } }: PayloadAction<Quote>
+    ) => {
+      const quotesPrices = JSON.parse(JSON.stringify(state.quotesPrices));
+
+      if (!quotesPrices[symbol]) {
+        state.quotesPrices[symbol] = ask;
+      }
+
       state.quotesMap = {
         ...state.quotesMap,
-        [action.payload.symbol]: action.payload,
+        [symbol]: {
+          ...state.quotesMap[symbol],
+          ask,
+          bid,
+        },
       };
     },
     updateOptionType: (state, action: PayloadAction<OptionType>) => {
@@ -54,24 +68,35 @@ export const optionsChainSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addMatcher(
-      apexApi.endpoints.getOptionsChain.matchFulfilled,
-      (state, { payload, meta }) => {
-        for (const data of payload) {
-          state.quotesMap = {
-            ...state.quotesMap,
-            [data.symbol]: data,
-          };
+    builder
+      .addMatcher(
+        apexApi.endpoints.getOptionsChain.matchFulfilled,
+        (state, { payload, meta }) => {
+          if (payload.length) {
+            state.expirationDate = dateFormatter(payload[0].expirationDate);
 
-          state.quotesPrices = {
-            ...state.quotesPrices,
-            [data.symbol]: data.ask,
-          };
+            for (const data of payload) {
+              state.quotesMap = {
+                ...state.quotesMap,
+                [data.symbol]: data,
+              };
+            }
+          }
+
+          state.activeSymbol = meta.arg.originalArgs.symbol;
         }
-
-        state.activeSymbol = meta.arg.originalArgs.symbol;
-      }
-    );
+      )
+      .addMatcher(apexApi.endpoints.getOptionsChain.matchPending, (state) => {
+        state.quotesPrices = {};
+        state.quotesMap = {};
+        state.activeSymbol = "";
+        state.confirmedSymbol = "";
+        state.expirationDate = "";
+      })
+      .addMatcher(
+        apexApi.endpoints.placeTrade.matchFulfilled,
+        () => initialState
+      );
   },
 });
 

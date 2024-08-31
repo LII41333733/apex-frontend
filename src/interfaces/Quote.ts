@@ -4,4 +4,5 @@ export default interface Quote {
   optionType: "call" | "put";
   strike: number;
   symbol: string;
+  expirationDate: string;
 }

@@ -2,14 +2,17 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import balanceReducer from "./balanceSlice";
 import optionsChainReducer from "./optionsChainSlice";
+import mainReducer from "./mainSlice";
+import ordersReducer from "./ordersSlice";
 import { apexApi } from "@/state/api/apex";
 
 export const store = configureStore({
   reducer: {
+    main: mainReducer,
     balance: balanceReducer,
     optionsChain: optionsChainReducer,
+    orders: ordersReducer,
     [apexApi.reducerPath]: apexApi.reducer,
-    // orders: usersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apexApi.middleware),

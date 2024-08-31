@@ -33,13 +33,6 @@ const SymbolSelector: React.FC = () => {
 
   const [getOptionsChain] = useGetOptionsChainMutation();
 
-  // const handleSetInitialOptionsChain = (res: Quote[]) => {
-  //   if (res.length) {
-  //     setInitialOptionsChain(res);
-  //     startOptionChainStream();
-  //   }
-  // };
-
   return (
     <Card className="w-[100%] card pt-1 my-3">
       <CardContent className="px-2 py-1">
@@ -52,6 +45,7 @@ const SymbolSelector: React.FC = () => {
             onChange={(e) => dispatch(updateSymbolInput(e.target.value))}
           />
           <Button
+            className="search-btn"
             onClick={async () => {
               // updateAppStateValue(AppStateKey.activeSymbol, symbolInput);
               // placeSandboxTrade(symbolInput, optionType);
@@ -67,7 +61,7 @@ const SymbolSelector: React.FC = () => {
               height="20"
               viewBox="0 0 24 24"
               strokeWidth="2"
-              stroke="#2c3e50"
+              stroke="hsl(var(--primary))"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -84,9 +78,8 @@ const SymbolSelector: React.FC = () => {
               key={e}
               onClick={async () => {
                 await getOptionsChain({ symbol: e, optionType });
-                // handleSetInitialOptionsChain(res);
               }}
-              className="rounded badge"
+              className="rounded badge symbol-badge"
               variant="outline"
             >
               {e}
