@@ -67,7 +67,9 @@ const OptionsChain: React.FC = () => {
           if (symbol) {
             return (
               <TableRow key={key}>
-                <TableCell>{convertTickerStringToLabel(symbol)}</TableCell>
+                <TableCell className="font-semibold">
+                  {convertTickerStringToLabel(symbol)}
+                </TableCell>
                 <TableCell
                   onClick={() =>
                     dispatch(

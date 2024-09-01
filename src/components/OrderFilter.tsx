@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/state/hooks";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { OrderStatuses } from "@/constants";
-import { updateOrdersView } from "@/state/ordersSlice";
+import { updateOrdersView } from "@/state/orderSlice";
 import {
   Accordion,
   AccordionContent,
@@ -30,11 +30,11 @@ const OrderFilter: React.FC = () => {
   };
 
   return (
-    <div className="order-filter mb-2">
+    <div className="order-filter mt-2 mb-2">
       <Accordion type="single" collapsible className="w-full order-accordion">
         <AccordionItem value="item-1">
           <AccordionTrigger>
-            <div className="accordion-title">Orders Filter</div>
+            <div className="accordion-title">Filter By Status</div>
             <ActiveBadge />
           </AccordionTrigger>
           <AccordionContent>

@@ -18,7 +18,7 @@ const initialState: OrdersState = {
   ordersView: OrderStatuses.ALL,
 };
 
-export const ordersSlice = createSlice({
+export const orderSlice = createSlice({
   name: "orders",
   initialState,
   reducers: {
@@ -31,6 +31,6 @@ export const ordersSlice = createSlice({
   },
 });
 
-export const { updateOrderSummary, updateOrdersView } = ordersSlice.actions;
+export const { updateOrderSummary, updateOrdersView } = orderSlice.actions;
 
-export default ordersSlice.reducer;
+export default orderSlice.reducer;

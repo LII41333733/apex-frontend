@@ -29,6 +29,8 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --trade-green: #60d4a3;
+    --trade-red: #ee7e7e;
   }
 
   .dark {
@@ -56,6 +58,8 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --trade-green: #60d4a3;
+    --trade-red: #ee7e7e;
   }
 }
 
@@ -63,10 +67,23 @@
   * {
     @apply border-border;
     font-weight: 500;
-    letter-spacing: 0.02rem;
+    letter-spacing: 0.01rem;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  .trade-green {
+    color: var(--trade-green);
+  }
+  .trade-red {
+    color: var(--trade-red);
+  }
+
+  .balance-bar {
+    display: flex;
+    justify-content: space-between;
   }
 
   section,
@@ -113,23 +130,22 @@
   table {
     text-align: center;
   }
-
   table tbody tr:nth-child(odd) {
     background-color: #292524;
   }
-
   table th {
     background-color: #0c0a09;
   }
-
   table.hide-oc {
     visibility: hidden;
   }
-
   table .edit-price {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  table tbody td {
+    font-weight: 400;
   }
 
   .edit-price span {
@@ -160,6 +176,31 @@
     justify-content: center;
   }
 
+  #orders .accordion-content {
+    display: flex;
+    flex-direction: column;
+  }
+  #orders .accordion-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+  }
+  #orders .accordion-row .cell {
+    display: flex;
+    align-items: center;
+  }
+  #orders .accordion-label {
+    width: 4rem;
+    margin-left: 1.2rem;
+    color: #9ca29e;
+    justify-content: flex-end;
+  }
+  #orders .accordion-price {
+    width: 3rem;
+    margin-right: 2rem;
+    color: #9ca29e;
+    justify-content: center;
+  }
   #orders .badge,
   .order-filter .badge {
     width: 5rem;
@@ -177,34 +218,34 @@
   .order-accordion h3 > button {
     padding: 0.5rem 1rem;
   }
-  .order-filter .badge-all,
-  .order-filter .badge-all:hover {
-    background-color: hsl(var(--primary));
+  .badge-all,
+  .badge-all:hover {
+    background-color: hsl(var(--primary)) !important;
   }
-  .order-filter .badge-open,
-  .order-filter .badge-open:hover {
-    background-color: #00e3ff;
+  .badge-open,
+  .badge-open:hover {
+    background-color: #00e3ff !important;
   }
-  .order-filter .badge-filled,
-  .order-filter .badge-filled:hover {
-    background-color: #00ff8e;
+  .badge-filled,
+  .badge-filled:hover {
+    background-color: #00ff8e !important;
   }
-  .order-filter .badge-canceled,
-  .order-filter .badge-canceled:hover {
-    background-color: #ee7e7e;
+  .badge-canceled,
+  .badge-canceled:hover {
+    background-color: #ee7e7e !important;
   }
-  .order-filter .badge-pending,
-  .order-filter .badge-pending:hover {
-    background-color: #c4c4c4;
+  .badge-pending,
+  .badge-pending:hover {
+    background-color: #c4c4c4 !important;
   }
 
   #ticker-bar hr {
-    height: 1.5px;
+    height: 0.8px;
     border: none;
     background-color: #2c6e52;
   }
   #ticker-bar span {
-    font-size: 0.58rem;
+    font-size: 0.6rem;
     line-height: 1.9rem;
   }
   #ticker-bar section {
@@ -212,5 +253,78 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  #ticker-bar .green {
+    color: #60d4a3;
+  }
+  #ticker-bar .red {
+    color: #ee7e7e;
+  }
+
+  .position {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding: 0 0.4rem;
+    border-color: hsl(var(--border));
+    border-bottom-width: 1px;
+    padding-bottom: 0.6rem;
+  }
+  .position .column {
+    display: flex;
+  }
+  .position .text-column {
+    width: 10rem;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .position .pl-column {
+    width: 6rem;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+  .position .perc-column {
+    width: 4rem;
+    justify-content: flex-end;
+  }
+  .position .text-bottom-label {
+    font-size: 0.6rem;
+    color: #9ca29e;
+  }
+  .position .text-bottom-value {
+    position: relative;
+    top: 0.07rem;
+  }
+
+  #trades-table * {
+    font-weight: 400;
+  }
+  #trades-table {
+    margin-top: -0.7rem;
+  }
+  #trades-table th,
+  #trades-table th div,
+  #trades-table th button {
+    font-weight: 500;
+  }
+  #trades-table table {
+    text-align: left;
+  }
+  #trades-table th,
+  #trades-table th div,
+  #trades-table th button,
+  #trades-table td {
+    font-size: 0.6rem;
+  }
+  #trades-table button {
+    padding: 0.5rem 0;
+  }
+  #trades-table .table-data {
+    width: 6rem;
+  }
+  #trades-table .badge {
+    zoom: 0.8;
+    width: 5rem;
+    justify-content: center;
   }
 }

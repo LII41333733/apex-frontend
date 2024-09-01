@@ -34,7 +34,7 @@ const SymbolSelector: React.FC = () => {
   const [getOptionsChain] = useGetOptionsChainMutation();
 
   return (
-    <Card className="w-[100%] card pt-1 my-3">
+    <Card className="w-[100%] card pt-1 mt-5 mb-3">
       <CardContent className="px-2 py-1">
         <section className="flex items-center mb-1">
           <CallPutSwitch />

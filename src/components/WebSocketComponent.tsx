@@ -1,19 +1,27 @@
 import { WebSocketData } from "@/constants";
-import Balance from "@/interfaces/Balance";
-import Quote from "@/interfaces/Quote";
 import React, { useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
 import { updateAll } from "@/state/balanceSlice";
 import { updateQuotesMap } from "@/state/optionsChainSlice";
-import { updateOrderSummary } from "@/state/ordersSlice";
+import { updateOrderSummary } from "@/state/orderSlice";
+import { updateTrades } from "@/state/tradeSlice";
 
 const WebSocketComponent: React.FC = () => {
   const dispatch = useAppDispatch();
   const ws = useRef<WebSocket | null>(null);
-  const [isConnected, setIsConnected] = useState(false);
   const reconnectInterval = useRef<NodeJS.Timeout | null>(null);
 
-  const [isWindowFocused, setIsWindowFocused] = useState(document.hasFocus()); // Track initial window focus
+  // Use useState for isConnected and useRef to keep track of its latest value
+  const [isConnected, setIsConnected] = useState(false);
+  const isConnectedRef = useRef(isConnected);
+
+  // Track initial window focus
+  const [isWindowFocused, setIsWindowFocused] = useState(document.hasFocus());
+
+  // Update the isConnectedRef whenever isConnected state changes
+  useEffect(() => {
+    isConnectedRef.current = isConnected;
+  }, [isConnected]);
 
   // Function to initialize WebSocket
   const initializeWebSocket = () => {
@@ -44,6 +52,9 @@ const WebSocketComponent: React.FC = () => {
         case WebSocketData.ORDER_SUMMARY:
           dispatch(updateOrderSummary(data));
           break;
+        case WebSocketData.TRADES:
+          dispatch(updateTrades(data));
+          break;
         default:
           console.error("Unknown WebSocket data type:", type);
       }
@@ -68,17 +79,18 @@ const WebSocketComponent: React.FC = () => {
     if (!reconnectInterval.current) {
       reconnectInterval.current = setInterval(() => {
         // Check both if the document is visible and the window is focused
-        if (document.hasFocus() && !isConnected) {
-          initializeWebSocket(); //log("Reconnecting...");
+        if (document.hasFocus() && !isConnectedRef.current) {
+          console.log("Attempting to reconnect WebSocket...");
+          initializeWebSocket();
         }
-      }, 2000); // Attempt to reconnect every 5 seconds
+      }, 2000); // Attempt to reconnect every 2 seconds
     }
   };
 
   // Handle window focus and blur events
   const handleWindowFocus = () => {
     setIsWindowFocused(true);
-    if (!isConnected) {
+    if (!isConnectedRef.current) {
       startReconnection();
     }
   };

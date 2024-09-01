@@ -2,6 +2,7 @@ export enum WebSocketData {
   BALANCE = "balance",
   QUOTE = "quote",
   ORDER_SUMMARY = "orderSummary",
+  TRADES = "trades",
 }
 
 export enum AppStateKey {
@@ -32,4 +33,5 @@ export enum OrderDataStatuses {
   PENDING = "pending",
   OPEN = "open",
   FILLED = "filled",
+  REJECTED = "rejected",
 }

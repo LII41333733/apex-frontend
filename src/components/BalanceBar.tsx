@@ -5,20 +5,31 @@ const BalanceBar: React.FC = () => {
   const balance = useAppSelector((state) => state.balance);
 
   return (
-    <section className="section-1">
+    <section className="balance-bar">
       <div>
-        <p className="text-sm text-primary">Cash Available</p>
-        <h4 className="text-lg font-semibold">
+        <p className="text-xs font-normal text-primary">Total Equity</p>
+        <h4 className="text-xs font-semibold">
           {balance.cashAvailable ? formatToUSD(balance.cashAvailable) : "--"}
         </h4>
       </div>
-      <div className="ml-3">
-        <p className="text-sm text-primary">Unsettled Funds</p>
-        <h4 className="text-lg font-semibold">
+      <div className="">
+        <p className="text-xs font-normal text-primary">Cash Available</p>
+        <h4 className="text-xs font-semibold">
           {balance.unsettledFunds ? formatToUSD(balance.unsettledFunds) : "--"}
         </h4>
       </div>
-      <div></div>
+      <div className="">
+        <p className="text-xs font-normal text-primary">Day P/L</p>
+        <h4 className="text-xs font-semibold">
+          {balance.unsettledFunds ? formatToUSD(balance.unsettledFunds) : "--"}
+        </h4>
+      </div>
+      <div className="">
+        <p className="text-xs font-normal text-primary">Market Value</p>
+        <h4 className="text-xs font-semibold">
+          {balance.unsettledFunds ? formatToUSD(balance.unsettledFunds) : "--"}
+        </h4>
+      </div>
     </section>
   );
 };

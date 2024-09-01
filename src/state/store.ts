@@ -3,7 +3,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import balanceReducer from "./balanceSlice";
 import optionsChainReducer from "./optionsChainSlice";
 import mainReducer from "./mainSlice";
-import ordersReducer from "./ordersSlice";
+import ordersReducer from "./orderSlice";
+import tradesReducer from "./tradeSlice";
 import { apexApi } from "@/state/api/apex";
 
 export const store = configureStore({
@@ -12,6 +13,7 @@ export const store = configureStore({
     balance: balanceReducer,
     optionsChain: optionsChainReducer,
     orders: ordersReducer,
+    trades: tradesReducer,
     [apexApi.reducerPath]: apexApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
