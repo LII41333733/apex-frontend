@@ -6,7 +6,6 @@ import { Toaster } from "@/components/ui/toaster";
 import BalanceBar from "./components/BalanceBar";
 import WebSocketComponent from "./components/WebSocketComponent";
 import OptionsChain from "./components/OptionsChain";
-import SymbolSelector from "./components/SymbolSelector";
 import DisplaySelector from "./components/DisplaySelector";
 import { useAppSelector } from "./state/hooks";
 import Orders from "./components/Orders";
@@ -41,12 +40,7 @@ const RenderDisplay: React.FC = () => {
       return <Orders />;
     }
     case Displays.CHAIN: {
-      return (
-        <>
-          <SymbolSelector />
-          <OptionsChain />
-        </>
-      );
+      return <OptionsChain />;
     }
     case Displays.TRADES: {
       return <Trades />;

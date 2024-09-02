@@ -15,10 +15,19 @@ import { BadgeOpen } from "./badges/BadgeOpen";
 import { BadgeFilled } from "./badges/BadgeFilled";
 import { Order } from "@/interfaces/Order";
 import OpenPosition from "./OpenPosition";
+import { Button } from "./ui/button";
+import { setConfirmCancelId, setConfirmSellId } from "@/state/orderSlice";
+import {
+  useCancelTradeMutation,
+  useSellPositionMutation,
+} from "@/state/api/apex";
+import StatusBadge from "./StatusBadge";
+import OpenPositionPlaceholder from "./OpenPositionPlaceholder";
 
 const Orders: React.FC = () => {
   const dispatch = useAppDispatch();
-
+  const [cancelTrade] = useCancelTradeMutation();
+  const [sellPosition] = useSellPositionMutation();
   const {
     orderSummary: {
       allOrders,
@@ -28,6 +37,8 @@ const Orders: React.FC = () => {
       filledOrders,
     },
     ordersView,
+    confirmCancelId,
+    confirmSellId,
   } = useAppSelector((state) => state.orders);
 
   const getOrderList = () => {
@@ -47,100 +58,152 @@ const Orders: React.FC = () => {
 
   const orderList = getOrderList();
 
+  console.log(allOrders);
+
   return (
     <div id="orders">
-      <RenderPositions />
-      <p className="text-sm font-normal mb-4">{`Orders (${orderList.length})`}</p>
-      <OrderFilter />
-      <RenderOrders orderList={orderList} />
+      <div className="positions mb-8">
+        <p className="text-sm font-normal mb-3">{`Open Positions (${openOrders.length})`}</p>
+        {/* {openOrders.map(() => {
+
+        })} */}
+        <OpenPositionPlaceholder />
+      </div>
+      <div className="orders">
+        <p className="text-sm font-normal mb-4">{`Orders (${orderList.length})`}</p>
+        <OrderFilter />
+        {orderList.map(({ leg, status, id }) => {
+          const symbol: string = leg[0].optionSymbol;
+
+          return (
+            <Accordion
+              key={id}
+              type="single"
+              collapsible
+              className="w-full order-accordion mb-3"
+            >
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  <div className="accordion-title">
+                    {convertTickerWithExpiration(symbol)}
+                  </div>
+                  <StatusBadge status={status as OrderDataStatuses} />
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="accordion-content">
+                    <div className="accordion-row">
+                      <div className="cell font-normal accordion-label">
+                        Trigger
+                      </div>
+                      <div className="cell accordion-price">
+                        {leg[0].price?.toFixed(2)}
+                      </div>
+                      <div className="cell accordion-status">
+                        <StatusBadge
+                          status={leg[0].status as OrderDataStatuses}
+                        />
+                      </div>
+                    </div>
+                    <div className="accordion-row">
+                      <div className="cell font-normal accordion-label">
+                        Limit
+                      </div>
+                      <div className="cell accordion-price">
+                        {leg[1].price?.toFixed(2)}
+                      </div>
+                      <div className="cell accordion-status">
+                        <StatusBadge
+                          status={leg[1].status as OrderDataStatuses}
+                        />
+                      </div>
+                    </div>
+                    <div className="accordion-row">
+                      <div className="cell font-normal accordion-label">
+                        Stop
+                      </div>
+                      <div className="cell accordion-price">
+                        {leg[2].stopPrice?.toFixed(2)}
+                      </div>
+                      <div className="cell accordion-status">
+                        <StatusBadge
+                          status={leg[2].status as OrderDataStatuses}
+                        />
+                      </div>
+                    </div>
+                    <div className="order-position mt-3">
+                      <OpenPositionPlaceholder />
+                    </div>
+                    {(status as OrderDataStatuses) ===
+                      OrderDataStatuses.PENDING && (
+                      <div className="order-actions mt-3 pr-4">
+                        {id === confirmCancelId ? (
+                          <>
+                            <p>Cancel order?</p>
+                            <Button
+                              onClick={async () =>
+                                await cancelTrade({ orderId: id })
+                              }
+                            >
+                              Yes
+                            </Button>
+                            <Button
+                              variant="outline"
+                              onClick={() => dispatch(setConfirmCancelId(null))}
+                            >
+                              No
+                            </Button>
+                          </>
+                        ) : (
+                          <Button
+                            onClick={() => dispatch(setConfirmCancelId(id))}
+                          >
+                            Cancel
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                    {(status as OrderDataStatuses) ===
+                      OrderDataStatuses.OPEN && (
+                      <div className="order-actions mt-3 pr-4">
+                        {id === confirmSellId ? (
+                          <>
+                            <p>Sell position?</p>
+                            <Button
+                              onClick={async () =>
+                                await sellPosition({
+                                  triggerId: leg[0].id,
+                                  limitId: leg[1].id,
+                                  stopId: leg[2].id,
+                                })
+                              }
+                            >
+                              Yes
+                            </Button>
+                            <Button
+                              variant="outline"
+                              onClick={() => dispatch(setConfirmSellId(null))}
+                            >
+                              No
+                            </Button>
+                          </>
+                        ) : (
+                          <Button
+                            onClick={() => dispatch(setConfirmSellId(id))}
+                          >
+                            Cancel
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          );
+        })}
+      </div>
     </div>
   );
-};
-
-const RenderPositions: React.FC = () => {
-  return (
-    <div className="positions mb-8">
-      <p className="text-sm font-normal mb-3">{`Open Positions (0)`}</p>
-      <OpenPosition />
-    </div>
-  );
-};
-
-const RenderOrders: React.FC<{ orderList: Order[] }> = ({ orderList }) => {
-  return (
-    <>
-      {orderList.map(({ leg, status }) => {
-        const symbol: string = leg[0].optionSymbol;
-
-        return (
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full order-accordion"
-          >
-            <AccordionItem value="item-1">
-              <AccordionTrigger>
-                <div className="accordion-title">
-                  {convertTickerWithExpiration(symbol)}
-                </div>
-                <StatusBadge status={status as OrderDataStatuses} />
-              </AccordionTrigger>
-              <AccordionContent>
-                <div className="accordion-content">
-                  <div className="accordion-row">
-                    <div className="cell font-normal accordion-label">
-                      Trigger
-                    </div>
-                    <div className="cell accordion-price">2.00</div>
-                    <div className="cell accordion-status">
-                      <StatusBadge
-                        status={leg[0].status as OrderDataStatuses}
-                      />
-                    </div>
-                  </div>
-                  <div className="accordion-row">
-                    <div className="cell font-normal accordion-label">
-                      Limit
-                    </div>
-                    <div className="cell accordion-price">4.00</div>
-                    <div className="cell accordion-status">
-                      <StatusBadge
-                        status={leg[1].status as OrderDataStatuses}
-                      />
-                    </div>
-                  </div>
-                  <div className="accordion-row">
-                    <div className="cell font-normal accordion-label">Stop</div>
-                    <div className="cell accordion-price">1.00</div>
-                    <div className="cell accordion-status">
-                      <StatusBadge
-                        status={leg[2].status as OrderDataStatuses}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        );
-      })}
-    </>
-  );
-};
-
-export const StatusBadge: React.FC<{ status: OrderDataStatuses }> = ({
-  status,
-}) => {
-  switch (status) {
-    case OrderDataStatuses.CANCELED:
-      return <BadgeCanceled />;
-    case OrderDataStatuses.PENDING:
-      return <BadgePending />;
-    case OrderDataStatuses.OPEN:
-      return <BadgeOpen />;
-    case OrderDataStatuses.FILLED:
-      return <BadgeFilled />;
-  }
 };
 
 export default Orders;

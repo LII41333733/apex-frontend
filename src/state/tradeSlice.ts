@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Displays } from "@/constants";
 import Trade from "@/interfaces/Trade";
 
 export interface TradeState {
@@ -15,7 +14,7 @@ export const tradeSlice = createSlice({
   initialState,
   reducers: {
     updateTrades: (state, action: PayloadAction<Trade[]>) => {
-      state.trades = action.payload;
+      state.trades = action.payload.reverse();
     },
   },
 });

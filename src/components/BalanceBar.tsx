@@ -7,27 +7,33 @@ const BalanceBar: React.FC = () => {
   return (
     <section className="balance-bar">
       <div>
-        <p className="text-xs font-normal text-primary">Total Equity</p>
+        <p className="text-xxs font-normal text-primary">Total Equity</p>
+        <h4 className="text-xs font-semibold">
+          {balance.totalEquity ? formatToUSD(balance.totalEquity) : "--"}
+        </h4>
+      </div>
+      <div className="">
+        <p className="text-xxs font-normal text-primary">Cash Available</p>
         <h4 className="text-xs font-semibold">
           {balance.cashAvailable ? formatToUSD(balance.cashAvailable) : "--"}
         </h4>
       </div>
       <div className="">
-        <p className="text-xs font-normal text-primary">Cash Available</p>
+        <p className="text-xxs font-normal text-primary">Day P/L</p>
         <h4 className="text-xs font-semibold">
-          {balance.unsettledFunds ? formatToUSD(balance.unsettledFunds) : "--"}
+          {balance.closePl ? formatToUSD(balance.closePl) : "--"}
         </h4>
       </div>
       <div className="">
-        <p className="text-xs font-normal text-primary">Day P/L</p>
+        <p className="text-xxs font-normal text-primary">Open P/L</p>
         <h4 className="text-xs font-semibold">
-          {balance.unsettledFunds ? formatToUSD(balance.unsettledFunds) : "--"}
+          {balance.openPl ? formatToUSD(balance.openPl) : "--"}
         </h4>
       </div>
       <div className="">
-        <p className="text-xs font-normal text-primary">Market Value</p>
+        <p className="text-xxs font-normal text-primary">Market Value</p>
         <h4 className="text-xs font-semibold">
-          {balance.unsettledFunds ? formatToUSD(balance.unsettledFunds) : "--"}
+          {balance.marketValue ? formatToUSD(balance.marketValue) : "--"}
         </h4>
       </div>
     </section>

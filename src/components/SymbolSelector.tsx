@@ -3,34 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import symbols from "../constants/symbols";
-import getOptionsChain from "../service/getOptionsChain";
 import CallPutSwitch from "../components/CallPutSwitch";
-import { AppStateKey } from "@/constants";
-import startOptionChainStream from "@/service/startOptionChainStream";
-import Quote from "@/interfaces/Quote";
-import placeSandboxTrade from "@/service/placeSandboxTrade";
+import { SYMBOLS } from "@/constants";
 import { useAppDispatch, useAppSelector } from "@/state/hooks";
 import { useGetOptionsChainMutation } from "@/state/api/apex";
 import { updateSymbolInput } from "@/state/optionsChainSlice";
 
-// interface SymbolSelectorProps {
-//   updateAppStateValue: (key: string, value: unknown) => void;
-//   setInitialOptionsChain: (data: Quote[]) => void;
-// }
-
 const SymbolSelector: React.FC = () => {
-  const {
-    quotesMap,
-    quotesPrices,
-    optionType,
-    symbolInput,
-    activeSymbol,
-    confirmedSymbol,
-  } = useAppSelector((state) => state.optionsChain);
-
   const dispatch = useAppDispatch();
-
+  const { optionType, symbolInput } = useAppSelector(
+    (state) => state.optionsChain
+  );
   const [getOptionsChain] = useGetOptionsChainMutation();
 
   return (
@@ -73,18 +56,33 @@ const SymbolSelector: React.FC = () => {
           </Button>
         </section>
         <div className="spaced">
-          {symbols.map((e) => (
-            <Badge
-              key={e}
-              onClick={async () => {
-                await getOptionsChain({ symbol: e, optionType });
-              }}
-              className="rounded badge symbol-badge"
-              variant="outline"
-            >
-              {e}
-            </Badge>
-          ))}
+          <Badge
+            onClick={async () => {
+              await getOptionsChain({ symbol: SYMBOLS.SPY, optionType });
+            }}
+            className="rounded badge symbol-badge"
+            variant="outline"
+          >
+            {SYMBOLS.SPY}
+          </Badge>
+          <Badge
+            onClick={async () => {
+              await getOptionsChain({ symbol: SYMBOLS.QQQ, optionType });
+            }}
+            className="rounded badge symbol-badge"
+            variant="outline"
+          >
+            {SYMBOLS.QQQ}
+          </Badge>
+          <Badge
+            onClick={async () => {
+              await getOptionsChain({ symbol: SYMBOLS.IWM, optionType });
+            }}
+            className="rounded badge symbol-badge"
+            variant="outline"
+          >
+            {SYMBOLS.IWM}
+          </Badge>
         </div>
       </CardContent>
     </Card>

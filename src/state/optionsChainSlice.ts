@@ -96,6 +96,10 @@ export const optionsChainSlice = createSlice({
       .addMatcher(
         apexApi.endpoints.placeTrade.matchFulfilled,
         () => initialState
+      )
+      .addMatcher(
+        apexApi.endpoints.stopOptionsChain.matchFulfilled,
+        () => initialState
       );
   },
 });

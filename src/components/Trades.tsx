@@ -24,16 +24,17 @@ import {
 import Trade from "@/interfaces/Trade";
 import { useAppSelector } from "@/state/hooks";
 import convertTickerWithExpiration from "@/utils/convertTickerWithExpiration";
-import { StatusBadge } from "./Orders";
 import { OrderDataStatuses } from "@/constants";
 import { dateFormatFull } from "@/utils/dateFormatFull";
+import StatusBadge from "./StatusBadge";
 
-const CellValue: React.FC<{ value?: any; addDecimals?: boolean }> = ({
-  value,
-  addDecimals,
-}) => {
+const CellValue: React.FC<{
+  id?: string;
+  value?: any;
+  addDecimals?: boolean;
+}> = ({ id, value, addDecimals }) => {
   return (
-    <div className="table-data">
+    <div className={`table-data ${id}`}>
       {value === null ? "-" : addDecimals ? value.toFixed(2) : value}
     </div>
   );
@@ -52,7 +53,7 @@ export const columns: ColumnDef<Trade>[] = [
         <CaretSortIcon className="ml-2 h-4 w-4" />
       </Button>
     ),
-    cell: ({ row }) => <CellValue value={row.original.orderId} />,
+    cell: ({ row }) => <CellValue id="orderId" value={row.original.orderId} />,
   },
   {
     id: "balance",
@@ -66,7 +67,7 @@ export const columns: ColumnDef<Trade>[] = [
         <CaretSortIcon className="ml-2 h-4 w-4" />
       </Button>
     ),
-    cell: ({ row }) => <CellValue value={row.original.balance} />,
+    cell: ({ row }) => <CellValue id="balance" value={row.original.balance} />,
   },
   {
     id: "option",
@@ -81,7 +82,10 @@ export const columns: ColumnDef<Trade>[] = [
       </Button>
     ),
     cell: ({ row }) => (
-      <CellValue value={convertTickerWithExpiration(row.original.option)} />
+      <CellValue
+        id="option"
+        value={convertTickerWithExpiration(row.original.option)}
+      />
     ),
   },
   {
@@ -203,7 +207,7 @@ export const columns: ColumnDef<Trade>[] = [
       </Button>
     ),
     cell: ({ row }) => (
-      <CellValue value={dateFormatFull(row.original.openDate)} />
+      <CellValue id="openDate" value={dateFormatFull(row.original.openDate)} />
     ),
   },
   {
@@ -219,7 +223,10 @@ export const columns: ColumnDef<Trade>[] = [
       </Button>
     ),
     cell: ({ row }) => (
-      <CellValue value={dateFormatFull(row.original.closeDate)} />
+      <CellValue
+        id="closeDate"
+        value={dateFormatFull(row.original.closeDate)}
+      />
     ),
   },
   {

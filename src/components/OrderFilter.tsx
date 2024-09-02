@@ -14,23 +14,19 @@ import { BadgeFilled } from "./badges/BadgeFilled";
 import { BadgeOpen } from "./badges/BadgeOpen";
 import { BadgeAll } from "./badges/BadgeAll";
 
-const toggleAccordion = () => {
-  const accordion: HTMLElement = document.querySelector(
-    "h3 button"
-  ) as HTMLElement;
-  accordion?.click();
-};
-
 const OrderFilter: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const selectStatus = (status: OrderStatuses) => {
     dispatch(updateOrdersView(status));
-    toggleAccordion();
+    const accordion: HTMLElement = document.querySelector(
+      "h3 button"
+    ) as HTMLElement;
+    accordion?.click();
   };
 
   return (
-    <div className="order-filter mt-2 mb-2">
+    <div className="order-filter mt-2 mb-3">
       <Accordion type="single" collapsible className="w-full order-accordion">
         <AccordionItem value="item-1">
           <AccordionTrigger>

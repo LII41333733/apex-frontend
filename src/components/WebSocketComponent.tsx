@@ -1,37 +1,45 @@
-import { WebSocketData } from "@/constants";
+import { SYMBOLS, WebSocketData } from "@/constants";
 import React, { useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
 import { updateAll } from "@/state/balanceSlice";
 import { updateQuotesMap } from "@/state/optionsChainSlice";
 import { updateOrderSummary } from "@/state/orderSlice";
 import { updateTrades } from "@/state/tradeSlice";
+import { updateIWMData, updateQQQData, updateSPYData } from "@/state/mainSlice";
+
+const getPriceData = (
+  symbol: string,
+  { last, change, change_percentage }: any
+) => ({
+  symbol,
+  price: last,
+  changeDollars: change,
+  changePercentage: change_percentage,
+});
 
 const WebSocketComponent: React.FC = () => {
   const dispatch = useAppDispatch();
   const ws = useRef<WebSocket | null>(null);
   const reconnectInterval = useRef<NodeJS.Timeout | null>(null);
 
-  // Use useState for isConnected and useRef to keep track of its latest value
   const [isConnected, setIsConnected] = useState(false);
   const isConnectedRef = useRef(isConnected);
 
   // Track initial window focus
   const [isWindowFocused, setIsWindowFocused] = useState(document.hasFocus());
 
-  // Update the isConnectedRef whenever isConnected state changes
   useEffect(() => {
     isConnectedRef.current = isConnected;
   }, [isConnected]);
 
-  // Function to initialize WebSocket
   const initializeWebSocket = () => {
     ws.current = new WebSocket("ws://localhost:8080/ws");
 
     ws.current.onopen = () => {
-      console.log("WebSocket connection Open");
+      // console.log("WebSocket connection Open");
       setIsConnected(true);
       if (reconnectInterval.current) {
-        clearInterval(reconnectInterval.current); // Stop reconnection attempts
+        clearInterval(reconnectInterval.current);
         reconnectInterval.current = null;
       }
     };
@@ -39,7 +47,7 @@ const WebSocketComponent: React.FC = () => {
     ws.current.onmessage = (event) => {
       const { type, data } = JSON.parse(event.data);
 
-      console.log({ type, data });
+      // console.log({ type, data });
 
       switch (type) {
         case WebSocketData.BALANCE:
@@ -55,6 +63,15 @@ const WebSocketComponent: React.FC = () => {
         case WebSocketData.TRADES:
           dispatch(updateTrades(data));
           break;
+        case WebSocketData.SPY:
+          dispatch(updateSPYData(getPriceData(SYMBOLS.SPY, JSON.parse(data))));
+          break;
+        case WebSocketData.QQQ:
+          dispatch(updateQQQData(getPriceData(SYMBOLS.QQQ, JSON.parse(data))));
+          break;
+        case WebSocketData.IWM:
+          dispatch(updateIWMData(getPriceData(SYMBOLS.IWM, JSON.parse(data))));
+          break;
         default:
           console.error("Unknown WebSocket data type:", type);
       }
@@ -64,30 +81,27 @@ const WebSocketComponent: React.FC = () => {
       // console.log("WebSocket Connection Closed:", event);
       setIsConnected(false);
       if (event.code !== 1000) {
-        startReconnection(); // Start reconnection attempts
+        startReconnection();
       }
     };
 
     ws.current.onerror = (event) => {
       // console.error("WebSocket error:", event);
-      ws.current?.close(); // Close the socket on error to trigger reconnection
+      ws.current?.close();
     };
   };
 
-  // Function to start reconnection attempts
   const startReconnection = () => {
     if (!reconnectInterval.current) {
       reconnectInterval.current = setInterval(() => {
-        // Check both if the document is visible and the window is focused
         if (document.hasFocus() && !isConnectedRef.current) {
           console.log("Attempting to reconnect WebSocket...");
           initializeWebSocket();
         }
-      }, 2000); // Attempt to reconnect every 2 seconds
+      }, 2000);
     }
   };
 
-  // Handle window focus and blur events
   const handleWindowFocus = () => {
     setIsWindowFocused(true);
     if (!isConnectedRef.current) {
@@ -102,11 +116,9 @@ const WebSocketComponent: React.FC = () => {
   useEffect(() => {
     initializeWebSocket();
 
-    // Listen for window focus and blur events
     window.addEventListener("focus", handleWindowFocus);
     window.addEventListener("blur", handleWindowBlur);
 
-    // Visibility API listener for additional reliability
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "visible" && document.hasFocus()) {
         handleWindowFocus();

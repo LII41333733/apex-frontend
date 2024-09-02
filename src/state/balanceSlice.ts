@@ -3,6 +3,7 @@ import Balance from "@/interfaces/Balance";
 
 // Define a type for the slice state
 export interface BalanceState {
+  totalEquity: number;
   unsettledFunds: number;
   cashAvailable: number;
   marketValue: number;
@@ -14,6 +15,7 @@ export interface BalanceState {
 
 // Define the initial state using that type
 const initialState: BalanceState = {
+  totalEquity: 0,
   unsettledFunds: 0,
   cashAvailable: 0,
   marketValue: 0,

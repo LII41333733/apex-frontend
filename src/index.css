@@ -60,6 +60,7 @@
     --chart-5: 340 75% 55%;
     --trade-green: #60d4a3;
     --trade-red: #ee7e7e;
+    --trade-red: #ee7e7e;
   }
 }
 
@@ -74,16 +75,25 @@
     @apply bg-background text-foreground;
   }
 
-  .trade-green {
+  .text-trade-green {
     color: var(--trade-green);
   }
-  .trade-red {
+  .text-trade-red {
     color: var(--trade-red);
+  }
+  .text-trade-neutral {
+    color: var(--foreground);
   }
 
   .balance-bar {
     display: flex;
     justify-content: space-between;
+  }
+  .balance-bar .text-xs {
+    font-size: 0.8rem;
+  }
+  .balance-bar .text-xxs {
+    font-size: 0.69rem;
   }
 
   section,
@@ -218,6 +228,26 @@
   .order-accordion h3 > button {
     padding: 0.5rem 1rem;
   }
+  .order-accordion .order-position .position {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-style: hidden;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .order-accordion .order-position .text-top {
+    display: none;
+  }
+  .order-accordion .order-actions button {
+    height: 1.6rem;
+    margin-left: 1rem;
+  }
+  .order-accordion .order-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
   .badge-all,
   .badge-all:hover {
     background-color: hsl(var(--primary)) !important;
@@ -293,7 +323,7 @@
   }
   .position .text-bottom-value {
     position: relative;
-    top: 0.07rem;
+    top: 0.056rem;
   }
 
   #trades-table * {
@@ -319,12 +349,19 @@
   #trades-table button {
     padding: 0.5rem 0;
   }
-  #trades-table .table-data {
-    width: 6rem;
-  }
   #trades-table .badge {
     zoom: 0.8;
     width: 5rem;
     justify-content: center;
+  }
+  #trades-table .table-data.option,
+  #trades-table .table-data.openDate,
+  #trades-table .table-data.closeDate {
+    width: 6rem;
+  }
+  #trades-table .table-data.orderId,
+  #trades-table .table-data.balance,
+  #trades-table .table-data {
+    width: 4rem;
   }
 }

@@ -1,4 +1,4 @@
-const OpenPosition: React.FC = () => {
+const OpenPositionPlaceholder: React.FC = () => {
   return (
     <div className="position mb-5">
       <div className="text-column column">
@@ -18,4 +18,4 @@ const OpenPosition: React.FC = () => {
   );
 };
 
-export default OpenPosition;
+export default OpenPositionPlaceholder;

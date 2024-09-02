@@ -29,9 +29,35 @@ export const apexApi = createApi({
         body,
       }),
     }),
+    cancelTrade: builder.mutation<unknown, { orderId: number }>({
+      query: (body) => ({
+        url: "trade/cancelTrade",
+        method: URL_METHOD.POST,
+        body,
+      }),
+    }),
+    stopOptionsChain: builder.mutation({
+      query: () => ({
+        url: "market/stopOptionsChain",
+        method: URL_METHOD.POST,
+      }),
+    }),
+    sellPosition: builder.mutation({
+      query: (body) => ({
+        url: "trade/sellPosition",
+        method: URL_METHOD.POST,
+        body,
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetOptionsChainMutation, usePlaceTradeMutation } = apexApi;
+export const {
+  useGetOptionsChainMutation,
+  usePlaceTradeMutation,
+  useStopOptionsChainMutation,
+  useCancelTradeMutation,
+  useSellPositionMutation,
+} = apexApi;
