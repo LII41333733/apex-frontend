@@ -8,4 +8,5 @@ export interface Order {
   reasonDescription?: string;
   status: string;
   transactionDate: string;
+  last: number;
 }

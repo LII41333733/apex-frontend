@@ -22,7 +22,6 @@ import {
   useSellPositionMutation,
 } from "@/state/api/apex";
 import StatusBadge from "./StatusBadge";
-import OpenPositionPlaceholder from "./OpenPositionPlaceholder";
 
 const Orders: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -58,22 +57,21 @@ const Orders: React.FC = () => {
 
   const orderList = getOrderList();
 
-  console.log(allOrders);
-
   return (
     <div id="orders">
       <div className="positions mb-8">
         <p className="text-sm font-normal mb-3">{`Open Positions (${openOrders.length})`}</p>
-        {/* {openOrders.map(() => {
-
-        })} */}
-        <OpenPositionPlaceholder />
+        {openOrders.map((order) => (
+          <OpenPosition order={order} />
+        ))}
       </div>
       <div className="orders">
         <p className="text-sm font-normal mb-4">{`Orders (${orderList.length})`}</p>
         <OrderFilter />
-        {orderList.map(({ leg, status, id }) => {
+        {orderList.map((order) => {
+          const { leg, status, id } = order;
           const symbol: string = leg[0].optionSymbol;
+          const symbolLabel: string = convertTickerWithExpiration(symbol);
 
           return (
             <Accordion
@@ -84,16 +82,14 @@ const Orders: React.FC = () => {
             >
               <AccordionItem value="item-1">
                 <AccordionTrigger>
-                  <div className="accordion-title">
-                    {convertTickerWithExpiration(symbol)}
-                  </div>
+                  <div className="accordion-title">{symbolLabel}</div>
                   <StatusBadge status={status as OrderDataStatuses} />
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="accordion-content">
                     <div className="accordion-row">
                       <div className="cell font-normal accordion-label">
-                        Trigger
+                        Average
                       </div>
                       <div className="cell accordion-price">
                         {leg[0].price?.toFixed(2)}
@@ -130,11 +126,12 @@ const Orders: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <div className="order-position mt-3">
-                      <OpenPositionPlaceholder />
-                    </div>
-                    {(status as OrderDataStatuses) ===
-                      OrderDataStatuses.PENDING && (
+                    {status === OrderDataStatuses.OPEN && (
+                      <div className="order-position mt-3">
+                        <OpenPosition order={order} />
+                      </div>
+                    )}
+                    {status === OrderDataStatuses.PENDING && (
                       <div className="order-actions mt-3 pr-4">
                         {id === confirmCancelId ? (
                           <>

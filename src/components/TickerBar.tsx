@@ -1,9 +1,7 @@
-import { ValuesLib, ValuesLibData, ValueStatus } from "@/constants";
+import { ValuesLibData } from "@/constants";
 import { useAppSelector } from "@/state/hooks";
 import { PriceData } from "@/types/PriceData";
 import getValuesLibData from "@/utils/getValuesLibData";
-import getValueStatus from "@/utils/getValueStatus";
-import { ValueIcon } from "@radix-ui/react-icons";
 
 const TickerBar: React.FC = () => {
   const { SPY, QQQ, IWM } = useAppSelector((state) => state.main);

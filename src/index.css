@@ -128,10 +128,15 @@
   .card {
     border-radius: 0.35rem !important;
   }
+
   .main-container {
-    width: 344px;
+    width: 100%;
     margin: 0 auto;
   }
+  /* .main-container {
+    width: 344px;
+    margin: 0 auto;
+  } */
 
   .search-btn {
     background: hsl(12deg 6.49% 15.1%) !important;
@@ -229,8 +234,8 @@
     padding: 0.5rem 1rem;
   }
   .order-accordion .order-position .position {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     border-style: hidden;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -304,7 +309,7 @@
     display: flex;
   }
   .position .text-column {
-    width: 10rem;
+    width: 13rem;
     justify-content: flex-start;
     flex-direction: column;
   }
@@ -314,7 +319,7 @@
     flex-grow: 1;
   }
   .position .perc-column {
-    width: 4rem;
+    width: 5.8rem;
     justify-content: flex-end;
   }
   .position .text-bottom-label {

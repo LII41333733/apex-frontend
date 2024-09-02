@@ -8,13 +8,13 @@ export interface Leg {
   lastFillPrice: number;
   lastFillQuantity: number;
   optionSymbol: string;
-  price?: number;
+  price: number;
   quantity: number;
   reasonDescription?: string;
   remainingQuantity: number;
   side: string;
   status: string;
-  stopPrice?: number;
+  stopPrice: number;
   symbol: string;
   transactionDate: string;
   type: string;
