@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/state/hooks";
+
 import {
   Table,
   TableHeader,
@@ -18,6 +19,8 @@ import {
 } from "@/state/optionsChainSlice";
 import Quote from "@/interfaces/Quote";
 import SymbolSelector from "./SymbolSelector";
+import SymbolSelectorWithLotto from "./SymbolSelectorWithLotto";
+import float from "@/utils/float";
 
 const OptionsChain: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -27,6 +30,7 @@ const OptionsChain: React.FC = () => {
     activeSymbol,
     confirmedSymbol,
     expirationDate,
+    riskType,
   } = useAppSelector((state) => state.optionsChain);
   const [placeTrade] = usePlaceTradeMutation();
   const [stopOptionsChain] = useStopOptionsChainMutation();
@@ -42,13 +46,13 @@ const OptionsChain: React.FC = () => {
         ? 0
         : price - updateDifference;
 
-      dispatch(updateQuotesPrices({ symbol, price: newPrice }));
+      dispatch(updateQuotesPrices({ symbol, price: float(newPrice) }));
     }
   };
 
   return (
     <>
-      <SymbolSelector />
+      <SymbolSelectorWithLotto />
       <Table className={activeSymbol ? "" : "hide-oc"}>
         <TableHeader>
           <TableRow>
@@ -212,6 +216,7 @@ const OptionsChain: React.FC = () => {
                             await placeTrade({
                               option: symbol,
                               price: currentPrice,
+                              riskType,
                             });
                           }}
                           xmlns="http://www.w3.org/2000/svg"

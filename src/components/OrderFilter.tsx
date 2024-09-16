@@ -13,6 +13,7 @@ import { BadgeCanceled } from "./badges/BadgeCanceled";
 import { BadgeFilled } from "./badges/BadgeFilled";
 import { BadgeOpen } from "./badges/BadgeOpen";
 import { BadgeAll } from "./badges/BadgeAll";
+import { BadgeRunners } from "./badges/BadgeRunners";
 
 const OrderFilter: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -81,6 +82,14 @@ const OrderFilter: React.FC = () => {
                   value={OrderStatuses.CANCELED}
                 >
                   <BadgeCanceled />
+                </TabsTrigger>
+              </TabsList>
+              <TabsList>
+                <TabsTrigger
+                  onClick={() => selectStatus(OrderStatuses.RUNNERS)}
+                  value={OrderStatuses.RUNNERS}
+                >
+                  <BadgeRunners />
                 </TabsTrigger>
               </TabsList>
             </Tabs>

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/state/hooks";
 import OrderFilter from "./OrderFilter";
-import { OrderDataStatuses, OrderStatuses } from "@/constants";
+import { TradeStatus, OrderStatuses } from "@/constants";
 import {
   Accordion,
   AccordionContent,
@@ -22,8 +22,12 @@ import {
   useSellPositionMutation,
 } from "@/state/api/apex";
 import StatusBadge from "./StatusBadge";
+import PriceBar from "./PriceBar";
+import OpenPositionPlaceholder from "./OpenPositionPlaceholder";
+import BaseTrade from "@/interfaces/BaseTrade";
+import Trade from "@/interfaces/Trade";
 
-const Orders: React.FC = () => {
+const Positions: React.FC = () => {
   const dispatch = useAppDispatch();
   const [cancelTrade] = useCancelTradeMutation();
   const [sellPosition] = useSellPositionMutation();
@@ -40,32 +44,17 @@ const Orders: React.FC = () => {
     confirmSellId,
   } = useAppSelector((state) => state.orders);
 
-  const getOrderList = () => {
-    switch (ordersView) {
-      case OrderStatuses.ALL:
-        return allOrders;
-      case OrderStatuses.CANCELED:
-        return otherOrders;
-      case OrderStatuses.PENDING:
-        return pendingOrders;
-      case OrderStatuses.OPEN:
-        return openOrders;
-      case OrderStatuses.FILLED:
-        return filledOrders;
-    }
-  };
-
-  const orderList = getOrderList();
-
   return (
     <div id="orders">
       <div className="positions mb-8">
         <p className="text-sm font-normal mb-3">{`Open Positions (${openOrders.length})`}</p>
+        <OpenPositionPlaceholder />
+        {/*         
         {openOrders.map((order) => (
-          <OpenPosition order={order} />
-        ))}
+          <OpenPosition trade={trade} />
+        ))} */}
       </div>
-      <div className="orders">
+      {/* <div className="orders">
         <p className="text-sm font-normal mb-4">{`Orders (${orderList.length})`}</p>
         <OrderFilter />
         {orderList.map((order) => {
@@ -83,7 +72,7 @@ const Orders: React.FC = () => {
               <AccordionItem value="item-1">
                 <AccordionTrigger>
                   <div className="accordion-title">{symbolLabel}</div>
-                  <StatusBadge status={status as OrderDataStatuses} />
+                  <StatusBadge status={status as TradeStatus} />
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="accordion-content">
@@ -95,9 +84,7 @@ const Orders: React.FC = () => {
                         {leg[0].price?.toFixed(2)}
                       </div>
                       <div className="cell accordion-status">
-                        <StatusBadge
-                          status={leg[0].status as OrderDataStatuses}
-                        />
+                        <StatusBadge status={leg[0].status as TradeStatus} />
                       </div>
                     </div>
                     <div className="accordion-row">
@@ -108,9 +95,7 @@ const Orders: React.FC = () => {
                         {leg[1].price?.toFixed(2)}
                       </div>
                       <div className="cell accordion-status">
-                        <StatusBadge
-                          status={leg[1].status as OrderDataStatuses}
-                        />
+                        <StatusBadge status={leg[1].status as TradeStatus} />
                       </div>
                     </div>
                     <div className="accordion-row">
@@ -121,17 +106,15 @@ const Orders: React.FC = () => {
                         {leg[2].stopPrice?.toFixed(2)}
                       </div>
                       <div className="cell accordion-status">
-                        <StatusBadge
-                          status={leg[2].status as OrderDataStatuses}
-                        />
+                        <StatusBadge status={leg[2].status as TradeStatus} />
                       </div>
                     </div>
-                    {status === OrderDataStatuses.OPEN && (
+                    {status === TradeStatus.OPEN && (
                       <div className="order-position mt-3">
                         <OpenPosition order={order} />
                       </div>
                     )}
-                    {status === OrderDataStatuses.PENDING && (
+                    {status === TradeStatus.PENDING && (
                       <div className="order-actions mt-3 pr-4">
                         {id === confirmCancelId ? (
                           <>
@@ -159,8 +142,7 @@ const Orders: React.FC = () => {
                         )}
                       </div>
                     )}
-                    {(status as OrderDataStatuses) ===
-                      OrderDataStatuses.OPEN && (
+                    {(status as TradeStatus) === TradeStatus.OPEN && (
                       <div className="order-actions mt-3 pr-4">
                         {id === confirmSellId ? (
                           <>
@@ -184,11 +166,12 @@ const Orders: React.FC = () => {
                             </Button>
                           </>
                         ) : (
-                          <Button
-                            onClick={() => dispatch(setConfirmSellId(id))}
-                          >
-                            Cancel
-                          </Button>
+                          // <Button
+                          //   onClick={() => dispatch(setConfirmSellId(id))}
+                          // >
+                          //   Sell
+                          // </Button>
+                          <></>
                         )}
                       </div>
                     )}
@@ -198,9 +181,9 @@ const Orders: React.FC = () => {
             </Accordion>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default Orders;
+export default Positions;

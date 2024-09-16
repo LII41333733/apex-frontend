@@ -4,17 +4,17 @@ import { useAppDispatch } from "@/state/hooks";
 import { updateAll } from "@/state/balanceSlice";
 import { updateQuotesMap } from "@/state/optionsChainSlice";
 import { updateOrderSummary } from "@/state/orderSlice";
-import { updateTrades } from "@/state/tradeSlice";
+import { updateTrades, updateTradeSummary } from "@/state/tradeSlice";
 import { updateIWMData, updateQQQData, updateSPYData } from "@/state/mainSlice";
 
 const getPriceData = (
   symbol: string,
-  { last, change, change_percentage }: any
+  data: { last: string; change: string; change_percentage: string }
 ) => ({
   symbol,
-  price: last,
-  changeDollars: change,
-  changePercentage: change_percentage,
+  price: parseFloat(data.last).toFixed(2),
+  changeDollars: parseFloat(data.change).toFixed(2),
+  changePercentage: parseFloat(data.change_percentage).toFixed(2),
 });
 
 const WebSocketComponent: React.FC = () => {
@@ -54,11 +54,13 @@ const WebSocketComponent: React.FC = () => {
           dispatch(updateAll(data));
           break;
         case WebSocketData.QUOTE:
-          console.log(data);
           dispatch(updateQuotesMap(data));
           break;
         case WebSocketData.ORDER_SUMMARY:
           dispatch(updateOrderSummary(data));
+          break;
+        case WebSocketData.TRADE_SUMMARY:
+          dispatch(updateTradeSummary(data));
           break;
         case WebSocketData.TRADES:
           dispatch(updateTrades(data));

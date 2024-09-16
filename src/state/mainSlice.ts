@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Displays } from "@/constants";
 import { PriceData } from "@/types/PriceData";
+import { apexApi } from "./api/apex";
 
 export interface MainState {
+  token: string | null;
   display: Displays;
   SPY: PriceData;
   QQQ: PriceData;
@@ -10,6 +12,7 @@ export interface MainState {
 }
 
 export const initialState: MainState = {
+  token: localStorage.getItem("token"),
   display: Displays.CHAIN,
   SPY: {
     symbol: "SPY",
@@ -47,10 +50,24 @@ export const mainSlice = createSlice({
     updateIWMData: (state, action: PayloadAction<PriceData>) => {
       state.IWM = action.payload;
     },
+    setToken: (state, action: PayloadAction<string>) => {
+      state.token = action.payload;
+      localStorage.setItem("token", action.payload);
+    },
+    removeToken: (state) => {
+      state.token = null;
+      localStorage.removeItem("token");
+    },
   },
 });
 
-export const { updateDisplay, updateSPYData, updateQQQData, updateIWMData } =
-  mainSlice.actions;
+export const {
+  updateDisplay,
+  updateSPYData,
+  updateQQQData,
+  updateIWMData,
+  setToken,
+  removeToken,
+} = mainSlice.actions;
 
 export default mainSlice.reducer;

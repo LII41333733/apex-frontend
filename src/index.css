@@ -3,36 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
-    --primary: 47.9 95.8% 53.1%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 20 14.3% 4.1%;
-    --radius: 0rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --trade-green: #60d4a3;
-    --trade-red: #ee7e7e;
-  }
-
   .dark {
     --background: 20 14.3% 4.1%;
     --foreground: 60 9.1% 97.8%;
@@ -61,6 +31,9 @@
     --trade-green: #60d4a3;
     --trade-red: #ee7e7e;
     --trade-red: #ee7e7e;
+    --status-open: #00e3ff;
+    --status-pending: #c4c4c4;
+    --status-runners: #8a80f2;
   }
 }
 
@@ -84,6 +57,12 @@
   .text-trade-neutral {
     color: var(--foreground);
   }
+  .text-status-pending {
+    color: var(--status-pending);
+  }
+  .text-status-open {
+    color: var(--status-open);
+  }
 
   .balance-bar {
     display: flex;
@@ -100,7 +79,6 @@
   .spaced {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
   }
 
   .spaced {
@@ -119,6 +97,16 @@
     border: none;
     background: #292524;
   }
+  .call-put > div,
+  .lotto > div {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .call-put > div,
+  .lotto > div {
+    width: 100%;
+    margin: 0 auto;
+  }
 
   .display-tab {
     display: flex;
@@ -129,14 +117,23 @@
     border-radius: 0.35rem !important;
   }
 
-  .main-container {
+  /* .main-container {
     width: 100%;
     margin: 0 auto;
-  }
-  /* .main-container {
+  } */
+  .main-container {
     width: 344px;
     margin: 0 auto;
-  } */
+  }
+
+  .display-selector .icon {
+    position: relative;
+    top: -0.05rem;
+  }
+  .display-selector .icon.second-half {
+    position: relative;
+    left: -0.95rem;
+  }
 
   .search-btn {
     background: hsl(12deg 6.49% 15.1%) !important;
@@ -181,7 +178,6 @@
   .accordion-title {
     width: 7rem;
   }
-
   .order-filter button[data-state="active"],
   .order-filter > div {
     background-color: hsl(var(--muted));
@@ -190,7 +186,6 @@
     margin: 0;
     justify-content: center;
   }
-
   #orders .accordion-content {
     display: flex;
     flex-direction: column;
@@ -220,6 +215,7 @@
   .order-filter .badge {
     width: 5rem;
     justify-content: center;
+    line-height: 0.8rem;
   }
   .order-filter button {
     padding: 0;
@@ -228,7 +224,7 @@
     display: block;
   }
   .order-filter .h-9 {
-    height: 2rem;
+    height: 1.7rem;
   }
   .order-accordion h3 > button {
     padding: 0.5rem 1rem;
@@ -243,6 +239,9 @@
   .order-accordion .order-position .text-top {
     display: none;
   }
+  .text-top {
+    font-size: small;
+  }
   .order-accordion .order-actions button {
     height: 1.6rem;
     margin-left: 1rem;
@@ -251,6 +250,13 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    border-color: hsl(var(--border));
+    border-bottom-width: 1px;
+  }
+  .order-actions {
+    border-color: hsl(var(--border));
+    border-bottom-width: 1px;
+    padding-top: 0.5rem;
   }
 
   .badge-all,
@@ -259,7 +265,7 @@
   }
   .badge-open,
   .badge-open:hover {
-    background-color: #00e3ff !important;
+    background-color: var(--status-open) !important;
   }
   .badge-filled,
   .badge-filled:hover {
@@ -269,9 +275,17 @@
   .badge-canceled:hover {
     background-color: #ee7e7e !important;
   }
+  .badge-rejected,
+  .badge-rejected:hover {
+    background-color: #ee7e7e !important;
+  }
   .badge-pending,
   .badge-pending:hover {
-    background-color: #c4c4c4 !important;
+    background-color: var(--status-pending) !important;
+  }
+  .badge-runners,
+  .badge-runners:hover {
+    background-color: var(--status-runners) !important;
   }
 
   #ticker-bar hr {
@@ -301,9 +315,19 @@
     flex-flow: row;
     align-items: center;
     padding: 0 0.4rem;
-    border-color: hsl(var(--border));
-    border-bottom-width: 1px;
     padding-bottom: 0.6rem;
+  }
+  .position + .risk-type {
+    font-size: small;
+    color: #8a80f2;
+    display: flex;
+  }
+  .position + .risk-type > span:first-child {
+    font-style: italic;
+    flex-grow: 1;
+  }
+  .position-status {
+    /* flex-basis: 1; */
   }
   .position .column {
     display: flex;
@@ -317,10 +341,12 @@
     width: 6rem;
     justify-content: flex-end;
     flex-grow: 1;
+    font-size: small;
   }
   .position .perc-column {
     width: 5.8rem;
     justify-content: flex-end;
+    font-size: small;
   }
   .position .text-bottom-label {
     font-size: 0.6rem;
@@ -328,7 +354,8 @@
   }
   .position .text-bottom-value {
     position: relative;
-    top: 0.056rem;
+    top: 0rem;
+    font-size: 0.65rem;
   }
 
   #trades-table * {
@@ -364,9 +391,105 @@
   #trades-table .table-data.closeDate {
     width: 6rem;
   }
+  #trades-table .table-data.status {
+    width: 5rem;
+  }
   #trades-table .table-data.orderId,
   #trades-table .table-data.balance,
   #trades-table .table-data {
     width: 4rem;
+  }
+
+  .login-container {
+    background-image: url(./assets/temperance.jpg);
+    background-size: contain; /* Ensures the image retains its original size */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image in the container */
+    min-height: 30rem; /* Adjusts height to fit content */
+    width: auto; /* Adjusts width to fit content */
+    margin: 0 auto;
+    position: relative;
+  }
+  #login-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+  }
+  #login-form button {
+    width: 2rem;
+    height: 2rem;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+  }
+  .yang {
+    font-size: 40px;
+    left: -2.5rem;
+    top: -0.15rem;
+    position: relative;
+  }
+  #login-form input {
+    background-color: black;
+  }
+
+  .price-bar-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 4rem;
+  }
+  .price-bar-wrapper .circle-check {
+    position: relative;
+    left: 4%;
+  }
+  .price-bar-wrapper .price-bar {
+    margin: 0 auto;
+  }
+  .price-bar-wrapper .price-bar-icon {
+    position: absolute;
+    top: 34%;
+  }
+  .price-bar-wrapper .price-bar-runner-limit,
+  .price-bar-wrapper .price-bar-fill,
+  .price-bar-wrapper .price-bar-stop,
+  .price-bar-wrapper .price-bar-last {
+    height: 15px;
+    width: 3px;
+    border-radius: 1px;
+    background-color: var(--trade-green);
+    position: absolute;
+    top: 40%;
+  }
+  .price-bar-wrapper .price-bar-last {
+    background-color: var(--trade-red);
+  }
+  .price-bar-wrapper .price-bar-stop {
+    background-color: var(--trade-red);
+  }
+  .price-bar-wrapper .price-bar-last,
+  .price-bar-wrapper .price-bar-fill {
+    background-color: hsl(var(--primary));
+  }
+  .price-bar-wrapper .price-bar-label-top {
+    position: absolute;
+    top: 70%;
+    font-size: xx-small;
+  }
+  .price-bar-wrapper .price-bar-label-bottom {
+    position: absolute;
+    top: 88%;
+    font-size: xx-small;
+  }
+  .price-bar-wrapper .price-bar-label-top.last {
+    position: absolute;
+    top: -6%;
+    font-size: xx-small;
+  }
+  .price-bar-wrapper .price-bar-label-bottom.last {
+    position: absolute;
+    top: 10%;
+    font-size: xx-small;
   }
 }

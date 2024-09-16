@@ -1,5 +1,5 @@
 // Need to use the React-specific entry point to import createApi
-import { OptionType } from "@/constants";
+import { OptionType, RiskType } from "@/constants";
 import Quote from "@/interfaces/Quote";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
@@ -8,10 +8,20 @@ enum URL_METHOD {
   POST = "POST",
 }
 
-// Define a service using a base URL and expected endpoints
+export interface LoginRequest {
+  username: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  token: string;
+}
+
 export const apexApi = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_APEX_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_APEX_URL,
+  }),
   endpoints: (builder) => ({
     getOptionsChain: builder.mutation<
       Quote[],
@@ -22,7 +32,10 @@ export const apexApi = createApi({
         method: URL_METHOD.GET,
       }),
     }),
-    placeTrade: builder.mutation<unknown, { option: string; price: number }>({
+    placeTrade: builder.mutation<
+      unknown,
+      { option: string; price: number; riskType: RiskType }
+    >({
       query: (body) => ({
         url: "trade/placeTrade",
         method: URL_METHOD.POST,
@@ -49,15 +62,21 @@ export const apexApi = createApi({
         body,
       }),
     }),
+    login: builder.mutation<LoginResponse, LoginRequest>({
+      query: (credentials) => ({
+        url: "/login",
+        method: URL_METHOD.POST,
+        body: credentials,
+      }),
+    }),
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
 export const {
   useGetOptionsChainMutation,
   usePlaceTradeMutation,
   useStopOptionsChainMutation,
   useCancelTradeMutation,
   useSellPositionMutation,
+  useLoginMutation,
 } = apexApi;

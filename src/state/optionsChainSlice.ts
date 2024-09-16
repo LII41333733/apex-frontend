@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Quote from "@/interfaces/Quote";
-import { OptionType } from "@/constants";
+import { OptionType, RiskType } from "@/constants";
 import { apexApi } from "./api/apex";
 import dateFormatter from "@/utils/dateFormatter";
+import float from "@/utils/float";
 
 export interface OptionsChainState {
   quotesMap: { [key: string]: Quote };
@@ -12,6 +13,7 @@ export interface OptionsChainState {
   activeSymbol: string;
   confirmedSymbol: string;
   expirationDate: string;
+  riskType: RiskType;
 }
 
 const initialState: OptionsChainState = {
@@ -22,6 +24,7 @@ const initialState: OptionsChainState = {
   activeSymbol: "",
   confirmedSymbol: "",
   expirationDate: "",
+  riskType: RiskType.BASE,
 };
 
 export const optionsChainSlice = createSlice({
@@ -48,7 +51,8 @@ export const optionsChainSlice = createSlice({
       const quotesPrices = JSON.parse(JSON.stringify(state.quotesPrices));
 
       if (!quotesPrices[symbol]) {
-        state.quotesPrices[symbol] = ask;
+        console.log(float(ask));
+        state.quotesPrices[symbol] = float(ask);
       }
 
       state.quotesMap = {
@@ -62,6 +66,9 @@ export const optionsChainSlice = createSlice({
     },
     updateOptionType: (state, action: PayloadAction<OptionType>) => {
       state.optionType = action.payload;
+    },
+    updateRiskType: (state, action: PayloadAction<RiskType>) => {
+      state.riskType = action.payload;
     },
     updateConfirmedSymbol: (state, action: PayloadAction<string>) => {
       state.confirmedSymbol = action.payload;
@@ -98,7 +105,7 @@ export const optionsChainSlice = createSlice({
         () => initialState
       )
       .addMatcher(
-        apexApi.endpoints.stopOptionsChain.matchFulfilled,
+        apexApi.endpoints.stopOptionsChain.matchPending,
         () => initialState
       );
   },
@@ -110,9 +117,7 @@ export const {
   updateOptionType,
   updateConfirmedSymbol,
   updateQuotesMap,
+  updateRiskType,
 } = optionsChainSlice.actions;
-
-// Other code such as selectors can use the imported `RootState` type
-// export const selectCount = (state: RootState) => state.counter.value;
 
 export default optionsChainSlice.reducer;

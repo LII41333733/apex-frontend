@@ -1,41 +1,61 @@
 import { useAppSelector } from "@/state/hooks";
-import { formatToUSD } from "@/utils/dollarFormatter";
+import { dollar } from "@/utils/dollar";
 
 const BalanceBar: React.FC = () => {
   const balance = useAppSelector((state) => state.balance);
 
   return (
     <section className="balance-bar">
-      <div>
-        <p className="text-xxs font-normal text-primary">Total Equity</p>
-        <h4 className="text-xs font-semibold">
-          {balance.totalEquity ? formatToUSD(balance.totalEquity) : "--"}
-        </h4>
-      </div>
-      <div className="">
-        <p className="text-xxs font-normal text-primary">Cash Available</p>
-        <h4 className="text-xs font-semibold">
-          {balance.cashAvailable ? formatToUSD(balance.cashAvailable) : "--"}
-        </h4>
-      </div>
-      <div className="">
-        <p className="text-xxs font-normal text-primary">Day P/L</p>
-        <h4 className="text-xs font-semibold">
-          {balance.closePl ? formatToUSD(balance.closePl) : "--"}
-        </h4>
-      </div>
-      <div className="">
-        <p className="text-xxs font-normal text-primary">Open P/L</p>
-        <h4 className="text-xs font-semibold">
-          {balance.openPl ? formatToUSD(balance.openPl) : "--"}
-        </h4>
-      </div>
-      <div className="">
-        <p className="text-xxs font-normal text-primary">Market Value</p>
-        <h4 className="text-xs font-semibold">
-          {balance.marketValue ? formatToUSD(balance.marketValue) : "--"}
-        </h4>
-      </div>
+      {balance.totalEquity ? (
+        <div>
+          <p className="text-xxs font-normal text-primary">Total Equity</p>
+          <h4 className="text-xs font-semibold">
+            {balance.totalEquity ? dollar(balance.totalEquity) : "--"}
+          </h4>
+        </div>
+      ) : (
+        <></>
+      )}
+      {balance.cashAvailable ? (
+        <div className="">
+          <p className="text-xxs font-normal text-primary">Cash Available</p>
+          <h4 className="text-xs font-semibold">
+            {balance.cashAvailable ? dollar(balance.cashAvailable) : "--"}
+          </h4>
+        </div>
+      ) : (
+        <></>
+      )}
+      {balance.marketValue ? (
+        <div className="">
+          <p className="text-xxs font-normal text-primary">Market Value</p>
+          <h4 className="text-xs font-semibold">
+            {balance.marketValue ? dollar(balance.marketValue) : "--"}
+          </h4>
+        </div>
+      ) : (
+        <></>
+      )}
+      {balance.openPl ? (
+        <div className="">
+          <p className="text-xxs font-normal text-primary">Open P/L</p>
+          <h4 className="text-xs font-semibold">
+            {balance.openPl ? dollar(balance.openPl) : "--"}
+          </h4>
+        </div>
+      ) : (
+        <></>
+      )}
+      {balance.closePl ? (
+        <div className="">
+          <p className="text-xxs font-normal text-primary">Day P/L</p>
+          <h4 className="text-xs font-semibold">
+            {balance.closePl ? dollar(balance.closePl) : "--"}
+          </h4>
+        </div>
+      ) : (
+        <></>
+      )}
     </section>
   );
 };

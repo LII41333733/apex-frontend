@@ -1,19 +1,26 @@
-import { OrderDataStatuses } from "@/constants";
+import { BaseTradeStatus, TradeStatus } from "@/constants";
 import { BadgeCanceled } from "./badges/BadgeCanceled";
 import { BadgePending } from "./badges/BadgePending";
 import { BadgeOpen } from "./badges/BadgeOpen";
 import { BadgeFilled } from "./badges/BadgeFilled";
+import { BadgeRunners } from "./badges/BadgeRunners";
+import { BadgeRejected } from "./badges/BadgeRejected";
 
-const StatusBadge: React.FC<{ status: OrderDataStatuses }> = ({ status }) => {
+const StatusBadge: React.FC<{ status: BaseTradeStatus }> = ({ status }) => {
   switch (status) {
-    case OrderDataStatuses.CANCELED:
+    case BaseTradeStatus.CANCELED:
       return <BadgeCanceled />;
-    case OrderDataStatuses.PENDING:
+    case BaseTradeStatus.REJECTED:
+      return <BadgeRejected />;
+    case BaseTradeStatus.PENDING:
+    case BaseTradeStatus.PREOPEN:
       return <BadgePending />;
-    case OrderDataStatuses.OPEN:
+    case BaseTradeStatus.OPEN:
       return <BadgeOpen />;
-    case OrderDataStatuses.FILLED:
+    case BaseTradeStatus.FILLED:
       return <BadgeFilled />;
+    case BaseTradeStatus.RUNNERS:
+      return <BadgeRunners />;
   }
 };
 

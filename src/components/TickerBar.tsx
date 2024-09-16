@@ -27,6 +27,6 @@ const Ticker: React.FC<PriceData> = ({ symbol, price, changeDollars }) => {
   return (
     <span className={lib.textColor}>{`${lib.icon} ${symbol} ${
       price || "0.00"
-    } ${lib.operator}${changeDollars || "0.00"}`}</span>
+    } ${lib.operator}${Math.abs(changeDollars).toFixed(2) || "0.00"}`}</span>
   );
 };

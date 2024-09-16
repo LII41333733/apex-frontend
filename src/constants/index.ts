@@ -8,6 +8,7 @@ export enum WebSocketData {
   BALANCE = "balance",
   QUOTE = "quote",
   ORDER_SUMMARY = "orderSummary",
+  TRADE_SUMMARY = "tradeSummary",
   TRADES = "trades",
   SPY = SYMBOLS.SPY,
   QQQ = SYMBOLS.QQQ,
@@ -23,6 +24,12 @@ export enum OptionType {
   PUT = "Put",
 }
 
+export enum RiskType {
+  BASE = "Base",
+  LOTTO = "Lotto",
+  OTOCO = "OTOCO",
+}
+
 export enum Displays {
   POSITIONS = "Positions",
   CHAIN = "Options Chain",
@@ -32,17 +39,30 @@ export enum Displays {
 export enum OrderStatuses {
   ALL = "All",
   CANCELED = "Canceled",
+  REJECTED = "Rejected",
   PENDING = "Pending",
   OPEN = "Open",
   FILLED = "Filled",
+  RUNNERS = "Runners",
 }
 
-export enum OrderDataStatuses {
+export enum BaseTradeStatus {
+  PENDING = "PENDING",
+  PREOPEN = "PREOPEN",
+  OPEN = "OPEN",
+  RUNNERS = "RUNNERS",
+  FILLED = "FILLED",
+  CANCELED = "CANCELED",
+  REJECTED = "REJECTED",
+}
+
+export enum TradeStatus {
   CANCELED = "canceled",
   PENDING = "pending",
   OPEN = "open",
   FILLED = "filled",
   REJECTED = "rejected",
+  RUNNERS = "runners",
 }
 
 export enum ValueStatus {
