@@ -7,7 +7,7 @@ import float from "@/utils/float";
 
 export interface OptionsChainState {
   quotesMap: { [key: string]: Quote };
-  quotesPrices: { [key: string]: number };
+  quotesPrices: { [key: string]: string };
   optionType: OptionType;
   symbolInput: string;
   activeSymbol: string;
@@ -37,7 +37,7 @@ export const optionsChainSlice = createSlice({
     },
     updateQuotesPrices: (
       state,
-      action: PayloadAction<{ symbol: string; price: number }>
+      action: PayloadAction<{ symbol: string; price: string }>
     ) => {
       state.quotesPrices = {
         ...state.quotesPrices,
@@ -51,7 +51,6 @@ export const optionsChainSlice = createSlice({
       const quotesPrices = JSON.parse(JSON.stringify(state.quotesPrices));
 
       if (!quotesPrices[symbol]) {
-        console.log(float(ask));
         state.quotesPrices[symbol] = float(ask);
       }
 

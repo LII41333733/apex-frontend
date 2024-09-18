@@ -69,10 +69,10 @@
     justify-content: space-between;
   }
   .balance-bar .text-xs {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
   .balance-bar .text-xxs {
-    font-size: 0.69rem;
+    font-size: 0.6rem;
   }
 
   section,
@@ -310,6 +310,9 @@
     color: #ee7e7e;
   }
 
+  .position-container {
+    margin-bottom: 1rem;
+  }
   .position {
     display: flex;
     flex-flow: row;
@@ -443,6 +446,7 @@
   .price-bar-wrapper .circle-check {
     position: relative;
     left: 4%;
+    border: none;
   }
   .price-bar-wrapper .price-bar {
     margin: 0 auto;
@@ -454,21 +458,26 @@
   .price-bar-wrapper .price-bar-runner-limit,
   .price-bar-wrapper .price-bar-fill,
   .price-bar-wrapper .price-bar-stop,
+  .price-bar-wrapper .price-bar-max,
   .price-bar-wrapper .price-bar-last {
-    height: 15px;
-    width: 3px;
-    border-radius: 1px;
+    height: 14px;
+    width: 5px;
+    border-radius: 1.5px;
     background-color: var(--trade-green);
     position: absolute;
     top: 40%;
+    border-left: 1px solid #0c0a09;
+    border-right: 1px solid #0c0a09;
   }
   .price-bar-wrapper .price-bar-last {
-    background-color: var(--trade-red);
+    background-color: var(--status-open);
   }
   .price-bar-wrapper .price-bar-stop {
     background-color: var(--trade-red);
   }
-  .price-bar-wrapper .price-bar-last,
+  .price-bar-wrapper .price-bar-max {
+    background-color: var(--status-runners);
+  }
   .price-bar-wrapper .price-bar-fill {
     background-color: hsl(var(--primary));
   }

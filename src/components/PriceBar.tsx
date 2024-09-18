@@ -28,14 +28,14 @@ const CircleCheckFilled = () => (
     className="icon icon-tabler icon-tabler-circle-check-filled circle-check"
     width="22"
     height="22"
-    viewBox="0 0 24 24"
+    viewBox="2 5 20 15"
     strokeWidth="1.5"
     stroke="#facc15"
     fill="none"
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path stroke="none" d="M0 0h24v24H0z" fill="#0c0a09" />
     <path
       d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
       stroke-width="0"
@@ -51,12 +51,13 @@ function calculatePercentagePositions(values: {
   trim1: number;
   trim2: number;
   runnerLimit: number;
+  max: number;
 }) {
-  const { stop, fill, last, trim1, trim2, runnerLimit } = values;
+  const { stop, fill, last, trim1, trim2, runnerLimit, max } = values;
 
   // Define the full range (obj.stop - 0.20, obj.runnerLimit + 0.20)
-  const rangeStart = stop - 0.02;
-  const rangeEnd = runnerLimit + 0.02;
+  const rangeStart = stop * 0.75;
+  const rangeEnd = Math.max(runnerLimit * 1.1, last * 1.1);
   const totalRange = rangeEnd - rangeStart;
 
   // Helper function to calculate the percentage position within the range
@@ -74,6 +75,7 @@ function calculatePercentagePositions(values: {
     trim1: calculatePercentage(trim1),
     trim2: calculatePercentage(trim2),
     runnerLimit: calculatePercentage(runnerLimit),
+    max: calculatePercentage(max),
   };
 }
 
@@ -86,10 +88,22 @@ const PriceBar: React.FC<{ trade: BaseTrade }> = ({ trade }) => {
     trim1: trade.trim1Price,
     trim2: trade.trim2Price,
     runnerLimit: trade.fillPrice * 2,
+    max: trade.maxPrice,
   };
 
+  //   const values = {
+  //     stop: 2.07,
+  //     fill: 3.51,
+  //     last: 3.57,
+  //     trim1: 4.46,
+  //     trim2: 5.35,
+  //     runnerLimit: 3.51 * 2,
+  //   };
+
+  const maxDistance = 0.2;
   const percentagePositions = calculatePercentagePositions(values);
-  console.log(percentagePositions);
+  const lastRange = [values.last - maxDistance, values.last + maxDistance];
+  const displayMax = values.max < lastRange[0] || values.max > lastRange[1];
 
   return (
     <div className="price-bar-wrapper">
@@ -153,6 +167,28 @@ const PriceBar: React.FC<{ trade: BaseTrade }> = ({ trade }) => {
       </section>
       <section>
         <div
+          className="price-bar-max"
+          style={{ left: `${percentagePositions.max}%` }}
+        ></div>
+        {displayMax && (
+          <>
+            <div
+              className="price-bar-label-top last"
+              style={{ left: `${percentagePositions.max}%` }}
+            >
+              {`Max`}
+            </div>
+            <div
+              className="price-bar-label-bottom last"
+              style={{ left: `${percentagePositions.max}%` }}
+            >
+              {`${float(values.max)}`}
+            </div>
+          </>
+        )}
+      </section>
+      <section>
+        <div
           className="price-bar-trim1"
           style={{ left: `${percentagePositions.trim1}%` }}
         ></div>
@@ -172,7 +208,11 @@ const PriceBar: React.FC<{ trade: BaseTrade }> = ({ trade }) => {
           className="price-bar-icon"
           style={{ left: `${percentagePositions.trim1 - 1.1}%` }}
         >
-          <CircleCheck />
+          {percentagePositions.last < percentagePositions.trim1 ? (
+            <CircleCheck />
+          ) : (
+            <CircleCheckFilled />
+          )}
         </div>
       </section>
       <section>
@@ -196,8 +236,11 @@ const PriceBar: React.FC<{ trade: BaseTrade }> = ({ trade }) => {
           className="price-bar-icon"
           style={{ left: `${percentagePositions.trim2 - 1.1}%` }}
         >
-          <CircleCheck />
-          {/* <CircleCheckFilled /> */}
+          {percentagePositions.last < percentagePositions.trim2 ? (
+            <CircleCheck />
+          ) : (
+            <CircleCheckFilled />
+          )}
         </div>
       </section>
       <section>

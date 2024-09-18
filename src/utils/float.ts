@@ -1,1 +1,1 @@
-export default (num: number) => parseFloat(num.toFixed(2));
+export default (num: number) => (num ?? 0).toFixed(2);

@@ -39,7 +39,7 @@ const OptionsChain: React.FC = () => {
   const updateQuotePrice = (symbol: string, isIncrease: boolean) => {
     if (symbol) {
       const updateDifference = 0.01;
-      const price: number = quotesPrices[symbol] ?? 0;
+      const price: number = parseFloat(quotesPrices[symbol]);
       const newPrice: number = isIncrease
         ? price + updateDifference
         : price - updateDifference < 0
@@ -86,7 +86,9 @@ const OptionsChain: React.FC = () => {
           {[...quotes].map(([key, data]) => {
             const symbol = data?.symbol ?? "";
             const showConfirm = confirmedSymbol === symbol;
-            const currentPrice = quotesPrices[symbol] ?? 0;
+            const currentPrice = quotesPrices[symbol];
+
+            console.log(quotesPrices);
 
             if (symbol) {
               return (
@@ -99,7 +101,7 @@ const OptionsChain: React.FC = () => {
                       dispatch(
                         updateQuotesPrices({
                           symbol,
-                          price: data?.bid ?? 0,
+                          price: float(data?.bid),
                         })
                       )
                     }
@@ -112,7 +114,7 @@ const OptionsChain: React.FC = () => {
                       dispatch(
                         updateQuotesPrices({
                           symbol,
-                          price: data?.ask ?? 0,
+                          price: float(data?.ask),
                         })
                       )
                     }
@@ -143,7 +145,7 @@ const OptionsChain: React.FC = () => {
                             <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
                             <path d="M9 12l6 0" />
                           </svg>
-                          <span>{quotesPrices[symbol]?.toFixed(2) ?? ""}</span>
+                          <span>{quotesPrices[symbol]}</span>
                           <svg
                             onClick={() => {
                               updateQuotePrice(symbol, true);
@@ -208,14 +210,14 @@ const OptionsChain: React.FC = () => {
                           <path d="M18 6l-12 12" />
                           <path d="M6 6l12 12" />
                         </svg>
-                        {currentPrice.toFixed(2)}
+                        {currentPrice}
                       </TableCell>
                       <TableCell className="text-primary cursor-pointer">
                         <svg
                           onClick={async () => {
                             await placeTrade({
                               option: symbol,
-                              price: currentPrice,
+                              price: parseFloat(currentPrice),
                               riskType,
                             });
                           }}

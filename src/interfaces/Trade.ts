@@ -7,7 +7,7 @@ export default interface Trade {
   fillPrice: number;
   openDate: string;
   closeDate: string;
-  maxPrice?: number;
+  maxPrice: number;
   quantity: number;
   pl: number;
   tradeAmount: number;

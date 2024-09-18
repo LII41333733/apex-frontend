@@ -97,7 +97,7 @@ const WebSocketComponent: React.FC = () => {
     if (!reconnectInterval.current) {
       reconnectInterval.current = setInterval(() => {
         if (document.hasFocus() && !isConnectedRef.current) {
-          console.log("Attempting to reconnect WebSocket...");
+          // console.log("Attempting to reconnect WebSocket...");
           initializeWebSocket();
         }
       }, 2000);

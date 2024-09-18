@@ -9,7 +9,7 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const dispatch = useAppDispatch();
 
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, error }] = useLoginMutation();
 
   const handleSubmit = async (event: FormEvent) => {
     event?.preventDefault();
@@ -21,7 +21,7 @@ const Login: React.FC = () => {
       console.error("Login failed:", err);
     }
   };
-
+  console.log(error);
   return (
     <div className="login-container">
       <form id="login-form" onSubmit={handleSubmit}>
@@ -32,11 +32,14 @@ const Login: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           type="password"
         />
-        <button type="submit" disabled={isLoading}></button>
-        <div onClick={handleSubmit} className="yang">
-          &#9775;
+        <div onClick={handleSubmit}>
+          <button type="submit" disabled={isLoading}></button>
         </div>
+        {/* <div onClick={handleSubmit} className="yang">
+          &#9775;
+        </div> */}
       </form>
+      <p>{error?.error}</p>
     </div>
   );
 };

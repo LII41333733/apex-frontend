@@ -24,10 +24,11 @@ import {
 import Trade from "@/interfaces/Trade";
 import { useAppSelector } from "@/state/hooks";
 import convertTickerWithExpiration from "@/utils/convertTickerWithExpiration";
-import { TradeStatus } from "@/constants";
+import { BaseTradeStatus, TradeStatus } from "@/constants";
 import { dateFormatFull } from "@/utils/dateFormatFull";
 import StatusBadge from "./StatusBadge";
 import { dollar } from "@/utils/dollar";
+import BaseTrade from "@/interfaces/BaseTrade";
 
 const CellValue: React.FC<{
   id?: string;
@@ -41,49 +42,20 @@ const CellValue: React.FC<{
   );
 };
 
-export const columns: ColumnDef<Trade>[] = [
+export const columns: ColumnDef<BaseTrade>[] = [
   {
-    id: "orderId",
-    accessorKey: "orderId",
+    id: "id",
+    accessorKey: "id",
     header: ({ column }) => (
       <Button
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Order ID
+        ID
         <CaretSortIcon className="ml-2 h-4 w-4" />
       </Button>
     ),
-    cell: ({ row }) => <CellValue id="orderId" value={row.original.orderId} />,
-  },
-  {
-    id: "recoveryId",
-    accessorKey: "recoveryId",
-
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Recovery ID
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => <CellValue value={row.original.recoveryId} />,
-  },
-  {
-    id: "lossId",
-    accessorKey: "lossId",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Loss ID
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => <CellValue value={row.original.lossId} />,
+    cell: ({ row }) => <CellValue id="orderId" value={row.original.id} />,
   },
   {
     id: "status",
@@ -100,13 +72,45 @@ export const columns: ColumnDef<Trade>[] = [
     cell: ({ row }) => (
       <CellValue
         id="status"
-        value={<StatusBadge status={row.original.status as TradeStatus} />}
+        value={<StatusBadge status={row.original.status as BaseTradeStatus} />}
       />
     ),
   },
   {
-    id: "option",
-    accessorKey: "option",
+    id: "trimStatus",
+    accessorKey: "trimStatus",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Trim Status
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => (
+      <CellValue id="trimStatus" value={row.original.trimStatus} />
+    ),
+  },
+  {
+    id: "riskType",
+    accessorKey: "riskType",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Status
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => (
+      <CellValue id="riskType" value={row.original.riskType} />
+    ),
+  },
+  {
+    id: "optionsymbol",
+    accessorKey: "optionSymbol",
     header: ({ column }) => (
       <Button
         variant="ghost"
@@ -118,28 +122,53 @@ export const columns: ColumnDef<Trade>[] = [
     ),
     cell: ({ row }) => (
       <CellValue
-        id="option"
-        value={convertTickerWithExpiration(row.original.option) || "-"}
+        id="optionSymbol"
+        value={convertTickerWithExpiration(row.original.optionSymbol) || "-"}
       />
     ),
   },
   {
-    id: "balance",
-    accessorKey: "balance",
+    id: "preTradeBalance",
+    accessorKey: "preTradeBalance",
     header: ({ column }) => (
       <Button
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Balance
+        Pre-Bal
         <CaretSortIcon className="ml-2 h-4 w-4" />
       </Button>
     ),
     cell: ({ row }) => (
       <CellValue
-        id="balance"
+        id="preTradeBalance"
         value={
-          row.original.balance ? `$${row.original.balance.toFixed(2)}` : "-"
+          row.original.preTradeBalance
+            ? `$${row.original.preTradeBalance.toFixed(2)}`
+            : "-"
+        }
+      />
+    ),
+  },
+  {
+    id: "postTradeBalance",
+    accessorKey: "postTradeBalance",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Post-Bal
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => (
+      <CellValue
+        id="postTradeBalance"
+        value={
+          row.original.postTradeBalance
+            ? `$${row.original.postTradeBalance.toFixed(2)}`
+            : "-"
         }
       />
     ),
@@ -161,76 +190,6 @@ export const columns: ColumnDef<Trade>[] = [
     ),
   },
   {
-    id: "tradeResult",
-    accessorKey: "tradeResult",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Result
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => <CellValue value={row.original.tradeResult} />,
-  },
-  {
-    id: "wins",
-    accessorKey: "wins",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Wins
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => <CellValue value={row.original.wins} />,
-  },
-  {
-    id: "losses",
-    accessorKey: "losses",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Losses
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => <CellValue value={row.original.losses} />,
-  },
-  {
-    id: "lossStreak",
-    accessorKey: "lossStreak",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Loss Streak
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => <CellValue value={row.original.lossStreak} />,
-  },
-  // {
-  //   id: "symbol",
-  //   accessorKey: "symbol",
-  //   header: ({ column }) => (
-  //     <Button
-  //       variant="ghost"
-  //       onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-  //     >
-  //       Symbol
-  //       <CaretSortIcon className="ml-2 h-4 w-4" />
-  //     </Button>
-  //   ),
-  //   cell: ({ row }) => <CellValue value={row.original.symbol} />,
-  // },
-  {
     id: "stopPrice",
     accessorKey: "stopPrice",
     header: ({ column }) => (
@@ -245,19 +204,35 @@ export const columns: ColumnDef<Trade>[] = [
     cell: ({ row }) => <CellValue value={row.original.stopPrice} addDecimals />,
   },
   {
-    id: "limitPrice",
-    accessorKey: "limitPrice",
+    id: "trim1Price",
+    accessorKey: "trim1Price",
     header: ({ column }) => (
       <Button
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Limit Price
+        Trim 1
         <CaretSortIcon className="ml-2 h-4 w-4" />
       </Button>
     ),
     cell: ({ row }) => (
-      <CellValue value={row.original.limitPrice} addDecimals />
+      <CellValue value={row.original.trim1Price} addDecimals />
+    ),
+  },
+  {
+    id: "trim2Price",
+    accessorKey: "trim2Price",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Trim 2
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => (
+      <CellValue value={row.original.trim2Price} addDecimals />
     ),
   },
   {
@@ -268,11 +243,41 @@ export const columns: ColumnDef<Trade>[] = [
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Trigger Price
+        Fill Price
         <CaretSortIcon className="ml-2 h-4 w-4" />
       </Button>
     ),
     cell: ({ row }) => <CellValue value={row.original.fillPrice} addDecimals />,
+  },
+  {
+    id: "lastPrice",
+    accessorKey: "lastPrice",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Last Price
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => <CellValue value={row.original.lastPrice} addDecimals />,
+  },
+  {
+    id: "runnersFloorPrice",
+    accessorKey: "runnersFloorPrice",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Runners Floor
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => (
+      <CellValue value={row.original.runnersFloorPrice} addDecimals />
+    ),
   },
   {
     id: "quantity",
@@ -282,11 +287,67 @@ export const columns: ColumnDef<Trade>[] = [
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
       >
-        Quantity
+        #
         <CaretSortIcon className="ml-2 h-4 w-4" />
       </Button>
     ),
     cell: ({ row }) => <CellValue value={row.original.quantity} />,
+  },
+  {
+    id: "trim1Quantity",
+    accessorKey: "trim1Quantity",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Trim 1 #
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => <CellValue value={row.original.trim1Quantity} />,
+  },
+  {
+    id: "trim2Quantity",
+    accessorKey: "trim2Quantity",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Trim 2 #
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => <CellValue value={row.original.trim2Quantity} />,
+  },
+  {
+    id: "runnersQuantity",
+    accessorKey: "runnersQuantity",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Run #
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => <CellValue value={row.original.runnersQuantity} />,
+  },
+  {
+    id: "runnersDelta",
+    accessorKey: "runnersDelta",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Run Δ
+        <CaretSortIcon className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => <CellValue value={row.original.runnersDelta} />,
   },
   {
     id: "tradeAmount",
@@ -301,22 +362,6 @@ export const columns: ColumnDef<Trade>[] = [
       </Button>
     ),
     cell: ({ row }) => <CellValue value={row.original.tradeAmount} />,
-  },
-  {
-    id: "finalized",
-    accessorKey: "finalized",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Finalized?
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => (
-      <CellValue value={row.original.finalized ? "Yes" : "No"} />
-    ),
   },
   {
     id: "openDate",
@@ -367,48 +412,6 @@ export const columns: ColumnDef<Trade>[] = [
     ),
     cell: ({ row }) => <CellValue value={row.original.maxPrice} />,
   },
-  //   {
-  //     accessorKey: "status",
-  //     header: "Status",
-  //     cell: ({ row }) => (
-  //       <div className="capitalize">{row.getValue("status")}</div>
-  //     ),
-  //   },
-  //   {
-  //     accessorKey: "email",
-  //     header: ({ column }) => {
-  //       return (
-  //         <Button
-  //           variant="ghost"
-  //           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-  //         >
-  //           Email
-  //           <CaretSortIcon className="ml-2 h-4 w-4" />
-  //         </Button>
-  //       );
-  //     },
-  //     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
-  //   },
-  //   {
-  //     accessorKey: "amount",
-  //     header: () => <div className="text-left">Amount</div>,
-  //     cell: ({ row }) => {
-  //       const amount = parseFloat(row.getValue("amount"));
-
-  //       // Format the amount as a dollar amount
-  //       const formatted = new Intl.NumberFormat("en-US", {
-  //         style: "currency",
-  //         currency: "USD",
-  //       }).format(amount);
-
-  //       return <div className="text-keft font-medium">{formatted}</div>;
-  //     },
-  //   },
-  //   {
-  //     id: "actions",
-  //     enableHiding: false,
-  //     cell: ({ row }) => <></>,
-  //   },
 ];
 
 export function Trades() {
@@ -417,6 +420,8 @@ export function Trades() {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+
+  console.log(trades);
 
   const table = useReactTable({
     data: trades,

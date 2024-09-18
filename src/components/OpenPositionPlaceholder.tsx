@@ -5,6 +5,8 @@ import convertTickerWithExpiration from "@/utils/convertTickerWithExpiration";
 import PositionPl from "./PositionPl";
 import StatusBadge from "./StatusBadge";
 import BaseTrade from "@/interfaces/BaseTrade";
+import { BaseTradeStatus } from "@/constants";
+import float from "@/utils/float";
 
 const OpenPositionPlaceholder: React.FC = () => {
   const {
@@ -15,9 +17,13 @@ const OpenPositionPlaceholder: React.FC = () => {
 
   return allTrades.map(([stringId, trade]) => {
     const symbolLabel: string = convertTickerWithExpiration(trade.optionSymbol);
-    console.log(stringId, trade);
+
+    if (trade.status === BaseTradeStatus.REJECTED) {
+      return <div key={trade.id}></div>;
+    }
+
     return (
-      <>
+      <div className="position-container" key={trade.id}>
         <div className="position mb-0">
           <div className="text-column column">
             <div className="text-top">{symbolLabel}</div>
@@ -25,9 +31,13 @@ const OpenPositionPlaceholder: React.FC = () => {
               <span className="text-bottom-label font-normal">Cons</span>
               <span className="text-bottom-value mx-1">{trade.quantity}</span>
               <span className="text-bottom-label font-normal">Avg</span>
-              <span className="text-bottom-value mx-1">{trade.fillPrice}</span>
+              <span className="text-bottom-value mx-1">
+                {float(trade.fillPrice)}
+              </span>
               <span className="text-bottom-label font-normal">Last</span>
-              <span className="text-bottom-value ml-1">{trade.lastPrice}</span>
+              <span className="text-bottom-value ml-1">
+                {float(trade.lastPrice)}
+              </span>
             </div>
           </div>
           <PositionPl
@@ -44,7 +54,7 @@ const OpenPositionPlaceholder: React.FC = () => {
         </div>
         <PriceBar trade={trade} />
         <div className="order-actions mt-3 pr-4"></div>
-      </>
+      </div>
     );
   });
 };

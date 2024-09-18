@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Trade from "@/interfaces/Trade";
 import TradeSummary from "@/interfaces/TradeSummary";
+import BaseTrade from "@/interfaces/BaseTrade";
 
 export interface TradeState {
-  trades: Trade[];
+  trades: BaseTrade[];
   tradeSummary: TradeSummary;
 }
 
@@ -26,11 +27,12 @@ export const tradeSlice = createSlice({
   name: "trades",
   initialState,
   reducers: {
-    updateTrades: (state, action: PayloadAction<Trade[]>) => {
+    updateTrades: (state, action: PayloadAction<BaseTrade[]>) => {
       state.trades = action.payload.reverse();
     },
     updateTradeSummary: (state, action: PayloadAction<TradeSummary>) => {
       state.tradeSummary = action.payload;
+      // state.trades = Object.entries(action.payload.baseTrades.allTrades);
     },
   },
 });
