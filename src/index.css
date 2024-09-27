@@ -76,20 +76,24 @@
   }
 
   section,
-  .spaced {
+  .mini-badges,
+  .main-symbols {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 
-  .spaced {
+  .mini-badges,
+  .main-symbols {
     flex-flow: wrap;
     justify-content: space-between;
   }
 
-  .symbol-badge {
+  .symbol-badge,
+  .symbol-badge.mini {
     margin: 0.2rem 0rem;
-    font-weight: 700 !important;
-    width: 31%;
+    font-weight: 600 !important;
+    width: 31.5%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -97,15 +101,13 @@
     border: none;
     background: #292524;
   }
-  .call-put > div,
-  .lotto > div {
-    width: 100%;
-    margin: 0 auto;
+  .symbol-badge.mini {
+    height: 1.8rem;
+    width: 23%;
   }
   .call-put > div,
   .lotto > div {
-    width: 100%;
-    margin: 0 auto;
+    zoom: 0.9;
   }
 
   .display-tab {
@@ -126,6 +128,10 @@
     margin: 0 auto;
   }
 
+  .display-selector > div {
+    padding-left: 1rem;
+    padding-right: 0.7rem;
+  }
   .display-selector .icon {
     position: relative;
     top: -0.05rem;
@@ -134,9 +140,21 @@
     position: relative;
     left: -0.95rem;
   }
-
+  .settings {
+    justify-content: space-between;
+  }
   .search-btn {
     background: hsl(12deg 6.49% 15.1%) !important;
+    width: 15%;
+    padding: 0 !important;
+    height: 2rem !important;
+  }
+  .symbol-input {
+    padding: 0 !important;
+  }
+  .symbol-input:focus,
+  .symbol-input:focus-visible {
+    --tw-ring-color: transparent !important;
   }
 
   table {
@@ -159,9 +177,12 @@
   table tbody td {
     font-weight: 400;
   }
+  #options-chain-table .icon-tabler-info-circle-filled {
+    margin-left: -0.2rem;
+  }
 
   .edit-price span {
-    margin: 0 0.2rem;
+    margin: 0 0.5rem;
   }
 
   .symbol-badge,
@@ -215,7 +236,14 @@
   .order-filter .badge {
     width: 5rem;
     justify-content: center;
-    line-height: 0.8rem;
+    line-height: 1rem;
+  }
+  #orders .symbol-badge.position-badge.mini {
+    height: 1.8rem;
+    width: 30%;
+    font-size: 0.6rem;
+    align-items: center;
+    display: flex;
   }
   .order-filter button {
     padding: 0;
@@ -242,21 +270,30 @@
   .text-top {
     font-size: small;
   }
-  .order-accordion .order-actions button {
+  .order-accordion .order-actions-container button {
     height: 1.6rem;
     margin-left: 1rem;
   }
-  .order-accordion .order-actions {
+  .order-accordion .order-actions-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     border-color: hsl(var(--border));
     border-bottom-width: 1px;
   }
-  .order-actions {
+  .order-actions-container {
     border-color: hsl(var(--border));
     border-bottom-width: 1px;
     padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .order-actions-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
   }
 
   .badge-all,
@@ -382,7 +419,7 @@
     font-size: 0.6rem;
   }
   #trades-table button {
-    padding: 0.5rem 0;
+    padding: 0rem;
   }
   #trades-table .badge {
     zoom: 0.8;
@@ -500,5 +537,9 @@
     position: absolute;
     top: 10%;
     font-size: xx-small;
+  }
+  .price-slider span[role="slider"] {
+    width: 0.3rem !important;
+    border-radius: 0 !important;
   }
 }

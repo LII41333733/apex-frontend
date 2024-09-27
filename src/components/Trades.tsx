@@ -24,7 +24,7 @@ import {
 import Trade from "@/interfaces/Trade";
 import { useAppSelector } from "@/state/hooks";
 import convertTickerWithExpiration from "@/utils/convertTickerWithExpiration";
-import { BaseTradeStatus, TradeStatus } from "@/constants";
+import { TradeStatus } from "@/constants";
 import { dateFormatFull } from "@/utils/dateFormatFull";
 import StatusBadge from "./StatusBadge";
 import { dollar } from "@/utils/dollar";
@@ -72,7 +72,7 @@ export const columns: ColumnDef<BaseTrade>[] = [
     cell: ({ row }) => (
       <CellValue
         id="status"
-        value={<StatusBadge status={row.original.status as BaseTradeStatus} />}
+        value={<StatusBadge status={row.original.status as TradeStatus} />}
       />
     ),
   },
@@ -394,7 +394,11 @@ export const columns: ColumnDef<BaseTrade>[] = [
     cell: ({ row }) => (
       <CellValue
         id="closeDate"
-        value={dateFormatFull(row.original.closeDate)}
+        value={
+          row.original.closeDate === null
+            ? "-"
+            : dateFormatFull(row.original.closeDate)
+        }
       />
     ),
   },
@@ -420,8 +424,6 @@ export function Trades() {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
-
-  console.log(trades);
 
   const table = useReactTable({
     data: trades,

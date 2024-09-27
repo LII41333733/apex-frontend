@@ -2,6 +2,18 @@ import { useAppSelector } from "@/state/hooks";
 import { Progress } from "@/components/ui/progress";
 import float from "@/utils/float";
 import BaseTrade from "@/interfaces/BaseTrade";
+import LottoTrade from "@/interfaces/LottoTrade";
+import { Slider } from "@/components/ui/slider";
+
+import { Trade } from "@/types/Trade";
+import {
+  useCancelTradeMutation,
+  useModifyTradeMutation,
+} from "@/state/api/apex";
+import { Button } from "./ui/button";
+import React from "react";
+import { RiskType, TradeLeg, TradeStatus } from "@/constants";
+import { Badge } from "./ui/badge";
 
 const CircleCheck = () => (
   <svg
@@ -9,7 +21,7 @@ const CircleCheck = () => (
     className="icon icon-tabler icon-tabler-circle-check circle-check"
     width="22"
     height="22"
-    viewBox="0 0 24 24"
+    viewBox="0 0 24 24.9"
     strokeWidth="1.5"
     stroke="#facc15"
     fill="none"
@@ -28,7 +40,7 @@ const CircleCheckFilled = () => (
     className="icon icon-tabler icon-tabler-circle-check-filled circle-check"
     width="22"
     height="22"
-    viewBox="2 5 20 15"
+    viewBox="0 0 24 24.9"
     strokeWidth="1.5"
     stroke="#facc15"
     fill="none"
@@ -49,23 +61,24 @@ function calculatePercentagePositions(values: {
   fill: number;
   last: number;
   trim1: number;
-  trim2: number;
+  trim2?: number;
   runnerLimit: number;
   max: number;
 }) {
   const { stop, fill, last, trim1, trim2, runnerLimit, max } = values;
 
-  // Define the full range (obj.stop - 0.20, obj.runnerLimit + 0.20)
-  const rangeStart = stop * 0.75;
-  const rangeEnd = Math.max(runnerLimit * 1.1, last * 1.1);
+  const rangeStartValue = Math.min(...Object.values(values));
+  const rangeEndValue = Math.max(...Object.values(values));
+
+  const buffer = (rangeEndValue - rangeStartValue) * 0.12;
+  const rangeStart = rangeStartValue - buffer;
+  const rangeEnd = rangeEndValue + buffer;
   const totalRange = rangeEnd - rangeStart;
 
-  // Helper function to calculate the percentage position within the range
   function calculatePercentage(value: number) {
     return ((value - rangeStart) / totalRange) * 100;
   }
 
-  // Calculate percentage positions for each value
   return {
     rangeStart: calculatePercentage(rangeStart),
     rangeEnd: calculatePercentage(rangeEnd),
@@ -73,195 +86,278 @@ function calculatePercentagePositions(values: {
     fill: calculatePercentage(fill),
     last: calculatePercentage(last),
     trim1: calculatePercentage(trim1),
-    trim2: calculatePercentage(trim2),
+    trim2: calculatePercentage(trim2 ?? 0),
     runnerLimit: calculatePercentage(runnerLimit),
     max: calculatePercentage(max),
   };
 }
 
-const PriceBar: React.FC<{ trade: BaseTrade }> = ({ trade }) => {
-  // Example usage
-  const values = {
+const PriceBar: React.FC<{ trade: Trade }> = ({ trade }) => {
+  const [modifyTrade] = useModifyTradeMutation();
+  const [cancelTrade] = useCancelTradeMutation();
+
+  const valuesWithoutTrim2 = {
     stop: trade.stopPrice,
     fill: trade.fillPrice,
     last: trade.lastPrice,
     trim1: trade.trim1Price,
-    trim2: trade.trim2Price,
     runnerLimit: trade.fillPrice * 2,
     max: trade.maxPrice,
   };
 
-  //   const values = {
-  //     stop: 2.07,
-  //     fill: 3.51,
-  //     last: 3.57,
-  //     trim1: 4.46,
-  //     trim2: 5.35,
-  //     runnerLimit: 3.51 * 2,
-  //   };
+  const valuesWithTrim2 = {
+    ...valuesWithoutTrim2,
+    trim2: trade.trim2Price,
+  };
 
-  const maxDistance = 0.2;
+  const hasTrim2 = trade.trim2Price;
+  const values = hasTrim2 ? valuesWithTrim2 : valuesWithoutTrim2;
+  const status: TradeStatus = trade.status;
+  const isPending = status === TradeStatus.PENDING;
+  const isOpen = status === TradeStatus.OPEN || status === TradeStatus.RUNNERS;
+  const maxDistance = values.fill > 1 ? 0.4 : 0.04;
+  const rangeStartValue = Math.min(...Object.values(values));
+  const rangeEndValue = Math.max(...Object.values(values));
+  const buffer = (rangeEndValue - rangeStartValue) * 0.119;
+  const rangeStart = rangeStartValue - buffer;
+  const rangeEnd = rangeEndValue + buffer;
   const percentagePositions = calculatePercentagePositions(values);
   const lastRange = [values.last - maxDistance, values.last + maxDistance];
   const displayMax = values.max < lastRange[0] || values.max > lastRange[1];
+  const displayStop = values.stop < lastRange[0] || values.stop > lastRange[1];
+  const [sliderValue, setSliderValue] = React.useState<number>(0);
 
   return (
-    <div className="price-bar-wrapper">
-      <Progress
-        value={percentagePositions.last}
-        className="price-bar w-[100%]"
-      />
-      <section>
-        <div
-          className="price-bar-stop"
-          style={{ left: `${percentagePositions.stop}%` }}
-        ></div>
-        <div
-          className="price-bar-label-top"
-          style={{ left: `${percentagePositions.stop}%` }}
-        >
-          {`Stop`}
-        </div>
-        <div
-          className="price-bar-label-bottom"
-          style={{ left: `${percentagePositions.stop}%` }}
-        >
-          {`${float(values.stop)}`}
-        </div>
-      </section>
-      <section>
-        <div
-          className="price-bar-last"
-          style={{ left: `${percentagePositions.last}%` }}
-        ></div>
-        <div
-          className="price-bar-label-top last"
-          style={{ left: `${percentagePositions.last}%` }}
-        >
-          {`Last`}
-        </div>
-        <div
-          className="price-bar-label-bottom last"
-          style={{ left: `${percentagePositions.last}%` }}
-        >
-          {`${float(values.last)}`}
-        </div>
-      </section>
-      <section>
-        <div
-          className="price-bar-fill"
-          style={{ left: `${percentagePositions.fill}%` }}
-        ></div>
-        <div
-          className="price-bar-label-top"
-          style={{ left: `${percentagePositions.fill}%` }}
-        >
-          {`Fill`}
-        </div>
-        <div
-          className="price-bar-label-bottom"
-          style={{ left: `${percentagePositions.fill}%` }}
-        >
-          {`${float(values.fill)}`}
-        </div>
-      </section>
-      <section>
-        <div
-          className="price-bar-max"
-          style={{ left: `${percentagePositions.max}%` }}
-        ></div>
-        {displayMax && (
-          <>
+    <>
+      <div className="price-bar-wrapper">
+        <Progress
+          value={percentagePositions.last}
+          className="price-bar w-[100%]"
+        />
+        <section>
+          <div
+            className="price-bar-stop"
+            style={{ left: `${percentagePositions.stop}%` }}
+          ></div>
+          {displayStop && (
+            <>
+              <div
+                className="price-bar-label-top last"
+                style={{ left: `${percentagePositions.stop}%` }}
+              >
+                {`Stop`}
+              </div>
+              <div
+                className="price-bar-label-bottom last"
+                style={{ left: `${percentagePositions.stop}%` }}
+              >
+                {`${float(values.stop)}`}
+              </div>
+            </>
+          )}
+        </section>
+        <section>
+          <div
+            className="price-bar-last"
+            style={{ left: `${percentagePositions.last}%` }}
+          ></div>
+          <div
+            className="price-bar-label-top last"
+            style={{ left: `${percentagePositions.last}%` }}
+          >
+            {`Last`}
+          </div>
+          <div
+            className="price-bar-label-bottom last"
+            style={{ left: `${percentagePositions.last}%` }}
+          >
+            {`${float(values.last)}`}
+          </div>
+        </section>
+        <section>
+          <div
+            className="price-bar-fill"
+            style={{ left: `${percentagePositions.fill}%` }}
+          ></div>
+          <div
+            className="price-bar-label-top"
+            style={{ left: `${percentagePositions.fill}%` }}
+          >
+            {`Fill`}
+          </div>
+          <div
+            className="price-bar-label-bottom"
+            style={{ left: `${percentagePositions.fill}%` }}
+          >
+            {`${float(values.fill)}`}
+          </div>
+        </section>
+        <section>
+          <div
+            className="price-bar-max"
+            style={{ left: `${percentagePositions.max}%` }}
+          ></div>
+          {displayMax && (
+            <>
+              <div
+                className="price-bar-label-top last"
+                style={{ left: `${percentagePositions.max}%` }}
+              >
+                {`Max`}
+              </div>
+              <div
+                className="price-bar-label-bottom last"
+                style={{ left: `${percentagePositions.max}%` }}
+              >
+                {`${float(values.max)}`}
+              </div>
+            </>
+          )}
+        </section>
+        <section>
+          <div
+            className="price-bar-trim1"
+            style={{ left: `${percentagePositions.trim1}%` }}
+          ></div>
+          <div
+            className="price-bar-label-top"
+            style={{ left: `${percentagePositions.trim1}%` }}
+          >
+            {`Trim 1`}
+          </div>
+          <div
+            className="price-bar-label-bottom"
+            style={{ left: `${percentagePositions.trim1}%` }}
+          >
+            {`${float(values.trim1)}`}
+          </div>
+          <div
+            className="price-bar-icon"
+            style={{ left: `${percentagePositions.trim1 - 1.1}%` }}
+          >
+            {trade.trimStatus < 1 ? <CircleCheck /> : <CircleCheckFilled />}
+          </div>
+        </section>
+        {hasTrim2 && (
+          <section>
             <div
-              className="price-bar-label-top last"
-              style={{ left: `${percentagePositions.max}%` }}
+              className="price-bar-trim2"
+              style={{ left: `${percentagePositions.trim2}%` }}
+            ></div>
+            <div
+              className="price-bar-label-top"
+              style={{ left: `${percentagePositions.trim2}%` }}
             >
-              {`Max`}
+              {`Trim 2`}
             </div>
             <div
-              className="price-bar-label-bottom last"
-              style={{ left: `${percentagePositions.max}%` }}
+              className="price-bar-label-bottom"
+              style={{ left: `${percentagePositions.trim2}%` }}
             >
-              {`${float(values.max)}`}
+              {`${float(valuesWithTrim2.trim2)}`}
+            </div>
+            <div
+              className="price-bar-icon"
+              style={{ left: `${percentagePositions.trim2 - 1.1}%` }}
+            >
+              {trade.trimStatus < 2 ? <CircleCheck /> : <CircleCheckFilled />}
+            </div>
+          </section>
+        )}
+        <section>
+          <div
+            className="price-bar-runner-limit"
+            style={{ left: `${percentagePositions.runnerLimit}%` }}
+          ></div>
+          <div
+            className="price-bar-label-top"
+            style={{ left: `${percentagePositions.runnerLimit}%` }}
+          >
+            {`100%`}
+          </div>
+          <div
+            className="price-bar-label-bottom"
+            style={{ left: `${percentagePositions.runnerLimit}%` }}
+          >
+            {`${float(values.runnerLimit)}`}
+          </div>
+        </section>
+      </div>
+      <div className="order-actions-container mt-3">
+        {isOpen && (
+          <>
+            <Slider
+              className="price-slider"
+              defaultValue={[0]}
+              min={rangeStart}
+              max={rangeEnd}
+              step={0.01}
+              onValueChange={(e) => setSliderValue(e[0])}
+            />
+            <p>{sliderValue}</p>
+            <div className="order-actions-buttons">
+              <Badge
+                onClick={async () => {
+                  await modifyTrade({
+                    id: trade.id,
+                    tradeLeg: TradeLeg.STOP,
+                    price: sliderValue,
+                    riskType: trade.riskType,
+                  });
+                }}
+                className="rounded badge position-badge symbol-badge mini"
+                variant="outline"
+              >
+                Modify Stop
+              </Badge>
+              <Badge
+                onClick={async () => {
+                  await modifyTrade({
+                    id: trade.id,
+                    tradeLeg: TradeLeg.TRIM1,
+                    price: sliderValue,
+                    riskType: trade.riskType,
+                  });
+                }}
+                className="rounded badge position-badge symbol-badge mini"
+                variant="outline"
+              >
+                Modify Trim 1
+              </Badge>
+              {hasTrim2 && (
+                <Badge
+                  onClick={async () => {
+                    await modifyTrade({
+                      id: trade.id,
+                      tradeLeg: TradeLeg.TRIM2,
+                      price: sliderValue,
+                      riskType: trade.riskType,
+                    });
+                  }}
+                  className="rounded badge position-badge symbol-badge mini"
+                  variant="outline"
+                >
+                  Modify Trim 1
+                </Badge>
+              )}
             </div>
           </>
         )}
-      </section>
-      <section>
-        <div
-          className="price-bar-trim1"
-          style={{ left: `${percentagePositions.trim1}%` }}
-        ></div>
-        <div
-          className="price-bar-label-top"
-          style={{ left: `${percentagePositions.trim1}%` }}
-        >
-          {`Trim 1`}
-        </div>
-        <div
-          className="price-bar-label-bottom"
-          style={{ left: `${percentagePositions.trim1}%` }}
-        >
-          {`${float(values.trim1)}`}
-        </div>
-        <div
-          className="price-bar-icon"
-          style={{ left: `${percentagePositions.trim1 - 1.1}%` }}
-        >
-          {percentagePositions.last < percentagePositions.trim1 ? (
-            <CircleCheck />
-          ) : (
-            <CircleCheckFilled />
-          )}
-        </div>
-      </section>
-      <section>
-        <div
-          className="price-bar-trim2"
-          style={{ left: `${percentagePositions.trim2}%` }}
-        ></div>
-        <div
-          className="price-bar-label-top"
-          style={{ left: `${percentagePositions.trim2}%` }}
-        >
-          {`Trim 2`}
-        </div>
-        <div
-          className="price-bar-label-bottom"
-          style={{ left: `${percentagePositions.trim2}%` }}
-        >
-          {`${float(values.trim2)}`}
-        </div>
-        <div
-          className="price-bar-icon"
-          style={{ left: `${percentagePositions.trim2 - 1.1}%` }}
-        >
-          {percentagePositions.last < percentagePositions.trim2 ? (
-            <CircleCheck />
-          ) : (
-            <CircleCheckFilled />
-          )}
-        </div>
-      </section>
-      <section>
-        <div
-          className="price-bar-runner-limit"
-          style={{ left: `${percentagePositions.runnerLimit}%` }}
-        ></div>
-        <div
-          className="price-bar-label-top"
-          style={{ left: `${percentagePositions.runnerLimit}%` }}
-        >
-          {`100%`}
-        </div>
-        <div
-          className="price-bar-label-bottom"
-          style={{ left: `${percentagePositions.runnerLimit}%` }}
-        >
-          {`${float(values.runnerLimit)}`}
-        </div>
-      </section>
-    </div>
+        {isPending && (
+          <div className="order-actions-buttons">
+            <Badge
+              onClick={async () => {
+                await cancelTrade({ id: trade.fillOrderId });
+              }}
+              className="rounded badge position-badge symbol-badge mini"
+              variant="outline"
+            >
+              Cancel Trade
+            </Badge>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

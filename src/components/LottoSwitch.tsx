@@ -8,7 +8,7 @@ const LottoSwitch: React.FC = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <Tabs defaultValue={RiskType.BASE} className="w-[100%] lotto">
+    <Tabs defaultValue={RiskType.BASE} className="w-[45%] lotto">
       <TabsList>
         <TabsTrigger
           onClick={(e) => {

@@ -1,14 +1,8 @@
 import BaseTrade from "./BaseTrade";
-import Trade from "./Trade";
+import LottoTrade from "./LottoTrade";
+import { TradeSummaryData } from "./TradeSummaryData";
 
 export default interface TradeSummary {
-  baseTrades: {
-    allTrades: { [key: number]: BaseTrade };
-    pendingTrades: number[];
-    openTrades: number[];
-    runnerTrades: number[];
-    filledTrades: number[];
-    canceledTrades: number[];
-    rejectedTrades: number[];
-  };
+  baseTrades: TradeSummaryData<BaseTrade>;
+  lottoTrades: TradeSummaryData<LottoTrade>;
 }

@@ -11,5 +11,7 @@ export default interface Trade {
   quantity: number;
   pl: number;
   tradeAmount: number;
+  finalAmount: number;
   lastPrice: number;
+  fillOrderId: number;
 }

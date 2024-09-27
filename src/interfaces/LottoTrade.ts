@@ -1,8 +1,8 @@
 import { TradeStatus, RiskType } from "@/constants";
 import Trade from "./Trade";
 
-export default interface BaseTrade extends Trade {
-  riskType: RiskType.BASE;
+export default interface LottoTrade extends Trade {
+  riskType: RiskType.LOTTO;
   trim1Price: number;
   trim1Quantity: number;
   trim2Price: number;

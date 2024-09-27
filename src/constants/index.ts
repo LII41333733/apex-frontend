@@ -2,7 +2,21 @@ export enum SYMBOLS {
   SPY = "SPY",
   QQQ = "QQQ",
   IWM = "IWM",
+  GOOGL = "GOOGL",
+  AAPL = "AAPL",
+  AMD = "AMD",
+  TSLA = "TSLA",
+  NVDA = "NVDA",
+  PYPL = "PYPL",
+  SMCI = "SMCI",
+  AFRM = "AFRM",
+  META = "META",
+  PLTR = "PLTR",
+  AMZN = "AMZN",
+  CHWY = "CHWY",
 }
+
+export const MINI_SYMBOLS: SYMBOLS[] = Object.values(SYMBOLS).slice(3);
 
 export enum WebSocketData {
   BALANCE = "balance",
@@ -27,7 +41,13 @@ export enum OptionType {
 export enum RiskType {
   BASE = "Base",
   LOTTO = "Lotto",
-  OTOCO = "OTOCO",
+}
+
+export enum TradeLeg {
+  FILL,
+  TRIM1,
+  TRIM2,
+  STOP,
 }
 
 export enum Displays {
@@ -46,23 +66,14 @@ export enum OrderStatuses {
   RUNNERS = "Runners",
 }
 
-export enum BaseTradeStatus {
+export enum TradeStatus {
   PENDING = "PENDING",
-  PREOPEN = "PREOPEN",
   OPEN = "OPEN",
   RUNNERS = "RUNNERS",
   FILLED = "FILLED",
+  FINALIZED = "FINALIZED",
   CANCELED = "CANCELED",
   REJECTED = "REJECTED",
-}
-
-export enum TradeStatus {
-  CANCELED = "canceled",
-  PENDING = "pending",
-  OPEN = "open",
-  FILLED = "filled",
-  REJECTED = "rejected",
-  RUNNERS = "runners",
 }
 
 export enum ValueStatus {
@@ -81,6 +92,19 @@ export enum ValueOperator {
   POSITIVE = "+",
   NEGATIVE = "-",
   NEUTRAL = "",
+}
+
+export enum Alerts {
+  REJECTED,
+  MODIFIED,
+  PLACED,
+  CANCELED,
+  OPENED,
+  HOD,
+  STOPPED,
+  TRIMMED1,
+  TRIMMED2,
+  RUNNERS,
 }
 
 export interface ValuesLibData {

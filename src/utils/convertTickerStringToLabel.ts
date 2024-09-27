@@ -7,6 +7,5 @@ export default function (ticker: string) {
   }
 
   const { type, strike } = convertTickerStringToObject(ticker);
-  // return `${underlying} ${strike}${type[0]}`;
   return `${strike}${type[0]}`;
 }

@@ -26,7 +26,7 @@ const WebSocketComponent: React.FC = () => {
   const isConnectedRef = useRef(isConnected);
 
   // Track initial window focus
-  const [isWindowFocused, setIsWindowFocused] = useState(document.hasFocus());
+  // const [isWindowFocused, setIsWindowFocused] = useState(document.hasFocus());
 
   useEffect(() => {
     isConnectedRef.current = isConnected;
@@ -47,8 +47,6 @@ const WebSocketComponent: React.FC = () => {
     ws.current.onmessage = (event) => {
       const { type, data } = JSON.parse(event.data);
 
-      // console.log({ type, data });
-
       switch (type) {
         case WebSocketData.BALANCE:
           dispatch(updateAll(data));
@@ -60,6 +58,7 @@ const WebSocketComponent: React.FC = () => {
           dispatch(updateOrderSummary(data));
           break;
         case WebSocketData.TRADE_SUMMARY:
+          console.log({ type, data });
           dispatch(updateTradeSummary(data));
           break;
         case WebSocketData.TRADES:
@@ -105,28 +104,29 @@ const WebSocketComponent: React.FC = () => {
   };
 
   const handleWindowFocus = () => {
-    setIsWindowFocused(true);
+    // setIsWindowFocused(true);
     if (!isConnectedRef.current) {
       startReconnection();
     }
   };
 
-  const handleWindowBlur = () => {
-    setIsWindowFocused(false);
-  };
+  // const handleWindowBlur = () => {
+  //   setIsWindowFocused(false);
+  // };
 
   useEffect(() => {
     initializeWebSocket();
 
     window.addEventListener("focus", handleWindowFocus);
-    window.addEventListener("blur", handleWindowBlur);
+    // window.addEventListener("blur", handleWindowBlur);
 
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "visible" && document.hasFocus()) {
         handleWindowFocus();
-      } else {
-        handleWindowBlur();
       }
+      // else {
+      //   handleWindowBlur();
+      // }
     });
 
     return () => {
@@ -137,7 +137,7 @@ const WebSocketComponent: React.FC = () => {
         clearInterval(reconnectInterval.current);
       }
       window.removeEventListener("focus", handleWindowFocus);
-      window.removeEventListener("blur", handleWindowBlur);
+      // window.removeEventListener("blur", handleWindowBlur);
       document.removeEventListener("visibilitychange", handleWindowFocus);
     };
   }, []);

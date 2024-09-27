@@ -1,5 +1,5 @@
 // Need to use the React-specific entry point to import createApi
-import { OptionType, RiskType } from "@/constants";
+import { OptionType, RiskType, TradeLeg } from "@/constants";
 import Quote from "@/interfaces/Quote";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
@@ -34,7 +34,7 @@ export const apexApi = createApi({
     }),
     placeTrade: builder.mutation<
       unknown,
-      { option: string; price: number; riskType: RiskType }
+      { option: string; price: number; riskType: string }
     >({
       query: (body) => ({
         url: "trade/placeTrade",
@@ -42,9 +42,19 @@ export const apexApi = createApi({
         body,
       }),
     }),
-    cancelTrade: builder.mutation<unknown, { orderId: number }>({
+    cancelTrade: builder.mutation<unknown, { id: number }>({
       query: (body) => ({
         url: "trade/cancelTrade",
+        method: URL_METHOD.POST,
+        body,
+      }),
+    }),
+    modifyTrade: builder.mutation<
+      unknown,
+      { id: number; tradeLeg: TradeLeg; price: number; riskType: RiskType }
+    >({
+      query: (body) => ({
+        url: "trade/modifyTrade",
         method: URL_METHOD.POST,
         body,
       }),
@@ -79,4 +89,5 @@ export const {
   useCancelTradeMutation,
   useSellPositionMutation,
   useLoginMutation,
+  useModifyTradeMutation,
 } = apexApi;

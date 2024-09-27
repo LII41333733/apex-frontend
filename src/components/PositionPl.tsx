@@ -1,16 +1,32 @@
-import { ValuesLibData } from "@/constants";
+import { TradeStatus, ValuesLibData } from "@/constants";
+import BaseTrade from "@/interfaces/BaseTrade";
+import LottoTrade from "@/interfaces/LottoTrade";
 import getValuesLibData from "@/utils/getValuesLibData";
 
 const PositionPl: React.FC<{
-  quantity: number;
-  price: number;
-  last: number;
-}> = ({ quantity, price, last }) => {
-  const buyPrice = price * 100;
-  const currentPrice = last * 100;
-  const dollarDiff = (currentPrice - buyPrice) * quantity;
-  const percDiff = ((currentPrice - buyPrice) / buyPrice) * 100;
+  trade: BaseTrade | LottoTrade;
+}> = ({
+  trade: { quantity, fillPrice, lastPrice, pl, tradeAmount, status },
+}) => {
+  const displayDefault =
+    status === TradeStatus.PENDING ||
+    status === TradeStatus.CANCELED ||
+    status === TradeStatus.REJECTED;
+
+  const buyPrice = fillPrice * 100;
+  const currentPrice = lastPrice * 100;
+  const dollarDiff = displayDefault
+    ? 0
+    : pl === 0
+    ? (currentPrice - buyPrice) * quantity
+    : pl;
+  const percDiff = displayDefault
+    ? 0
+    : pl === 0
+    ? ((currentPrice - buyPrice) / buyPrice) * 100
+    : (pl / tradeAmount) * 100;
   const lib: ValuesLibData = getValuesLibData(dollarDiff);
+
   return (
     <>
       <div className={`pl-column column ${lib.textColor}`}>{`${

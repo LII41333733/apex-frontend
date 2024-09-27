@@ -14,7 +14,7 @@ import { BadgePending } from "./badges/BadgePending";
 import { BadgeOpen } from "./badges/BadgeOpen";
 import { BadgeFilled } from "./badges/BadgeFilled";
 import { Order } from "@/interfaces/Order";
-import OpenPosition from "./OpenPosition";
+import OpenPosition from "./OpenPositions";
 import { Button } from "./ui/button";
 import { setConfirmCancelId, setConfirmSellId } from "@/state/orderSlice";
 import {
@@ -23,32 +23,16 @@ import {
 } from "@/state/api/apex";
 import StatusBadge from "./StatusBadge";
 import PriceBar from "./PriceBar";
-import OpenPositionPlaceholder from "./OpenPositionPlaceholder";
+import OpenPositionPlaceholder from "./OpenPositions";
 import BaseTrade from "@/interfaces/BaseTrade";
 import Trade from "@/interfaces/Trade";
+import OpenPositions from "./OpenPositions";
 
 const Positions: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const [cancelTrade] = useCancelTradeMutation();
-  const [sellPosition] = useSellPositionMutation();
-  const {
-    orderSummary: {
-      allOrders,
-      openOrders,
-      otherOrders,
-      pendingOrders,
-      filledOrders,
-    },
-    ordersView,
-    confirmCancelId,
-    confirmSellId,
-  } = useAppSelector((state) => state.orders);
-
   return (
     <div id="orders">
       <div className="positions mb-8">
-        <p className="text-sm font-normal mb-3">{`Open Positions (${openOrders.length})`}</p>
-        <OpenPositionPlaceholder />
+        <OpenPositions />
         {/*         
         {openOrders.map((order) => (
           <OpenPosition trade={trade} />

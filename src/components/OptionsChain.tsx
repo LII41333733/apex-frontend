@@ -18,9 +18,15 @@ import {
   updateQuotesPrices,
 } from "@/state/optionsChainSlice";
 import Quote from "@/interfaces/Quote";
-import SymbolSelector from "./SymbolSelector";
 import SymbolSelectorWithLotto from "./SymbolSelectorWithLotto";
 import float from "@/utils/float";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { OptionType, RiskType } from "@/constants";
 
 const OptionsChain: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -53,8 +59,11 @@ const OptionsChain: React.FC = () => {
   return (
     <>
       <SymbolSelectorWithLotto />
-      <Table className={activeSymbol ? "" : "hide-oc"}>
-        <TableHeader>
+      <Table
+        id="options-chain-table"
+        className={`${activeSymbol ? "" : "hide-oc"} text-xs`}
+      >
+        <TableHeader className="text-xs">
           <TableRow>
             <TableCell>
               {activeSymbol} {expirationDate}
@@ -87,8 +96,8 @@ const OptionsChain: React.FC = () => {
             const symbol = data?.symbol ?? "";
             const showConfirm = confirmedSymbol === symbol;
             const currentPrice = quotesPrices[symbol];
-
-            console.log(quotesPrices);
+            const ask = data?.ask ?? 0;
+            const askIsLottoPrice = ask < 0.15 && riskType === RiskType.BASE;
 
             if (symbol) {
               return (
@@ -120,7 +129,7 @@ const OptionsChain: React.FC = () => {
                     }
                     className="cursor-pointer"
                   >
-                    {(data?.ask ?? 0).toFixed(2)}
+                    {ask.toFixed(2)}
                   </TableCell>
                   {!showConfirm && (
                     <>
@@ -169,24 +178,62 @@ const OptionsChain: React.FC = () => {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <svg
-                          onClick={() =>
-                            dispatch(updateConfirmedSymbol(symbol))
-                          }
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="icon icon-tabler icon-tabler-check"
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2.5"
-                          stroke="#facc15"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                          <path d="M5 12l5 5l10 -10" />
-                        </svg>
+                        {askIsLottoPrice ? (
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="icon icon-tabler icon-tabler-info-circle-filled"
+                                  width="18"
+                                  height="18"
+                                  viewBox="2 -1 24 22"
+                                  strokeWidth="1.5"
+                                  stroke="#facc15"
+                                  fill="none"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path
+                                    stroke="none"
+                                    d="M0 0h24v24H0z"
+                                    fill="none"
+                                  />
+                                  <path
+                                    d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -19.995 .324l-.005 -.324l.004 -.28c.148 -5.393 4.566 -9.72 9.996 -9.72zm0 9h-1l-.117 .007a1 1 0 0 0 0 1.986l.117 .007v3l.007 .117a1 1 0 0 0 .876 .876l.117 .007h1l.117 -.007a1 1 0 0 0 .876 -.876l.007 -.117l-.007 -.117a1 1 0 0 0 -.764 -.857l-.112 -.02l-.117 -.006v-3l-.007 -.117a1 1 0 0 0 -.876 -.876l-.117 -.007zm.01 -3l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z"
+                                    stroke-width="0"
+                                    fill="#facc15"
+                                  />
+                                </svg>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>
+                                  Contracts under 0.15 must be placed as Lotto
+                                  trades.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        ) : (
+                          <svg
+                            onClick={() =>
+                              dispatch(updateConfirmedSymbol(symbol))
+                            }
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="icon icon-tabler icon-tabler-check"
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2.5"
+                            stroke="#facc15"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l5 5l10 -10" />
+                          </svg>
+                        )}
                       </TableCell>
                     </>
                   )}
@@ -218,7 +265,7 @@ const OptionsChain: React.FC = () => {
                             await placeTrade({
                               option: symbol,
                               price: parseFloat(currentPrice),
-                              riskType,
+                              riskType: riskType.toString().toUpperCase(),
                             });
                           }}
                           xmlns="http://www.w3.org/2000/svg"

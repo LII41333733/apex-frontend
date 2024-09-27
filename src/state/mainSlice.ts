@@ -13,7 +13,7 @@ export interface MainState {
 
 export const initialState: MainState = {
   token: localStorage.getItem("token"),
-  display: Displays.CHAIN,
+  display: Displays.POSITIONS,
   SPY: {
     symbol: "SPY",
     price: 0,

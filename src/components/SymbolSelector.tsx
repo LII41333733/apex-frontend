@@ -27,16 +27,7 @@ const SymbolSelector: React.FC = () => {
             value={symbolInput}
             onChange={(e) => dispatch(updateSymbolInput(e.target.value))}
           />
-          <Button
-            className="search-btn"
-            onClick={async () => {
-              // updateAppStateValue(AppStateKey.activeSymbol, symbolInput);
-              // placeSandboxTrade(symbolInput, optionType);
-              // N:B: Uncomment for Production. Search for Sandbox only.
-              // const res = await getOptionsChain(symbolInput, optionType);
-              // handleSetInitialOptionsChain(res);
-            }}
-          >
+          <Button className="search-btn" onClick={async () => false}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-search"
