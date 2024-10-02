@@ -42,19 +42,23 @@ export const apexApi = createApi({
         body,
       }),
     }),
-    cancelTrade: builder.mutation<unknown, { id: number }>({
+    cancelTrade: builder.mutation({
       query: (body) => ({
         url: "trade/cancelTrade",
         method: URL_METHOD.POST,
         body,
       }),
     }),
-    modifyTrade: builder.mutation<
-      unknown,
-      { id: number; tradeLeg: TradeLeg; price: number; riskType: RiskType }
-    >({
+    modifyTrade: builder.mutation({
       query: (body) => ({
         url: "trade/modifyTrade",
+        method: URL_METHOD.POST,
+        body,
+      }),
+    }),
+    sellTrade: builder.mutation({
+      query: (body) => ({
+        url: "trade/sellTrade",
         method: URL_METHOD.POST,
         body,
       }),
@@ -63,13 +67,6 @@ export const apexApi = createApi({
       query: () => ({
         url: "market/stopOptionsChain",
         method: URL_METHOD.POST,
-      }),
-    }),
-    sellPosition: builder.mutation({
-      query: (body) => ({
-        url: "trade/sellPosition",
-        method: URL_METHOD.POST,
-        body,
       }),
     }),
     login: builder.mutation<LoginResponse, LoginRequest>({
@@ -87,7 +84,7 @@ export const {
   usePlaceTradeMutation,
   useStopOptionsChainMutation,
   useCancelTradeMutation,
-  useSellPositionMutation,
   useLoginMutation,
   useModifyTradeMutation,
+  useSellTradeMutation,
 } = apexApi;

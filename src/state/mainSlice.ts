@@ -59,6 +59,11 @@ export const mainSlice = createSlice({
       localStorage.removeItem("token");
     },
   },
+  extraReducers(builder) {
+    builder.addMatcher(apexApi.endpoints.placeTrade.matchFulfilled, (state) => {
+      state.display = Displays.POSITIONS;
+    });
+  },
 });
 
 export const {

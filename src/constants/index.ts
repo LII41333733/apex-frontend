@@ -130,3 +130,10 @@ export const ValuesLib = {
     textColor: "text-trade-neutral",
   },
 };
+
+export enum DashboardView {
+  HOME,
+  TRADES,
+  ANALYTICS,
+  VISION,
+}

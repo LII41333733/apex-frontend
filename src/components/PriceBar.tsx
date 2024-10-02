@@ -9,6 +9,7 @@ import { Trade } from "@/types/Trade";
 import {
   useCancelTradeMutation,
   useModifyTradeMutation,
+  useSellTradeMutation,
 } from "@/state/api/apex";
 import { Button } from "./ui/button";
 import React from "react";
@@ -28,7 +29,7 @@ const CircleCheck = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <path stroke="none" d="M0 0h24v24H0z" fill="#0c0a09" />
+    <path stroke="none" d="M10 0h12v19H0z" fill="#0c0a09" />
     <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
     <path d="M9 12l2 2l4 -4" />
   </svg>
@@ -47,7 +48,7 @@ const CircleCheckFilled = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <path stroke="none" d="M0 0h24v24H0z" fill="#0c0a09" />
+    <circle cx="12" cy="12" r="5" fill="#0c0a09" />
     <path
       d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
       stroke-width="0"
@@ -92,9 +93,15 @@ function calculatePercentagePositions(values: {
   };
 }
 
-const PriceBar: React.FC<{ trade: Trade }> = ({ trade }) => {
+const PriceBar: React.FC<{
+  trade: Trade;
+  showButtons: boolean;
+  showSellConfirm: boolean;
+  setConfirmSellId: (id: string) => void;
+}> = ({ trade, showButtons, showSellConfirm, setConfirmSellId }) => {
   const [modifyTrade] = useModifyTradeMutation();
   const [cancelTrade] = useCancelTradeMutation();
+  const [sellTrade] = useSellTradeMutation();
 
   const valuesWithoutTrim2 = {
     stop: trade.stopPrice,
@@ -112,6 +119,7 @@ const PriceBar: React.FC<{ trade: Trade }> = ({ trade }) => {
 
   const hasTrim2 = trade.trim2Price;
   const values = hasTrim2 ? valuesWithTrim2 : valuesWithoutTrim2;
+
   const status: TradeStatus = trade.status;
   const isPending = status === TradeStatus.PENDING;
   const isOpen = status === TradeStatus.OPEN || status === TradeStatus.RUNNERS;
@@ -123,9 +131,18 @@ const PriceBar: React.FC<{ trade: Trade }> = ({ trade }) => {
   const rangeEnd = rangeEndValue + buffer;
   const percentagePositions = calculatePercentagePositions(values);
   const lastRange = [values.last - maxDistance, values.last + maxDistance];
-  const displayMax = values.max < lastRange[0] || values.max > lastRange[1];
-  const displayStop = values.stop < lastRange[0] || values.stop > lastRange[1];
-  const [sliderValue, setSliderValue] = React.useState<number>(0);
+  const [sliderValue, setSliderValue] = React.useState<number>(
+    Math.ceil(((rangeStart + rangeEnd) / 2) * 100) / 100
+  );
+  const lastMaxDelta = Math.abs(
+    percentagePositions.last - percentagePositions.max
+  );
+  const lastStopDelta = Math.abs(
+    percentagePositions.last - percentagePositions.stop
+  );
+  const modifier = 6;
+  const displayMax = lastMaxDelta > modifier;
+  const displayStop = lastStopDelta > modifier;
 
   return (
     <>
@@ -283,80 +300,114 @@ const PriceBar: React.FC<{ trade: Trade }> = ({ trade }) => {
           </div>
         </section>
       </div>
-      <div className="order-actions-container mt-3">
-        {isOpen && (
+      {showButtons && (
+        <div className="order-actions-container mt-3">
           <>
+            <p className="text-center mb-3 text-sm">{sliderValue.toFixed(2)}</p>
             <Slider
-              className="price-slider"
-              defaultValue={[0]}
+              className="price-slider mb-6"
               min={rangeStart}
               max={rangeEnd}
               step={0.01}
+              value={[sliderValue]}
               onValueChange={(e) => setSliderValue(e[0])}
             />
-            <p>{sliderValue}</p>
             <div className="order-actions-buttons">
-              <Badge
-                onClick={async () => {
-                  await modifyTrade({
-                    id: trade.id,
-                    tradeLeg: TradeLeg.STOP,
-                    price: sliderValue,
-                    riskType: trade.riskType,
-                  });
-                }}
-                className="rounded badge position-badge symbol-badge mini"
-                variant="outline"
-              >
-                Modify Stop
-              </Badge>
-              <Badge
-                onClick={async () => {
-                  await modifyTrade({
-                    id: trade.id,
-                    tradeLeg: TradeLeg.TRIM1,
-                    price: sliderValue,
-                    riskType: trade.riskType,
-                  });
-                }}
-                className="rounded badge position-badge symbol-badge mini"
-                variant="outline"
-              >
-                Modify Trim 1
-              </Badge>
-              {hasTrim2 && (
-                <Badge
-                  onClick={async () => {
-                    await modifyTrade({
-                      id: trade.id,
-                      tradeLeg: TradeLeg.TRIM2,
-                      price: sliderValue,
-                      riskType: trade.riskType,
-                    });
-                  }}
-                  className="rounded badge position-badge symbol-badge mini"
-                  variant="outline"
-                >
-                  Modify Trim 1
-                </Badge>
+              {showSellConfirm ? (
+                <>
+                  <p className="text-xs mr-3">Sell position?</p>
+                  <Badge
+                    onClick={async () => {
+                      await sellTrade({
+                        id: trade.id,
+                        riskType: trade.riskType.toString().toUpperCase(),
+                      });
+                    }}
+                    className="rounded badge position-badge symbol-badge mini sell"
+                    variant="outline"
+                  >
+                    Yes
+                  </Badge>
+                  <Badge
+                    onClick={() => setConfirmSellId("")}
+                    className="rounded badge position-badge symbol-badge mini sell"
+                    variant="outline"
+                  >
+                    No
+                  </Badge>
+                </>
+              ) : (
+                <>
+                  <Badge
+                    onClick={async () => {
+                      await modifyTrade({
+                        id: trade.id,
+                        tradeLeg: TradeLeg.STOP,
+                        price: sliderValue,
+                        riskType: trade.riskType,
+                      });
+                    }}
+                    className="rounded badge position-badge symbol-badge mini"
+                    variant="outline"
+                  >
+                    Modify Stop
+                  </Badge>
+                  <Badge
+                    onClick={async () => {
+                      await modifyTrade({
+                        id: trade.id,
+                        tradeLeg: TradeLeg.TRIM1,
+                        price: sliderValue,
+                        riskType: trade.riskType,
+                      });
+                    }}
+                    className="rounded badge position-badge symbol-badge mini"
+                    variant="outline"
+                  >
+                    Modify Trim 1
+                  </Badge>
+                  {hasTrim2 && (
+                    <Badge
+                      onClick={async () => {
+                        await modifyTrade({
+                          id: trade.id,
+                          tradeLeg: TradeLeg.TRIM2,
+                          price: sliderValue,
+                          riskType: trade.riskType,
+                        });
+                      }}
+                      className="rounded badge position-badge symbol-badge mini"
+                      variant="outline"
+                    >
+                      Modify Trim 1
+                    </Badge>
+                  )}
+                  <Badge
+                    onClick={async () => setConfirmSellId(String(trade.id))}
+                    className="rounded badge position-badge symbol-badge mini"
+                    variant="outline"
+                  >
+                    Market Sell
+                  </Badge>
+                </>
               )}
             </div>
           </>
-        )}
-        {isPending && (
-          <div className="order-actions-buttons">
-            <Badge
-              onClick={async () => {
-                await cancelTrade({ id: trade.fillOrderId });
-              }}
-              className="rounded badge position-badge symbol-badge mini"
-              variant="outline"
-            >
-              Cancel Trade
-            </Badge>
-          </div>
-        )}
-      </div>
+          {isPending && (
+            <div className="order-actions-buttons">
+              <Badge
+                onClick={async () => {
+                  await cancelTrade({ id: trade.fillOrderId });
+                }}
+                className="rounded badge position-badge symbol-badge mini"
+                variant="outline"
+              >
+                Cancel Trade
+              </Badge>
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 };

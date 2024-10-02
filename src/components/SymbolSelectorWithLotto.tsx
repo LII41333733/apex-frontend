@@ -18,7 +18,7 @@ const SymbolSelectorWithLotto: React.FC = () => {
   const [getOptionsChain] = useGetOptionsChainMutation();
 
   return (
-    <Card className="w-[100%] card pt-1 mt-5 mb-3">
+    <Card className="option-box w-[100%] card pt-1 mb-3">
       <CardContent className="px-2 py-1">
         <section className="mb-1 settings">
           <CallPutSwitch />

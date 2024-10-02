@@ -11,7 +11,22 @@ const Login: React.FC = () => {
 
   const [login, { isLoading, error }] = useLoginMutation();
 
-  const handleSubmit = async (event: FormEvent) => {
+  React.useEffect(() => {
+    // Function to handle the "Enter" key press
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        handleSubmit();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [password]);
+
+  const handleSubmit = async (event?: FormEvent) => {
     event?.preventDefault();
     try {
       const userCredentials = { username, password };
@@ -23,24 +38,26 @@ const Login: React.FC = () => {
   };
   console.log(error);
   return (
-    <div className="login-container">
+    <>
+      <div className="login-container">
+        <img className="pt-logo" src="src\assets\spin-gif.gif" alt="pt_logo" />
+        <div className="blackout"></div>
+        <p>{error?.error}</p>
+      </div>
       <form id="login-form" onSubmit={handleSubmit}>
         <Input
-          className="w-[25%] mr-2"
+          className="w-[50%] mr-2"
           placeholder=""
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           type="password"
         />
-        <div onClick={handleSubmit}>
-          <button type="submit" disabled={isLoading}></button>
-        </div>
+        {/* <button type="submit" disabled={isLoading}></button> */}
         {/* <div onClick={handleSubmit} className="yang">
           &#9775;
         </div> */}
       </form>
-      <p>{error?.error}</p>
-    </div>
+    </>
   );
 };
 

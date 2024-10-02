@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/state/hooks";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Displays } from "@/constants";
-import { initialState, updateDisplay } from "@/state/mainSlice";
+import { updateDisplay } from "@/state/mainSlice";
 import React from "react";
 
 const DisplaySelector: React.FC = () => {
@@ -9,17 +9,22 @@ const DisplaySelector: React.FC = () => {
   const {
     orderSummary: { openOrders, pendingOrders },
   } = useAppSelector((state) => state.orders);
+  const { display } = useAppSelector((state) => state.main);
   const hasOpenOrders = openOrders.length;
   const hasPendingOrders = pendingOrders.length;
   const hasBothOpenAndPendingOrders = hasOpenOrders && hasPendingOrders;
 
+  React.useEffect(() => {
+    if (display === Displays.POSITIONS) {
+      document.getElementById("positions-display")?.click();
+    }
+  }, [display]);
+
   return (
-    <Tabs
-      defaultValue={initialState.display}
-      className="display-selector w-[100%] display-tab mt-3 mb-3"
-    >
-      <TabsList className="w-[100%] flex justify-between">
+    <Tabs defaultValue={display} className="display-tab mt-7 mb-3">
+      <TabsList className="w-[100%] flex justify-center display-selector-list">
         <TabsTrigger
+          id="positions-display"
           onClick={() => {
             dispatch(updateDisplay(Displays.POSITIONS));
           }}
@@ -35,6 +40,7 @@ const DisplaySelector: React.FC = () => {
           </>
         </TabsTrigger>
         <TabsTrigger
+          id="chain-display"
           onClick={() => {
             dispatch(updateDisplay(Displays.CHAIN));
           }}
@@ -43,6 +49,7 @@ const DisplaySelector: React.FC = () => {
           {Displays.CHAIN}
         </TabsTrigger>
         <TabsTrigger
+          id="trades-display"
           onClick={() => {
             dispatch(updateDisplay(Displays.TRADES));
           }}

@@ -1,0 +1,30 @@
+.dashboard {
+  &-header {
+    z-index: 99;
+    border: none;
+  }
+
+  .stats {
+    &-main {
+      color: var(--apex-yellow);
+    }
+  }
+
+  .pt-logo {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .view-all-btn {
+    float: right;
+  }
+
+  hr {
+    height: 0.8px;
+    border: none;
+    background-color: var(--apex-yellow);
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}

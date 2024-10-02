@@ -10,4 +10,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/globals.scss";`, // Path to your global SCSS file
+      },
+    },
+  },
 });

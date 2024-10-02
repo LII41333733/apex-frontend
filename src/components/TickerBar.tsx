@@ -7,9 +7,9 @@ const TickerBar: React.FC = () => {
   const { SPY, QQQ, IWM } = useAppSelector((state) => state.main);
 
   return (
-    <div id="ticker-bar" className="mt-2">
+    <div id="ticker-bar" className="mt-2 mb-5">
       <hr />
-      <section>
+      <section className="ticker-bar">
         <Ticker {...SPY} />
         <Ticker {...QQQ} />
         <Ticker {...IWM} />

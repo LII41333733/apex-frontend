@@ -11,10 +11,11 @@ import { useAppSelector } from "./state/hooks";
 import Positions from "./components/Positions";
 import TickerBar from "./components/TickerBar";
 import { Displays } from "./constants";
-import "./App.css";
-import "./index.css";
-import { Trades } from "./components/Trades";
+import Trades from "./components/Trades";
 import Login from "./components/Login";
+import "./App.css";
+import "./index.scss";
+import "./assets/dashboard.scss";
 
 interface Data {
   message: string;

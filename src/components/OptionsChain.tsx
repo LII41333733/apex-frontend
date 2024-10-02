@@ -61,7 +61,9 @@ const OptionsChain: React.FC = () => {
       <SymbolSelectorWithLotto />
       <Table
         id="options-chain-table"
-        className={`${activeSymbol ? "" : "hide-oc"} text-xs`}
+        className={`${
+          activeSymbol ? "" : "hide-oc"
+        } text-xs options-chain-table`}
       >
         <TableHeader className="text-xs">
           <TableRow>
@@ -74,7 +76,7 @@ const OptionsChain: React.FC = () => {
             <TableCell onClick={async () => await stopOptionsChain({})}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-circle-x"
+                className="icon icon-tabler icon-tabler-circle-x close-chain"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
