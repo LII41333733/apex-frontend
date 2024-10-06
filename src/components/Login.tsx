@@ -2,7 +2,43 @@ import React, { useState, FormEvent } from "react";
 import { useLoginMutation } from "@/state/api/apex";
 import { useAppDispatch } from "@/state/hooks";
 import { setToken } from "@/state/mainSlice";
-import { Input } from "./ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import spinYang from "../assets/spin-yang.gif";
+
+function fadeOut() {
+  const element = document.getElementById("login-container");
+  element?.classList.add("hide");
+
+  setTimeout(() => {
+    element?.classList.add("hidden");
+
+    const element1 = document.getElementById("loading");
+    element1?.classList.add("show");
+
+    setTimeout(() => {
+      element1?.classList.add("shown");
+
+      setTimeout(() => {
+        // element1?.classList.add("hide");
+        element1?.classList.remove("shown");
+        element1?.classList.remove("show");
+        element1?.classList.remove("fade-in");
+        element1?.classList.add("fade-out");
+
+        setTimeout(() => {
+          const element1 = document.getElementById("loading");
+          element1?.classList.add("hide");
+
+          setTimeout(() => {
+            element1?.classList.add("hidden");
+          }, 500);
+        }, 3000);
+      }, 500);
+    }, 500);
+  }, 500);
+}
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("admin");
@@ -27,36 +63,78 @@ const Login: React.FC = () => {
   }, [password]);
 
   const handleSubmit = async (event?: FormEvent) => {
-    event?.preventDefault();
-    try {
-      const userCredentials = { username, password };
-      const { token } = await login(userCredentials).unwrap();
-      dispatch(setToken(token)); // Assuming you have a setToken action in your auth slice
-    } catch (err) {
-      console.error("Login failed:", err);
-    }
+    fadeOut();
+
+    setTimeout(async () => {
+      event?.preventDefault();
+      try {
+        const userCredentials = { username, password };
+        const { token } = await login(userCredentials).unwrap();
+
+        dispatch(setToken(token));
+
+        setTimeout(() => {
+          console.log("2");
+          const element2 = document.getElementById("main-container");
+          element2?.classList.add("show");
+
+          setTimeout(() => {
+            element2?.classList.add("shown");
+          }, 200);
+        }, 500);
+      } catch (err) {
+        console.error("Login failed:", err);
+      }
+    }, 5000);
   };
-  console.log(error);
   return (
     <>
-      <div className="login-container">
-        <img className="pt-logo" src="src\assets\spin-gif.gif" alt="pt_logo" />
-        <div className="blackout"></div>
+      <div id="login-container" className="login-container pt-10 fade-out">
+        <img
+          className="login-logo"
+          src="src\assets\login-logo.gif"
+          alt="pt_logo"
+        />
+        <div className="w-full">
+          <div className="flex items-center justify-center pt-2">
+            <div className="mx-auto grid w-[350px] gap-6">
+              <div className="grid gap-2 text-center">
+                <h2 className="text-2xl font-bold">The</h2>
+                <h1 className="text-3xl font-bold">
+                  Official Trading Platform
+                </h1>
+                <p className="text-balance text-muted-foreground mb-4">
+                  Embark on your trading future.
+                </p>
+              </div>
+              <div className="grid gap-4">
+                <div className="grid gap-2">
+                  <div className="flex items-center">
+                    <Label htmlFor="password">Password</Label>
+                  </div>
+                  <Input
+                    onChange={(e) => setPassword(e.target.value)}
+                    id="password"
+                    type="password"
+                    value={password}
+                    required
+                  />
+                </div>
+                <Button onClick={handleSubmit} type="submit" className="w-full">
+                  Login
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className="blackout"></div> */}
         <p>{error?.error}</p>
       </div>
-      <form id="login-form" onSubmit={handleSubmit}>
-        <Input
-          className="w-[50%] mr-2"
-          placeholder=""
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-        />
-        {/* <button type="submit" disabled={isLoading}></button> */}
-        {/* <div onClick={handleSubmit} className="yang">
-          &#9775;
-        </div> */}
-      </form>
+      <div id="loading" className="fade-in">
+        <div className="loading-screen">
+          <img className="spin-yang" src={spinYang}></img>
+        </div>
+      </div>
     </>
   );
 };

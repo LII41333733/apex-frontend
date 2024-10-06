@@ -1,25 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import store from "./state/store";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Provider } from "react-redux";
 import { Toaster } from "@/components/ui/toaster";
-import BalanceBar from "./components/BalanceBar";
 import WebSocketComponent from "./components/WebSocketComponent";
 import OptionsChain from "./components/OptionsChain";
 import DisplaySelector from "./components/DisplaySelector";
 import { useAppSelector } from "./state/hooks";
 import Positions from "./components/Positions";
-import TickerBar from "./components/TickerBar";
 import { Displays } from "./constants";
 import Trades from "./components/Trades";
 import Login from "./components/Login";
-import "./App.css";
-import "./index.scss";
-import "./assets/dashboard.scss";
-
-interface Data {
-  message: string;
-}
+import "./assets/scss/dashboard.scss";
+import "./assets/scss/login.scss";
+import "./index.css";
+import DesktopNav from "./components/DesktopNav";
+import MobileNav from "./components/MobileNav";
 
 function App() {
   return (
@@ -34,11 +30,25 @@ function App() {
 const Protected: React.FC = () => {
   const token = useAppSelector((state) => state.main.token);
 
+  React.useEffect(() => {
+    if (token) {
+      setTimeout(() => {
+        console.log("2");
+        const element2 = document.getElementById("main-container");
+        element2?.classList.add("show");
+
+        setTimeout(() => {
+          element2?.classList.add("shown");
+        }, 200);
+      }, 500);
+    }
+  }, [token]);
+
   return token ? (
     <>
-      <div className="main-container px-4 py-4">
-        <BalanceBar />
-        <TickerBar />
+      <div id="main-container" className="main-container fade-in px-4 py-4">
+        <DesktopNav />
+        <MobileNav />
         <DisplaySelector />
         <RenderDisplay />
       </div>
@@ -46,9 +56,7 @@ const Protected: React.FC = () => {
       <Toaster />
     </>
   ) : (
-    <div className="main-container">
-      <Login />
-    </div>
+    <Login />
   );
 };
 

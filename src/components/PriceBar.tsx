@@ -303,6 +303,7 @@ const PriceBar: React.FC<{
       {showButtons && (
         <div className="order-actions-container mt-3">
           <>
+            <div className="border-mask"></div>
             <p className="text-center mb-3 text-sm">{sliderValue.toFixed(2)}</p>
             <Slider
               className="price-slider mb-6"
@@ -379,7 +380,7 @@ const PriceBar: React.FC<{
                       className="rounded badge position-badge symbol-badge mini"
                       variant="outline"
                     >
-                      Modify Trim 1
+                      Modify Trim 2
                     </Badge>
                   )}
                   <Badge

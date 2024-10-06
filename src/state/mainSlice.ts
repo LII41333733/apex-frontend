@@ -16,21 +16,21 @@ export const initialState: MainState = {
   display: Displays.POSITIONS,
   SPY: {
     symbol: "SPY",
-    price: 0,
-    changeDollars: 0,
-    changePercentage: 0,
+    price: "0",
+    changeDollars: "0",
+    changePercentage: "0",
   },
   QQQ: {
     symbol: "QQQ",
-    price: 0,
-    changeDollars: 0,
-    changePercentage: 0,
+    price: "0",
+    changeDollars: "0",
+    changePercentage: "0",
   },
   IWM: {
     symbol: "IWM",
-    price: 0,
-    changeDollars: 0,
-    changePercentage: 0,
+    price: "0",
+    changeDollars: "0",
+    changePercentage: "0",
   },
 };
 

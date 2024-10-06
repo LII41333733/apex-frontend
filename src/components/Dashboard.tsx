@@ -32,6 +32,7 @@ import {
 import { DashboardView } from "@/constants";
 import React from "react";
 import TradesTable from "./TradesTable";
+import EquityChart from "./EquityChart";
 
 export const description =
   "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales.";
@@ -44,11 +45,6 @@ const Dashboard: React.FC = () => {
     <div className="dashboard flex min-h-screen w-full flex-col">
       <header className="dashboard-header top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-          <img
-            className="pt-logo"
-            src="src\assets\spin-gif.gif"
-            alt="pt_logo"
-          />
           <div
             onClick={() => setDashboardView(DashboardView.HOME)}
             className="text-foreground transition-colors hover:text-foreground"
@@ -111,10 +107,16 @@ const Dashboard: React.FC = () => {
               >
                 Analytics
               </div>
+              <div
+                onClick={() => setDashboardView(DashboardView.VISION)}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                Vision
+              </div>
             </nav>
           </SheetContent>
         </Sheet>
-        <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+        <div className="flex  items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
           <form className="ml-auto flex-1 sm:flex-initial">
             <div className="relative">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -190,263 +192,75 @@ const Dashboard: React.FC = () => {
           </div>
           <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
             <div className="xl:col-span-2 apex-card">
-              <CardHeader className="flex flex-row items-center">
-                <div className="grid gap-2 flex-1">
-                  <CardTitle>Active Trades</CardTitle>
-                  <CardDescription>
-                    All trades in Open or Runners status.
-                  </CardDescription>
-                </div>
-                <Badge
-                  onClick={async () => {}}
-                  className="view-all-btn rounded badge position-badge symbol-badge mini"
-                  variant="outline"
-                >
-                  View All
-                  <ArrowUpRight className="h-4 w-4" />
-                </Badge>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Customer</TableHead>
-                      <TableHead className="hidden sm:table-cell">
-                        Type
-                      </TableHead>
-                      <TableHead className="hidden sm:table-cell">
-                        Status
-                      </TableHead>
-                      <TableHead className="hidden md:table-cell">
-                        Date
-                      </TableHead>
-                      <TableHead className="text-right">Amount</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    <TableRow className="bg-accent">
-                      <TableCell>
-                        <div className="font-medium">Liam Johnson</div>
-                        <div className="hidden text-sm text-muted-foreground md:inline">
-                          liam@example.com
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        Sale
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        <Badge className="text-xs" variant="secondary">
-                          Fulfilled
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2023-06-23
-                      </TableCell>
-                      <TableCell className="text-right">$250.00</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <div className="font-medium">Olivia Smith</div>
-                        <div className="hidden text-sm text-muted-foreground md:inline">
-                          olivia@example.com
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        Refund
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        <Badge className="text-xs" variant="outline">
-                          Declined
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2023-06-24
-                      </TableCell>
-                      <TableCell className="text-right">$150.00</TableCell>
-                    </TableRow>
-                    {/* <TableRow>
-                          <TableCell>
-                            <div className="font-medium">Liam Johnson</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
-                              liam@example.com
-                            </div>
-                          </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            Sale
-                          </TableCell>
-                          <TableCell className="hidden sm:table-cell">
-                            <Badge className="text-xs" variant="secondary">
-                              Fulfilled
-                            </Badge>
-                          </TableCell>
-                          <TableCell className="hidden md:table-cell">
-                            2023-06-23
-                          </TableCell>
-                          <TableCell className="text-right">$250.00</TableCell>
-                        </TableRow> */}
-                    <TableRow>
-                      <TableCell>
-                        <div className="font-medium">Noah Williams</div>
-                        <div className="hidden text-sm text-muted-foreground md:inline">
-                          noah@example.com
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        Subscription
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        <Badge className="text-xs" variant="secondary">
-                          Fulfilled
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2023-06-25
-                      </TableCell>
-                      <TableCell className="text-right">$350.00</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <div className="font-medium">Emma Brown</div>
-                        <div className="hidden text-sm text-muted-foreground md:inline">
-                          emma@example.com
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        Sale
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        <Badge className="text-xs" variant="secondary">
-                          Fulfilled
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2023-06-26
-                      </TableCell>
-                      <TableCell className="text-right">$450.00</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <div className="font-medium">Liam Johnson</div>
-                        <div className="hidden text-sm text-muted-foreground md:inline">
-                          liam@example.com
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        Sale
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        <Badge className="text-xs" variant="secondary">
-                          Fulfilled
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2023-06-23
-                      </TableCell>
-                      <TableCell className="text-right">$250.00</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <div className="font-medium">Olivia Smith</div>
-                        <div className="hidden text-sm text-muted-foreground md:inline">
-                          olivia@example.com
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        Refund
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        <Badge className="text-xs" variant="outline">
-                          Declined
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2023-06-24
-                      </TableCell>
-                      <TableCell className="text-right">$150.00</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <div className="font-medium">Emma Brown</div>
-                        <div className="hidden text-sm text-muted-foreground md:inline">
-                          emma@example.com
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        Sale
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        <Badge className="text-xs" variant="secondary">
-                          Fulfilled
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2023-06-26
-                      </TableCell>
-                      <TableCell className="text-right">$450.00</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </CardContent>
+              <EquityChart />
             </div>
             <div className="apex-card">
               <CardHeader>
-                <CardTitle>Recent Sales</CardTitle>
+                <CardTitle>Today's Trades</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-8">
                 <div className="flex items-center gap-4">
                   <div className="grid gap-1">
                     <p className="text-sm font-medium leading-none">
-                      Olivia Martin
+                      SPY 575P 10/4
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      olivia.martin@email.com
-                    </p>
+                    <p className="text-sm text-muted-foreground">Base Trade</p>
                   </div>
-                  <div className="ml-auto font-medium">+$1,999.00</div>
+                  <div className="yellow ml-auto font-medium">+$1,999.00</div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="grid gap-1">
                     <p className="text-sm font-medium leading-none">
-                      Jackson Lee
+                      QQQ 444P 10/4
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      jackson.lee@email.com
-                    </p>
+                    <p className="text-sm text-muted-foreground">Base Trade</p>
                   </div>
-                  <div className="ml-auto font-medium">+$39.00</div>
+                  <div className="yellow ml-auto font-medium">+$39.00</div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="grid gap-1">
                     <p className="text-sm font-medium leading-none">
-                      Isabella Nguyen
+                      TSLA 275C 10/4
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      isabella.nguyen@email.com
-                    </p>
+                    <p className="text-sm text-muted-foreground">Base Trade</p>
                   </div>
-                  <div className="ml-auto font-medium">+$299.00</div>
+                  <div className="yellow ml-auto font-medium">+$39.00</div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="grid gap-1">
                     <p className="text-sm font-medium leading-none">
-                      William Kim
+                      SPY 575P 10/4
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      will@email.com
-                    </p>
+                    <p className="text-sm text-muted-foreground">Base Trade</p>
                   </div>
-                  <div className="ml-auto font-medium">+$99.00</div>
+                  <div className="yellow ml-auto font-medium">+$39.00</div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="grid gap-1">
                     <p className="text-sm font-medium leading-none">
-                      Sofia Davis
+                      GOOGL 500C 10/4
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      sofia.davis@email.com
-                    </p>
+                    <p className="text-sm text-muted-foreground">Base Trade</p>
                   </div>
-                  <div className="ml-auto font-medium">+$39.00</div>
+                  <div className="yellow ml-auto font-medium">+$299.00</div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">
+                      AAPL 305P 10/4
+                    </p>
+                    <p className="text-sm text-muted-foreground">Base Trade</p>
+                  </div>
+                  <div className="yellow ml-auto font-medium">+$99.00</div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">
+                      SPY 575P 10/4
+                    </p>
+                    <p className="text-sm text-muted-foreground">Base Trade</p>
+                  </div>
+                  <div className="yellow ml-auto font-medium">+$39.00</div>
                 </div>
               </CardContent>
             </div>

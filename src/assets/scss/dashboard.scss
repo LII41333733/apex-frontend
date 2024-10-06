@@ -27,4 +27,14 @@
     margin-top: 0.5rem;
     width: 100%;
   }
+
+  .equity-chart {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .equity-chart-btn {
+      width: 5rem;
+    }
+  }
 }

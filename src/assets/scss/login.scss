@@ -1,0 +1,101 @@
+.fade-out {
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+  display: block;
+
+  &.hide {
+    opacity: 0;
+    pointer-events: none; // Disable interactions during the transition
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  &.shown {
+    opacity: 1;
+  }
+}
+
+.loading-screen {
+  background-image: url(../temperance.jpg);
+  background-size: contain; /* Ensures the image retains its original size */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image in the container */
+  min-height: 30rem; /* Adjusts height to fit content */
+  width: 344px; /* Adjusts width to fit content */
+  margin: 0 auto;
+  position: relative;
+  margin-top: 3rem;
+  border-radius: 0.5rem;
+}
+.login-container {
+  // background-image: url(../temperance.jpg);
+  background-size: contain; /* Ensures the image retains its original size */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image in the container */
+  min-height: 30rem; /* Adjusts height to fit content */
+  width: 344px; /* Adjusts width to fit content */
+  margin: 0 auto;
+  position: relative;
+
+  .login-logo {
+    height: 10rem;
+    margin: 0 auto;
+  }
+}
+.login-container .blackout {
+  height: 3rem;
+  width: 3rem;
+  background-color: black;
+  position: absolute;
+  left: 9.4rem;
+  top: 47.5%;
+  border-radius: 50%;
+}
+.login-container .pt-logo {
+  height: 3rem;
+  position: absolute;
+  left: 44%;
+  top: 48%;
+  z-index: 9999;
+}
+#login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  // background-color: #ecd3bc;
+}
+#login-form button {
+  width: 2rem;
+  height: 2rem;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+.yang {
+  font-size: 40px;
+  left: -2.5rem;
+  top: -0.15rem;
+  position: relative;
+}
+#login-form input {
+  background-color: black;
+}
+
+.spin-yang {
+  position: absolute;
+  height: 4.7rem;
+  left: 8.55rem;
+  top: 13.4rem;
+}

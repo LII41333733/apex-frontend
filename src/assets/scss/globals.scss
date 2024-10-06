@@ -10,16 +10,6 @@
   @include apex-card;
 }
 
-* {
-  @apply border-border;
-  font-weight: 500;
-  letter-spacing: 0.01rem;
-}
-
-body {
-  @apply bg-background text-foreground;
-}
-
 .text-trade-green {
   color: var(--trade-green);
 }
@@ -85,7 +75,7 @@ section,
 .display-tab {
   display: flex;
   margin: 0 auto;
-  width: 30%;
+  width: 40%;
 
   > div {
     border-radius: 4px;
@@ -100,6 +90,14 @@ section,
   width: 344px;
   margin: 0 auto;
   user-select: none;
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
 }
 
 .display-tab button {
@@ -280,23 +278,22 @@ svg {
 .order-actions-container {
   border-color: var(--apex-yellow);
   border-bottom-width: 8px;
-  padding-top: 0.5rem;
   display: flex;
   flex-direction: column;
   background-color: #0c0a09;
   border-radius: 5px;
-
-  /* border-left: 1px solid #3c310b;
-    border-right: 2px solid #3c310b; */
-
   border: 2px solid transparent;
   box-shadow: 1.3px 1.7px 3px 0px var(--apex-yellow);
-
-  /* border-bottom: 1px solid #383838;
-    border-top: 1px solid #3e3e3e; */
   width: 106%;
   margin-left: -0.6rem;
-  border-top: 2px solid #0c0a09;
+
+  .border-mask {
+    height: 0.6rem;
+    width: 100.5%;
+    position: relative;
+    background: #0c0a09;
+    top: -0.6rem;
+  }
 }
 .order-actions-container .price-slider {
   width: 95%;
@@ -452,55 +449,6 @@ svg {
   width: 4rem;
 }
 
-.login-container {
-  background-image: url(./assets/temperance.jpg);
-  background-size: contain; /* Ensures the image retains its original size */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-position: center; /* Centers the image in the container */
-  min-height: 30rem; /* Adjusts height to fit content */
-  width: auto; /* Adjusts width to fit content */
-  margin: 0 auto;
-  position: relative;
-}
-.login-container .blackout {
-  height: 3rem;
-  width: 3rem;
-  background-color: black;
-  position: absolute;
-  left: 9.4rem;
-  top: 47.5%;
-  border-radius: 50%;
-}
-.login-container .pt-logo {
-  height: 3rem;
-  position: absolute;
-  left: 44%;
-  top: 48%;
-  z-index: 9999;
-}
-#login-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background-color: #ecd3bc;
-}
-#login-form button {
-  width: 2rem;
-  height: 2rem;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary));
-}
-.yang {
-  font-size: 40px;
-  left: -2.5rem;
-  top: -0.15rem;
-  position: relative;
-}
-#login-form input {
-  background-color: black;
-}
-
 .price-bar-wrapper {
   position: relative;
   display: flex;
@@ -580,14 +528,49 @@ svg {
     max-width: 1200px;
     margin: 0 auto;
 
-    .balance-bar,
-    #ticker-bar section {
-      justify-content: center;
+    .desktop-nav {
+      display: block;
 
-      > div,
-      > span {
-        margin: 0 2rem;
+      .nav-data {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-bottom: 0.6rem;
+
+        .pt-logo {
+          height: 3rem;
+        }
+
+        .balance-bar {
+          justify-content: flex-start;
+          flex-grow: 1;
+          min-width: 8rem;
+
+          > div,
+          > span {
+            margin: 0 1rem;
+          }
+        }
+
+        .ticker-bar {
+          > div,
+          > span {
+            margin: 0 0.5rem;
+            font-size: small;
+          }
+        }
       }
+
+      hr {
+        height: 0.8px;
+        border: none;
+        background-color: var(--apex-yellow);
+      }
+    }
+
+    .mobile-nav {
+      display: none;
     }
 
     #ticker-bar span {

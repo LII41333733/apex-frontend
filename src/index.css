@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  .dark {
+  :root {
     --background: 20 14.3% 4.1%;
     --foreground: 60 9.1% 97.8%;
     --card: 20 14.3% 4.1%;
@@ -35,5 +35,47 @@
     --status-pending: #c4c4c4;
     --status-runners: #8a80f2;
     --apex-yellow: #facc15;
+    --apex-yellow-light: #ffdf5e;
   }
+
+  .yellow {
+    color: var(--apex-yellow);
+  }
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+* {
+  @apply border-border;
+  font-weight: 500;
+  letter-spacing: 0.01rem;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: hsl(47.9 95.8% 53.1%);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(47.9 95.8% 53.1%);
 }
