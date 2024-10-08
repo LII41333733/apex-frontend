@@ -71,7 +71,7 @@ export const apexApi = createApi({
     }),
     login: builder.mutation<LoginResponse, LoginRequest>({
       query: (credentials) => ({
-        url: "/login",
+        url: "auth/login",
         method: URL_METHOD.POST,
         body: credentials,
       }),
