@@ -1,0 +1,19 @@
+thead tr {
+  font-size: 0.9rem;
+}
+
+.option-box,
+.options-chain-table {
+  margin: 0 auto;
+}
+
+.option-box {
+  @include apex-card;
+  border: 2px solid transparent;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.risk-select {
+  margin: 0 0.5rem 0 0.7rem;
+}

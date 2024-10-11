@@ -14,14 +14,11 @@ const DisplaySelector: React.FC = () => {
   const hasPendingOrders = pendingOrders.length;
   const hasBothOpenAndPendingOrders = hasOpenOrders && hasPendingOrders;
 
-  React.useEffect(() => {
-    if (display === Displays.POSITIONS) {
-      document.getElementById("positions-display")?.click();
-    }
-  }, [display]);
-
   return (
-    <Tabs defaultValue={display} className="display-tab mt-7 mb-3">
+    <Tabs
+      defaultValue={display}
+      className="display-tab w-full md:w-[400px] m-auto mb-5"
+    >
       <TabsList className="w-[100%] flex justify-center display-selector-list">
         <TabsTrigger
           id="positions-display"

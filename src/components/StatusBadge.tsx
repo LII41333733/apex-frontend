@@ -13,7 +13,6 @@ const StatusBadge: React.FC<{ status: TradeStatus }> = ({ status }) => {
     case TradeStatus.REJECTED:
       return <BadgeRejected />;
     case TradeStatus.PENDING:
-    case TradeStatus.PREOPEN:
       return <BadgePending />;
     case TradeStatus.OPEN:
       return <BadgeOpen />;

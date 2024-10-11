@@ -11,11 +11,10 @@ import Positions from "./components/Positions";
 import { Displays } from "./constants";
 import Trades from "./components/Trades";
 import Login from "./components/Login";
-import "./assets/scss/dashboard.scss";
-import "./assets/scss/login.scss";
-import "./index.css";
 import DesktopNav from "./components/DesktopNav";
 import MobileNav from "./components/MobileNav";
+import "./index.css";
+import "./assets/scss/index.scss";
 
 function App() {
   return (
@@ -33,10 +32,8 @@ const Protected: React.FC = () => {
   React.useEffect(() => {
     if (token) {
       setTimeout(() => {
-        console.log("2");
         const element2 = document.getElementById("main-container");
         element2?.classList.add("show");
-
         setTimeout(() => {
           element2?.classList.add("shown");
         }, 200);
@@ -46,9 +43,12 @@ const Protected: React.FC = () => {
 
   return token ? (
     <>
-      <div id="main-container" className="main-container fade-in px-4 py-4">
-        <DesktopNav />
-        <MobileNav />
+      <DesktopNav />
+      <MobileNav />
+      <div
+        id="main-container"
+        className="main-container fade-in sm:w-full md:w-[90%] max-w-[1440px]"
+      >
         <DisplaySelector />
         <RenderDisplay />
       </div>

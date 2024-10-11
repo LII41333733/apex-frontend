@@ -1,7 +1,8 @@
-export const dollar = (amount: number) => {
-  // Format the rounded amount to USD
-  return new Intl.NumberFormat("en-US", {
+export const dollar = (amount: number, roundValue = true) => {
+  const value = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   }).format(amount);
+
+  return roundValue ? value.slice(0, -3) : value;
 };

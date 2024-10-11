@@ -27,6 +27,7 @@ export enum WebSocketData {
   SPY = SYMBOLS.SPY,
   QQQ = SYMBOLS.QQQ,
   IWM = SYMBOLS.IWM,
+  VIX = SYMBOLS.VIX,
 }
 
 export enum AppStateKey {
@@ -41,6 +42,7 @@ export enum OptionType {
 export enum RiskType {
   BASE = "Base",
   LOTTO = "Lotto",
+  CUSTOM = "Custom",
 }
 
 export enum TradeLeg {

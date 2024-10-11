@@ -36,7 +36,6 @@ const WebSocketComponent: React.FC = () => {
     ws.current = new WebSocket("ws://localhost:8080/ws");
 
     ws.current.onopen = () => {
-      // console.log("WebSocket connection Open");
       setIsConnected(true);
       if (reconnectInterval.current) {
         clearInterval(reconnectInterval.current);
@@ -58,7 +57,6 @@ const WebSocketComponent: React.FC = () => {
           dispatch(updateOrderSummary(data));
           break;
         case WebSocketData.TRADE_SUMMARY:
-          console.log({ type, data });
           dispatch(updateTradeSummary(data));
           break;
         case WebSocketData.TRADES:
@@ -79,7 +77,6 @@ const WebSocketComponent: React.FC = () => {
     };
 
     ws.current.onclose = (event) => {
-      // console.log("WebSocket Connection Closed:", event);
       setIsConnected(false);
       if (event.code !== 1000) {
         startReconnection();
@@ -87,7 +84,6 @@ const WebSocketComponent: React.FC = () => {
     };
 
     ws.current.onerror = (event) => {
-      // console.error("WebSocket error:", event);
       ws.current?.close();
     };
   };
@@ -96,7 +92,6 @@ const WebSocketComponent: React.FC = () => {
     if (!reconnectInterval.current) {
       reconnectInterval.current = setInterval(() => {
         if (document.hasFocus() && !isConnectedRef.current) {
-          // console.log("Attempting to reconnect WebSocket...");
           initializeWebSocket();
         }
       }, 2000);

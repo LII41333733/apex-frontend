@@ -74,7 +74,6 @@ const Login: React.FC = () => {
         dispatch(setToken(token));
 
         setTimeout(() => {
-          console.log("2");
           const element2 = document.getElementById("main-container");
           element2?.classList.add("show");
 

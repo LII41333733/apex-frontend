@@ -13,7 +13,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/assets/scss/globals.scss";`, // Path to your global SCSS file
+        additionalData: `@import "@/assets/scss/globals.scss";`,
       },
     },
   },

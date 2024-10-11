@@ -4,59 +4,45 @@ import { dollar } from "@/utils/dollar";
 const BalanceBar: React.FC = () => {
   const balance = useAppSelector((state) => state.balance);
 
+  const { totalEquity, cashAvailable, marketValue, openPl, closePl } = balance;
+
   return (
-    <section className="balance-bar">
-      {balance.totalEquity ? (
-        <div>
-          <p className="text-xxs font-normal text-primary">Total Equity</p>
-          <h4 className="text-xs font-semibold">
-            {balance.totalEquity ? dollar(balance.totalEquity) : "--"}
+    <div className="balance-bar-wrapper flex items-center w-[100%] gap-3">
+      <img className="pt-logo" src="src\assets\spin-gif.gif" alt="pt_logo" />
+      <div className="balance-bar mr-8 w-[50%] ml-auto">
+        <div className="group justify-between flex flex-row">
+          <p className="text-xs apex-text-yellow">Total Equity</p>
+          <h4 className="text-xs tracking-wide font-semibold">
+            {dollar(totalEquity, true)}
           </h4>
         </div>
-      ) : (
-        <></>
-      )}
-      {balance.cashAvailable ? (
-        <div className="">
-          <p className="text-xxs font-normal text-primary">Cash Available</p>
-          <h4 className="text-xs font-semibold">
-            {balance.cashAvailable ? dollar(balance.cashAvailable) : "--"}
+        <div className="group justify-between flex flex-row">
+          <p className="text-xs apex-text-yellow">Cash Available</p>
+          <h4 className="text-xs tracking-wide font-semibold">
+            {dollar(cashAvailable, true)}
           </h4>
         </div>
-      ) : (
-        <></>
-      )}
-      {balance.marketValue ? (
-        <div className="">
-          <p className="text-xxs font-normal text-primary">Market Value</p>
-          <h4 className="text-xs font-semibold">
-            {balance.marketValue ? dollar(balance.marketValue) : "--"}
+
+        <div className="group justify-between flex flex-row">
+          <p className="text-xs apex-text-yellow">Market Value</p>
+          <h4 className="text-xs tracking-wide font-semibold">
+            {dollar(marketValue, true)}
           </h4>
         </div>
-      ) : (
-        <></>
-      )}
-      {balance.openPl ? (
-        <div className="">
-          <p className="text-xxs font-normal text-primary">Open P/L</p>
-          <h4 className="text-xs font-semibold">
-            {balance.openPl ? dollar(balance.openPl) : "--"}
+        <div className="group justify-between flex flex-row">
+          <p className="text-xs apex-text-yellow">Open P/L</p>
+          <h4 className="text-xs tracking-wide font-semibold">
+            {dollar(openPl, true)}
           </h4>
         </div>
-      ) : (
-        <></>
-      )}
-      {balance.closePl ? (
-        <div className="">
-          <p className="text-xxs font-normal text-primary">Day P/L</p>
-          <h4 className="text-xs font-semibold">
-            {balance.closePl ? dollar(balance.closePl) : "--"}
+        <div className="group justify-between flex flex-row">
+          <p className="text-xs apex-text-yellow">Day P/L</p>
+          <h4 className="text-xs tracking-wide font-semibold">
+            {dollar(closePl, true)}
           </h4>
         </div>
-      ) : (
-        <></>
-      )}
-    </section>
+      </div>
+    </div>
   );
 };
 

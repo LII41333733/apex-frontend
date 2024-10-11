@@ -6,7 +6,7 @@
 
   .stats {
     &-main {
-      color: var(--apex-yellow);
+      color: var(--primary);
     }
   }
 
@@ -22,7 +22,7 @@
   hr {
     height: 0.8px;
     border: none;
-    background-color: var(--apex-yellow);
+    background-color: var(--primary);
     margin: 0 auto;
     margin-top: 0.5rem;
     width: 100%;

@@ -18,13 +18,13 @@ const SymbolSelectorWithLotto: React.FC = () => {
   const [getOptionsChain] = useGetOptionsChainMutation();
 
   return (
-    <Card className="option-box w-[100%] card pt-1 mb-3">
-      <CardContent className="px-2 py-1">
+    <Card className="option-box card pt-1 mb-3 w-[320px] md:w-[80%] md:min-w-[320px] max-w-[600px]">
+      <CardContent className="px-1 py-1">
         <section className="mb-1 settings">
           <CallPutSwitch />
           <LottoSwitch />
           <Input
-            className="w-[33%] h-8 text-center symbol-input"
+            className="w-[25%] h-8 text-center symbol-input transparent-ring"
             placeholder="NKE"
             value={symbolInput}
             onChange={(e) =>
@@ -40,8 +40,8 @@ const SymbolSelectorWithLotto: React.FC = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-search"
-              width="20"
-              height="20"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               strokeWidth="2"
               stroke="hsl(var(--primary))"

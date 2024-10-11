@@ -9,11 +9,12 @@ export interface MainState {
   SPY: PriceData;
   QQQ: PriceData;
   IWM: PriceData;
+  VIX: PriceData;
 }
 
 export const initialState: MainState = {
   token: localStorage.getItem("token"),
-  display: Displays.POSITIONS,
+  display: Displays.TRADES,
   SPY: {
     symbol: "SPY",
     price: "0",
@@ -28,6 +29,12 @@ export const initialState: MainState = {
   },
   IWM: {
     symbol: "IWM",
+    price: "0",
+    changeDollars: "0",
+    changePercentage: "0",
+  },
+  VIX: {
+    symbol: "VIX",
     price: "0",
     changeDollars: "0",
     changePercentage: "0",
@@ -49,6 +56,9 @@ export const mainSlice = createSlice({
     },
     updateIWMData: (state, action: PayloadAction<PriceData>) => {
       state.IWM = action.payload;
+    },
+    updateVIXData: (state, action: PayloadAction<PriceData>) => {
+      state.VIX = action.payload;
     },
     setToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;

@@ -27,7 +27,7 @@ const OrderFilter: React.FC = () => {
   };
 
   return (
-    <div className="order-filter mt-2 mb-3">
+    <div className="order-filter md:w-[320px] m-auto mb-5">
       <Accordion type="single" collapsible className="w-full order-accordion">
         <AccordionItem value="item-1">
           <AccordionTrigger>

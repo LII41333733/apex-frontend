@@ -31,7 +31,8 @@ import OpenPositions from "./OpenPositions";
 const Positions: React.FC = () => {
   return (
     <div id="orders">
-      <div className="positions mb-8">
+      <div className="positions mb-8 md:w-full">
+        <OrderFilter />
         <OpenPositions />
         {/*         
         {openOrders.map((order) => (
@@ -40,7 +41,6 @@ const Positions: React.FC = () => {
       </div>
       {/* <div className="orders">
         <p className="text-sm font-normal mb-4">{`Orders (${orderList.length})`}</p>
-        <OrderFilter />
         {orderList.map((order) => {
           const { leg, status, id } = order;
           const symbol: string = leg[0].optionSymbol;

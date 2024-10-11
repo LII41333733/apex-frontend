@@ -20,7 +20,7 @@ const OpenPositions: React.FC = () => {
           No orders available
         </p>
       )}
-      <div className="position-body">
+      <div className="position-body md:flex">
         {allTrades.reverse().map(([id, trade], i) => {
           const showButtons = showButtonsId === id;
           const showSellConfirm = confirmSellId === id;
@@ -32,9 +32,11 @@ const OpenPositions: React.FC = () => {
             return <div key={trade.id}></div>;
           }
 
+          // showButtons, showSellConfirm, symbolLabel, trade, setShowButtonsId
+
           return (
             <div
-              className="position-container"
+              className="position-container w-[320px] m-auto mb-2"
               key={id}
               style={{
                 position: "relative",
@@ -54,7 +56,7 @@ const OpenPositions: React.FC = () => {
                         }
                       }
                     }}
-                    className="text-top"
+                    className="text-top apex-text-yellow"
                   >
                     {symbolLabel}
                   </div>
@@ -77,9 +79,7 @@ const OpenPositions: React.FC = () => {
               </div>
               <div className="risk-type mb-2 px-2">
                 <span>{`${trade.riskType} TRADE`}</span>
-                <span className="position-status">
-                  <StatusBadge status={trade.status} />
-                </span>
+                <StatusBadge status={trade.status} />
               </div>
               <PriceBar
                 trade={trade}
