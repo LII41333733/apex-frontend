@@ -28,6 +28,7 @@ export default {
         "apex-yellow": "hsl(var(--apex-yellow))",
         "apex-light-yellow": "hsl(var(--apex-light-yellow))",
         "apex-med-yellow": "hsl(var(--apex-med-yellow))",
+        "card-background": "hsl(var(--card-background))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

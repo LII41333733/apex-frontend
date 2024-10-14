@@ -22,20 +22,20 @@ const CellValue: React.FC<{
 };
 
 export const tradeTableColumns: ColumnDef<BaseTrade>[] = [
-  {
-    id: "id",
-    accessorKey: "id",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        ID
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => <CellValue id="orderId" value={row.original.id} />,
-  },
+  // {
+  //   id: "id",
+  //   accessorKey: "id",
+  //   header: ({ column }) => (
+  //     <Button
+  //       variant="ghost"
+  //       onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+  //     >
+  //       ID
+  //       <CaretSortIcon className="ml-2 h-4 w-4" />
+  //     </Button>
+  //   ),
+  //   cell: ({ row }) => <CellValue id="orderId" value={row.original.id} />,
+  // },
   {
     id: "status",
     accessorKey: "status",
@@ -314,20 +314,20 @@ export const tradeTableColumns: ColumnDef<BaseTrade>[] = [
     ),
     cell: ({ row }) => <CellValue value={row.original.runnersQuantity} />,
   },
-  {
-    id: "runnersDelta",
-    accessorKey: "runnersDelta",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Run Δ
-        <CaretSortIcon className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => <CellValue value={row.original.runnersDelta} />,
-  },
+  // {
+  //   id: "runnersDelta",
+  //   accessorKey: "runnersDelta",
+  //   header: ({ column }) => (
+  //     <Button
+  //       variant="ghost"
+  //       onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+  //     >
+  //       Run Δ
+  //       <CaretSortIcon className="ml-2 h-4 w-4" />
+  //     </Button>
+  //   ),
+  //   cell: ({ row }) => <CellValue value={row.original.runnersDelta} />,
+  // },
   {
     id: "tradeAmount",
     accessorKey: "tradeAmount",

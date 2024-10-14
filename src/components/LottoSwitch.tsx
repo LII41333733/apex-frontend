@@ -11,8 +11,6 @@ import { RiskType } from "@/constants";
 import React from "react";
 
 const LottoSwitch: React.FC = () => {
-  const dispatch = useAppDispatch();
-
   const [riskType, setRiskType] = React.useState<string>(
     RiskType.CUSTOM.toUpperCase()
   );
@@ -22,7 +20,7 @@ const LottoSwitch: React.FC = () => {
       onValueChange={(e) => setRiskType(e)}
       defaultValue={riskType.toString()}
     >
-      <SelectTrigger className="h-8 flex-1 risk-select transparent-ring">
+      <SelectTrigger className="h-8 flex-1 risk-select transparent-ring text-foreground">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>
@@ -31,27 +29,6 @@ const LottoSwitch: React.FC = () => {
         <SelectItem value="CUSTOM">Custom</SelectItem>
       </SelectContent>
     </Select>
-    // <Tabs defaultValue={RiskType.BASE} className="w-[45%] lotto">
-    //   <TabsList>
-    //     <TabsTrigger
-    //       onClick={(e) => {
-    //         useDispatch;
-    //         dispatch(updateRiskType(RiskType.BASE));
-    //       }}
-    //       value={RiskType.BASE}
-    //     >
-    //       {RiskType.BASE}
-    //     </TabsTrigger>
-    //     <TabsTrigger
-    //       onClick={(e) => {
-    //         dispatch(updateRiskType(RiskType.LOTTO));
-    //       }}
-    //       value={RiskType.LOTTO}
-    //     >
-    //       {RiskType.LOTTO}
-    //     </TabsTrigger>
-    //   </TabsList>
-    // </Tabs>
   );
 };
 

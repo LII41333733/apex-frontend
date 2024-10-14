@@ -54,7 +54,7 @@ const Trades: React.FC = () => {
   });
 
   return (
-    <div id="trades-table" className="w-full">
+    <div id="trades-table" className="w-full apex-box-shadow">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

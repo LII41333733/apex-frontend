@@ -23,8 +23,8 @@ const SymbolSelectorWithLotto: React.FC = () => {
         <CallPutSwitch />
         <LottoSwitch />
         <Input
-          className="w-[25%] h-8 text-center symbol-input transparent-ring"
-          placeholder="NKE"
+          className="w-[25%] h-8 text-center symbol-input transparent-ring text-foreground"
+          placeholder="INTC"
           value={symbolInput}
           onChange={(e) =>
             dispatch(updateSymbolInput(e.target.value.toUpperCase()))

@@ -2,10 +2,6 @@
   .accordion-title {
     width: 7rem;
   }
-  .order-filter button[data-state="active"],
-  .order-filter > div {
-    background-color: hsl(var(--muted));
-  }
   .order-filter > div {
     margin: 0;
     justify-content: center;

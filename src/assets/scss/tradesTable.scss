@@ -1,6 +1,7 @@
+@import "mixins";
+
 #trades-table {
   font-weight: 400;
-  box-shadow: 0px 1px 3.5px 0px hsl(var(--primary));
   overflow: overlay;
 
   th,
@@ -9,6 +10,7 @@
     font-weight: 500;
   }
   table {
+    @include box-shadow;
     text-align: left;
   }
   th,
@@ -25,7 +27,7 @@
     width: 5rem;
     justify-content: center;
   }
-  .table-data.option,
+  .table-data.optionSymbol,
   .table-data.openDate,
   .table-data.closeDate {
     width: 6rem;
@@ -34,8 +36,7 @@
     width: 5rem;
   }
   .table-data.orderId,
-  .table-data.balance,
-  .table-data {
+  .table-data.balance {
     width: 4rem;
   }
 

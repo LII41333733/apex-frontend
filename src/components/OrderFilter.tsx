@@ -27,9 +27,13 @@ const OrderFilter: React.FC = () => {
   };
 
   return (
-    <div className="order-filter w-full md:w-[320px] m-auto mb-5 apex-box-shadow">
-      <Accordion type="single" collapsible className="w-full order-accordion">
-        <AccordionItem value="item-1">
+    <div className="order-filter w-full md:w-[320px] m-auto mb-5 apex-box-shadow border-0">
+      <Accordion
+        type="single"
+        collapsible
+        className="w-full order-accordion bg-card-foreground border-0"
+      >
+        <AccordionItem value="item-1" className="border-0">
           <AccordionTrigger>
             <div className="accordion-title">Filter By Status</div>
             <ActiveBadge />

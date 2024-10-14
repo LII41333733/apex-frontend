@@ -7,7 +7,7 @@
     --background: 20 14.3% 4.1%;
     --foreground: 60 9.1% 97.8%;
     --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
+    --card-foreground: 0 6.12% 9.61%;
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
     --primary: 48 100% 61%;
@@ -36,7 +36,8 @@
     --apex-yellow: 47.9 95.8% 53.1%;
     --apex-light-yellow: 48 100% 70.73%;
     --apex-med-yellow: 47.88 100% 61.18%;
-    --apex-box-shadow: 1px 1px 3.5px 0px hsl(var(--primary));
+    --apex-box-shadow: 1px 1px 3.5px 0px hsl(var(--apex-med-yellow));
+    --card-background: 0 6% 10% 1;
   }
 }
 

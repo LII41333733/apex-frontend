@@ -45,28 +45,28 @@ const EquityChart: React.FC = () => {
         </div>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn rounded badge text-sm position-badge bg-background text-foreground symbol-badge mini"
+          className="equity-chart-btn bg-card-background rounded badge text-sm position-badge text-foreground symbol-badge mini"
           variant="outline"
         >
           Yearly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn rounded badge text-sm position-badge bg-background text-foreground symbol-badge mini"
+          className="equity-chart-btn bg-card-background rounded badge text-sm position-badge text-foreground symbol-badge mini"
           variant="outline"
         >
           Monthly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn rounded badge text-sm position-badge bg-background text-foreground symbol-badge mini"
+          className="equity-chart-btn bg-card-background rounded badge text-sm position-badge text-foreground symbol-badge mini"
           variant="outline"
         >
           Weekly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn rounded badge text-sm position-badge bg-background text-foreground symbol-badge mini"
+          className="equity-chart-btn bg-card-background rounded badge text-sm position-badge text-foreground symbol-badge mini"
           variant="outline"
         >
           Daily

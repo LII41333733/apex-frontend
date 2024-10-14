@@ -56,7 +56,7 @@ const OpenPositions: React.FC = () => {
                         }
                       }
                     }}
-                    className="text-top apex-text-yellow"
+                    className="text-top text-apex-light-yellow"
                   >
                     {symbolLabel}
                   </div>

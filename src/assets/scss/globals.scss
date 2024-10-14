@@ -97,11 +97,11 @@ section,
 table {
   text-align: center;
 }
-table tbody tr:nth-child(odd) {
-  background-color: #292524;
+table tbody tr:nth-child(even) {
+  background-color: hsl(var(--muted));
 }
 table th {
-  background-color: #0c0a09;
+  background-color: #1a1717;
 }
 table.hide-oc {
   visibility: hidden;
@@ -186,7 +186,6 @@ svg {
 }
 .position + .risk-type {
   font-size: small;
-  color: hsl(var(--background));
   display: flex;
 }
 .position + .risk-type > span:first-child {

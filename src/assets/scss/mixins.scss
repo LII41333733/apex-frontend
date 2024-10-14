@@ -1,8 +1,11 @@
-@mixin apex-card {
+@mixin box-shadow {
   box-shadow: var(--apex-box-shadow);
-  padding: 0.5rem 0.4rem 0rem 0.4rem;
+}
+
+@mixin apex-card {
+  @include box-shadow;
+  padding: 0.6rem 0.6rem 0rem 0.6rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid hsl(var(--apex-yellow)) !important;
   z-index: 1;
   background: #1a1717;
 }
