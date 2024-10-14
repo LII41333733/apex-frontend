@@ -2,7 +2,7 @@
   box-shadow: var(--apex-box-shadow);
   padding: 0.5rem 0.4rem 0rem 0.4rem;
   margin-bottom: 1rem;
-  border: 2px solid transparent;
+  border-bottom: 1px solid hsl(var(--apex-yellow)) !important;
   z-index: 1;
-  background: #292524;
+  background: #1a1717;
 }

@@ -64,7 +64,7 @@ const OptionsChain: React.FC = () => {
         id="options-chain-table"
         className={`${
           activeSymbol ? "" : "hide-oc"
-        } text-xs options-chain-table w-[320px] md:w-[80%] md:min-w-[320px] max-w-[600px] mx-auto`}
+        } text-xs options-chain-table border-0 w-full min-w-[320px] max-w-[320px] md:max-w-[400px] card mx-auto`}
       >
         <TableHeader className="text-xs">
           <TableRow className="border-none">

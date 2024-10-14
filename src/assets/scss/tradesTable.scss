@@ -1,6 +1,7 @@
 #trades-table {
   font-weight: 400;
   box-shadow: 0px 1px 3.5px 0px hsl(var(--primary));
+  overflow: overlay;
 
   th,
   th div,
