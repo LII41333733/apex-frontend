@@ -18,87 +18,85 @@ const SymbolSelectorWithLotto: React.FC = () => {
   const [getOptionsChain] = useGetOptionsChainMutation();
 
   return (
-    <Card className="option-box card pt-1 mb-3 w-[320px] md:w-[80%] md:min-w-[320px] max-w-[600px]">
-      <CardContent className="px-1 py-1">
-        <section className="mb-1 settings">
-          <CallPutSwitch />
-          <LottoSwitch />
-          <Input
-            className="w-[25%] h-8 text-center symbol-input transparent-ring"
-            placeholder="NKE"
-            value={symbolInput}
-            onChange={(e) =>
-              dispatch(updateSymbolInput(e.target.value.toUpperCase()))
-            }
-          />
-          <Button
-            className="search-btn"
-            onClick={async () => {
-              await getOptionsChain({ symbol: symbolInput, optionType });
-            }}
+    <Card className="option-box m-auto card py-8 mb-3 w-[320px] md:w-[80%] md:min-w-[320px] max-w-[600px]">
+      <section className="mb-1 settings">
+        <CallPutSwitch />
+        <LottoSwitch />
+        <Input
+          className="w-[25%] h-8 text-center symbol-input transparent-ring"
+          placeholder="NKE"
+          value={symbolInput}
+          onChange={(e) =>
+            dispatch(updateSymbolInput(e.target.value.toUpperCase()))
+          }
+        />
+        <Button
+          className="search-btn"
+          onClick={async () => {
+            await getOptionsChain({ symbol: symbolInput, optionType });
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="icon icon-tabler icon-tabler-search"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="hsl(var(--primary))"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-search"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="hsl(var(--primary))"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-              <path d="M21 21l-6 -6" />
-            </svg>
-          </Button>
-        </section>
-        <section className="main-symbols">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+          </svg>
+        </Button>
+      </section>
+      <section className="main-symbols">
+        <Badge
+          onClick={async () => {
+            await getOptionsChain({ symbol: SYMBOLS.SPY, optionType });
+          }}
+          className="rounded badge symbol-badge bg-muted"
+          variant="outline"
+        >
+          {SYMBOLS.SPY}
+        </Badge>
+        <Badge
+          onClick={async () => {
+            await getOptionsChain({ symbol: SYMBOLS.QQQ, optionType });
+          }}
+          className="rounded badge symbol-badge bg-muted"
+          variant="outline"
+        >
+          {SYMBOLS.QQQ}
+        </Badge>
+        <Badge
+          onClick={async () => {
+            await getOptionsChain({ symbol: SYMBOLS.IWM, optionType });
+          }}
+          className="rounded badge symbol-badge bg-muted"
+          variant="outline"
+        >
+          {SYMBOLS.IWM}
+        </Badge>
+      </section>
+      <section className="mini-badges">
+        {Object.values(MINI_SYMBOLS).map((e: SYMBOLS) => (
           <Badge
+            key={e}
             onClick={async () => {
-              await getOptionsChain({ symbol: SYMBOLS.SPY, optionType });
+              await getOptionsChain({ symbol: e, optionType });
             }}
-            className="rounded badge symbol-badge"
+            className="rounded badge symbol-badge bg-muted mini"
             variant="outline"
           >
-            {SYMBOLS.SPY}
+            {e}
           </Badge>
-          <Badge
-            onClick={async () => {
-              await getOptionsChain({ symbol: SYMBOLS.QQQ, optionType });
-            }}
-            className="rounded badge symbol-badge"
-            variant="outline"
-          >
-            {SYMBOLS.QQQ}
-          </Badge>
-          <Badge
-            onClick={async () => {
-              await getOptionsChain({ symbol: SYMBOLS.IWM, optionType });
-            }}
-            className="rounded badge symbol-badge"
-            variant="outline"
-          >
-            {SYMBOLS.IWM}
-          </Badge>
-        </section>
-        <section className="mini-badges">
-          {Object.values(MINI_SYMBOLS).map((e: SYMBOLS) => (
-            <Badge
-              key={e}
-              onClick={async () => {
-                await getOptionsChain({ symbol: e, optionType });
-              }}
-              className="rounded badge symbol-badge mini"
-              variant="outline"
-            >
-              {e}
-            </Badge>
-          ))}
-        </section>
-      </CardContent>
+        ))}
+      </section>
     </Card>
   );
 };

@@ -1,44 +1,15 @@
-import { useAppDispatch, useAppSelector } from "@/state/hooks";
-import OrderFilter from "./OrderFilter";
-import { TradeStatus, OrderStatuses } from "@/constants";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import convertTickerWithExpiration from "@/utils/convertTickerWithExpiration";
-import { BadgeAll } from "./badges/BadgeAll";
-import { BadgeCanceled } from "./badges/BadgeCanceled";
-import { BadgePending } from "./badges/BadgePending";
-import { BadgeOpen } from "./badges/BadgeOpen";
-import { BadgeFilled } from "./badges/BadgeFilled";
-import { Order } from "@/interfaces/Order";
-import OpenPosition from "./OpenPositions";
-import { Button } from "./ui/button";
-import { setConfirmCancelId, setConfirmSellId } from "@/state/orderSlice";
-import {
-  useCancelTradeMutation,
-  useSellPositionMutation,
-} from "@/state/api/apex";
-import StatusBadge from "./StatusBadge";
-import PriceBar from "./PriceBar";
-import OpenPositionPlaceholder from "./OpenPositions";
-import BaseTrade from "@/interfaces/BaseTrade";
-import Trade from "@/interfaces/Trade";
-import OpenPositions from "./OpenPositions";
+import OpenPositions from "../OpenPositions";
+import OrderFilter from "../OrderFilter";
+import "../../assets/scss/positions.scss";
 
 const Positions: React.FC = () => {
   return (
-    <div id="orders">
-      <div className="positions mb-8 md:w-full">
-        <OrderFilter />
-        <OpenPositions />
-        {/*         
-        {openOrders.map((order) => (
-          <OpenPosition trade={trade} />
-        ))} */}
-      </div>
+    <div
+      id="positions"
+      className="dashboard flex  positions mb-8 md:w-full flex-col"
+    >
+      <OrderFilter />
+      <OpenPositions />
       {/* <div className="orders">
         <p className="text-sm font-normal mb-4">{`Orders (${orderList.length})`}</p>
         {orderList.map((order) => {

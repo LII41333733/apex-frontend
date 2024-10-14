@@ -89,10 +89,16 @@ const VisionChart: React.FC = () => {
   const [activeSlice, setActiveSlice] = React.useState(null);
 
   return (
-    <CardContent>
-      <ChartContainer config={chartConfig} className="mx-auto chart-container">
+    <div className="vision-container">
+      <ChartContainer
+        config={chartConfig}
+        className="mx-auto chart-container h-[900px] w-full"
+      >
         {activeSlice && <PositionCard trade={activeSlice} />}
-        <PieChart className="m-o p-0">
+        <PieChart
+          className="m-o p-0"
+          margin={{ top: -90, right: 0, left: -0, bottom: 0 }}
+        >
           <ChartTooltip
             cursor={false}
             content={<ChartTooltipContent hideLabel />}
@@ -101,7 +107,7 @@ const VisionChart: React.FC = () => {
             data={chartData}
             dataKey="pl"
             nameKey="optionSymbol"
-            innerRadius={135}
+            innerRadius={335}
             onMouseOver={(e) => {
               console.log(e);
 
@@ -157,7 +163,7 @@ const VisionChart: React.FC = () => {
           </Pie>
         </PieChart>
       </ChartContainer>
-    </CardContent>
+    </div>
   );
 };
 

@@ -16,6 +16,7 @@ export default {
       lg: "768px",
       xl: "1024px",
       "2xl": "1280px",
+      "3xl": "1440px",
     },
     extend: {
       colors: {
@@ -26,6 +27,7 @@ export default {
         "trade-red": "hsl(var(--trade-red))",
         "apex-yellow": "hsl(var(--apex-yellow))",
         "apex-light-yellow": "hsl(var(--apex-light-yellow))",
+        "apex-med-yellow": "hsl(var(--apex-med-yellow))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

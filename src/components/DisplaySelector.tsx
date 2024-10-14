@@ -15,45 +15,80 @@ const DisplaySelector: React.FC = () => {
   const hasBothOpenAndPendingOrders = hasOpenOrders && hasPendingOrders;
 
   return (
-    <Tabs
-      defaultValue={display}
-      className="display-tab w-full md:w-[400px] m-auto mb-5"
-    >
-      <TabsList className="w-[100%] flex justify-center display-selector-list">
-        <TabsTrigger
-          id="positions-display"
-          onClick={() => {
-            dispatch(updateDisplay(Displays.POSITIONS));
-          }}
-          value={Displays.POSITIONS}
-        >
-          <>
-            {Displays.POSITIONS}
-            <PositionIcon
-              hasOpenOrders={hasOpenOrders}
-              hasPendingOrders={hasPendingOrders}
-              hasBothOpenAndPendingOrders={hasBothOpenAndPendingOrders}
-            />
-          </>
-        </TabsTrigger>
-        <TabsTrigger
-          id="chain-display"
-          onClick={() => {
-            dispatch(updateDisplay(Displays.CHAIN));
-          }}
-          value={Displays.CHAIN}
-        >
-          {Displays.CHAIN}
-        </TabsTrigger>
-        <TabsTrigger
-          id="trades-display"
-          onClick={() => {
-            dispatch(updateDisplay(Displays.TRADES));
-          }}
-          value={Displays.TRADES}
-        >
-          {Displays.TRADES}
-        </TabsTrigger>
+    <Tabs defaultValue={display} className="display-tab mb-5 md:mb-0 md:ml-10">
+      <TabsList className="w-[100%] md:w-[600px] flex justify-center card display-selector-list">
+        <div>
+          <TabsTrigger
+            id="portfolio-display"
+            onClick={() => {
+              dispatch(updateDisplay(Displays.PORTFOLIO));
+            }}
+            value={Displays.PORTFOLIO}
+          >
+            <>
+              {Displays.PORTFOLIO}
+              <PositionIcon
+                hasOpenOrders={hasOpenOrders}
+                hasPendingOrders={hasPendingOrders}
+                hasBothOpenAndPendingOrders={hasBothOpenAndPendingOrders}
+              />
+            </>
+          </TabsTrigger>
+          <TabsTrigger
+            id="chain-display"
+            onClick={() => {
+              dispatch(updateDisplay(Displays.CHAIN));
+            }}
+            value={Displays.CHAIN}
+          >
+            {Displays.CHAIN}
+          </TabsTrigger>
+          <TabsTrigger
+            id="positions-display"
+            onClick={() => {
+              dispatch(updateDisplay(Displays.POSITIONS));
+            }}
+            value={Displays.POSITIONS}
+          >
+            <>
+              {Displays.POSITIONS}
+              <PositionIcon
+                hasOpenOrders={hasOpenOrders}
+                hasPendingOrders={hasPendingOrders}
+                hasBothOpenAndPendingOrders={hasBothOpenAndPendingOrders}
+              />
+            </>
+          </TabsTrigger>
+        </div>
+        <div>
+          <TabsTrigger
+            id="trades-display"
+            onClick={() => {
+              dispatch(updateDisplay(Displays.TRADES));
+            }}
+            value={Displays.TRADES}
+          >
+            {Displays.TRADES}
+          </TabsTrigger>
+          <TabsTrigger
+            id="analytics-display"
+            onClick={() => {
+              dispatch(updateDisplay(Displays.ANALYTICS));
+            }}
+            value={Displays.ANALYTICS}
+          >
+            {Displays.ANALYTICS}
+          </TabsTrigger>
+          <TabsTrigger
+            id="vision-display"
+            onClick={() => {
+              dispatch(updateDisplay(Displays.VISION));
+            }}
+            value={Displays.VISION}
+          >
+            {Displays.VISION}
+          </TabsTrigger>
+        </div>
       </TabsList>
     </Tabs>
   );

@@ -1,0 +1,122 @@
+#positions {
+  .accordion-title {
+    width: 7rem;
+  }
+  .order-filter button[data-state="active"],
+  .order-filter > div {
+    background-color: hsl(var(--muted));
+  }
+  .order-filter > div {
+    margin: 0;
+    justify-content: center;
+  }
+  .accordion-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .accordion-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+  }
+  .accordion-row .cell {
+    display: flex;
+    align-items: center;
+  }
+  .accordion-label {
+    width: 4rem;
+    margin-left: 1.2rem;
+    color: #9ca29e;
+    justify-content: flex-end;
+  }
+  .accordion-price {
+    width: 3rem;
+    margin-right: 2rem;
+    color: #9ca29e;
+    justify-content: center;
+  }
+  .badge,
+  .order-filter .badge {
+    width: 5rem;
+    justify-content: center;
+    line-height: 1rem;
+    color: hsl(var(--background));
+  }
+  .symbol-badge.position-badge.mini {
+    height: 1.8rem;
+    width: 30%;
+    font-size: 0.57rem;
+    align-items: center;
+    display: flex;
+    margin: 0 0.1rem;
+    padding-left: 0.05rem;
+    padding-right: 0.05rem;
+  }
+  .symbol-badge.position-badge.mini.sell {
+    width: 3rem;
+    font-size: 0.7rem;
+  }
+  .order-filter button {
+    padding: 0;
+  }
+  .order-filter button div {
+    display: block;
+  }
+  .order-accordion h3 > button {
+    padding: 0.5rem 1rem;
+  }
+  .order-accordion .order-position .position {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-style: hidden;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .order-accordion .order-position .text-top {
+    display: none;
+  }
+  .order-accordion .order-actions-container button {
+    height: 1.6rem;
+    margin-left: 1rem;
+  }
+  .order-accordion {
+    .order-actions-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-color: hsl(var(--border));
+      border-bottom-width: 1px;
+      background-color: #0c0a09;
+    }
+  }
+  .order-actions-container {
+    border-color: hsl(var(--primary));
+    border-bottom-width: 8px;
+    display: flex;
+    flex-direction: column;
+    background-color: #0c0a09;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    box-shadow: 1.3px 1.7px 3px 0px hsl(var(--primary));
+    width: 106%;
+    margin-left: -0.6rem;
+
+    .border-mask {
+      height: 0.6rem;
+      width: 100.5%;
+      position: relative;
+      background: #0c0a09;
+      top: -0.6rem;
+    }
+  }
+  .order-actions-container .price-slider {
+    width: 95%;
+  }
+  .order-actions-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+}

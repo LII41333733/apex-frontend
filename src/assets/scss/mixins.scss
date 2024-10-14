@@ -1,7 +1,8 @@
 @mixin apex-card {
+  box-shadow: var(--apex-box-shadow);
   padding: 0.5rem 0.4rem 0rem 0.4rem;
   margin-bottom: 1rem;
   border: 2px solid transparent;
-  box-shadow: 1px 1px 3.5px 0px hsl(var(--primary)) !important;
   z-index: 1;
+  background: #292524;
 }

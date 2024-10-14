@@ -1,0 +1,44 @@
+#trades-table {
+  font-weight: 400;
+  box-shadow: 0px 1px 3.5px 0px hsl(var(--primary));
+
+  th,
+  th div,
+  th button {
+    font-weight: 500;
+  }
+  table {
+    text-align: left;
+  }
+  th,
+  th div,
+  th button,
+  td {
+    font-size: 0.6rem;
+  }
+  button {
+    padding: 0rem;
+  }
+  .badge {
+    zoom: 0.8;
+    width: 5rem;
+    justify-content: center;
+  }
+  .table-data.option,
+  .table-data.openDate,
+  .table-data.closeDate {
+    width: 6rem;
+  }
+  .table-data.status {
+    width: 5rem;
+  }
+  .table-data.orderId,
+  .table-data.balance,
+  .table-data {
+    width: 4rem;
+  }
+
+  tbody tr {
+    border: none;
+  }
+}

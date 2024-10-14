@@ -9,7 +9,7 @@ const PositionCard: React.FC = ({ trade }) => {
 
   return (
     <div
-      className="position-container w-[320px] m-auto mb-2 vision-position"
+      className="position-container m-auto mb-2 vision-position"
       style={{
         position: "relative",
       }}

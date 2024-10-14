@@ -4,17 +4,20 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Provider } from "react-redux";
 import { Toaster } from "@/components/ui/toaster";
 import WebSocketComponent from "./components/WebSocketComponent";
-import OptionsChain from "./components/OptionsChain";
+import OptionsChain from "./components/pages/OptionsChain";
 import DisplaySelector from "./components/DisplaySelector";
 import { useAppSelector } from "./state/hooks";
-import Positions from "./components/Positions";
+import Positions from "./components/pages/Positions";
 import { Displays } from "./constants";
-import Trades from "./components/Trades";
 import Login from "./components/Login";
 import DesktopNav from "./components/DesktopNav";
 import MobileNav from "./components/MobileNav";
 import "./index.css";
 import "./assets/scss/index.scss";
+import Portfolio from "./components/pages/Portfolio";
+import Analytics from "./components/pages/Analytics";
+import Vision from "./components/pages/Vision";
+import Trades from "./components/pages/Trades";
 
 function App() {
   return (
@@ -47,9 +50,11 @@ const Protected: React.FC = () => {
       <MobileNav />
       <div
         id="main-container"
-        className="main-container fade-in sm:w-full md:w-[90%] max-w-[1440px]"
+        className="main-container pb-0 fade-in sm:w-full max-w-[1440px] m-auto select-none"
       >
-        <DisplaySelector />
+        <div className="md:hidden">
+          <DisplaySelector />
+        </div>
         <RenderDisplay />
       </div>
       <WebSocketComponent />
@@ -64,14 +69,23 @@ const RenderDisplay: React.FC = () => {
   const { display } = useAppSelector((state) => state.main);
 
   switch (display) {
-    case Displays.POSITIONS: {
-      return <Positions />;
+    case Displays.PORTFOLIO: {
+      return <Portfolio />;
     }
     case Displays.CHAIN: {
       return <OptionsChain />;
     }
+    case Displays.POSITIONS: {
+      return <Positions />;
+    }
     case Displays.TRADES: {
       return <Trades />;
+    }
+    case Displays.ANALYTICS: {
+      return <Analytics />;
+    }
+    case Displays.VISION: {
+      return <Vision />;
     }
     default:
       return <></>;

@@ -18,7 +18,7 @@ import {
   updateQuotesPrices,
 } from "@/state/optionsChainSlice";
 import Quote from "@/interfaces/Quote";
-import SymbolSelectorWithLotto from "./SymbolSelectorWithLotto";
+import SymbolSelectorWithLotto from "../SymbolSelectorWithLotto";
 import float from "@/utils/float";
 import {
   Tooltip,
@@ -58,13 +58,13 @@ const OptionsChain: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="dashboard flex w-full flex-col">
       <SymbolSelectorWithLotto />
       <Table
         id="options-chain-table"
         className={`${
           activeSymbol ? "" : "hide-oc"
-        } text-xs options-chain-table w-[320px] md:w-[80%] md:min-w-[320px] max-w-[600px]`}
+        } text-xs options-chain-table w-[320px] md:w-[80%] md:min-w-[320px] max-w-[600px] mx-auto`}
       >
         <TableHeader className="text-xs">
           <TableRow className="border-none">
@@ -295,7 +295,7 @@ const OptionsChain: React.FC = () => {
           })}
         </TableBody>
       </Table>
-    </>
+    </div>
   );
 };
 

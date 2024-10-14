@@ -9,7 +9,7 @@ const CallPutSwitch: React.FC = () => {
 
   return (
     <Tabs defaultValue={OptionType.CALL} className="w-[25%] call-put mr-4">
-      <TabsList>
+      <TabsList className="card">
         <TabsTrigger
           onClick={(e) => {
             useDispatch;

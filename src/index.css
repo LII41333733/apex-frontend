@@ -22,7 +22,7 @@
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 48 100% 50%;
     --input: 12 6.5% 15.1%;
-    --ring: 35.5 91.7% 32.9%;
+    --ring: 48 100% 70.73%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -35,12 +35,9 @@
     --status-runners: 245 81% 73%;
     --apex-yellow: 47.9 95.8% 53.1%;
     --apex-light-yellow: 48 100% 70.73%;
+    --apex-med-yellow: 47.88 100% 61.18%;
+    --apex-box-shadow: 1px 1px 3.5px 0px hsl(var(--primary));
   }
-}
-
-#root {
-  margin: 0 auto;
-  min-width: 344px;
 }
 
 * {
@@ -50,4 +47,13 @@
 
 body {
   @apply bg-background text-foreground;
+  width: 100%;
+  margin: 0 auto;
+  width: 344px;
+}
+
+@media (min-width: 345px) {
+  body {
+    width: 100%;
+  }
 }

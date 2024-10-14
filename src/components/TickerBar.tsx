@@ -7,7 +7,7 @@ const TickerBar: React.FC = () => {
   const { SPY, QQQ, IWM, VIX } = useAppSelector((state) => state.main);
 
   return (
-    <div className="ticker-bar mt-2">
+    <div className="ticker-bar mt-2 justify-center leading-[1rem]">
       <Ticker {...SPY} />
       <Ticker {...QQQ} />
       <Ticker {...IWM} />
@@ -22,8 +22,13 @@ const Ticker: React.FC<PriceData> = ({ symbol, price, changeDollars }) => {
   const lib: ValuesLibData = getValuesLibData(changeDollars);
 
   return (
-    <div className={lib.textColor}>{`${lib.icon} ${symbol} ${price || "0.00"} ${
-      lib.operator
-    }${Math.abs(Number(changeDollars)).toFixed(2) || "0.00"}`}</div>
+    <div className={`${lib.textColor} mx-1`}>
+      <span className="lib.icon relative top-[0.3px] text-center w-6 inline-block">
+        {lib.icon}
+      </span>
+      {`${symbol} ${price || "0.00"} ${lib.operator}${
+        Math.abs(Number(changeDollars)).toFixed(2) || "0.00"
+      }`}
+    </div>
   );
 };

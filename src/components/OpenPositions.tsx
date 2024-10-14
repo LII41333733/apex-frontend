@@ -20,7 +20,7 @@ const OpenPositions: React.FC = () => {
           No orders available
         </p>
       )}
-      <div className="position-body md:flex">
+      <div className="position-body md:flex p-4">
         {allTrades.reverse().map(([id, trade], i) => {
           const showButtons = showButtonsId === id;
           const showSellConfirm = confirmSellId === id;
@@ -36,7 +36,7 @@ const OpenPositions: React.FC = () => {
 
           return (
             <div
-              className="position-container w-[320px] m-auto mb-2"
+              className="position-container card m-auto mb-2"
               key={id}
               style={{
                 position: "relative",

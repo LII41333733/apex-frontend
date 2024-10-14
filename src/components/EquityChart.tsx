@@ -45,35 +45,38 @@ const EquityChart: React.FC = () => {
         </div>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn rounded badge position-badge symbol-badge mini"
+          className="equity-chart-btn rounded badge text-sm position-badge bg-apex-light-yellow text-background symbol-badge mini"
           variant="outline"
         >
           Yearly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn rounded badge position-badge symbol-badge mini"
+          className="equity-chart-btn rounded badge text-sm position-badge bg-apex-light-yellow text-background symbol-badge mini"
           variant="outline"
         >
           Monthly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn rounded badge position-badge symbol-badge mini"
+          className="equity-chart-btn rounded badge text-sm position-badge bg-apex-light-yellow text-background symbol-badge mini"
           variant="outline"
         >
           Weekly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn rounded badge position-badge symbol-badge mini"
+          className="equity-chart-btn rounded badge text-sm position-badge bg-apex-light-yellow text-background symbol-badge mini"
           variant="outline"
         >
           Daily
         </Badge>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer
+          config={chartConfig}
+          className="bg-background pt-6 pb-4 px-6"
+        >
           <LineChart
             accessibilityLayer
             data={chartData}
