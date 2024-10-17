@@ -1,6 +1,6 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import CallPutSwitch from "./CallPutSwitch";
 import { MINI_SYMBOLS, SYMBOLS } from "@/constants";
 import { useAppDispatch, useAppSelector } from "@/state/hooks";
@@ -18,12 +18,12 @@ const SymbolSelectorWithLotto: React.FC = () => {
   const [getOptionsChain] = useGetOptionsChainMutation();
 
   return (
-    <Card className="option-box border-0 m-auto card py-8 mb-8 w-[320px] md:w-[80%] md:min-w-[320px] max-w-[400px]">
-      <section className="mb-1 settings">
+    <Card className="border-0 m-auto w-[320px] md:w-[80%] md:min-w-[320px] max-w-[500px] option-box">
+      <section className="mb-3">
         <CallPutSwitch />
         <LottoSwitch />
         <Input
-          className="w-[25%] h-8 text-center symbol-input transparent-ring text-foreground"
+          className="w-[25%] h-8 text-center symbol-input transparent-ring text-foreground bg-background order-apex-yellow"
           placeholder="INTC"
           value={symbolInput}
           onChange={(e) =>
@@ -54,12 +54,12 @@ const SymbolSelectorWithLotto: React.FC = () => {
           </svg>
         </Button>
       </section>
-      <section className="main-symbols">
+      <section className="main-symbols mb-3">
         <Badge
           onClick={async () => {
             await getOptionsChain({ symbol: SYMBOLS.SPY, optionType });
           }}
-          className="rounded badge symbol-badge bg-muted"
+          className="rounded badge bg-background symbol-badge md:text-sm"
           variant="outline"
         >
           {SYMBOLS.SPY}
@@ -68,7 +68,7 @@ const SymbolSelectorWithLotto: React.FC = () => {
           onClick={async () => {
             await getOptionsChain({ symbol: SYMBOLS.QQQ, optionType });
           }}
-          className="rounded badge symbol-badge bg-muted"
+          className="rounded badge bg-background symbol-badge md:text-sm"
           variant="outline"
         >
           {SYMBOLS.QQQ}
@@ -77,7 +77,7 @@ const SymbolSelectorWithLotto: React.FC = () => {
           onClick={async () => {
             await getOptionsChain({ symbol: SYMBOLS.IWM, optionType });
           }}
-          className="rounded badge symbol-badge bg-muted"
+          className="rounded badge bg-background symbol-badge md:text-sm"
           variant="outline"
         >
           {SYMBOLS.IWM}
@@ -90,7 +90,7 @@ const SymbolSelectorWithLotto: React.FC = () => {
             onClick={async () => {
               await getOptionsChain({ symbol: e, optionType });
             }}
-            className="rounded badge symbol-badge bg-muted mini"
+            className="rounded badge bg-background symbol-badge md:text-sm mini mb-3"
             variant="outline"
           >
             {e}

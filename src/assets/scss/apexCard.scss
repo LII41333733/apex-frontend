@@ -1,0 +1,23 @@
+@mixin apex-card {
+  @include box-shadow;
+  padding: 0.6rem 0.6rem 0rem 0.6rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+  background: hsl(var(--card-background));
+  border-radius: 0.35rem;
+}
+
+.apex-card {
+  @include apex-card;
+}
+
+.border-mask {
+  height: 1rem;
+  width: 23.5rem;
+  position: absolute;
+  background: hsl(var(--card-background));
+  top: -0.5rem;
+  z-index: 5;
+  left: -0.2rem;
+  border-radius: 22%;
+}

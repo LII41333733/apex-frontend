@@ -161,13 +161,13 @@ const PriceBar: React.FC<{
           {displayStop && (
             <>
               <div
-                className="price-bar-label-top last"
+                className="text-xxs price-bar-label-top absolute top-[-8%] above"
                 style={{ left: `${percentagePositions.stop}%` }}
               >
                 {`Stop`}
               </div>
               <div
-                className="price-bar-label-bottom last"
+                className="text-apex-light-yellow text-xs price-bar-label-bottom above absolute top-[11%]"
                 style={{ left: `${percentagePositions.stop}%` }}
               >
                 {`${float(values.stop)}`}
@@ -181,13 +181,13 @@ const PriceBar: React.FC<{
             style={{ left: `${percentagePositions.last}%` }}
           ></div>
           <div
-            className="price-bar-label-top last"
+            className="text-xxs price-bar-label-top absolute top-[-8%] above"
             style={{ left: `${percentagePositions.last}%` }}
           >
             {`Last`}
           </div>
           <div
-            className="price-bar-label-bottom last"
+            className="text-apex-light-yellow text-xs price-bar-label-bottom above absolute top-[11%]"
             style={{ left: `${percentagePositions.last}%` }}
           >
             {`${float(values.last)}`}
@@ -199,13 +199,13 @@ const PriceBar: React.FC<{
             style={{ left: `${percentagePositions.fill}%` }}
           ></div>
           <div
-            className="price-bar-label-top"
+            className="text-xxs price-bar-label-top absolute top-[70%]"
             style={{ left: `${percentagePositions.fill}%` }}
           >
             {`Fill`}
           </div>
           <div
-            className="price-bar-label-bottom"
+            className="text-apex-light-yellow text-xs price-bar-label-bottom absolute top-[88%]"
             style={{ left: `${percentagePositions.fill}%` }}
           >
             {`${float(values.fill)}`}
@@ -219,13 +219,13 @@ const PriceBar: React.FC<{
           {displayMax && (
             <>
               <div
-                className="price-bar-label-top last"
+                className="text-xxs price-bar-label-top absolute top-[-8%] above"
                 style={{ left: `${percentagePositions.max}%` }}
               >
                 {`Max`}
               </div>
               <div
-                className="price-bar-label-bottom last"
+                className="text-apex-light-yellow text-xs price-bar-label-bottom above absolute top-[11%]"
                 style={{ left: `${percentagePositions.max}%` }}
               >
                 {`${float(values.max)}`}
@@ -239,13 +239,13 @@ const PriceBar: React.FC<{
             style={{ left: `${percentagePositions.trim1}%` }}
           ></div>
           <div
-            className="price-bar-label-top"
+            className="text-xxs price-bar-label-top absolute top-[70%]"
             style={{ left: `${percentagePositions.trim1}%` }}
           >
             {`Trim 1`}
           </div>
           <div
-            className="price-bar-label-bottom"
+            className="text-apex-light-yellow text-xs price-bar-label-bottom absolute top-[88%]"
             style={{ left: `${percentagePositions.trim1}%` }}
           >
             {`${float(values.trim1)}`}
@@ -264,13 +264,13 @@ const PriceBar: React.FC<{
               style={{ left: `${percentagePositions.trim2}%` }}
             ></div>
             <div
-              className="price-bar-label-top"
+              className="text-xxs price-bar-label-top absolute top-[70%]"
               style={{ left: `${percentagePositions.trim2}%` }}
             >
               {`Trim 2`}
             </div>
             <div
-              className="price-bar-label-bottom"
+              className="text-apex-light-yellow text-xs price-bar-label-bottom absolute top-[88%]"
               style={{ left: `${percentagePositions.trim2}%` }}
             >
               {`${float(valuesWithTrim2.trim2)}`}
@@ -289,13 +289,13 @@ const PriceBar: React.FC<{
             style={{ left: `${percentagePositions.runnerLimit}%` }}
           ></div>
           <div
-            className="price-bar-label-top"
+            className="text-xxs price-bar-label-top absolute top-[70%]"
             style={{ left: `${percentagePositions.runnerLimit}%` }}
           >
             {`100%`}
           </div>
           <div
-            className="price-bar-label-bottom"
+            className="text-apex-light-yellow text-xs price-bar-label-bottom absolute top-[88%]"
             style={{ left: `${percentagePositions.runnerLimit}%` }}
           >
             {`${float(values.runnerLimit)}`}
@@ -303,12 +303,14 @@ const PriceBar: React.FC<{
         </section>
       </div>
       {showButtons && (
-        <div className="order-actions-container mt-3">
-          <>
+        <>
+          <div className="order-actions-container top-3">
             <div className="border-mask"></div>
-            <p className="text-center mb-3 text-sm">{sliderValue.toFixed(2)}</p>
+            <p className="text-center mb-3 text-sm relative z-20">
+              {sliderValue.toFixed(2)}
+            </p>
             <Slider
-              className="price-slider mb-6"
+              className="price-slider mb-6 w-[341.69px]"
               min={rangeStart}
               max={rangeEnd}
               step={0.01}
@@ -326,14 +328,14 @@ const PriceBar: React.FC<{
                         riskType: trade.riskType.toString().toUpperCase(),
                       });
                     }}
-                    className="rounded badge position-badge symbol-badge mini sell"
+                    className="rounded badge apex-button text-xs text-foreground symbol-badge mini sell"
                     variant="outline"
                   >
                     Yes
                   </Badge>
                   <Badge
                     onClick={() => setConfirmSellId("")}
-                    className="rounded badge position-badge symbol-badge mini sell"
+                    className="rounded badge apex-button text-xs text-foreground symbol-badge mini sell"
                     variant="outline"
                   >
                     No
@@ -350,10 +352,10 @@ const PriceBar: React.FC<{
                         riskType: trade.riskType,
                       });
                     }}
-                    className="rounded badge position-badge symbol-badge mini"
+                    className="rounded badge apex-button text-xs text-foreground symbol-badge mini"
                     variant="outline"
                   >
-                    Modify Stop
+                    Stop
                   </Badge>
                   <Badge
                     onClick={async () => {
@@ -364,10 +366,10 @@ const PriceBar: React.FC<{
                         riskType: trade.riskType,
                       });
                     }}
-                    className="rounded badge position-badge symbol-badge mini"
+                    className="rounded badge apex-button text-xs text-foreground symbol-badge mini"
                     variant="outline"
                   >
-                    Modify Trim 1
+                    Trim 1
                   </Badge>
                   {hasTrim2 && (
                     <Badge
@@ -379,15 +381,15 @@ const PriceBar: React.FC<{
                           riskType: trade.riskType,
                         });
                       }}
-                      className="rounded badge position-badge symbol-badge mini"
+                      className="rounded badge apex-button text-xs text-foreground symbol-badge mini"
                       variant="outline"
                     >
-                      Modify Trim 2
+                      Trim 2
                     </Badge>
                   )}
                   <Badge
                     onClick={async () => setConfirmSellId(String(trade.id))}
-                    className="rounded badge position-badge symbol-badge mini"
+                    className="rounded badge apex-button text-xs text-foreground symbol-badge mini"
                     variant="outline"
                   >
                     Market Sell
@@ -395,21 +397,21 @@ const PriceBar: React.FC<{
                 </>
               )}
             </div>
-          </>
-          {isPending && (
-            <div className="order-actions-buttons">
-              <Badge
-                onClick={async () => {
-                  await cancelTrade({ id: trade.fillOrderId });
-                }}
-                className="rounded badge position-badge symbol-badge mini"
-                variant="outline"
-              >
-                Cancel Trade
-              </Badge>
-            </div>
-          )}
-        </div>
+            {isPending && (
+              <div className="order-actions-buttons">
+                <Badge
+                  onClick={async () => {
+                    await cancelTrade({ id: trade.fillOrderId });
+                  }}
+                  className="rounded badge apex-button text-xs text-foreground symbol-badge mini"
+                  variant="outline"
+                >
+                  Cancel Trade
+                </Badge>
+              </div>
+            )}
+          </div>
+        </>
       )}
     </>
   );

@@ -73,76 +73,159 @@ const Portfolio: React.FC = () => {
           </div>
         </div>
         <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-          <div className="xl:col-span-2 apex-card card">
+          <div className="col-span-2 apex-card card">
             <EquityChart />
           </div>
           <div className="apex-card card">
-            <CardHeader>
-              <CardTitle>Today's Trades</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-8">
-              <div className="flex items-center gap-4">
-                <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
+            <CardContent className="grid gap-6 mt-8">
+              <div className="flex flex-row center items-center justify-start">
+                <CardTitle className="mr-20">Latest Trades</CardTitle>
+                <CardTitle className="ml-14 mr-12">% P/L</CardTitle>
+                <CardTitle className="ml-0">$ P/L</CardTitle>
+              </div>
+              <div className="flex items-center gap-4 mt-2">
+                <div className="grid gap-0">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
                     SPY 575P 10/4
                   </p>
-                  <p className="text-sm">Base Trade</p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
                 </div>
-                <div className="yellow ml-auto font-medium">+$1,999.00</div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$1,999.00
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
                     QQQ 444P 10/4
                   </p>
-                  <p className="text-sm">Base Trade</p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
                 </div>
-                <div className="yellow ml-auto font-medium">+$39.00</div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$39.00
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
                     TSLA 275C 10/4
                   </p>
-                  <p className="text-sm">Base Trade</p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
                 </div>
-                <div className="yellow ml-auto font-medium">+$39.00</div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$39.00
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
                     SPY 575P 10/4
                   </p>
-                  <p className="text-sm">Base Trade</p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
                 </div>
-                <div className="yellow ml-auto font-medium">+$39.00</div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$39.00
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
                     GOOGL 500C 10/4
                   </p>
-                  <p className="text-sm">Base Trade</p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
                 </div>
-                <div className="yellow ml-auto font-medium">+$299.00</div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$299.00
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
+                    GOOGL 500C 10/4
+                  </p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
+                </div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$299.00
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="grid gap-1">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
+                    GOOGL 500C 10/4
+                  </p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
+                </div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$299.00
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="grid gap-1">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
                     AAPL 305P 10/4
                   </p>
-                  <p className="text-sm">Base Trade</p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
                 </div>
-                <div className="yellow ml-auto font-medium">+$99.00</div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$99.00
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="grid gap-1">
-                  <p className="text-sm font-medium leading-none">
+                  <p className="text-top text-apex-light-yellow font-medium leading-none w-[13rem]">
                     SPY 575P 10/4
                   </p>
-                  <p className="text-sm">Base Trade</p>
+                  <p className="italic text-xs text-foreground tracking-wide">
+                    BASE TRADE
+                  </p>
                 </div>
-                <div className="yellow ml-auto font-medium">+$39.00</div>
+                <div className="text-trade-green ml-auto font-medium w-[4rem]">
+                  100%
+                </div>
+                <div className="ml-auto text-trade-red font-lg w-[5rem]">
+                  +$39.00
+                </div>
               </div>
             </CardContent>
           </div>

@@ -45,12 +45,12 @@ const Protected: React.FC = () => {
   }, [token]);
 
   return token ? (
-    <>
+    <div className="overflow-y-hidden">
       <DesktopNav />
       <MobileNav />
       <div
         id="main-container"
-        className="main-container pb-0 fade-in sm:w-full max-w-[1440px] m-auto select-none"
+        className="main-container pb-0 fade-in sm:w-full max-w-[1650px] m-auto select-none"
       >
         <div className="md:hidden">
           <DisplaySelector />
@@ -59,7 +59,7 @@ const Protected: React.FC = () => {
       </div>
       <WebSocketComponent />
       <Toaster />
-    </>
+    </div>
   ) : (
     <Login />
   );

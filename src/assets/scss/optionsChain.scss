@@ -1,16 +1,114 @@
+@import "mixins";
+
 thead tr {
   font-size: 0.9rem;
 }
 
 .option-box {
   @include apex-card;
-  padding: 0.6rem 0.5rem 0.5rem 0.5rem;
-  background: var(--background);
+  padding: 1.2rem;
+  padding-bottom: 0.6rem;
+  margin-bottom: 2rem;
 }
 
-.risk-select {
-  margin: 0 0.5rem 0 0.7rem;
+.search-btn {
+  background: hsl(12deg 6.49% 15.1%);
+  width: 2rem;
+  padding: 0;
+  height: 2rem;
+}
+.symbol-input {
+  padding: 0;
+}
+.transparent-ring:focus,
+.transparent-ring:focus-visible {
+  --tw-ring-color: transparent;
 }
 
 table {
+  text-align: center;
+}
+table tbody tr:nth-child(odd) {
+  background-color: hsl(var(--background));
+}
+table th {
+  background-color: hsl(var(--card-background));
+}
+table.hide-oc {
+  visibility: hidden;
+}
+table .edit-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+table tbody td {
+  font-weight: 400;
+}
+
+#options-chain-table {
+  & tbody tr {
+    border: none;
+  }
+
+  .icon-tabler-info-circle-filled {
+    margin-left: -0.2rem;
+  }
+
+  .icon-tabler-check,
+  .icon-tabler-checks {
+    margin: 0 auto;
+  }
+}
+
+.edit-price span {
+  margin: 0 0.5rem;
+}
+
+.position-container,
+.symbol-badge,
+svg {
+  cursor: pointer;
+}
+
+.selected-symbol {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section,
+.mini-badges,
+.main-symbols {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mini-badges,
+.main-symbols {
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+.symbol-badge,
+.symbol-badge.mini {
+  font-weight: 600 !important;
+  width: 30.8%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+  border: none;
+}
+.symbol-badge {
+  @include btn-box-shadow;
+
+  &.mini {
+    height: 1.8rem;
+    width: 22%;
+  }
+}
+.call-put > div,
+.lotto > div {
+  zoom: 0.9;
 }

@@ -4,4 +4,4 @@ const getColor = (color: string) => {
     .trim()})`;
 };
 
-export const primary = () => getColor("primary");
+export const primary = () => getColor("apex-light-yellow");

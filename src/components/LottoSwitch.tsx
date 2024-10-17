@@ -20,7 +20,7 @@ const LottoSwitch: React.FC = () => {
       onValueChange={(e) => setRiskType(e)}
       defaultValue={riskType.toString()}
     >
-      <SelectTrigger className="h-8 flex-1 risk-select transparent-ring text-foreground">
+      <SelectTrigger className="h-8 flex-1 mr-4 risk-select bg-background transparent-ring text-foreground">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>

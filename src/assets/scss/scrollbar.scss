@@ -11,15 +11,15 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: hsl(47.9 95.8% 53.1%);
+  background: hsl(var(--apex-light-yellow));
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(47.9 95.8% 53.1%);
+  background: hsl(var(--apex-light-yellow));
 }
 
 .apex-text-yellow {
-  color: hsl(var(--apex-text-yellow));
+  color: hsl(var(--apex-light-yellow));
 }

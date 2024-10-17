@@ -27,79 +27,81 @@ const OrderFilter: React.FC = () => {
   };
 
   return (
-    <div className="order-filter w-full md:w-[320px] m-auto mb-5 apex-box-shadow border-0">
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full order-accordion bg-card-foreground border-0"
-      >
-        <AccordionItem value="item-1" className="border-0">
-          <AccordionTrigger>
-            <div className="accordion-title">Filter By Status</div>
-            <ActiveBadge />
-          </AccordionTrigger>
-          <AccordionContent>
-            <Tabs
-              defaultValue={OrderStatuses.ALL}
-              className="w-[100%] text-center"
-            >
-              <TabsList>
-                <TabsTrigger
-                  onClick={() => selectStatus(OrderStatuses.ALL)}
-                  value={OrderStatuses.ALL}
-                >
-                  <BadgeAll />
-                </TabsTrigger>
-              </TabsList>
-              <TabsList>
-                <TabsTrigger
-                  onClick={() => selectStatus(OrderStatuses.OPEN)}
-                  value={OrderStatuses.OPEN}
-                >
-                  <BadgeOpen />
-                </TabsTrigger>
-              </TabsList>
-              <TabsList>
-                <TabsTrigger
-                  onClick={() => selectStatus(OrderStatuses.FILLED)}
-                  value={OrderStatuses.FILLED}
-                >
-                  <BadgeFilled />
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
-            <Tabs
-              defaultValue={OrderStatuses.PENDING}
-              className="w-[100%] text-center"
-            >
-              <TabsList>
-                <TabsTrigger
-                  onClick={() => selectStatus(OrderStatuses.PENDING)}
-                  value={OrderStatuses.PENDING}
-                >
-                  <BadgePending />
-                </TabsTrigger>
-              </TabsList>
-              <TabsList>
-                <TabsTrigger
-                  onClick={() => selectStatus(OrderStatuses.CANCELED)}
-                  value={OrderStatuses.CANCELED}
-                >
-                  <BadgeCanceled />
-                </TabsTrigger>
-              </TabsList>
-              <TabsList>
-                <TabsTrigger
-                  onClick={() => selectStatus(OrderStatuses.RUNNERS)}
-                  value={OrderStatuses.RUNNERS}
-                >
-                  <BadgeRunners />
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+    <div className="order-filter md:w-[320px] m-auto mb-5 border-0 !pt-0 !z-10">
+      <div className="h-10">
+        <Accordion
+          type="single"
+          collapsible
+          className="order-accordion border-0 bg-card-background apex-card !pt-0"
+        >
+          <AccordionItem value="item-1" className="border-0">
+            <AccordionTrigger>
+              <div className="accordion-title">Filter By Status</div>
+              <ActiveBadge />
+            </AccordionTrigger>
+            <AccordionContent>
+              <Tabs
+                defaultValue={OrderStatuses.ALL}
+                className="w-[100%] text-center"
+              >
+                <TabsList>
+                  <TabsTrigger
+                    onClick={() => selectStatus(OrderStatuses.ALL)}
+                    value={OrderStatuses.ALL}
+                  >
+                    <BadgeAll />
+                  </TabsTrigger>
+                </TabsList>
+                <TabsList>
+                  <TabsTrigger
+                    onClick={() => selectStatus(OrderStatuses.OPEN)}
+                    value={OrderStatuses.OPEN}
+                  >
+                    <BadgeOpen />
+                  </TabsTrigger>
+                </TabsList>
+                <TabsList>
+                  <TabsTrigger
+                    onClick={() => selectStatus(OrderStatuses.FILLED)}
+                    value={OrderStatuses.FILLED}
+                  >
+                    <BadgeFilled />
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
+              <Tabs
+                defaultValue={OrderStatuses.PENDING}
+                className="w-[100%] text-center"
+              >
+                <TabsList>
+                  <TabsTrigger
+                    onClick={() => selectStatus(OrderStatuses.PENDING)}
+                    value={OrderStatuses.PENDING}
+                  >
+                    <BadgePending />
+                  </TabsTrigger>
+                </TabsList>
+                <TabsList>
+                  <TabsTrigger
+                    onClick={() => selectStatus(OrderStatuses.CANCELED)}
+                    value={OrderStatuses.CANCELED}
+                  >
+                    <BadgeCanceled />
+                  </TabsTrigger>
+                </TabsList>
+                <TabsList>
+                  <TabsTrigger
+                    onClick={() => selectStatus(OrderStatuses.RUNNERS)}
+                    value={OrderStatuses.RUNNERS}
+                  >
+                    <BadgeRunners />
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
     </div>
   );
 };

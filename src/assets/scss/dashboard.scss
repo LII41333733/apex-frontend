@@ -28,10 +28,11 @@
     justify-content: space-between;
 
     .equity-chart-btn {
+      @include btn-box-shadow;
       width: 5rem;
       // color: white;
       // border: 1px solid hsl(var(--apex-light-yellow));
-      box-shadow: var(--apex-box-shadow);
+      // box-shadow: var(--apex-box-shadow);
 
       // background: #ffe16a;
       // color: #0c0a09;

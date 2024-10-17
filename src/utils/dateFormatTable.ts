@@ -1,4 +1,4 @@
-export function dateFormatFull(dateString: string) {
+export function dateFormatTable(dateString: string) {
   const date = new Date(dateString);
 
   const options: Intl.DateTimeFormatOptions = {

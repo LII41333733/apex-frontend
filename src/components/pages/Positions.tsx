@@ -1,12 +1,11 @@
 import OpenPositions from "../OpenPositions";
 import OrderFilter from "../OrderFilter";
-import "../../assets/scss/positions.scss";
 
 const Positions: React.FC = () => {
   return (
     <div
       id="positions"
-      className="dashboard flex  positions mb-8 md:w-full flex-col"
+      className="dashboard flex positions mb-8 md:w-full flex-col"
     >
       <OrderFilter />
       <OpenPositions />

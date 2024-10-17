@@ -1,39 +1,30 @@
 @import "mixins";
 
 #trades-table {
-  font-weight: 400;
   overflow: overlay;
 
-  th,
-  th div,
-  th button {
-    font-weight: 500;
-  }
   table {
     @include box-shadow;
     text-align: left;
   }
-  th,
-  th div,
-  th button,
-  td {
-    font-size: 0.6rem;
-  }
   button {
     padding: 0rem;
   }
-  .badge {
-    zoom: 0.8;
-    width: 5rem;
-    justify-content: center;
+  .table-data {
+    margin: 0 auto;
   }
-  .table-data.optionSymbol,
+  .table-data.optionSymbol {
+    width: 7rem;
+  }
   .table-data.openDate,
   .table-data.closeDate {
     width: 6rem;
   }
   .table-data.status {
     width: 5rem;
+  }
+  .table-data.riskType {
+    font-style: italic;
   }
   .table-data.orderId,
   .table-data.balance {
@@ -42,5 +33,30 @@
 
   tbody tr {
     border: none;
+  }
+
+  table {
+    text-align: center;
+  }
+
+  table.hide-oc {
+    visibility: hidden;
+  }
+  table .edit-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  table td {
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 0 !important;
+  }
+  table tbody td {
+    padding: 0 !important;
+  }
+  thead button {
+    position: relative;
+    left: 0.7rem;
   }
 }

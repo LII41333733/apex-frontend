@@ -39,34 +39,34 @@ const EquityChart: React.FC = () => {
   return (
     <>
       <CardHeader className="equity-chart w-[100%]">
-        <div className="w-[60%] grow-1">
+        <div className="flex-1">
           <CardTitle>Net Account Value</CardTitle>
           <CardDescription>Total P/L</CardDescription>
         </div>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn bg-card-background rounded badge text-sm position-badge text-foreground symbol-badge mini"
+          className="equity-chart-btn mr-4 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini"
           variant="outline"
         >
           Yearly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn bg-card-background rounded badge text-sm position-badge text-foreground symbol-badge mini"
+          className="equity-chart-btn mr-4 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini"
           variant="outline"
         >
           Monthly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn bg-card-background rounded badge text-sm position-badge text-foreground symbol-badge mini"
+          className="equity-chart-btn mr-4 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini"
           variant="outline"
         >
           Weekly
         </Badge>
         <Badge
           onClick={async () => {}}
-          className="equity-chart-btn bg-card-background rounded badge text-sm position-badge text-foreground symbol-badge mini"
+          className="equity-chart-btn mr-4 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini"
           variant="outline"
         >
           Daily

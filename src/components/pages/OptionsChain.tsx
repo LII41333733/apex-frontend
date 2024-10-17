@@ -64,7 +64,7 @@ const OptionsChain: React.FC = () => {
         id="options-chain-table"
         className={`${
           activeSymbol ? "" : "hide-oc"
-        } text-xs options-chain-table border-0 w-full min-w-[320px] max-w-[320px] md:max-w-[400px] card apex-card mx-auto`}
+        } text-xs md:text-sm options-chain-table border-0 w-full min-w-[320px] max-w-[320px] md:max-w-[500px] card apex-card mx-auto`}
       >
         <TableHeader className="text-xs">
           <TableRow className="border-none">
@@ -77,7 +77,7 @@ const OptionsChain: React.FC = () => {
             <TableCell onClick={async () => await stopOptionsChain({})}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-circle-x close-chain"
+                className="icon icon-tabler icon-tabler-circle-x close-chain relative left-2"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"

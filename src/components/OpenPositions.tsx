@@ -20,7 +20,7 @@ const OpenPositions: React.FC = () => {
           No orders available
         </p>
       )}
-      <div className="position-body md:flex p-4">
+      <div className="md:flex md:py-4 md:flex-row md:flex-wrap md:justify-center w-full md:w-[78rem] m-auto">
         {allTrades.reverse().map(([id, trade], i) => {
           const showButtons = showButtonsId === id;
           const showSellConfirm = confirmSellId === id;
@@ -36,11 +36,11 @@ const OpenPositions: React.FC = () => {
 
           return (
             <div
-              className="position-container card m-auto mb-2"
+              className="position-container md:mx-4"
               key={id}
               style={{
                 position: "relative",
-                zIndex: allTrades.length - i, // Dynamic z-index: highest for the first card
+                zIndex: allTrades.length - i,
               }}
             >
               <div className="position mb-0">
@@ -61,15 +61,15 @@ const OpenPositions: React.FC = () => {
                     {symbolLabel}
                   </div>
                   <div className="text-bottom text-xs">
-                    <span className="text-bottom-label font-normal">Cons</span>
+                    <span className="text-bottom-label text-xs">Cons</span>
                     <span className="text-bottom-value mx-1">
                       {trade.quantity}
                     </span>
-                    <span className="text-bottom-label font-normal">Avg</span>
+                    <span className="text-bottom-label text-xs">Avg</span>
                     <span className="text-bottom-value mx-1">
                       {float(trade.fillPrice)}
                     </span>
-                    <span className="text-bottom-label font-normal">Last</span>
+                    <span className="text-bottom-label text-xs">Last</span>
                     <span className="text-bottom-value ml-1">
                       {float(trade.lastPrice)}
                     </span>
@@ -77,8 +77,8 @@ const OpenPositions: React.FC = () => {
                 </div>
                 <PositionPl trade={trade} />
               </div>
-              <div className="risk-type mb-2 px-2">
-                <span>{`${trade.riskType} TRADE`}</span>
+              <div className="risk-type mb-3 mt-2">
+                <span className="text-foreground">{`${trade.riskType} TRADE`}</span>
                 <StatusBadge status={trade.status} />
               </div>
               <PriceBar

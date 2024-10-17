@@ -1,11 +1,8 @@
 @import "mixins";
+@import "apexCard";
 
 .apex-box-shadow {
-  box-shadow: var(--apex-box-shadow);
-}
-
-.apex-card {
-  @include apex-card;
+  @include box-shadow;
 }
 
 .text-trade-green {
@@ -24,10 +21,17 @@
   color: hsl(var(--status-open));
 }
 
+.text-xxs {
+  font-size: 0.67rem;
+}
+
 div[role="tablist"] button {
   border-radius: 0.35rem !important;
 }
 
+.dashboard {
+  padding: 0.4rem;
+}
 .display-tab {
   button {
     margin: 0 0.3rem;
@@ -42,109 +46,13 @@ div[role="tablist"] button {
   }
 }
 
-section,
-.mini-badges,
-.main-symbols {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.mini-badges,
-.main-symbols {
-  flex-flow: wrap;
-  justify-content: space-between;
-}
-
-.symbol-badge,
-.symbol-badge.mini {
-  margin: 0.2rem 0rem;
-  font-weight: 600 !important;
-  width: 31.5%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  height: 2rem;
-  border: none;
-}
-.symbol-badge.mini {
-  height: 1.8rem;
-  width: 23%;
-}
-.call-put > div,
-.lotto > div {
-  zoom: 0.9;
-}
-
 .card {
   border-radius: 0.35rem !important;
 }
 
-.search-btn {
-  background: hsl(12deg 6.49% 15.1%) !important;
-  width: 2rem;
-  padding: 0 !important;
-  height: 2rem !important;
-}
-.symbol-input {
-  padding: 0 !important;
-}
-.transparent-ring:focus,
-.transparent-ring:focus-visible {
-  --tw-ring-color: transparent !important;
-}
-
-table {
-  text-align: center;
-}
-table tbody tr:nth-child(even) {
-  background-color: hsl(var(--muted));
-}
-table th {
-  background-color: #1a1717;
-}
-table.hide-oc {
-  visibility: hidden;
-}
-table .edit-price {
-  display: flex;
-  align-items: center;
+.badge {
   justify-content: center;
-}
-table tbody td {
-  font-weight: 400;
-}
-
-#options-chain-table {
-  & tbody tr {
-    border: none;
-  }
-
-  .icon-tabler-info-circle-filled {
-    margin-left: -0.2rem;
-  }
-
-  .close-chain,
-  .icon-tabler-check,
-  .icon-tabler-checks {
-    margin: 0 auto;
-  }
-}
-
-.edit-price span {
-  margin: 0 0.5rem;
-}
-
-.position-container,
-.symbol-badge,
-svg {
-  cursor: pointer;
-}
-
-.selected-symbol {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  min-width: 5rem;
 }
 
 #ticker-bar {
@@ -173,16 +81,24 @@ svg {
   }
 }
 
+.main-container {
+  min-height: 80vh;
+}
+
 .position-container {
   @include apex-card;
-  height: 170px;
+  height: 176px;
+
+  @media (min-width: 345px) {
+    padding: 0.6rem 1.4rem 1.3rem 1.4rem;
+    margin-bottom: 2rem;
+    width: 24rem;
+  }
 }
 .position {
   display: flex;
   flex-flow: row;
   align-items: center;
-  padding: 0 0.4rem;
-  padding-bottom: 0.6rem;
 }
 .position + .risk-type {
   font-size: small;
@@ -191,7 +107,7 @@ svg {
 .position + .risk-type > span:first-child {
   font-style: italic;
   flex-grow: 1;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.025em;
 }
 .position .column {
   display: flex;
@@ -205,21 +121,17 @@ svg {
   width: 6rem;
   justify-content: flex-end;
   flex-grow: 1;
-  font-size: small;
 }
 .position .perc-column {
   width: 5.8rem;
   justify-content: flex-end;
-  font-size: small;
 }
 .position .text-bottom-label {
-  font-size: 0.6rem;
   color: #9ca29e;
 }
 .position .text-bottom-value {
   position: relative;
   top: 0rem;
-  font-size: 0.65rem;
 }
 
 .price-bar-wrapper {
@@ -265,31 +177,4 @@ svg {
 }
 .price-bar-wrapper .price-bar-fill {
   background-color: hsl(var(--primary));
-}
-.price-bar-wrapper .price-bar-label-top {
-  position: absolute;
-  top: 70%;
-  font-size: xx-small;
-}
-.price-bar-wrapper .price-bar-label-bottom {
-  position: absolute;
-  top: 88%;
-  font-size: xx-small;
-}
-.price-bar-wrapper .price-bar-label-top.last {
-  position: absolute;
-  top: -6%;
-  font-size: xx-small;
-}
-.price-bar-wrapper .price-bar-label-bottom.last {
-  position: absolute;
-  top: 10%;
-  font-size: xx-small;
-}
-.price-slider {
-  margin-left: 0.4rem;
-}
-.price-slider span[role="slider"] {
-  width: 0.3rem !important;
-  border-radius: 0 !important;
 }

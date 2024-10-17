@@ -71,7 +71,7 @@ export const mainSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addMatcher(apexApi.endpoints.placeTrade.matchFulfilled, (state) => {
-      state.display = Displays.POSITIONS;
+      state.display = Displays.TRADES;
     });
   },
 });

@@ -8,7 +8,7 @@ const CallPutSwitch: React.FC = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <Tabs defaultValue={OptionType.CALL} className="w-[25%] call-put mr-4">
+    <Tabs defaultValue={OptionType.CALL} className="w-[25%] call-put mr-1">
       <TabsList className="card">
         <TabsTrigger
           onClick={(e) => {

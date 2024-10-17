@@ -27,7 +27,6 @@ import { dateFormatFull } from "@/utils/dateFormatFull";
 import StatusBadge from "../StatusBadge";
 import { dollar } from "@/utils/dollar";
 import BaseTrade from "@/interfaces/BaseTrade";
-import "../../assets/scss/tradesTable.scss";
 import { tradeTableColumns } from "@/constants/tradeTableColumns";
 
 const Trades: React.FC = () => {
@@ -54,21 +53,24 @@ const Trades: React.FC = () => {
   });
 
   return (
-    <div id="trades-table" className="w-full apex-box-shadow">
-      <Table>
+    <div className="dashboard flex w-full flex-col">
+      <Table
+        id="trades-table"
+        className="text-xs border-0 w-full min-w-[320px] max-w-[320px] md:max-w-[110rem] card apex-card mx-auto"
+      >
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
+            <TableRow className="border-none">
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id} className="text-foreground">
+                  <TableCell key={header.id} className="text-foreground p-0">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
                           header.getContext()
                         )}
-                  </TableHead>
+                  </TableCell>
                 );
               })}
             </TableRow>
@@ -80,9 +82,10 @@ const Trades: React.FC = () => {
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
+                className="h-[2rem]"
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                  <TableCell key={cell.id} className="p-0">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
