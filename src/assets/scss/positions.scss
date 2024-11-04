@@ -1,113 +1,109 @@
-@import "mixins";
-@import "apexCard";
+@import 'mixins';
+@import 'apexCard';
 
 #positions {
-  .accordion-title {
-    width: 7rem;
-  }
-  .accordion-content {
-    display: flex;
-    flex-direction: column;
-  }
-  .accordion-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.1rem;
-  }
-  .accordion-row .cell {
-    display: flex;
-    align-items: center;
-  }
-  .accordion-label {
-    width: 4rem;
-    margin-left: 1.2rem;
-    color: #9ca29e;
-    justify-content: flex-end;
-  }
-  .accordion-price {
-    width: 3rem;
-    margin-right: 2rem;
-    color: #9ca29e;
-    justify-content: center;
-  }
-  .badge,
-  .order-filter .badge {
-    width: 5rem;
-    justify-content: center;
-    line-height: 1rem;
-  }
-  .symbol-badge.apex-button.mini {
-    background: hsl(var(--background));
-    height: 1.8rem;
-    align-items: center;
-    display: flex;
-    margin: 0 0.25rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-  }
-  .symbol-badge.apex-button.mini.sell {
-    background: hsl(var(--background));
-    width: 3rem;
-    font-size: 0.7rem;
-  }
-  .order-filter button {
-    padding: 0;
-  }
-  .order-accordion h3 > button {
-    padding: 0.5rem 1rem;
-  }
-  .order-accordion .order-position .position {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    border-style: hidden;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-  .order-accordion .order-position .text-top {
-    display: none;
-  }
-  .order-accordion .order-actions-container button {
-    height: 1.6rem;
-    margin-left: 1rem;
-  }
-  .order-actions-container {
-    @include box-shadow;
-    @include apex-card;
-    width: 109%;
-    border-color: hsl(var(--primary));
-    border-bottom-width: 8px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    margin: auto;
-    left: -0.9rem;
-    position: relative;
-    padding-left: 0.1;
-    padding-right: 0.1;
-    padding-top: 0;
+    .accordion-title {
+        width: 7rem;
+    }
+    .accordion-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .accordion-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.1rem;
+    }
+    .accordion-row .cell {
+        display: flex;
+        align-items: center;
+    }
+    .accordion-label {
+        width: 4rem;
+        margin-left: 1.2rem;
+        color: #9ca29e;
+        justify-content: flex-end;
+    }
+    .accordion-price {
+        width: 3rem;
+        margin-right: 2rem;
+        color: #9ca29e;
+        justify-content: center;
+    }
+    .symbol-badge.apex-button.mini {
+        background: hsl(var(--background));
+        height: 1.8rem;
+        align-items: center;
+        display: flex;
+        margin: 0 0.25rem;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    .symbol-badge.apex-button.mini.sell {
+        background: hsl(var(--background));
+        width: 3rem;
+        font-size: 0.7rem;
+    }
+    .order-filter button {
+        padding: 0;
+    }
+    .order-accordion h3 > button {
+        padding: 0.5rem 1rem;
+    }
+    .order-accordion .order-position .position {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        border-style: hidden;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .order-accordion .order-position .text-top {
+        display: none;
+    }
+    .order-accordion .order-actions-container button {
+        height: 1.6rem;
+        margin-left: 1rem;
+    }
+    .order-actions-container {
+        @include apex-card;
+        box-shadow: 0.7px 3.7px 3.3px 0px hsl(var(--apex-med-yellow));
+        border-color: hsl(var(--primary));
+        border-bottom-width: 8px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        margin: auto;
+        left: 0;
+        position: absolute;
+        padding: 0.6rem 0.6rem 0rem 0.6rem;
+        margin-bottom: 1rem;
+        z-index: 1;
+        background: hsl(var(--card-background));
+        border-radius: 0.35rem;
+        border-color: hsl(var(--primary));
+        border-bottom-width: 0px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        margin: auto;
+        left: 0;
+        position: absolute;
+        top: 10.6rem;
+        width: 100%;
 
-    .price-slider span[role="slider"] {
-      width: 0.3rem !important;
-      border-radius: 0 !important;
+        .price-slider span[role='slider'] {
+            width: 0.4rem !important;
+            border-radius: 0 !important;
+        }
+        .price-slider {
+            position: relative;
+        }
+        .order-actions-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 1rem;
+        }
     }
-    .price-slider {
-      width: 98.6%;
-      left: 0.3rem;
-      position: relative;
-    }
-    .order-actions-buttons {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding-bottom: 1rem;
-    }
-
-    @media (min-width: 345px) {
-      // padding: 0.6rem 1.4rem 1.3rem 1.4rem;
-      // margin-bottom: 2rem;
-      // width: 24rem;
-    }
-  }
 }

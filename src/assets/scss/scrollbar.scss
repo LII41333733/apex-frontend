@@ -1,25 +1,25 @@
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+    width: 5px;
+    height: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 5px;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--apex-light-yellow));
-  border-radius: 5px;
+    background: hsl(var(--apex-light-yellow));
+    border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--apex-light-yellow));
+    background: hsl(var(--apex-light-yellow));
 }
 
 .apex-text-yellow {
-  color: hsl(var(--apex-light-yellow));
+    color: hsl(var(--apex-light-yellow));
 }

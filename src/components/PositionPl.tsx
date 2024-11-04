@@ -1,42 +1,41 @@
-import { TradeStatus, ValuesLibData } from "@/constants";
-import BaseTrade from "@/interfaces/BaseTrade";
-import LottoTrade from "@/interfaces/LottoTrade";
-import getValuesLibData from "@/utils/getValuesLibData";
+import { TradeStatus, ValuesLibData } from '@/constants';
+import Trade from '@/types/Trade';
+import getValuesLibData from '@/utils/getValuesLibData';
 
 const PositionPl: React.FC<{
-  trade: BaseTrade | LottoTrade;
+    trade: Trade;
 }> = ({
-  trade: { quantity, fillPrice, lastPrice, pl, tradeAmount, status },
+    trade: { quantity, fillPrice, lastPrice, pl, tradeAmount, status },
 }) => {
-  const displayDefault =
-    status === TradeStatus.PENDING ||
-    status === TradeStatus.CANCELED ||
-    status === TradeStatus.REJECTED;
+    const displayDefault =
+        status === TradeStatus.PENDING ||
+        status === TradeStatus.CANCELED ||
+        status === TradeStatus.REJECTED;
 
-  const buyPrice = fillPrice * 100;
-  const currentPrice = lastPrice * 100;
-  const dollarDiff = displayDefault
-    ? 0
-    : pl === 0
-    ? (currentPrice - buyPrice) * quantity
-    : pl;
-  const percDiff = displayDefault
-    ? 0
-    : pl === 0
-    ? ((currentPrice - buyPrice) / buyPrice) * 100
-    : (pl / tradeAmount) * 100;
-  const lib: ValuesLibData = getValuesLibData(dollarDiff);
+    const buyPrice = fillPrice * 100;
+    const currentPrice = lastPrice * 100;
+    const dollarDiff = displayDefault
+        ? 0
+        : pl === 0
+          ? (currentPrice - buyPrice) * quantity
+          : pl;
+    const percDiff = displayDefault
+        ? 0
+        : pl === 0
+          ? ((currentPrice - buyPrice) / buyPrice) * 100
+          : (pl / tradeAmount) * 100;
+    const lib: ValuesLibData = getValuesLibData(dollarDiff);
 
-  return (
-    <>
-      <div className={`pl-column column ${lib.textColor}`}>{`${
-        lib.operator
-      }$${Math.abs(dollarDiff).toFixed(2)}`}</div>
-      <div className={`perc-column column ${lib.textColor}`}>{`${
-        lib.operator
-      }${Math.abs(percDiff).toFixed(2)}%`}</div>
-    </>
-  );
+    return (
+        <>
+            <div className={`pl-column column ${lib.textColor}`}>{`${
+                lib.operator
+            }$${Math.abs(dollarDiff).toFixed(2)}`}</div>
+            <div className={`perc-column column ${lib.textColor}`}>{`${
+                lib.operator
+            }${Math.abs(percDiff).toFixed(2)}%`}</div>
+        </>
+    );
 };
 
 export default PositionPl;

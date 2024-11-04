@@ -1,62 +1,62 @@
-@import "mixins";
+@import 'mixins';
 
 #trades-table {
-  overflow: overlay;
+    overflow: overlay;
 
-  table {
-    @include box-shadow;
-    text-align: left;
-  }
-  button {
-    padding: 0rem;
-  }
-  .table-data {
-    margin: 0 auto;
-  }
-  .table-data.optionSymbol {
-    width: 7rem;
-  }
-  .table-data.openDate,
-  .table-data.closeDate {
-    width: 6rem;
-  }
-  .table-data.status {
-    width: 5rem;
-  }
-  .table-data.riskType {
-    font-style: italic;
-  }
-  .table-data.orderId,
-  .table-data.balance {
-    width: 4rem;
-  }
+    table {
+        @include box-shadow;
+        text-align: left;
+    }
+    button {
+        padding: 0rem;
+    }
+    .table-data {
+        margin: 0 auto;
+    }
+    .table-data.optionSymbol {
+        width: 7rem;
+    }
+    .table-data.openDate,
+    .table-data.closeDate {
+        width: 6rem;
+    }
+    .table-data.status {
+        width: 5rem;
+    }
+    .table-data.riskType {
+        font-style: italic;
+    }
+    .table-data.orderId,
+    .table-data.balance {
+        width: 4rem;
+    }
 
-  tbody tr {
-    border: none;
-  }
+    tbody tr {
+        border: none;
+    }
 
-  table {
-    text-align: center;
-  }
+    table {
+        text-align: center;
+    }
 
-  table.hide-oc {
-    visibility: hidden;
-  }
-  table .edit-price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  table td {
-    font-weight: 400;
-    margin: 0 auto;
-    padding: 0 !important;
-  }
-  table tbody td {
-    padding: 0 !important;
-  }
-  thead button {
-    position: relative;
-    left: 0.7rem;
-  }
+    table.hide-oc {
+        visibility: hidden;
+    }
+    table .edit-price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    table td {
+        font-weight: 400;
+        margin: 0 auto;
+        padding: 0 !important;
+    }
+    table tbody td {
+        padding: 0 !important;
+    }
+    thead button {
+        position: relative;
+        left: 0.7rem;
+    }
 }

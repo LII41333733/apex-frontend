@@ -1,42 +1,42 @@
 {
-  "type": "tradeSummary",
-  "data": {
-    "baseTrades": {
-      "allTrades": {
-        "104209182024": {
-          "id": 104209182024,
-          "preTradeBalance": 58608.75,
-          "postTradeBalance": null,
-          "optionSymbol": "SPY240920C00565000",
-          "symbol": "SPY",
-          "fillPrice": 2.97,
-          "openDate": "2024-09-18T10:42:30",
-          "closeDate": null,
-          "maxPrice": 3.09,
-          "quantity": 8,
-          "pl": null,
-          "tradeAmount": 2376,
-          "lastPrice": 2.87,
-          "riskType": "BASE",
-          "initialAsk": 2.97,
-          "trim1Price": 3.71,
-          "trim1Quantity": 3,
-          "trim2Price": 4.46,
-          "trim2Quantity": 3,
-          "runnersQuantity": 2,
-          "runnersFloorPrice": 2.23,
-          "runnersDelta": 2.23,
-          "stopPrice": 1.78,
-          "trimStatus": 0,
-          "status": "OPEN"
+    "type": "tradeSummary",
+    "data": {
+        "baseTrades": {
+            "allTrades": {
+                "104209182024": {
+                    "id": 104209182024,
+                    "preTradeBalance": 58608.75,
+                    "postTradeBalance": null,
+                    "optionSymbol": "SPY240920C00565000",
+                    "symbol": "SPY",
+                    "fillPrice": 2.97,
+                    "openDate": "2024-09-18T10:42:30",
+                    "closeDate": null,
+                    "maxPrice": 3.09,
+                    "quantity": 8,
+                    "pl": null,
+                    "tradeAmount": 2376,
+                    "lastPrice": 2.87,
+                    "riskType": "BASE",
+                    "initialAsk": 2.97,
+                    "trim1Price": 3.71,
+                    "trim1Quantity": 3,
+                    "trim2Price": 4.46,
+                    "trim2Quantity": 3,
+                    "runnersQuantity": 2,
+                    "runnersFloorPrice": 2.23,
+                    "runnersDelta": 2.23,
+                    "stopPrice": 1.78,
+                    "trimStatus": 0,
+                    "status": "OPEN"
+                }
+            },
+            "pendingTrades": [],
+            "openTrades": [104209182024],
+            "runnerTrades": [],
+            "filledTrades": [],
+            "canceledTrades": [],
+            "rejectedTrades": []
         }
-      },
-      "pendingTrades": [],
-      "openTrades": [104209182024],
-      "runnerTrades": [],
-      "filledTrades": [],
-      "canceledTrades": [],
-      "rejectedTrades": []
     }
-  }
 }

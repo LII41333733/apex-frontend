@@ -1,41 +1,35 @@
 .dashboard {
-  &-header {
-    z-index: 99;
-    border: none;
-  }
-
-  .pt-logo {
-    height: 3rem;
-    width: 3rem;
-  }
-
-  .view-all-btn {
-    float: right;
-  }
-
-  hr {
-    height: 0.8px;
-    border: none;
-    background-color: var(--primary);
-    margin: 0 auto;
-    margin-top: 0.5rem;
-    width: 100%;
-  }
-
-  .equity-chart {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .equity-chart-btn {
-      @include btn-box-shadow;
-      width: 5rem;
-      // color: white;
-      // border: 1px solid hsl(var(--apex-light-yellow));
-      // box-shadow: var(--apex-box-shadow);
-
-      // background: #ffe16a;
-      // color: #0c0a09;
+    &-header {
+        z-index: 99;
+        border: none;
     }
-  }
+
+    .pt-logo {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .view-all-btn {
+        float: right;
+    }
+
+    hr {
+        height: 0.8px;
+        border: none;
+        background-color: var(--primary);
+        margin: 0 auto;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    .equity-chart {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .equity-chart-btn {
+            @include btn-box-shadow;
+            width: 5rem;
+        }
+    }
 }

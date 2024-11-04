@@ -1,180 +1,180 @@
-@import "mixins";
-@import "apexCard";
+@import 'mixins';
+@import 'apexCard';
 
 .apex-box-shadow {
-  @include box-shadow;
+    @include box-shadow;
 }
 
 .text-trade-green {
-  color: hsl(var(--trade-green));
+    color: hsl(var(--trade-green));
 }
 .text-trade-red {
-  color: hsl(var(--trade-red));
+    color: hsl(var(--trade-red));
 }
 .text-trade-neutral {
-  color: hsl(var(--foreground));
+    color: hsl(var(--foreground));
 }
 .text-status-pending {
-  color: hsl(var(--status-pending));
+    color: hsl(var(--status-pending));
 }
 .text-status-open {
-  color: hsl(var(--status-open));
+    color: hsl(var(--status-open));
 }
 
 .text-xxs {
-  font-size: 0.67rem;
+    font-size: 0.67rem;
 }
 
-div[role="tablist"] button {
-  border-radius: 0.35rem !important;
+div[role='tablist'] button {
+    border-radius: 0.35rem !important;
 }
 
 .dashboard {
-  padding: 0.4rem;
+    padding: 0.4rem;
 }
 .display-tab {
-  button {
-    margin: 0 0.3rem;
-  }
-  .icon {
-    position: relative;
-    top: -0.05rem;
-  }
-  .icon.second-half {
-    position: relative;
-    left: -0.95rem;
-  }
+    button {
+        margin: 0 0.3rem;
+    }
+    .icon {
+        position: relative;
+        top: -0.05rem;
+    }
+    .icon.second-half {
+        position: relative;
+        left: -0.95rem;
+    }
 }
 
 .card {
-  border-radius: 0.35rem !important;
+    border-radius: 0.35rem !important;
 }
 
 .badge {
-  justify-content: center;
-  min-width: 5rem;
+    justify-content: center;
+    min-width: 5rem;
 }
 
 #ticker-bar {
-  margin-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
 
-  hr {
-    height: 0.8px;
-    border: none;
-    background-color: hsl(var(--primary));
-  }
-  span {
-    font-size: 0.8rem;
-    // line-height: 1.9rem;
-  }
-  section {
-    padding: 0 0.3rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .green {
-    color: #60d4a3;
-  }
-  .red {
-    color: #ee7e7e;
-  }
+    hr {
+        height: 0.8px;
+        border: none;
+        background-color: hsl(var(--primary));
+    }
+    span {
+        font-size: 0.8rem;
+        // line-height: 1.9rem;
+    }
+    section {
+        padding: 0 0.3rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .green {
+        color: #60d4a3;
+    }
+    .red {
+        color: #ee7e7e;
+    }
 }
 
 .main-container {
-  min-height: 80vh;
+    min-height: 80vh;
 }
 
 .position-container {
-  @include apex-card;
-  height: 176px;
+    @include apex-card;
+    height: 179px;
 
-  @media (min-width: 345px) {
-    padding: 0.6rem 1.4rem 1.3rem 1.4rem;
-    margin-bottom: 2rem;
-    width: 24rem;
-  }
+    @media (min-width: 345px) {
+        padding: 0.6rem 0.8rem 1.3rem 0.8rem;
+        margin-bottom: 2rem;
+        width: 24rem;
+    }
 }
 .position {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
 }
 .position + .risk-type {
-  font-size: small;
-  display: flex;
+    font-size: small;
+    display: flex;
 }
 .position + .risk-type > span:first-child {
-  font-style: italic;
-  flex-grow: 1;
-  letter-spacing: 0.025em;
+    font-style: italic;
+    flex-grow: 1;
+    letter-spacing: 0.025em;
 }
 .position .column {
-  display: flex;
+    display: flex;
 }
 .position .text-column {
-  width: 13rem;
-  justify-content: flex-start;
-  flex-direction: column;
+    width: 13rem;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 .position .pl-column {
-  width: 6rem;
-  justify-content: flex-end;
-  flex-grow: 1;
+    width: 6rem;
+    justify-content: flex-end;
+    flex-grow: 1;
 }
 .position .perc-column {
-  width: 5.8rem;
-  justify-content: flex-end;
+    width: 5.8rem;
+    justify-content: flex-end;
 }
 .position .text-bottom-label {
-  color: #9ca29e;
+    color: #9ca29e;
 }
 .position .text-bottom-value {
-  position: relative;
-  top: 0rem;
+    position: relative;
+    top: 0rem;
 }
 
 .price-bar-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 4rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 4rem;
 }
 .price-bar-wrapper .circle-check {
-  position: relative;
-  left: 4%;
-  border: none;
+    position: relative;
+    left: 4%;
+    border: none;
 }
 .price-bar-wrapper .price-bar {
-  margin: 0 auto;
+    margin: 0 auto;
 }
 .price-bar-wrapper .price-bar-icon {
-  position: absolute;
-  top: 34%;
+    position: absolute;
+    top: 34%;
 }
 .price-bar-wrapper .price-bar-runner-limit,
 .price-bar-wrapper .price-bar-fill,
 .price-bar-wrapper .price-bar-stop,
 .price-bar-wrapper .price-bar-max,
 .price-bar-wrapper .price-bar-last {
-  height: 14px;
-  width: 5px;
-  border-radius: 1.5px;
-  background-color: hsl(var(--trade-green));
-  position: absolute;
-  top: 40%;
-  border-left: 1px solid #0c0a09;
-  border-right: 1px solid #0c0a09;
+    height: 14px;
+    width: 5px;
+    border-radius: 1.5px;
+    background-color: hsl(var(--trade-green));
+    position: absolute;
+    top: 40%;
+    border-left: 1px solid #0c0a09;
+    border-right: 1px solid #0c0a09;
 }
 .price-bar-wrapper .price-bar-last {
-  background-color: hsl(var(--status-open));
+    background-color: hsl(var(--status-open));
 }
 .price-bar-wrapper .price-bar-stop {
-  background-color: hsl(var(--trade-red));
+    background-color: hsl(var(--trade-red));
 }
 .price-bar-wrapper .price-bar-max {
-  background-color: hsl(var(--status-runners));
+    background-color: hsl(var(--status-runners));
 }
 .price-bar-wrapper .price-bar-fill {
-  background-color: hsl(var(--primary));
+    background-color: hsl(var(--primary));
 }

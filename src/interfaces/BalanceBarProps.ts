@@ -1,6 +1,6 @@
-import Balance from "./Balance";
+import Balance from './Balance';
 
 export interface BalanceBarProps {
-  balance: Balance;
-  webSocketConnected: boolean;
+    balance: Balance;
+    webSocketConnected: boolean;
 }

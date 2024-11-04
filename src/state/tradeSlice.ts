@@ -1,61 +1,54 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Trade from "@/interfaces/Trade";
-import TradeSummary from "@/interfaces/TradeSummary";
-import BaseTrade from "@/interfaces/BaseTrade";
-import LottoTrade from "@/interfaces/LottoTrade";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import Trade from '@/interfaces/Trade';
+import TradeSummary from '@/interfaces/TradeSummary';
+import BaseTrade from '@/interfaces/BaseTrade';
+import LottoTrade from '@/interfaces/LottoTrade';
+import VisionTrade from '@/interfaces/VisionTrade';
 
 export interface TradeState {
-  trades: BaseTrade[];
-  tradeSummary: TradeSummary;
-  tradeSummarySnapshot: TradeSummary | null;
+    trades: Trade[];
+    tradeSummary: TradeSummary;
 }
 
 const initialSummary = {
-  allTrades: {},
-  pendingTrades: [],
-  openTrades: [],
-  runnerTrades: [],
-  filledTrades: [],
-  canceledTrades: [],
-  rejectedTrades: [],
+    allTrades: [],
+    pendingTrades: [],
+    openTrades: [],
+    runnerTrades: [],
+    filledTrades: [],
+    canceledTrades: [],
+    rejectedTrades: [],
 };
 
 export const initialState: TradeState = {
-  trades: [],
-  tradeSummary: {
-    baseTrades: initialSummary,
-    lottoTrades: initialSummary,
-  },
-  tradeSummarySnapshot: null,
+    trades: [],
+    tradeSummary: {
+        baseTrades: initialSummary,
+        lottoTrades: initialSummary,
+        visionTrades: initialSummary,
+    },
 };
 
 export const tradeSlice = createSlice({
-  name: "trades",
-  initialState,
-  reducers: {
-    updateTrades: (state, action: PayloadAction<BaseTrade[]>) => {
-      state.trades = action.payload.reverse();
+    name: 'trades',
+    initialState,
+    reducers: {
+        updateTrades: (state, action: PayloadAction<Trade[]>) => {
+            state.trades = action.payload.reverse();
+        },
+        updateTradeSummary: (state, action: PayloadAction<TradeSummary>) => {
+            state.tradeSummary = action.payload;
+        },
     },
-    updateTradeSummary: (state, action: PayloadAction<TradeSummary>) => {
-      const tradeSummaryCopy: TradeSummary = { ...action.payload };
-      state.tradeSummary = tradeSummaryCopy;
-
-      delete tradeSummaryCopy.a;
-
-      if (!state.tradeSummarySnapshot) {
-        state.tradeSummarySnapshot;
-      }
-      // state.trades = Object.entries(action.payload.baseTrades.allTrades);
-    },
-  },
 });
 
 export const getAllTrades = ({
-  tradeSummary: { baseTrades, lottoTrades },
+    tradeSummary: { baseTrades, lottoTrades, visionTrades },
 }: TradeState) => {
-  const base: [string, BaseTrade][] = Object.entries(baseTrades.allTrades);
-  const lotto: [string, LottoTrade][] = Object.entries(lottoTrades.allTrades);
-  return [...base, ...lotto];
+    const base: BaseTrade[] = baseTrades.allTrades;
+    const lotto: LottoTrade[] = lottoTrades.allTrades;
+    const vision: VisionTrade[] = visionTrades.allTrades;
+    return [...base, ...lotto, ...vision];
 };
 
 export const { updateTrades, updateTradeSummary } = tradeSlice.actions;

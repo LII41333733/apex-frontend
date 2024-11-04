@@ -1,7 +1,7 @@
 @mixin box-shadow {
-  box-shadow: var(--apex-box-shadow);
+    box-shadow: var(--apex-box-shadow);
 }
 
 @mixin btn-box-shadow {
-  box-shadow: 0.7px 0.7px 2.3px 0px hsl(var(--apex-med-yellow));
+    box-shadow: 0.4px 0.4px 0px 0px hsl(var(--apex-med-yellow)) !important;
 }

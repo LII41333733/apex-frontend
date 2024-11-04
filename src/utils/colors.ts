@@ -1,7 +1,7 @@
 const getColor = (color: string) => {
-  return `hsl(${getComputedStyle(document.documentElement)
-    .getPropertyValue(`--${color}`)
-    .trim()})`;
+    return `hsl(${getComputedStyle(document.documentElement)
+        .getPropertyValue(`--${color}`)
+        .trim()})`;
 };
 
-export const primary = () => getColor("apex-light-yellow");
+export const primary = () => getColor('apex-light-yellow');

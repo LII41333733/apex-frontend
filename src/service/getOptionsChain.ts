@@ -1,13 +1,13 @@
 export default async function (symbol: string, optionType: string) {
-  try {
-    const response = await fetch();
+    try {
+        const response = await fetch();
 
-    if (!response.ok) {
-      throw new Error("Request failed");
+        if (!response.ok) {
+            throw new Error('Request failed');
+        }
+
+        return (await response.json()) ?? [];
+    } catch (error) {
+        console.error('Fetch error:', error);
     }
-
-    return (await response.json()) ?? [];
-  } catch (error) {
-    console.error("Fetch error:", error);
-  }
 }

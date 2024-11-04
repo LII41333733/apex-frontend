@@ -1,3 +1,3 @@
 export interface ActiveSymbol {
-  activeSymbol: string;
+    activeSymbol: string;
 }

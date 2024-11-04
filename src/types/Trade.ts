@@ -1,4 +1,7 @@
-import BaseTrade from "@/interfaces/BaseTrade";
-import LottoTrade from "@/interfaces/LottoTrade";
+import BaseTrade from '@/interfaces/BaseTrade';
+import LottoTrade from '@/interfaces/LottoTrade';
+import VisionTrade from '@/interfaces/VisionTrade';
 
-export type Trade = BaseTrade | LottoTrade;
+type Trade = BaseTrade | LottoTrade | VisionTrade;
+
+export default Trade;

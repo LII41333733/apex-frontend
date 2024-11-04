@@ -1,59 +1,59 @@
 .desktop-nav {
-  .nav-data {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 0.1rem;
-    box-shadow: 0.1px 1.7px 3px 0px hsl(var(--primary));
+    .nav-data {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-bottom: 0.1rem;
+        box-shadow: 0.1px 1.7px 3px 0px hsl(var(--primary));
 
-    .ticker-bar {
-      position: relative;
-      top: 0.1rem;
+        .ticker-bar {
+            position: relative;
+            top: 0.1rem;
 
-      div {
-        margin: 0 0.5rem;
-        font-size: 0.9rem;
-        width: 60%;
-      }
+            div {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+                width: 60%;
+            }
+        }
     }
-  }
 
-  hr {
-    height: 0.8px;
-    border: none;
-    background-color: var(--primary);
-  }
+    hr {
+        height: 0.8px;
+        border: none;
+        background-color: var(--primary);
+    }
 }
 
 .mobile-nav {
-  .pt-logo {
-    top: 0.2rem;
-    position: relative;
-    height: 4.5rem;
-    margin-left: 0.5rem;
-  }
-
-  .ticker-bar {
-    position: relative;
-    top: 0.1rem;
-    padding: 0.3rem 0rem;
-    display: flex;
-    flex-flow: wrap;
-    box-shadow: 0.2px 0.2px 3px 1px hsl(var(--primary));
-
-    & > div,
-    & > span {
-      font-size: 0.8rem;
+    .pt-logo {
+        top: 0.2rem;
+        position: relative;
+        height: 4.5rem;
+        margin-left: 0.5rem;
     }
 
-    div {
-      width: 40%;
+    .ticker-bar {
+        position: relative;
+        top: 0.1rem;
+        padding: 0.3rem 0rem;
+        display: flex;
+        flex-flow: wrap;
+        box-shadow: 0.2px 0.2px 3px 1px hsl(var(--primary));
+
+        & > div,
+        & > span {
+            font-size: 0.8rem;
+        }
+
+        div {
+            width: 40%;
+        }
     }
-  }
 }
 
 hr {
-  height: 0.8px;
-  border: none;
-  background-color: var(--primary);
+    height: 0.8px;
+    border: none;
+    background-color: var(--primary);
 }
