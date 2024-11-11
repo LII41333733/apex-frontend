@@ -6,10 +6,9 @@ import React from 'react';
 
 const DisplaySelector: React.FC = () => {
     const dispatch = useAppDispatch();
-    const {
-        orderSummary: { openOrders, pendingOrders },
-    } = useAppSelector((state) => state.orders);
-    const { display } = useAppSelector((state) => state.main);
+    const orderSummary = useAppSelector((state) => state.orders.orderSummary);
+    const { openOrders, pendingOrders } = orderSummary;
+    const display = useAppSelector((state) => state.main.display);
     const hasOpenOrders = openOrders.length;
     const hasPendingOrders = pendingOrders.length;
     const hasBothOpenAndPendingOrders = hasOpenOrders && hasPendingOrders;

@@ -6,80 +6,47 @@ import {
     ChartTooltipContent,
 } from '@/components/ui/chart';
 
-export const description = 'A donut chart with text';
-import data from '../../data/demoTrades.json';
-import visionColors from '../../constants/visionColors';
 import { dollar } from '@/utils/dollar';
-import PositionCard from '../PositionCard';
-import Trade from '@/types/Trade';
+import TradeCard from '../TradeCard';
+import { useAppSelector } from '@/state/hooks';
+import getVisionChartColors from '@/utils/getVisionChartColors';
+import { ONE_MILLION } from '@/constants';
+import { background, muted } from '@/utils/colors';
 
-console.log(data);
-
-export const ONE_MILLION = 1_000_000;
-
-const chartData: Trade[] = data
-    .filter((e) => e.pl > 0)
-    .slice(0, 35)
-    .map(
-        (
-            {
-                pl,
-                optionSymbol,
-                postTradeBalance,
-                quantity,
-                fillPrice,
-                lastPrice,
-                tradeAmount,
-                maxPrice,
-            },
-            i
-        ) => ({
-            pl,
-            optionSymbol,
-            fill: visionColors[i],
-            postTradeBalance,
-            quantity,
-            fillPrice,
-            lastPrice:
-                Math.random() * (maxPrice - fillPrice / 2) + fillPrice / 2,
-            tradeAmount,
-            maxPrice,
-            stopPrice: fillPrice / 2,
-            trim1Price: fillPrice * 1.3,
-            trim2Price: fillPrice * 1.7,
-        })
+const VisionChart: React.FC = React.memo(() => {
+    const positivePlTrades = useAppSelector(
+        (state) => state.trades.positivePlTrades
     );
-
-const chartConfig = chartData.reduce(
-    (p: any, { pl, optionSymbol, fill }: any) => ({
-        ...p,
-        [optionSymbol]: {
-            label: pl,
-            color: fill,
+    const visionChartColors = getVisionChartColors(positivePlTrades.length);
+    const total =
+        positivePlTrades[positivePlTrades.length - 1].postTradeBalance ?? 0;
+    const diff = ONE_MILLION - total;
+    const positiveTradesData = positivePlTrades.map((e, i) => {
+        return {
+            ...e,
+            fill: visionChartColors[i],
+        };
+    });
+    positiveTradesData.push({
+        pl: diff,
+        optionSymbol: 'Target',
+        fill: muted(),
+        stroke: background(),
+        strokeWidth: 10,
+    });
+    const chartConfig = positivePlTrades.reduce(
+        (p: any, { optionSymbol, fill, pl }: any) => {
+            return {
+                ...p,
+                [optionSymbol]: {
+                    label: optionSymbol,
+                    color: fill,
+                    optionSymbol,
+                },
+            };
         },
-    }),
-    {}
-);
-
-const total = chartData.reduce((p: any, c: any) => p + c.pl, 0);
-
-const lastData = chartData[chartData.length - 1];
-const diff = ONE_MILLION - total;
-
-chartData.push({
-    pl: diff,
-    optionSymbol: 'Target',
-    fill: 'gray',
-});
-
-const VisionChart: React.FC = () => {
-    const hovref = React.useRef(null);
-
-    React.useEffect(() => {
-        if (hovref.current) {
-            console.log(hovref.current);
-        }
-    }, [hovref]);
+        {}
+    );
 
     const space = 35;
     const mod1 = -50;
@@ -95,7 +62,11 @@ const VisionChart: React.FC = () => {
                 config={chartConfig}
                 className='mx-auto chart-container h-[900px] w-full'
             >
-                {activeSlice && <PositionCard trade={activeSlice} />}
+                {activeSlice && (
+                    <div className='absolute'>
+                        <TradeCard trade={activeSlice} isVisionChart />
+                    </div>
+                )}
                 <PieChart
                     className='m-o p-0'
                     margin={{ top: -90, right: 0, left: -0, bottom: 0 }}
@@ -105,13 +76,12 @@ const VisionChart: React.FC = () => {
                         content={<ChartTooltipContent hideLabel />}
                     />
                     <Pie
-                        data={chartData}
+                        minAngle={1}
+                        data={positiveTradesData}
                         dataKey='pl'
                         nameKey='optionSymbol'
-                        innerRadius={335}
+                        innerRadius={350}
                         onMouseOver={(e) => {
-                            console.log(e);
-
                             e.name === 'Target'
                                 ? setActiveSlice(null)
                                 : setActiveSlice(e);
@@ -168,10 +138,26 @@ const VisionChart: React.FC = () => {
                             }}
                         />
                     </Pie>
+                    {/* <Pie
+                        className='heaven absolute'
+                        minAngle={1}
+                        data={chartData.slice(0, 3)}
+                        dataKey='pl'
+                        nameKey='optionSymbol'
+                        innerRadius={350}
+                        onMouseOver={(e) => {
+                            console.log(e);
+
+                            e.name === 'Target'
+                                ? setActiveSlice(null)
+                                : setActiveSlice(e);
+                        }}
+                        onMouseOut={() => setActiveSlice(null)}
+                    /> */}
                 </PieChart>
             </ChartContainer>
         </div>
     );
-};
+});
 
 export default VisionChart;

@@ -3,10 +3,13 @@ import { dollar } from '@/utils/dollar';
 import DisplaySelector from './DisplaySelector';
 
 const BalanceBarDesktop: React.FC = () => {
-    const balance = useAppSelector((state) => state.balance);
-
-    const { totalEquity, cashAvailable, marketValue, openPl, closePl } =
-        balance;
+    const totalEquity = useAppSelector((state) => state.balance.totalEquity);
+    const cashAvailable = useAppSelector(
+        (state) => state.balance.cashAvailable
+    );
+    const marketValue = useAppSelector((state) => state.balance.marketValue);
+    const openPl = useAppSelector((state) => state.balance.openPl);
+    const closePl = useAppSelector((state) => state.balance.closePl);
 
     return (
         <div className='balance-bar-wrapper flex items-center w-[100%]'>

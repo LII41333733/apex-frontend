@@ -1,15 +1,10 @@
-import { TradeStatus, RiskType } from '@/constants';
 import Trade from './Trade';
 
 export default interface LottoTrade extends Trade {
-    riskType: RiskType.LOTTO;
-    trim1Price: number;
-    trim1Quantity: number;
-    trim2Price: number;
-    trim2Quantity: number;
-    runnersQuantity: number;
-    runnersFloorPrice: number;
-    runnersDelta: number;
-    stopPrice: number;
-    trimStatus: number;
+    trim1Price?: number;
+    trim1PriceFinal?: number;
+    trim1Quantity?: number;
+    stopLossPercentage?: number;
+    trim1Percentage?: number;
+    runnersFloorPercentage?: number;
 }

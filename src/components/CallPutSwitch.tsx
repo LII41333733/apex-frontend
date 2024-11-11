@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 const CallPutSwitch: React.FC = () => {
     const dispatch = useAppDispatch();
-    const { optionType } = useAppSelector((state) => state.optionsChain);
+    const optionType = useAppSelector((state) => state.optionsChain.optionType);
 
     return (
         <Tabs defaultValue={optionType} className='w-[25%] call-put mr-1'>

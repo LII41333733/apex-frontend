@@ -1,3 +1,5 @@
+export const ONE_MILLION = 1_000_000;
+
 export enum SYMBOLS {
     SPY = 'SPY',
     QQQ = 'QQQ',
@@ -20,6 +22,7 @@ export const MINI_SYMBOLS: SYMBOLS[] = Object.values(SYMBOLS).slice(3);
 
 export enum WebSocketData {
     BALANCE = 'balance',
+    PORTFOLIO = 'portfolio',
     QUOTE = 'quote',
     ORDER_SUMMARY = 'orderSummary',
     TRADE_SUMMARY = 'tradeSummary',

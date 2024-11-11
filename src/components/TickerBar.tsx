@@ -4,7 +4,10 @@ import { PriceData } from '@/types/PriceData';
 import getValuesLibData from '@/utils/getValuesLibData';
 
 const TickerBar: React.FC = () => {
-    const { SPY, QQQ, IWM, VIX } = useAppSelector((state) => state.main);
+    const SPY = useAppSelector((state) => state.main.SPY);
+    const QQQ = useAppSelector((state) => state.main.QQQ);
+    const IWM = useAppSelector((state) => state.main.IWM);
+    const VIX = useAppSelector((state) => state.main.VIX);
 
     return (
         <div className='ticker-bar mt-2 justify-center leading-[1rem]'>

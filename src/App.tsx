@@ -65,8 +65,8 @@ const Protected: React.FC = () => {
     );
 };
 
-const RenderDisplay: React.FC = () => {
-    const { display } = useAppSelector((state) => state.main);
+const RenderDisplay: React.FC = React.memo(() => {
+    const display = useAppSelector((state) => state.main.display);
 
     switch (display) {
         case Displays.PORTFOLIO: {
@@ -90,6 +90,6 @@ const RenderDisplay: React.FC = () => {
         default:
             return <></>;
     }
-};
+});
 
 export default App;

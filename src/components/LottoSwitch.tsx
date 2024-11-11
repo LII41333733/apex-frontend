@@ -11,7 +11,7 @@ import { updateRiskType } from '@/state/optionsChainSlice';
 
 const LottoSwitch: React.FC = () => {
     const dispatch = useAppDispatch();
-    const { riskType } = useAppSelector((state) => state.optionsChain);
+    const riskType = useAppSelector((state) => state.optionsChain.riskType);
 
     return (
         <Select

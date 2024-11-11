@@ -121,7 +121,7 @@ const OrderFilter: React.FC = () => {
 };
 
 const ActiveBadge = () => {
-    const { ordersView } = useAppSelector((state) => state.orders);
+    const ordersView = useAppSelector((state) => state.orders.ordersView);
 
     switch (ordersView) {
         case TradeStatus.ALL:

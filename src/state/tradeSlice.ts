@@ -7,6 +7,8 @@ import VisionTrade from '@/interfaces/VisionTrade';
 
 export interface TradeState {
     trades: Trade[];
+    positivePlTrades: Trade[];
+    negativePlTrades: Trade[];
     tradeSummary: TradeSummary;
 }
 
@@ -22,6 +24,8 @@ const initialSummary = {
 
 export const initialState: TradeState = {
     trades: [],
+    positivePlTrades: [],
+    negativePlTrades: [],
     tradeSummary: {
         baseTrades: initialSummary,
         lottoTrades: initialSummary,
@@ -33,8 +37,19 @@ export const tradeSlice = createSlice({
     name: 'trades',
     initialState,
     reducers: {
-        updateTrades: (state, action: PayloadAction<Trade[]>) => {
-            state.trades = action.payload.reverse();
+        updateTrades: (
+            state,
+            {
+                payload,
+            }: PayloadAction<{
+                allTrades: Trade[];
+                negativePlTrades: Trade[];
+                positivePlTrades: Trade[];
+            }>
+        ) => {
+            state.trades = payload.allTrades;
+            state.positivePlTrades = payload.positivePlTrades;
+            state.negativePlTrades = payload.negativePlTrades;
         },
         updateTradeSummary: (state, action: PayloadAction<TradeSummary>) => {
             state.tradeSummary = action.payload;

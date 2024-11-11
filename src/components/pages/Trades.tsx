@@ -20,7 +20,7 @@ import { useAppSelector } from '@/state/hooks';
 import { tradeTableColumns } from '@/constants/tradeTableColumns';
 
 const Trades: React.FC = () => {
-    const { trades } = useAppSelector((state) => state.trades);
+    const trades = useAppSelector((state) => state.trades.trades);
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnVisibility, setColumnVisibility] =
         React.useState<VisibilityState>({});

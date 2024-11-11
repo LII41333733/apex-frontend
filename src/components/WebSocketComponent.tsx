@@ -45,24 +45,21 @@ const WebSocketComponent: React.FC = () => {
 
         ws.current.onmessage = (event) => {
             const { type, data } = JSON.parse(event.data);
-            console.log(data);
 
             switch (type) {
                 case WebSocketData.BALANCE:
                     dispatch(updateAll(data));
                     break;
                 case WebSocketData.QUOTE:
-                    console.log(data);
                     dispatch(updateQuotesMap(data));
                     break;
                 case WebSocketData.ORDER_SUMMARY:
                     dispatch(updateOrderSummary(data));
                     break;
                 case WebSocketData.TRADE_SUMMARY:
-                    console.log(data);
                     dispatch(updateTradeSummary(data));
                     break;
-                case WebSocketData.TRADES:
+                case WebSocketData.PORTFOLIO:
                     dispatch(updateTrades(data));
                     break;
                 case WebSocketData.SPY:

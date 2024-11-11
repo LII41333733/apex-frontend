@@ -95,7 +95,8 @@ const PriceBar: React.FC<{
     showButtons: boolean;
     showSellConfirm: boolean;
     setConfirmSellId: (id: number) => void;
-}> = ({ trade, showButtons, showSellConfirm, setConfirmSellId }) => {
+    hideMax?: boolean;
+}> = ({ trade, showButtons, showSellConfirm, setConfirmSellId, hideMax }) => {
     const [modifyTrade] = useModifyTradeMutation();
     const [cancelTrade] = useCancelTradeMutation();
     const [sellTrade] = useSellTradeMutation();
@@ -106,7 +107,7 @@ const PriceBar: React.FC<{
         last: trade.lastPrice,
         trim1: trade.trim1Price,
         runnerLimit: trade.fillPrice * 2,
-        max: trade.maxPrice,
+        max: hideMax ? trade.fillPrice * 2 : trade.maxPrice,
     };
 
     const valuesWithTrim2 = {
@@ -207,28 +208,34 @@ const PriceBar: React.FC<{
                         {`${float(values.fill)}`}
                     </div>
                 </section>
-                <section>
-                    <div
-                        className='price-bar-max'
-                        style={{ left: `${percentagePositions.max}%` }}
-                    ></div>
-                    {displayMax && (
-                        <>
-                            <div
-                                className='text-xxs price-bar-label-top absolute top-[-8%] above'
-                                style={{ left: `${percentagePositions.max}%` }}
-                            >
-                                {`Max`}
-                            </div>
-                            <div
-                                className='text-apex-light-yellow text-xxs price-bar-label-bottom above absolute top-[11%]'
-                                style={{ left: `${percentagePositions.max}%` }}
-                            >
-                                {`${float(values.max)}`}
-                            </div>
-                        </>
-                    )}
-                </section>
+                {!hideMax && (
+                    <section>
+                        <div
+                            className='price-bar-max'
+                            style={{ left: `${percentagePositions.max}%` }}
+                        ></div>
+                        {displayMax && (
+                            <>
+                                <div
+                                    className='text-xxs price-bar-label-top absolute top-[-8%] above'
+                                    style={{
+                                        left: `${percentagePositions.max}%`,
+                                    }}
+                                >
+                                    {`Max`}
+                                </div>
+                                <div
+                                    className='text-apex-light-yellow text-xxs price-bar-label-bottom above absolute top-[11%]'
+                                    style={{
+                                        left: `${percentagePositions.max}%`,
+                                    }}
+                                >
+                                    {`${float(values.max)}`}
+                                </div>
+                            </>
+                        )}
+                    </section>
+                )}
                 <section>
                     <div
                         className='price-bar-trim1'

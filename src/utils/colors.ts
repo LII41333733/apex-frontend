@@ -5,3 +5,6 @@ const getColor = (color: string) => {
 };
 
 export const primary = () => getColor('apex-light-yellow');
+export const mutedForeground = () => getColor('muted-foreground');
+export const muted = () => getColor('muted');
+export const background = () => getColor('background');

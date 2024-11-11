@@ -9,11 +9,12 @@ import PriceBar from './PriceBar';
 
 type TradeCard = {
     trade: Trade;
-    setConfirmSellId: (num: number) => void;
-    setShowButtonsId: (num: number) => void;
+    setConfirmSellId?: (num: number) => void;
+    setShowButtonsId?: (num: number) => void;
     showButtonsId?: number;
     confirmSellId?: number;
     zIndex?: number;
+    isVisionChart?: boolean;
 };
 
 const TradeCard: React.FC<TradeCard> = ({
@@ -23,6 +24,7 @@ const TradeCard: React.FC<TradeCard> = ({
     setShowButtonsId,
     showButtonsId,
     zIndex,
+    isVisionChart,
 }) => {
     const id = Number(trade.id);
     const showButtons = showButtonsId === trade.id;
@@ -85,6 +87,7 @@ const TradeCard: React.FC<TradeCard> = ({
                 showButtons={showButtons}
                 showSellConfirm={showSellConfirm}
                 setConfirmSellId={setConfirmSellId}
+                hideMax={isVisionChart}
             />
         </div>
     );

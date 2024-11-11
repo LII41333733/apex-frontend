@@ -15,7 +15,7 @@ const Positions: React.FC = () => {
     const allTrades: Trade[] = useAppSelector((state) =>
         getAllTrades(state.trades)
     );
-    const { ordersView } = useAppSelector((state) => state.orders);
+    const ordersView = useAppSelector((state) => state.orders.ordersView);
     const [showButtonsId, setShowButtonsId] = React.useState<number>(0);
     const [confirmSellId, setConfirmSellId] = React.useState<number>(0);
     const displayTrades = allTrades.filter((e) => {

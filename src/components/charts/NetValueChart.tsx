@@ -1,5 +1,7 @@
-import { TrendingDown, TrendingUp } from 'lucide-react';
-import { CartesianGrid, Line, LineChart, XAxis } from 'recharts';
+'use client';
+import { TrendingUp } from 'lucide-react';
+import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
+
 import {
     Card,
     CardContent,
@@ -14,28 +16,27 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from '@/components/ui/chart';
-import { Badge } from './ui/badge';
-export const description = 'A multiple line chart';
-const chartData = [
-    { month: 'January', desktop: 186, mobile: 80 },
-    { month: 'February', desktop: 305, mobile: 200 },
-    { month: 'March', desktop: 237, mobile: 120 },
-    { month: 'April', desktop: 73, mobile: 190 },
-    { month: 'May', desktop: 209, mobile: 130 },
-    { month: 'June', desktop: 214, mobile: 140 },
-];
+import { Badge } from '../ui/badge';
+import data from '../../data/demoTrades.json';
+import Trade from '@/types/Trade';
+
+export const description = 'A simple area chart';
+
+const chartData: unknown[] = (data as Trade[]).map((e) => ({
+    date: e.openDate,
+    postTradeBalance: e.postTradeBalance,
+}));
+
+// const chartData = netValueChartDemo;
+
 const chartConfig = {
     desktop: {
-        label: 'Desktop',
-        color: 'hsl(var(--chart-1))',
-    },
-    mobile: {
-        label: 'Mobile',
-        color: 'hsl(var(--chart-2))',
+        label: 'Balance',
+        color: 'hsl(var(--trade-green))',
     },
 } satisfies ChartConfig;
 
-const EquityChart: React.FC = () => {
+export function NetValueChart() {
     return (
         <div className='apex-card card'>
             <CardHeader className='equity-chart w-full pt-4'>
@@ -75,11 +76,8 @@ const EquityChart: React.FC = () => {
                 </Badge>
             </CardHeader>
             <CardContent>
-                <ChartContainer
-                    config={chartConfig}
-                    className='rounded-xl bg-background pt-6 pb-4 px-6 w-full'
-                >
-                    <LineChart
+                <ChartContainer config={chartConfig}>
+                    <AreaChart
                         accessibilityLayer
                         data={chartData}
                         margin={{
@@ -89,7 +87,7 @@ const EquityChart: React.FC = () => {
                     >
                         <CartesianGrid vertical={false} />
                         <XAxis
-                            dataKey='month'
+                            dataKey='date'
                             tickLine={false}
                             axisLine={false}
                             tickMargin={8}
@@ -97,41 +95,31 @@ const EquityChart: React.FC = () => {
                         />
                         <ChartTooltip
                             cursor={false}
-                            content={<ChartTooltipContent />}
+                            content={<ChartTooltipContent indicator='line' />}
                         />
-                        <Line
-                            dataKey='desktop'
-                            type='monotone'
+                        <Area
+                            dataKey='postTradeBalance'
+                            type='natural'
+                            fill='var(--color-desktop)'
+                            fillOpacity={0.4}
                             stroke='var(--color-desktop)'
-                            strokeWidth={2}
-                            dot={false}
                         />
-                        <Line
-                            dataKey='mobile'
-                            type='monotone'
-                            stroke='var(--color-mobile)'
-                            strokeWidth={2}
-                            dot={false}
-                        />
-                    </LineChart>
+                    </AreaChart>
                 </ChartContainer>
             </CardContent>
             <CardFooter>
                 <div className='flex w-full items-start gap-2 text-sm'>
                     <div className='grid gap-2'>
-                        <div className='flex items-center gap-2 font-medium leading-none text-sm'>
+                        <div className='flex items-center gap-2 font-medium leading-none'>
                             Trending up by 5.2% this month{' '}
                             <TrendingUp className='h-4 w-4' />
-                            <TrendingDown className='h-4 w-4' />
                         </div>
-                        <div className='flex items-center gap-2 leading-none text-muted-foreground text-sm'>
-                            Showing total visitors for the last 6 months
+                        <div className='flex items-center gap-2 leading-none text-muted-foreground'>
+                            January - June 2024
                         </div>
                     </div>
                 </div>
             </CardFooter>
         </div>
     );
-};
-
-export default EquityChart;
+}
