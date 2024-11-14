@@ -2,7 +2,7 @@ import { RiskType, TradeStatus } from '@/constants';
 
 export default interface Trade {
     id?: number;
-    riskType?: RiskType;
+    riskType: RiskType;
     preTradeBalance?: number;
     postTradeBalance?: number;
     optionSymbol?: string;

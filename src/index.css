@@ -23,10 +23,10 @@
         --border: 48 100% 50%;
         --input: 12 6.5% 15.1%;
         --ring: 48 100% 70.73%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
+        --base-chart: 220 70% 50%;
+        --lotto-chart: 160 60% 45%;
+        --vision-chart: 30 80% 55%;
+        --hero-chart: 280 65% 60%;
         --chart-5: 340 75% 55%;
         --trade-green: 155 57% 60%;
         --trade-red: 0 77% 71%;

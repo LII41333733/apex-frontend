@@ -18,6 +18,7 @@ import Portfolio from './components/pages/Portfolio';
 import Analytics from './components/pages/Analytics';
 import Vision from './components/pages/Vision';
 import Trades from './components/pages/Trades';
+import ScrollingTickerBar from './components/ScrollingTickerBar';
 
 function App() {
     return (
@@ -48,6 +49,7 @@ const Protected: React.FC = () => {
         <div className='overflow-y-hidden'>
             <DesktopNav />
             <MobileNav />
+            <ScrollingTickerBar />
             <div
                 id='main-container'
                 className='main-container pb-0 fade-in sm:w-full max-w-[1650px] m-auto select-none'

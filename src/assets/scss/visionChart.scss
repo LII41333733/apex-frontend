@@ -4,6 +4,64 @@
     top: 42%;
 }
 
+$stat-border-style: 1px solid hsl(var(--apex-light-yellow));
+
 .vision-container {
-    // zoom: 1.4;
+    margin: 0 auto;
+    width: 55rem;
+    position: relative;
+
+    .top-stat {
+        width: 34rem;
+        height: 14rem;
+        margin: auto;
+        position: absolute;
+        left: 10.75rem;
+        top: 4.5rem;
+    }
+
+    .bottom-stat {
+        width: 34rem;
+        height: 14rem;
+        margin: auto;
+        position: absolute;
+        left: 10.75rem;
+        top: 27.8rem;
+    }
+
+    .vision-chart-stats {
+        width: 34rem;
+        height: 14rem;
+        margin: auto;
+        position: absolute;
+        left: 10.75rem;
+        top: 16.3rem;
+
+        > .a {
+            border-right: $stat-border-style;
+            border-bottom: $stat-border-style;
+        }
+        > .b {
+            // border-left: $stat-border-style;
+            border-bottom: $stat-border-style;
+            // border-right: $stat-border-style;
+        }
+        > .c {
+            border-left: $stat-border-style;
+            border-bottom: $stat-border-style;
+        }
+        > .d {
+            border-right: $stat-border-style;
+            // border-top: $stat-border-style;
+        }
+        > .e {
+            // border-left: $stat-border-style;
+            // border-top: $stat-border-style;
+            border-right: $stat-border-style;
+        }
+        > .f {
+            // border-top: $stat-border-style;
+            // border-left: $stat-border-style;
+        }
+    }
 }

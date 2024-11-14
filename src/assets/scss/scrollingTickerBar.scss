@@ -1,0 +1,33 @@
+/* Ticker Wrapper */
+.ticker-wrapper {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0px 0;
+    z-index: 1000;
+}
+
+/* Ticker Content */
+.ticker-content {
+    display: inline-block;
+    animation: slide-left 100s linear infinite;
+}
+
+/* Keyframes for Sliding Animation */
+@keyframes slide-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Ticker Text */
+.ticker-content span {
+    padding: 0 50px;
+    line-height: 25px;
+    font-size: x-small;
+}

@@ -19,6 +19,7 @@ import {
 import { Badge } from '../ui/badge';
 import data from '../../data/demoTrades.json';
 import Trade from '@/types/Trade';
+import ChartHeader from './ChartHeader';
 
 export const description = 'A simple area chart';
 
@@ -39,41 +40,44 @@ const chartConfig = {
 export function NetValueChart() {
     return (
         <div className='apex-card card'>
-            <CardHeader className='equity-chart w-full pt-4'>
-                <div className='flex-1'>
-                    <CardTitle className='text-md'>Net Account Value</CardTitle>
-                    <CardDescription className='text-sm'>
-                        Total P/L
-                    </CardDescription>
+            <CardHeader className='equity-chart w-full p-0'>
+                <ChartHeader
+                    mainTitle='Area Chart - Stacked'
+                    mainSubtitle='P/L Over Time'
+                    secondaryTitle='Trending up by 5.2% this month'
+                    secondarySubtitle='January - June 2024'
+                    trendIsUp
+                />
+                <div className='flex justify-between items-center mr-4 pb-4'>
+                    <Badge
+                        onClick={async () => {}}
+                        className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
+                        variant='outline'
+                    >
+                        Yearly
+                    </Badge>
+                    <Badge
+                        onClick={async () => {}}
+                        className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
+                        variant='outline'
+                    >
+                        Monthly
+                    </Badge>
+                    <Badge
+                        onClick={async () => {}}
+                        className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
+                        variant='outline'
+                    >
+                        Weekly
+                    </Badge>
+                    <Badge
+                        onClick={async () => {}}
+                        className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
+                        variant='outline'
+                    >
+                        Daily
+                    </Badge>
                 </div>
-                <Badge
-                    onClick={async () => {}}
-                    className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
-                    variant='outline'
-                >
-                    Yearly
-                </Badge>
-                <Badge
-                    onClick={async () => {}}
-                    className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
-                    variant='outline'
-                >
-                    Monthly
-                </Badge>
-                <Badge
-                    onClick={async () => {}}
-                    className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
-                    variant='outline'
-                >
-                    Weekly
-                </Badge>
-                <Badge
-                    onClick={async () => {}}
-                    className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
-                    variant='outline'
-                >
-                    Daily
-                </Badge>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig}>
@@ -107,19 +111,6 @@ export function NetValueChart() {
                     </AreaChart>
                 </ChartContainer>
             </CardContent>
-            <CardFooter>
-                <div className='flex w-full items-start gap-2 text-sm'>
-                    <div className='grid gap-2'>
-                        <div className='flex items-center gap-2 font-medium leading-none'>
-                            Trending up by 5.2% this month{' '}
-                            <TrendingUp className='h-4 w-4' />
-                        </div>
-                        <div className='flex items-center gap-2 leading-none text-muted-foreground'>
-                            January - June 2024
-                        </div>
-                    </div>
-                </div>
-            </CardFooter>
         </div>
     );
 }

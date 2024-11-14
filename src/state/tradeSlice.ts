@@ -48,8 +48,8 @@ export const tradeSlice = createSlice({
             }>
         ) => {
             state.trades = payload.allTrades;
-            state.positivePlTrades = payload.positivePlTrades;
-            state.negativePlTrades = payload.negativePlTrades;
+            state.positivePlTrades = payload.allTrades.filter((e) => e.pl >= 0);
+            state.negativePlTrades = payload.allTrades.filter((e) => e.pl < 0);
         },
         updateTradeSummary: (state, action: PayloadAction<TradeSummary>) => {
             state.tradeSummary = action.payload;

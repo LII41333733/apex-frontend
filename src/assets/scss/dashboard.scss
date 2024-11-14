@@ -27,6 +27,10 @@
         flex-direction: row;
         justify-content: space-between;
 
+        > div:first-of-type {
+            width: 580px;
+        }
+
         .equity-chart-btn {
             @include btn-box-shadow;
             width: 5rem;

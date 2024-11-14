@@ -5,6 +5,7 @@ import optionsChainReducer from './optionsChainSlice';
 import mainReducer from './mainSlice';
 import ordersReducer from './orderSlice';
 import tradesReducer from './tradeSlice';
+import chartsReducer from './chartsSlice';
 import { apexApi } from '@/state/api/apex';
 
 export const store = configureStore({
@@ -14,6 +15,7 @@ export const store = configureStore({
         optionsChain: optionsChainReducer,
         orders: ordersReducer,
         trades: tradesReducer,
+        charts: chartsReducer,
         [apexApi.reducerPath]: apexApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
