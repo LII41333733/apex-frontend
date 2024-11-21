@@ -23,6 +23,5 @@ export default function (data: { [key: string]: Trade[] }, property: string) {
         list.push(obj);
     }
 
-    console.log(list);
     return list;
 }

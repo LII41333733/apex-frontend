@@ -34,8 +34,8 @@ $stat-border-style: 1px solid hsl(var(--apex-light-yellow));
         height: 14rem;
         margin: auto;
         position: absolute;
-        left: 10.75rem;
-        top: 16.3rem;
+        left: 10.7rem;
+        top: 16.5rem;
 
         > .a {
             border-right: $stat-border-style;
@@ -63,5 +63,12 @@ $stat-border-style: 1px solid hsl(var(--apex-light-yellow));
             // border-top: $stat-border-style;
             // border-left: $stat-border-style;
         }
+    }
+
+    .vision-chart-card {
+        position: absolute;
+        left: 10rem;
+        top: 14.5rem;
+        zoom: 1.2;
     }
 }

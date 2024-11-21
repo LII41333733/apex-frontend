@@ -1,11 +1,10 @@
 import React from 'react';
-import { Label, Pie, PieChart } from 'recharts';
+import { Pie, PieChart } from 'recharts';
 import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
 } from '@/components/ui/chart';
-
 import { dollar } from '@/utils/dollar';
 import TradeCard from '../TradeCard';
 import { useAppSelector } from '@/state/hooks';
@@ -20,29 +19,37 @@ const VisionChart: React.FC = React.memo(() => {
     const positivePlTrades = useAppSelector(
         (state) => state.trades.positivePlTrades
     );
+    const chartTrades = allTrades.slice(0, allTrades.length - 2);
 
     if (!positivePlTrades.length) {
         return <></>;
     }
 
-    const visionChartColors = getVisionChartColors(positivePlTrades.length);
+    const positiveTrades = positivePlTrades.slice(
+        0,
+        positivePlTrades.length - 2
+    );
+
+    const visionChartColors = getVisionChartColors(positiveTrades.length);
     const total =
-        positivePlTrades[positivePlTrades.length - 1].postTradeBalance ?? 0;
+        positiveTrades[positiveTrades.length - 1].postTradeBalance ?? 0;
     const diff = ONE_MILLION - total;
-    const positiveTradesData = positivePlTrades.map((e, i) => {
+    const positiveTradesData = positiveTrades.map((e, i) => {
         return {
             ...e,
             fill: visionChartColors[i],
         };
     });
+
     positiveTradesData.push({
         pl: diff,
         optionSymbol: 'Target',
         fill: muted(),
         stroke: background(),
-        strokeWidth: 10,
+        strokeWidth: 20,
     });
-    const chartConfig = positivePlTrades.reduce(
+
+    const chartConfig = positiveTrades.reduce(
         (p: any, { optionSymbol, fill, pl }: any) => {
             return {
                 ...p,
@@ -56,12 +63,6 @@ const VisionChart: React.FC = React.memo(() => {
         {}
     );
 
-    const space = 35;
-    const mod1 = -50;
-    const mod2 = mod1 + space;
-    const mod3 = 40;
-    const mod4 = mod3 + space;
-
     const [activeSlice, setActiveSlice] = React.useState(null);
 
     return (
@@ -71,7 +72,7 @@ const VisionChart: React.FC = React.memo(() => {
                 className='mx-auto chart-container h-[750px] w-full'
             >
                 {activeSlice && (
-                    <div className='absolute'>
+                    <div className='vision-chart-card'>
                         <TradeCard trade={activeSlice} isVisionChart />
                     </div>
                 )}
@@ -79,7 +80,7 @@ const VisionChart: React.FC = React.memo(() => {
                     <CardHeader className='top-stat p-0 flex justify-center items-center col-span-1 px-0'>
                         <CardTitle className='text-xl'>Target Goal</CardTitle>
                         <CardDescription className='text-3xl text-apex-light-yellow tracking-wide'>
-                            {dollar(1000000)}
+                            {dollar(ONE_MILLION)}
                         </CardDescription>
                     </CardHeader>
                 )}
@@ -91,7 +92,7 @@ const VisionChart: React.FC = React.memo(() => {
                                     Total Trades
                                 </CardTitle>
                                 <CardDescription className='text-xl text-apex-light-yellow'>
-                                    {allTrades.length}
+                                    {chartTrades.length}
                                 </CardDescription>
                             </CardHeader>
                         </div>
@@ -151,7 +152,7 @@ const VisionChart: React.FC = React.memo(() => {
                     <CardHeader className='bottom-stat p-0 flex justify-center items-center col-span-1 px-0'>
                         <CardTitle className='text-xl'>Remaining</CardTitle>
                         <CardDescription className='tracking-wide text-3xl text-apex-light-yellow'>
-                            {dollar(250000)}
+                            {dollar(diff)}
                         </CardDescription>
                     </CardHeader>
                 )}

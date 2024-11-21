@@ -1,17 +1,19 @@
-import { SYMBOLS, WebSocketData } from '@/constants';
+import { WebSocketData } from '@/constants';
 import React, { useEffect, useRef, useState } from 'react';
 import { useAppDispatch } from '@/state/hooks';
 import { updateAll } from '@/state/balanceSlice';
 import { updateQuotesMap } from '@/state/optionsChainSlice';
 import { updateOrderSummary } from '@/state/orderSlice';
 import { updateTrades, updateTradeSummary } from '@/state/tradeSlice';
-import { updateIWMData, updateQQQData, updateSPYData } from '@/state/mainSlice';
+import { updateSymbolData } from '@/state/mainSlice';
 
-const getPriceData = (
-    symbol: string,
-    data: { last: string; change: string; change_percentage: string }
-) => ({
-    symbol,
+const getPriceData = (data: {
+    symbol: string;
+    last: string;
+    change: string;
+    change_percentage: string;
+}) => ({
+    symbol: data.symbol,
     price: parseFloat(data.last).toFixed(2),
     changeDollars: parseFloat(data.change).toFixed(2),
     changePercentage: parseFloat(data.change_percentage).toFixed(2),
@@ -48,6 +50,9 @@ const WebSocketComponent: React.FC = () => {
 
             switch (type) {
                 case WebSocketData.BALANCE:
+                    // console.log(`-----------`);
+                    // console.log(`BALANCE`);
+                    // console.log(data);
                     dispatch(updateAll(data));
                     break;
                 case WebSocketData.QUOTE:
@@ -62,24 +67,10 @@ const WebSocketComponent: React.FC = () => {
                 case WebSocketData.PORTFOLIO:
                     dispatch(updateTrades(data));
                     break;
-                case WebSocketData.SPY:
+                case WebSocketData.SYMBOLS:
                     dispatch(
-                        updateSPYData(
-                            getPriceData(SYMBOLS.SPY, JSON.parse(data))
-                        )
-                    );
-                    break;
-                case WebSocketData.QQQ:
-                    dispatch(
-                        updateQQQData(
-                            getPriceData(SYMBOLS.QQQ, JSON.parse(data))
-                        )
-                    );
-                    break;
-                case WebSocketData.IWM:
-                    dispatch(
-                        updateIWMData(
-                            getPriceData(SYMBOLS.IWM, JSON.parse(data))
+                        updateSymbolData(
+                            JSON.parse(data).map((e: any) => getPriceData(e))
                         )
                     );
                     break;

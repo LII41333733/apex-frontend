@@ -5,7 +5,7 @@
     "tabWidth": 4,
     "printWidth": 80,
     "arrowParens": "always",
-    "jsxSingleQuote": true,
+    "jsxSingleQuote": false,
     "bracketSpacing": true,
     "useTabs": false,
     "proseWrap": "preserve",

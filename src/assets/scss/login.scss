@@ -1,30 +1,24 @@
-.fade-out {
-    opacity: 1;
-    transition: opacity 0.8s ease-out;
-    display: block;
-
-    &.hide {
-        opacity: 0;
-        pointer-events: none; // Disable interactions during the transition
-    }
-
-    &.hidden {
-        display: none;
-    }
+.fade-container {
+    position: absolute; /* Removes the element from the normal document flow */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensures the fade-container spans the full width */
+    height: 100%; /* Ensures the fade-container spans the full height */
+    opacity: 0; /* Fully transparent */
+    visibility: hidden; /* Hides the element */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
-.fade-in {
-    opacity: 0;
-    transition: opacity 0.8s ease-in;
-    display: none;
+/* Show fade-container with fade-in effect */
+.fade-container.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Element becomes visible */
+}
 
-    &.show {
-        display: block;
-    }
-
-    &.shown {
-        opacity: 1;
-    }
+/* Hide fade-container with fade-out effect */
+.fade-container.hide {
+    opacity: 0; /* Fully transparent */
+    visibility: hidden; /* Element becomes hidden */
 }
 
 .loading-screen {
@@ -37,7 +31,7 @@
     margin: 0 auto;
     position: relative;
     margin-top: 3rem;
-    border-radius: 0.5rem;
+    border-radius: 5rem;
 }
 .login-container {
     // background-image: url(../temperance.jpg);

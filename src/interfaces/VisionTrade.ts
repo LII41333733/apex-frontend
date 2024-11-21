@@ -2,8 +2,10 @@ import Trade from './Trade';
 
 export default interface VisionTrade extends Trade {
     trim1Price: number;
+    trim1PriceFinal: number;
     trim1Quantity: number;
-    trim2Price?: number;
+    trim2Price: number;
+    trim2PriceFinal: number;
     trim2Quantity: number;
     runnersQuantity: number;
     runnersFloorPrice: number;

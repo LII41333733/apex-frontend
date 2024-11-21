@@ -43,19 +43,19 @@ const Trades: React.FC = () => {
     });
 
     return (
-        <div className='dashboard flex w-full flex-col'>
+        <div className="dashboard flex w-full flex-col">
             <Table
-                id='trades-table'
-                className='text-xs border-0 w-full min-w-[320px] max-w-[320px] md:max-w-[110rem] card apex-card mx-auto'
+                id="trades-table"
+                className="text-xs border-0 w-full min-w-[320px] max-w-[320px] md:max-w-[110rem] apex-card mx-auto"
             >
                 <TableHeader>
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow className='border-none'>
+                        <TableRow className="border-none">
                             {headerGroup.headers.map((header) => {
                                 return (
                                     <TableCell
                                         key={header.id}
-                                        className='text-foreground p-0'
+                                        className="text-foreground p-0"
                                     >
                                         {header.isPlaceholder
                                             ? null
@@ -76,10 +76,10 @@ const Trades: React.FC = () => {
                             <TableRow
                                 key={row.id}
                                 data-state={row.getIsSelected() && 'selected'}
-                                className='h-[2rem]'
+                                className="h-[2rem]"
                             >
                                 {row.getVisibleCells().map((cell) => (
-                                    <TableCell key={cell.id} className='p-0'>
+                                    <TableCell key={cell.id} className="p-0">
                                         {flexRender(
                                             cell.column.columnDef.cell,
                                             cell.getContext()
@@ -92,7 +92,7 @@ const Trades: React.FC = () => {
                         <TableRow>
                             <TableCell
                                 colSpan={tradeTableColumns.length}
-                                className='h-24 text-center'
+                                className="h-24 text-center"
                             >
                                 No results.
                             </TableCell>

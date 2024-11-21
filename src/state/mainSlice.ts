@@ -6,40 +6,14 @@ import { apexApi } from './api/apex';
 export interface MainState {
     token: string | null;
     display: Displays;
-    SPY: PriceData;
-    QQQ: PriceData;
-    IWM: PriceData;
-    VIX: PriceData;
+    symbols: PriceData[];
     isDemoMode: boolean;
 }
 
 export const initialState: MainState = {
     token: localStorage.getItem('token'),
-    display: Displays.ANALYTICS,
-    SPY: {
-        symbol: 'SPY',
-        price: '0',
-        changeDollars: '0',
-        changePercentage: '0',
-    },
-    QQQ: {
-        symbol: 'QQQ',
-        price: '0',
-        changeDollars: '0',
-        changePercentage: '0',
-    },
-    IWM: {
-        symbol: 'IWM',
-        price: '0',
-        changeDollars: '0',
-        changePercentage: '0',
-    },
-    VIX: {
-        symbol: 'VIX',
-        price: '0',
-        changeDollars: '0',
-        changePercentage: '0',
-    },
+    display: Displays.PORTFOLIO,
+    symbols: [],
     isDemoMode: true,
 };
 
@@ -50,17 +24,8 @@ export const mainSlice = createSlice({
         updateDisplay: (state, action: PayloadAction<Displays>) => {
             state.display = action.payload;
         },
-        updateSPYData: (state, action: PayloadAction<PriceData>) => {
-            state.SPY = action.payload;
-        },
-        updateQQQData: (state, action: PayloadAction<PriceData>) => {
-            state.QQQ = action.payload;
-        },
-        updateIWMData: (state, action: PayloadAction<PriceData>) => {
-            state.IWM = action.payload;
-        },
-        updateVIXData: (state, action: PayloadAction<PriceData>) => {
-            state.VIX = action.payload;
+        updateSymbolData: (state, action: PayloadAction<PriceData[]>) => {
+            state.symbols = action.payload;
         },
         setToken: (state, action: PayloadAction<string>) => {
             state.token = action.payload;
@@ -81,13 +46,7 @@ export const mainSlice = createSlice({
     },
 });
 
-export const {
-    updateDisplay,
-    updateSPYData,
-    updateQQQData,
-    updateIWMData,
-    setToken,
-    removeToken,
-} = mainSlice.actions;
+export const { updateDisplay, updateSymbolData, setToken, removeToken } =
+    mainSlice.actions;
 
 export default mainSlice.reducer;

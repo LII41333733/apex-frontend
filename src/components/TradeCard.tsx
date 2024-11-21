@@ -87,7 +87,7 @@ const TradeCard: React.FC<TradeCard> = ({
                 showButtons={showButtons}
                 showSellConfirm={showSellConfirm}
                 setConfirmSellId={setConfirmSellId}
-                hideMax={isVisionChart}
+                isVisionChart={isVisionChart}
             />
         </div>
     );

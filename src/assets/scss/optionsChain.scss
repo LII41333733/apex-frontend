@@ -29,7 +29,7 @@ table {
     text-align: center;
 }
 table tbody tr:nth-child(odd) {
-    background-color: hsl(var(--background));
+    background-color: hsl(var(--muted));
 }
 table th {
     background-color: hsl(var(--card-background));

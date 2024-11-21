@@ -1,5 +1,6 @@
 import { TradeStatus, ValuesLibData } from '@/constants';
 import Trade from '@/types/Trade';
+import { getPercentDelta } from '@/utils/getPercentDelta';
 import getValuesLibData from '@/utils/getValuesLibData';
 
 const PositionPl: React.FC<{
@@ -17,13 +18,13 @@ const PositionPl: React.FC<{
     const dollarDiff = displayDefault
         ? 0
         : pl === 0
-          ? (currentPrice - buyPrice) * quantity
-          : pl;
+        ? (currentPrice - buyPrice) * quantity
+        : pl;
     const percDiff = displayDefault
         ? 0
         : pl === 0
-          ? ((currentPrice - buyPrice) / buyPrice) * 100
-          : (pl / tradeAmount) * 100;
+        ? getPercentDelta(buyPrice, currentPrice)
+        : (pl / tradeAmount) * 100;
     const lib: ValuesLibData = getValuesLibData(dollarDiff);
 
     return (

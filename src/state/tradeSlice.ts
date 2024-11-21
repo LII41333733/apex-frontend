@@ -4,13 +4,7 @@ import TradeSummary from '@/interfaces/TradeSummary';
 import BaseTrade from '@/interfaces/BaseTrade';
 import LottoTrade from '@/interfaces/LottoTrade';
 import VisionTrade from '@/interfaces/VisionTrade';
-
-export interface TradeState {
-    trades: Trade[];
-    positivePlTrades: Trade[];
-    negativePlTrades: Trade[];
-    tradeSummary: TradeSummary;
-}
+import consumeTrades from '@/utils/consumeTrades';
 
 const initialSummary = {
     allTrades: [],
@@ -22,8 +16,22 @@ const initialSummary = {
     rejectedTrades: [],
 };
 
+export interface TradeState {
+    trades: Trade[];
+    lastFilledBeforeToday: Trade | null;
+    negativePlTrades: Trade[];
+    positivePlTrades: Trade[];
+    tradesByYear: { [key: string]: Trade[] };
+    tradesByDay: { [key: string]: Trade[] };
+    tradesByWeek: { [key: string]: Trade[] };
+    tradesByMonth: { [key: string]: Trade[] };
+    last20Trades: Trade[];
+    tradeSummary: TradeSummary;
+}
+
 export const initialState: TradeState = {
     trades: [],
+    lastFilledBeforeToday: null,
     positivePlTrades: [],
     negativePlTrades: [],
     tradeSummary: {
@@ -31,26 +39,18 @@ export const initialState: TradeState = {
         lottoTrades: initialSummary,
         visionTrades: initialSummary,
     },
+    tradesByDay: {},
+    tradesByYear: {},
+    tradesByWeek: {},
+    tradesByMonth: {},
+    last20Trades: [],
 };
 
 export const tradeSlice = createSlice({
     name: 'trades',
     initialState,
     reducers: {
-        updateTrades: (
-            state,
-            {
-                payload,
-            }: PayloadAction<{
-                allTrades: Trade[];
-                negativePlTrades: Trade[];
-                positivePlTrades: Trade[];
-            }>
-        ) => {
-            state.trades = payload.allTrades;
-            state.positivePlTrades = payload.allTrades.filter((e) => e.pl >= 0);
-            state.negativePlTrades = payload.allTrades.filter((e) => e.pl < 0);
-        },
+        updateTrades: consumeTrades,
         updateTradeSummary: (state, action: PayloadAction<TradeSummary>) => {
             state.tradeSummary = action.payload;
         },

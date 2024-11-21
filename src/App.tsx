@@ -19,11 +19,18 @@ import Analytics from './components/pages/Analytics';
 import Vision from './components/pages/Vision';
 import Trades from './components/pages/Trades';
 import ScrollingTickerBar from './components/ScrollingTickerBar';
+import spinYang from './assets/spin-yang.gif';
+
+export enum LoginView {
+    LOGIN,
+    LOADING,
+    MAIN,
+}
 
 function App() {
     return (
         <Provider store={store}>
-            <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
                 <Protected />
             </ThemeProvider>
         </Provider>
@@ -31,39 +38,52 @@ function App() {
 }
 
 const Protected: React.FC = () => {
+    const [loginView, setLoginView] = React.useState<LoginView | null>(null);
     const token = useAppSelector((state) => state.main.token);
 
     React.useEffect(() => {
-        if (token) {
-            setTimeout(() => {
-                const element2 = document.getElementById('main-container');
-                element2?.classList.add('show');
-                setTimeout(() => {
-                    element2?.classList.add('shown');
-                }, 200);
-            }, 500);
-        }
-    }, [token]);
+        setTimeout(() => {
+            setLoginView(token ? LoginView.MAIN : LoginView.LOGIN);
+        }, 1000);
+    }, []);
 
-    return token ? (
-        <div className='overflow-y-hidden'>
-            <DesktopNav />
-            <MobileNav />
-            <ScrollingTickerBar />
+    return (
+        <>
             <div
-                id='main-container'
-                className='main-container pb-0 fade-in sm:w-full max-w-[1650px] m-auto select-none'
+                id="loading-container"
+                className={`fade-container ${
+                    loginView === LoginView.LOADING ? 'show' : 'hide'
+                }`}
             >
-                <div className='md:hidden'>
-                    <DisplaySelector />
+                <div className="loading-screen">
+                    <img className="spin-yang" src={spinYang}></img>
                 </div>
-                <RenderDisplay />
             </div>
-            <WebSocketComponent />
-            <Toaster />
-        </div>
-    ) : (
-        <Login />
+            <Login
+                loginView={loginView === LoginView.LOGIN ? 'show' : 'hide'}
+                setLoginView={setLoginView}
+            />
+            <div
+                className={`fade-container ${
+                    loginView === LoginView.MAIN ? 'show' : 'hide'
+                } overflow-y-hidden`}
+            >
+                <DesktopNav />
+                <MobileNav />
+                <ScrollingTickerBar />
+                <div
+                    id="main-container"
+                    className="main-container pb-0 fade-in sm:w-full max-w-[1650px] m-auto select-none"
+                >
+                    <div className="md:hidden">
+                        <DisplaySelector />
+                    </div>
+                    <RenderDisplay />
+                </div>
+                <WebSocketComponent />
+                <Toaster />
+            </div>
+        </>
     );
 };
 

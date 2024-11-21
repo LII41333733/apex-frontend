@@ -15,16 +15,17 @@ const SymbolSelectorWithLotto: React.FC = () => {
     const { optionType, symbolInput } = useAppSelector(
         (state) => state.optionsChain
     );
+    const symbols = useAppSelector((state) => state.main.symbols);
     const [getOptionsChain] = useGetOptionsChainMutation();
 
     return (
-        <Card className='border-0 m-auto w-[320px] md:w-[80%] md:min-w-[320px] max-w-[500px] option-box'>
-            <section className='mb-3'>
+        <Card className="border-0 m-auto w-[320px] md:w-[80%] md:min-w-[320px] max-w-[500px] option-box">
+            <section className="mb-3">
                 <CallPutSwitch />
                 <LottoSwitch />
                 <Input
-                    className='w-[25%] h-8 text-center symbol-input transparent-ring text-foreground bg-background order-apex-yellow'
-                    placeholder='INTC'
+                    className="w-[25%] h-8 text-center symbol-input transparent-ring text-foreground bg-background order-apex-yellow"
+                    placeholder="INTC"
                     value={symbolInput}
                     onChange={(e) =>
                         dispatch(
@@ -33,7 +34,7 @@ const SymbolSelectorWithLotto: React.FC = () => {
                     }
                 />
                 <Button
-                    className='search-btn'
+                    className="search-btn"
                     onClick={async () => {
                         await getOptionsChain({
                             symbol: symbolInput,
@@ -42,24 +43,24 @@ const SymbolSelectorWithLotto: React.FC = () => {
                     }}
                 >
                     <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='icon icon-tabler icon-tabler-search'
-                        width='16'
-                        height='16'
-                        viewBox='0 0 24 24'
-                        strokeWidth='2'
-                        stroke='hsl(var(--primary))'
-                        fill='none'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="icon icon-tabler icon-tabler-search"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="hsl(var(--primary))"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                     >
-                        <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-                        <path d='M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0' />
-                        <path d='M21 21l-6 -6' />
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                        <path d="M21 21l-6 -6" />
                     </svg>
                 </Button>
             </section>
-            <section className='main-symbols mb-3'>
+            <section className="main-symbols mb-3">
                 <Badge
                     onClick={async () => {
                         await getOptionsChain({
@@ -67,8 +68,8 @@ const SymbolSelectorWithLotto: React.FC = () => {
                             optionType,
                         });
                     }}
-                    className='rounded badge bg-background symbol-badge md:text-sm'
-                    variant='outline'
+                    className="rounded badge bg-background symbol-badge md:text-sm"
+                    variant="outline"
                 >
                     {SYMBOLS.SPY}
                 </Badge>
@@ -79,8 +80,8 @@ const SymbolSelectorWithLotto: React.FC = () => {
                             optionType,
                         });
                     }}
-                    className='rounded badge bg-background symbol-badge md:text-sm'
-                    variant='outline'
+                    className="rounded badge bg-background symbol-badge md:text-sm"
+                    variant="outline"
                 >
                     {SYMBOLS.QQQ}
                 </Badge>
@@ -91,23 +92,26 @@ const SymbolSelectorWithLotto: React.FC = () => {
                             optionType,
                         });
                     }}
-                    className='rounded badge bg-background symbol-badge md:text-sm'
-                    variant='outline'
+                    className="rounded badge bg-background symbol-badge md:text-sm"
+                    variant="outline"
                 >
                     {SYMBOLS.IWM}
                 </Badge>
             </section>
-            <section className='mini-badges'>
-                {Object.values(MINI_SYMBOLS).map((e: SYMBOLS) => (
+            <section className="mini-badges">
+                {symbols.slice(3, symbols.length - 1).map((e: any) => (
                     <Badge
-                        key={e}
+                        key={e.symbol}
                         onClick={async () => {
-                            await getOptionsChain({ symbol: e, optionType });
+                            await getOptionsChain({
+                                symbol: e.symbol,
+                                optionType,
+                            });
                         }}
-                        className='rounded badge bg-background symbol-badge md:text-sm mini mb-3'
-                        variant='outline'
+                        className="rounded badge bg-background symbol-badge md:text-sm mini mb-3"
+                        variant="outline"
                     >
-                        {e}
+                        {e.symbol}
                     </Badge>
                 ))}
             </section>

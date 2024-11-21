@@ -12,7 +12,7 @@ const Analytics: React.FC = () => {
     return (
         <>
             <AnalyticsDisplaySelector />
-            <div className='grid grid-cols-6 gap-x-4'>
+            <div className='grid grid-cols-6 gap-x-6 gap-y-2'>
                 <ChartWrapper className='col-span-3'>
                     <LinePlChart />
                 </ChartWrapper>

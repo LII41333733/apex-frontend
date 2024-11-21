@@ -27,9 +27,7 @@ export enum WebSocketData {
     ORDER_SUMMARY = 'orderSummary',
     TRADE_SUMMARY = 'tradeSummary',
     TRADES = 'trades',
-    SPY = SYMBOLS.SPY,
-    QQQ = SYMBOLS.QQQ,
-    IWM = SYMBOLS.IWM,
+    SYMBOLS = 'symbols',
     VIX = 'VIX',
 }
 
