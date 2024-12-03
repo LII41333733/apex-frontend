@@ -19,7 +19,8 @@ import {
 import { useAppSelector } from '@/state/hooks';
 import sortDataByRiskType from '@/utils/charts/sortDataByRiskType';
 import mapChartDataByProperty from '@/utils/charts/mapChartDataByProperty';
-import ChartHeader from './ChartHeader';
+import ChartHeader from './../ChartHeader';
+import convertDateToShort from '@/utils/convertDateToShort';
 
 const chartConfig = {
     BASE: {
@@ -51,17 +52,17 @@ const LinePlChart = () => {
     return (
         <>
             <ChartHeader
-                mainTitle='Area Chart - Stacked'
-                mainSubtitle='P/L Over Time'
-                secondaryTitle='Trending up by 5.2% this month'
-                secondarySubtitle='January - June 2024'
+                mainTitle="Area Chart - Stacked"
+                mainSubtitle="P/L Over Time"
+                secondaryTitle="Trending up by 5.2% this month"
+                secondarySubtitle="January - June 2024"
                 trendIsUp
             />
             <CardContent>
                 {allTrades.length && (
                     <ChartContainer
                         config={chartConfig}
-                        className='h-[200px] w-full'
+                        className="h-[200px] w-full"
                     >
                         <LineChart
                             accessibilityLayer
@@ -73,56 +74,46 @@ const LinePlChart = () => {
                         >
                             <CartesianGrid vertical={false} />
                             <XAxis
-                                dataKey='closeDate'
+                                dataKey="closeDate"
                                 tickLine={false}
                                 axisLine={false}
                                 minTickGap={30}
-                                tickMargin={8}
-                                tickFormatter={(value) =>
-                                    value
-                                        .slice(5, 10)
-                                        .split('-')
-                                        .map((e) =>
-                                            e[0] === '0'
-                                                ? e.slice(1, e.length)
-                                                : e
-                                        )
-                                        .join('/')
-                                }
+                                tickMargin={16}
+                                tickFormatter={convertDateToShort}
                             />
                             <ChartTooltip
                                 cursor={false}
                                 content={<ChartTooltipContent />}
                             />
                             <Line
-                                dataKey='BASE'
-                                type='monotone'
-                                fill='hsl(var(--base-chart))'
-                                stroke='hsl(var(--base-chart))'
+                                dataKey="BASE"
+                                type="monotone"
+                                fill="hsl(var(--base-chart))"
+                                stroke="hsl(var(--base-chart))"
                                 strokeWidth={2}
                                 dot={false}
                             />
                             <Line
-                                dataKey='LOTTO'
-                                type='monotone'
-                                fill='hsl(var(--lotto-chart))'
-                                stroke='hsl(var(--lotto-chart))'
+                                dataKey="LOTTO"
+                                type="monotone"
+                                fill="hsl(var(--lotto-chart))"
+                                stroke="hsl(var(--lotto-chart))"
                                 strokeWidth={2}
                                 dot={false}
                             />
                             <Line
-                                dataKey='VISION'
-                                type='monotone'
-                                fill='hsl(var(--vision-chart))'
-                                stroke='hsl(var(--vision-chart))'
+                                dataKey="VISION"
+                                type="monotone"
+                                fill="hsl(var(--vision-chart))"
+                                stroke="hsl(var(--vision-chart))"
                                 strokeWidth={2}
                                 dot={false}
                             />
                             <Line
-                                dataKey='HERO'
-                                type='monotone'
-                                fill='hsl(var(--hero-chart))'
-                                stroke='hsl(var(--hero-chart))'
+                                dataKey="HERO"
+                                type="monotone"
+                                fill="hsl(var(--hero-chart))"
+                                stroke="hsl(var(--hero-chart))"
                                 strokeWidth={2}
                                 dot={false}
                             />

@@ -37,6 +37,7 @@
         --apex-light-yellow: 48 100% 70.73%;
         --apex-med-yellow: 47.88 100% 61.18%;
         --apex-box-shadow: 1px 1px 3.5px 0px hsl(var(--apex-med-yellow));
+        --chart-area: 29 17% 12%;
     }
 }
 

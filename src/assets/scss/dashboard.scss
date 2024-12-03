@@ -34,6 +34,10 @@
         .equity-chart-btn {
             @include btn-box-shadow;
             width: 5rem;
+
+            &.selected {
+                background: hsl(var(--muted));
+            }
         }
     }
 }

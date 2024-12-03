@@ -13,6 +13,8 @@ import { Badge } from './ui/badge';
 import Trade from '@/types/Trade';
 import CircleCheck from './priceBar/circleCheck';
 import CircleCheckFilled from './priceBar/CircleCheckFilled';
+import { useToast } from './ui/use-toast';
+import sendToast from '@/utils/sendToast';
 
 function calculatePercentagePositions(values: {
     stop: number;
@@ -63,6 +65,7 @@ const PriceBar: React.FC<{
     setConfirmSellId,
     isVisionChart,
 }) => {
+    const { toast } = useToast();
     const [modifyTrade] = useModifyTradeMutation();
     const [cancelTrade] = useCancelTradeMutation();
     const [sellTrade] = useSellTradeMutation();
@@ -341,12 +344,17 @@ const PriceBar: React.FC<{
                                     </Badge>
                                     <Badge
                                         onClick={async () => {
-                                            await modifyTrade({
+                                            const res = await modifyTrade({
                                                 id: trade.id,
                                                 tradeLeg: TradeLeg.TRIM1,
                                                 price: sliderValue,
                                                 riskType: trade.riskType,
                                             });
+
+                                            console.log(res);
+                                            debugger;
+
+                                            sendToast();
                                         }}
                                         className="rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                         variant="outline"

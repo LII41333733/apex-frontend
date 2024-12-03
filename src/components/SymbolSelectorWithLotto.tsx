@@ -99,21 +99,25 @@ const SymbolSelectorWithLotto: React.FC = () => {
                 </Badge>
             </section>
             <section className="mini-badges">
-                {symbols.slice(3, symbols.length - 1).map((e: any) => (
-                    <Badge
-                        key={e.symbol}
-                        onClick={async () => {
-                            await getOptionsChain({
-                                symbol: e.symbol,
-                                optionType,
-                            });
-                        }}
-                        className="rounded badge bg-background symbol-badge md:text-sm mini mb-3"
-                        variant="outline"
-                    >
-                        {e.symbol}
-                    </Badge>
-                ))}
+                {symbols
+                    .filter(
+                        (e) => !['SPY', 'QQQ', 'IWM', 'VIX'].includes(e.symbol)
+                    )
+                    .map((e: any) => (
+                        <Badge
+                            key={e.symbol}
+                            onClick={async () => {
+                                await getOptionsChain({
+                                    symbol: e.symbol,
+                                    optionType,
+                                });
+                            }}
+                            className="rounded badge bg-background symbol-badge md:text-sm mini mb-3"
+                            variant="outline"
+                        >
+                            {e.symbol}
+                        </Badge>
+                    ))}
             </section>
         </Card>
     );

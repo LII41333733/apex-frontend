@@ -50,21 +50,16 @@ const WebSocketComponent: React.FC = () => {
 
             switch (type) {
                 case WebSocketData.BALANCE:
-                    // console.log(`-----------`);
-                    // console.log(`BALANCE`);
-                    // console.log(data);
                     dispatch(updateAll(data));
                     break;
                 case WebSocketData.QUOTE:
                     dispatch(updateQuotesMap(data));
                     break;
-                case WebSocketData.ORDER_SUMMARY:
-                    dispatch(updateOrderSummary(data));
-                    break;
-                case WebSocketData.TRADE_SUMMARY:
+                case WebSocketData.POSITIONS:
                     dispatch(updateTradeSummary(data));
                     break;
-                case WebSocketData.PORTFOLIO:
+                case WebSocketData.TRADES:
+                case WebSocketData.DEMO_TRADES:
                     dispatch(updateTrades(data));
                     break;
                 case WebSocketData.SYMBOLS:

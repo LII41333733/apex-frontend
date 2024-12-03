@@ -44,7 +44,7 @@ const calculateBaseTradePercentages = (trade: BaseTrade) => {
             trade.trimStatus < 1
                 ? 6
                 : trade.trimStatus === 1
-                ? 42
+                ? 44
                 : trade.stopPriceFinal > trade.trim2PriceFinal
                 ? 90
                 : 64,
@@ -57,17 +57,17 @@ const calculateVisionTradePercentages = (trade: VisionTrade) => {
         min: 0,
         stop: 6,
         fill: 25,
-        trim1: 42,
-        trim2: 62,
+        trim1: 43,
+        trim2: 66,
         runner: 100,
         last:
             trade.trimStatus < 1
                 ? 6
                 : trade.trimStatus === 1
-                ? 42
+                ? 45
                 : trade.stopPriceFinal > trade.trim2PriceFinal
-                ? 90
-                : 62,
+                ? 93
+                : 69,
     };
 
     return calculatePercentagePositions(values);
@@ -136,6 +136,8 @@ const MiniPriceBar: React.FC<{
         percentagePositions
     ).sort((a, b) => (b as number) - (a as number));
 
+    const isRunnerHit = percentagePositions.last >= percentageValuesOrdered[0];
+
     return (
         <>
             <div className="price-bar-wrapper relative -top-3">
@@ -201,7 +203,7 @@ const MiniPriceBar: React.FC<{
                             className="price-bar-icon"
                             style={{ left: `${percentagePositions.trim1}%` }}
                         >
-                            {percentagePositions.last >= 0 ? (
+                            {trade.trimStatus < 1 ? (
                                 <CircleCheck />
                             ) : (
                                 <CircleCheckFilled />
@@ -256,7 +258,9 @@ const MiniPriceBar: React.FC<{
                         className="text-apex-light-yellow text-xxs price-bar-label-bottom absolute top-[88%]"
                         style={{ left: `${percentagePositions.runner - 10}%` }}
                     >
-                        {`${float(maxPrice)}`}
+                        {`${float(
+                            isRunnerHit ? maxPrice : trade.fillPrice * 2
+                        )}`}
                     </div>
                     <div
                         className="price-bar-icon"
@@ -264,12 +268,7 @@ const MiniPriceBar: React.FC<{
                             left: `${percentagePositions.runner - 10}%`,
                         }}
                     >
-                        {percentagePositions.last >=
-                        percentageValuesOrdered[0] ? (
-                            <CircleCheck />
-                        ) : (
-                            <CircleCheckFilled />
-                        )}
+                        {isRunnerHit ? <CircleCheckFilled /> : <CircleCheck />}
                     </div>
                 </section>
             </div>

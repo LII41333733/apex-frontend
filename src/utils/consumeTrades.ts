@@ -4,13 +4,8 @@ import { PayloadAction } from '@reduxjs/toolkit';
 
 export default (
     state: TradeState,
-    {
-        payload,
-    }: PayloadAction<{
-        allTrades: Trade[];
-    }>
+    { payload: trades }: PayloadAction<Trade[]>
 ) => {
-    const trades = payload.allTrades;
     state.trades = trades;
     state.positivePlTrades = trades.filter((e) => e.pl >= 0);
     state.negativePlTrades = trades.filter((e) => e.pl < 0);
@@ -36,9 +31,9 @@ export default (
     // console.log(`LAST FILLED BEFORE TODAY`);
     // console.log(getLastFilledTradeBeforeToday(trades));
     state.tradesByDay = groupTradesByDay(trades);
-    state.tradesByYear = groupTradesByYear(trades);
     state.tradesByWeek = groupTradesByWeek(trades);
     state.tradesByMonth = groupTradesByMonth(trades);
+    state.tradesByYear = groupTradesByYear(trades);
     state.lastFilledBeforeToday = getLastFilledTradeBeforeToday(trades);
     state.last20Trades = trades.slice(-20);
 };

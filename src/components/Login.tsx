@@ -17,8 +17,6 @@ const Login: React.FC<{
 
     const [login, { error }] = useLoginMutation();
 
-    console.log(error);
-
     React.useEffect(() => {
         // Function to handle the "Enter" key press
         const handleKeyPress = (event: KeyboardEvent) => {

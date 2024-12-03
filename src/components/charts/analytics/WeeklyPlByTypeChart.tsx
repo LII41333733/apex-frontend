@@ -1,25 +1,18 @@
 'use client';
 
-import { TrendingUp } from 'lucide-react';
 import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from '@/components/ui/card';
+import { CardContent } from '@/components/ui/card';
 import {
     ChartConfig,
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
 } from '@/components/ui/chart';
-import ChartWrapper from './ChartWrapper';
 import { useAppSelector } from '@/state/hooks';
-import ChartHeader from './ChartHeader';
+import ChartHeader from './../ChartHeader';
+import { getTradeBreakdown } from '@/state/tradeSlice';
+import React from 'react';
 
 function getLast10OfEachType(arr) {
     if (!arr.length) return [];
@@ -51,15 +44,6 @@ function getLast10OfEachType(arr) {
     return data;
 }
 
-const chartData = [
-    { month: 'January', desktop: 186, mobile: 80 },
-    { month: 'February', desktop: 305, mobile: 200 },
-    { month: 'March', desktop: 237, mobile: 120 },
-    { month: 'April', desktop: 73, mobile: 190 },
-    { month: 'May', desktop: 209, mobile: 130 },
-    { month: 'June', desktop: 214, mobile: 140 },
-];
-
 const chartConfig = {
     BASE: {
         label: 'Base',
@@ -79,27 +63,34 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-export function AccountValueLast10Trades() {
-    const allTrades = useAppSelector((state) => state.trades.trades);
+export function WeeklyPlByTypeChart() {
+    const tradeBreakdown = useAppSelector(getTradeBreakdown);
+    const { trades } = tradeBreakdown;
+
+    React.useEffect(() => {
+        if (tradeBreakdown.trades.length) {
+            console.log(tradeBreakdown);
+        }
+    }, [tradeBreakdown.trades]);
 
     return (
         <>
             <ChartHeader
-                mainTitle='Area Chart - Stacked'
-                mainSubtitle='P/L Over Time'
-                secondaryTitle='Trending up by 5.2% this month'
-                secondarySubtitle='January - June 2024'
+                mainTitle="Weekly Profit/Loss"
+                mainSubtitle="By Trade Type"
+                secondaryTitle="Trending up by 5.2% this month"
+                secondarySubtitle="January - June 2024"
                 trendIsUp
             />
             <CardContent>
-                {allTrades.length && (
+                {trades.length && (
                     <ChartContainer
                         config={chartConfig}
-                        className='h-[200px] w-full'
+                        className="h-[200px] w-full"
                     >
                         <AreaChart
                             accessibilityLayer
-                            data={getLast10OfEachType(allTrades)}
+                            data={getLast10OfEachType(trades)}
                             margin={{
                                 left: 12,
                                 right: 12,
@@ -107,7 +98,7 @@ export function AccountValueLast10Trades() {
                         >
                             <CartesianGrid vertical={false} />
                             <XAxis
-                                dataKey='Trade'
+                                dataKey="Trade"
                                 tickLine={false}
                                 axisLine={false}
                                 tickMargin={8}
@@ -116,40 +107,40 @@ export function AccountValueLast10Trades() {
                             <ChartTooltip
                                 cursor={false}
                                 content={
-                                    <ChartTooltipContent indicator='dot' />
+                                    <ChartTooltipContent indicator="dot" />
                                 }
                             />
                             <Area
-                                dataKey='Base'
-                                type='natural'
-                                fill='hsl(var(--base-chart))'
+                                dataKey="Base"
+                                type="natural"
+                                fill="hsl(var(--base-chart))"
                                 fillOpacity={0.4}
-                                stroke='hsl(var(--base-chart))'
-                                stackId='a'
+                                stroke="hsl(var(--base-chart))"
+                                stackId="a"
                             />
                             <Area
-                                dataKey='Lotto'
-                                type='natural'
-                                fill='hsl(var(--lotto-chart))'
+                                dataKey="Lotto"
+                                type="natural"
+                                fill="hsl(var(--lotto-chart))"
                                 fillOpacity={0.4}
-                                stroke='hsl(var(--lotto-chart))'
-                                stackId='a'
+                                stroke="hsl(var(--lotto-chart))"
+                                stackId="a"
                             />
                             <Area
-                                dataKey='Vision'
-                                type='natural'
-                                fill='hsl(var(--vision-chart))'
+                                dataKey="Vision"
+                                type="natural"
+                                fill="hsl(var(--vision-chart))"
                                 fillOpacity={0.4}
-                                stroke='hsl(var(--vision-chart))'
-                                stackId='a'
+                                stroke="hsl(var(--vision-chart))"
+                                stackId="a"
                             />
                             <Area
-                                dataKey='Hero'
-                                type='natural'
-                                fill='hsl(var(--hero-chart))'
+                                dataKey="Hero"
+                                type="natural"
+                                fill="hsl(var(--hero-chart))"
                                 fillOpacity={0.4}
-                                stroke='hsl(var(--hero-chart))'
-                                stackId='a'
+                                stroke="hsl(var(--hero-chart))"
+                                stackId="a"
                             />
                         </AreaChart>
                     </ChartContainer>

@@ -7,7 +7,6 @@ import React from 'react';
 const ScrollingTickerBar: React.FC = () => {
     const symbols = useAppSelector((state) => state.main.symbols);
     const symbolHolder = [...symbols, ...symbols, ...symbols, ...symbols];
-    console.log(symbolHolder);
     const [scrolledSymbols, setScrolledSymbols] = React.useState<PriceData[]>(
         []
     );
@@ -25,8 +24,8 @@ const ScrollingTickerBar: React.FC = () => {
     return (
         <div className="ticker-wrapper mb-6">
             <div ref={scrollRef} className="ticker-content">
-                {scrolledSymbols.map((e: any) => (
-                    <Ticker {...e} />
+                {scrolledSymbols.map((e: any, i: number) => (
+                    <Ticker key={e + i} {...e} />
                 ))}
             </div>
         </div>
@@ -38,14 +37,17 @@ export default ScrollingTickerBar;
 const Ticker: React.FC<PriceData> = ({ symbol, price, changeDollars }) => {
     const lib: ValuesLibData = getValuesLibData(changeDollars);
 
+    const displayPrice = isNaN(Number(price)) ? '0.00' : price;
+    const displayChange = isNaN(Number(changeDollars)) ? '0.00' : changeDollars;
+
     return (
         <span className={`${lib.textColor} mr-5 relative`}>
             <span className="lib.icon relative top-[-1px] text-center !px-0 inline-block mr-1">
                 {lib.icon}
             </span>
-            {`${symbol} ${price || '0.00'} ${lib.operator}${
-                Math.abs(Number(changeDollars)).toFixed(2) || '0.00'
-            }`}
+            {`${symbol} ${displayPrice} ${lib.operator}${Math.abs(
+                Number(displayChange)
+            ).toFixed(2)}`}
         </span>
     );
 };

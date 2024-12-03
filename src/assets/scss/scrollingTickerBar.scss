@@ -12,7 +12,7 @@
 /* Ticker Content */
 .ticker-content {
     display: inline-block;
-    animation: slide-left 200s linear infinite;
+    animation: slide-left 300s linear infinite;
     transform: translateX(100%); /* Start off-screen to the right */
     will-change: transform; /* Optimize for animation */
 }

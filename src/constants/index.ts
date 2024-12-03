@@ -4,31 +4,19 @@ export enum SYMBOLS {
     SPY = 'SPY',
     QQQ = 'QQQ',
     IWM = 'IWM',
-    GOOGL = 'GOOGL',
-    AAPL = 'AAPL',
-    AMD = 'AMD',
-    TSLA = 'TSLA',
-    NVDA = 'NVDA',
-    PYPL = 'PYPL',
-    SMCI = 'SMCI',
-    AFRM = 'AFRM',
-    META = 'META',
-    PLTR = 'PLTR',
-    AMZN = 'AMZN',
-    CHWY = 'CHWY',
 }
 
 export const MINI_SYMBOLS: SYMBOLS[] = Object.values(SYMBOLS).slice(3);
 
 export enum WebSocketData {
-    BALANCE = 'balance',
-    PORTFOLIO = 'portfolio',
-    QUOTE = 'quote',
-    ORDER_SUMMARY = 'orderSummary',
-    TRADE_SUMMARY = 'tradeSummary',
-    TRADES = 'trades',
-    SYMBOLS = 'symbols',
-    VIX = 'VIX',
+    BALANCE = 'BALANCE',
+    DEMO_BALANCE = 'DEMO_BALANCE',
+    DEMO_PORTFOLIO = 'DEMO_PORTFOLIO',
+    DEMO_TRADES = 'DEMO_TRADES',
+    POSITIONS = 'POSITIONS',
+    QUOTE = 'QUOTE',
+    SYMBOLS = 'SYMBOLS',
+    TRADES = 'TRADES',
 }
 
 export enum AppStateKey {

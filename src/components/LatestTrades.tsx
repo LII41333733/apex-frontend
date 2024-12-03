@@ -13,10 +13,8 @@ const LatestTrades: React.FC = () => {
     const last20Trades = useAppSelector((state) => state.trades.last20Trades);
     const last10Trades = last20Trades.slice(-10).reverse();
 
-    console.log(last10Trades);
-
     return (
-        <CardContent className="mt-1">
+        <CardContent className="mt-1 pr-4">
             <div className="flex items-center mt-3 mb-2">
                 <div className="gap-0 w-[13rem]">
                     <CardTitle className="text-md">Latest Trades</CardTitle>
@@ -41,7 +39,7 @@ const LatestTrades: React.FC = () => {
                     const plData = getValuesLibData(trade.pl);
 
                     return (
-                        <>
+                        <React.Fragment key={trade.id}>
                             <div className="col-span-3 grid gap-y-0.5">
                                 <p className="text-top text-apex-light-yellow font-medium w-[13rem] text-base">
                                     {convertTickerWithExpiration(
@@ -52,7 +50,7 @@ const LatestTrades: React.FC = () => {
                                     {`${trade.riskType} TRADE`}
                                 </p>
                             </div>
-                            <div className="col-span-4 ml-2">
+                            <div className="col-span-4 ml-1">
                                 <MiniPriceBar
                                     trade={trade}
                                     maxPrice={maxPrice}
@@ -73,7 +71,7 @@ const LatestTrades: React.FC = () => {
                                     {dollar(Math.abs(trade.pl))}
                                 </div>
                             </div>
-                        </>
+                        </React.Fragment>
                     );
                 })}
             </div>

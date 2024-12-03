@@ -1,6 +1,6 @@
 import { primary } from '@/utils/colors';
 
-const CircleCheck: React.FC = () => (
+const RunnersCircleCheck: React.FC = () => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         className="icon icon-tabler icon-tabler-circle-check circle-check"
@@ -19,4 +19,4 @@ const CircleCheck: React.FC = () => (
     </svg>
 );
 
-export default CircleCheck;
+export default RunnersCircleCheck;

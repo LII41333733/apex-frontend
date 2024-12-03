@@ -66,6 +66,14 @@ export const getAllTrades = ({
     return [...base, ...lotto, ...vision];
 };
 
+export const getTradeBreakdown = ({ trades }: any) => ({
+    trades: trades.trades,
+    tradesByDay: trades.tradesByDay,
+    tradesByWeek: trades.tradesByWeek,
+    tradesByMonth: trades.tradesByMonth,
+    tradesByYear: trades.tradesByYear,
+});
+
 export const { updateTrades, updateTradeSummary } = tradeSlice.actions;
 
 export default tradeSlice.reducer;
