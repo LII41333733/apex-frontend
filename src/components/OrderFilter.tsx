@@ -27,16 +27,16 @@ const OrderFilter: React.FC = () => {
     };
 
     return (
-        <div className='order-filter md:w-[320px] m-auto mb-10 border-0 !pt-0 !z-10 '>
-            <div className='h-10'>
+        <div className="order-filter md:w-[320px] m-auto mb-10 border-0 !pt-0 !z-[9999] relative">
+            <div className="h-10">
                 <Accordion
-                    type='single'
+                    type="single"
                     collapsible
-                    className='order-accordion border-0 !bg-muted apex-card !pt-0'
+                    className="order-accordion border-0 !bg-muted apex-card !pt-0"
                 >
-                    <AccordionItem value='item-1' className='border-0'>
-                        <AccordionTrigger className='hover:no-underline'>
-                            <div className='accordion-title'>
+                    <AccordionItem value="item-1" className="border-0">
+                        <AccordionTrigger className="hover:no-underline">
+                            <div className="accordion-title">
                                 Filter By Status
                             </div>
                             <ActiveBadge />
@@ -44,7 +44,7 @@ const OrderFilter: React.FC = () => {
                         <AccordionContent>
                             <Tabs
                                 defaultValue={TradeStatus.ALL}
-                                className='w-[100%] text-center'
+                                className="w-[100%] text-center"
                             >
                                 <TabsList>
                                     <TabsTrigger
@@ -79,7 +79,7 @@ const OrderFilter: React.FC = () => {
                             </Tabs>
                             <Tabs
                                 defaultValue={TradeStatus.PENDING}
-                                className='w-[100%] text-center'
+                                className="w-[100%] text-center"
                             >
                                 <TabsList>
                                     <TabsTrigger

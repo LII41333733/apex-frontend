@@ -98,10 +98,10 @@ const StatBox = ({
                 ) : (
                     <>
                         <SquareLetterH className="float-left" />
-                        <span className="ml-1 float-left relative w-15 top-[0.22rem] text-xs">
+                        <span className="ml-1 float-left relative w-15 top-[0.18rem] text-xs">
                             {high}
                         </span>
-                        <span className="ml-1 float-right relative w-15 top-[0.22rem] text-xs">
+                        <span className="ml-1 float-right relative w-15 top-[0.18rem] text-xs">
                             {average}
                         </span>
                         <SquareLetterA className="float-right" />

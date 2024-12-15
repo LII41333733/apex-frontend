@@ -28,12 +28,16 @@ export default (
     // console.log(`TRADES BY YEAR`);
     // console.log(groupTradesByYear(trades));
     // console.log(`-----------`);
+    // console.log(`TRADES BY RISK TYPE`);
+    // console.log(groupTradesByRiskType(trades));
+    // console.log(`-----------`);
     // console.log(`LAST FILLED BEFORE TODAY`);
     // console.log(getLastFilledTradeBeforeToday(trades));
     state.tradesByDay = groupTradesByDay(trades);
     state.tradesByWeek = groupTradesByWeek(trades);
     state.tradesByMonth = groupTradesByMonth(trades);
     state.tradesByYear = groupTradesByYear(trades);
+    state.tradesByRiskType = groupTradesByRiskType(trades);
     state.lastFilledBeforeToday = getLastFilledTradeBeforeToday(trades);
     state.last20Trades = trades.slice(-20);
 };
@@ -166,4 +170,17 @@ const groupTradesByMonth = (trades: Trade[]): { [month: string]: Trade[] } => {
 
         return acc;
     }, {});
+};
+
+const groupTradesByRiskType = (
+    trades: Trade[]
+): { [riskType: string]: Trade[] } => {
+    return trades.reduce((acc: { [riskType: string]: Trade[] }, trade) => {
+        const riskType = trade.riskType;
+        if (!acc[riskType]) {
+            acc[riskType] = [];
+        }
+        acc[riskType].push(trade);
+        return acc;
+    }, {} as { [riskType: string]: Trade[] });
 };

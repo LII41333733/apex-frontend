@@ -2,7 +2,7 @@ import { TradeStatus } from '@/constants';
 import Trade from '@/types/Trade';
 import convertTickerWithExpiration from '@/utils/convertTickerWithExpiration';
 import float from '@/utils/float';
-import React from 'react';
+import React, { MutableRefObject } from 'react';
 import PositionPl from './PositionPl';
 import StatusBadge from './StatusBadge';
 import PriceBar from './PriceBar';
@@ -37,15 +37,15 @@ const TradeCard: React.FC<TradeCard> = ({
 
     return (
         <div
-            className='position-container md:mx-4'
+            className="position-container md:mx-3"
             key={id}
             style={{
                 position: 'relative',
                 zIndex,
             }}
         >
-            <div className='position mb-0'>
-                <div className='text-column column'>
+            <div className="position mb-0">
+                <div className="text-column column">
                     <div
                         onClick={(e) => {
                             const target = e?.target as HTMLSpanElement;
@@ -57,29 +57,33 @@ const TradeCard: React.FC<TradeCard> = ({
                                 }
                             }
                         }}
-                        className='text-top text-apex-light-yellow'
+                        className="text-top text-apex-light-yellow"
                     >
                         {symbolLabel}
                     </div>
-                    <div className='text-bottom text-xs'>
-                        <span className='text-bottom-label text-xs'>Cons</span>
-                        <span className='text-bottom-value mx-1'>
+                    <div className="text-bottom text-xs">
+                        <span className="text-bottom-label text-xs">Cons</span>
+                        <span className="text-bottom-value mx-1">
                             {trade.quantity}
                         </span>
-                        <span className='text-bottom-label text-xs'>Avg</span>
-                        <span className='text-bottom-value mx-1'>
+                        <span className="text-bottom-label text-xs">Avg</span>
+                        <span className="text-bottom-value mx-1">
                             {float(trade.fillPrice)}
                         </span>
-                        <span className='text-bottom-label text-xs'>Last</span>
-                        <span className='text-bottom-value ml-1'>
+                        {/* <span className="text-bottom-label text-xs">Last</span>
+                        <span className="text-bottom-value ml-1">
                             {float(trade.lastPrice)}
+                        </span> */}
+                        <span className="text-bottom-label text-xs">Stop</span>
+                        <span className="text-bottom-value ml-1">
+                            {float(trade.stopPrice)}
                         </span>
                     </div>
                 </div>
                 <PositionPl trade={trade} />
             </div>
-            <div className='risk-type mb-3 mt-2'>
-                <span className='text-foreground'>{`${trade.riskType} TRADE`}</span>
+            <div className="risk-type mb-3 mt-2">
+                <span className="text-foreground">{`${trade.riskType} TRADE`}</span>
                 <StatusBadge status={trade.status} />
             </div>
             <PriceBar

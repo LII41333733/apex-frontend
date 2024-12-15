@@ -30,7 +30,7 @@ function calculatePercentagePositions(values: {
     const rangeStartValue = Math.min(...Object.values(values));
     const rangeEndValue = Math.max(...Object.values(values));
 
-    const buffer = (rangeEndValue - rangeStartValue) * 0.12;
+    const buffer = (rangeEndValue - rangeStartValue) * 0.08;
     const rangeStart = rangeStartValue - buffer;
     const rangeEnd = rangeEndValue + buffer;
     const totalRange = rangeEnd - rangeStart;
@@ -197,35 +197,39 @@ const PriceBar: React.FC<{
                         )}
                     </section>
                 )}
-                <section>
-                    <div
-                        className="price-bar-trim1"
-                        style={{ left: `${percentagePositions.trim1}%` }}
-                    ></div>
-                    <div
-                        className="text-xxs price-bar-label-top absolute top-[70%]"
-                        style={{ left: `${percentagePositions.trim1}%` }}
-                    >
-                        {`Trim 1`}
-                    </div>
-                    <div
-                        className="text-apex-light-yellow text-xxs price-bar-label-bottom absolute top-[88%]"
-                        style={{ left: `${percentagePositions.trim1}%` }}
-                    >
-                        {`${float(values.trim1)}`}
-                    </div>
-                    <div
-                        className="price-bar-icon"
-                        style={{ left: `${percentagePositions.trim1 - 1.1}%` }}
-                    >
-                        {trade.trimStatus < 1 ? (
-                            <CircleCheck />
-                        ) : (
-                            <CircleCheckFilled />
-                        )}
-                    </div>
-                </section>
-                {hasTrim2 && (
+                {'trim1Price' in trade && (
+                    <section>
+                        <div
+                            className="price-bar-trim1"
+                            style={{ left: `${percentagePositions.trim1}%` }}
+                        ></div>
+                        <div
+                            className="text-xxs price-bar-label-top absolute top-[70%]"
+                            style={{ left: `${percentagePositions.trim1}%` }}
+                        >
+                            {`Trim 1`}
+                        </div>
+                        <div
+                            className="text-apex-light-yellow text-xxs price-bar-label-bottom absolute top-[88%]"
+                            style={{ left: `${percentagePositions.trim1}%` }}
+                        >
+                            {`${float(values.trim1)}`}
+                        </div>
+                        <div
+                            className="price-bar-icon"
+                            style={{
+                                left: `${percentagePositions.trim1 - 1.1}%`,
+                            }}
+                        >
+                            {trade.trimStatus < 1 ? (
+                                <CircleCheck />
+                            ) : (
+                                <CircleCheckFilled />
+                            )}
+                        </div>
+                    </section>
+                )}
+                {'trim2Price' in trade && (
                     <section>
                         <div
                             className="price-bar-trim2"

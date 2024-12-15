@@ -5,6 +5,7 @@ import BaseTrade from '@/interfaces/BaseTrade';
 import LottoTrade from '@/interfaces/LottoTrade';
 import VisionTrade from '@/interfaces/VisionTrade';
 import consumeTrades from '@/utils/consumeTrades';
+import { RiskType } from '@/constants';
 
 const initialSummary = {
     allTrades: [],
@@ -25,6 +26,7 @@ export interface TradeState {
     tradesByDay: { [key: string]: Trade[] };
     tradesByWeek: { [key: string]: Trade[] };
     tradesByMonth: { [key: string]: Trade[] };
+    tradesByRiskType: { [key: string]: Trade[] };
     last20Trades: Trade[];
     tradeSummary: TradeSummary;
 }
@@ -39,6 +41,7 @@ export const initialState: TradeState = {
         lottoTrades: initialSummary,
         visionTrades: initialSummary,
     },
+    tradesByRiskType: {},
     tradesByDay: {},
     tradesByYear: {},
     tradesByWeek: {},
@@ -57,21 +60,13 @@ export const tradeSlice = createSlice({
     },
 });
 
-export const getAllTrades = ({
-    tradeSummary: { baseTrades, lottoTrades, visionTrades },
-}: TradeState) => {
-    const base: BaseTrade[] = baseTrades.allTrades;
-    const lotto: LottoTrade[] = lottoTrades.allTrades;
-    const vision: VisionTrade[] = visionTrades.allTrades;
-    return [...base, ...lotto, ...vision];
-};
-
 export const getTradeBreakdown = ({ trades }: any) => ({
     trades: trades.trades,
     tradesByDay: trades.tradesByDay,
+    tradesByYear: trades.tradesByYear,
     tradesByWeek: trades.tradesByWeek,
     tradesByMonth: trades.tradesByMonth,
-    tradesByYear: trades.tradesByYear,
+    tradesByRiskType: trades.tradesByRiskType,
 });
 
 export const { updateTrades, updateTradeSummary } = tradeSlice.actions;

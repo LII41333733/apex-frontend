@@ -20,6 +20,7 @@ import Vision from './components/pages/Vision';
 import Trades from './components/pages/Trades';
 import ScrollingTickerBar from './components/ScrollingTickerBar';
 import spinYang from './assets/spin-yang.gif';
+import DemoPositions from './components/pages/DemoPositions';
 
 export enum LoginView {
     LOGIN,
@@ -89,6 +90,7 @@ const Protected: React.FC = () => {
 
 const RenderDisplay: React.FC = React.memo(() => {
     const display = useAppSelector((state) => state.main.display);
+    const isDemoMode = useAppSelector((state) => state.main.isDemoMode);
 
     switch (display) {
         case Displays.PORTFOLIO: {
@@ -98,7 +100,7 @@ const RenderDisplay: React.FC = React.memo(() => {
             return <OptionsChain />;
         }
         case Displays.POSITIONS: {
-            return <Positions />;
+            return isDemoMode ? <DemoPositions /> : <Positions />;
         }
         case Displays.TRADES: {
             return <Trades />;

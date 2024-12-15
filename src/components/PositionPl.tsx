@@ -8,6 +8,10 @@ const PositionPl: React.FC<{
 }> = ({
     trade: { quantity, fillPrice, lastPrice, pl, tradeAmount, status },
 }) => {
+    // console.log(lastPrice);
+    // console.log(tradeAmount);
+    // console.log(fillPrice);
+
     const displayDefault =
         status === TradeStatus.PENDING ||
         status === TradeStatus.CANCELED ||
