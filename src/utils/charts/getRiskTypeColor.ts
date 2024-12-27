@@ -2,13 +2,13 @@ import { RiskType } from '@/constants';
 
 export default function (riskType: RiskType) {
     switch (riskType) {
-        case RiskType.LOTTO:
+        case RiskType.Lotto:
             return 'hsl(var(--lotto-chart))';
-        case RiskType.VISION:
+        case RiskType.Vision:
             return 'hsl(var(--vision-chart))';
-        case RiskType.HERO:
+        case RiskType.Hero:
             return 'hsl(var(--hero-chart))';
-        case RiskType.BASE:
+        case RiskType.Base:
         default:
             return 'hsl(var(--base-chart))';
     }

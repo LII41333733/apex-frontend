@@ -16,12 +16,12 @@ const DisplaySelector: React.FC = () => {
     return (
         <Tabs
             defaultValue={display}
-            className='display-tab mb-5 md:mb-0 md:ml-10'
+            className="display-tab mb-5 md:mb-0 md:ml-10"
         >
-            <TabsList className='w-[100%] md:w-[600px] flex justify-center card display-selector-list'>
+            <TabsList className="w-[100%] md:w-[600px] flex justify-center card display-selector-list">
                 <div>
                     <TabsTrigger
-                        id='portfolio-display'
+                        id="portfolio-display"
                         onClick={() => {
                             dispatch(updateDisplay(Displays.PORTFOLIO));
                         }}
@@ -39,7 +39,7 @@ const DisplaySelector: React.FC = () => {
                         </>
                     </TabsTrigger>
                     <TabsTrigger
-                        id='chain-display'
+                        id="chain-display"
                         onClick={() => {
                             dispatch(updateDisplay(Displays.CHAIN));
                         }}
@@ -48,7 +48,7 @@ const DisplaySelector: React.FC = () => {
                         {Displays.CHAIN}
                     </TabsTrigger>
                     <TabsTrigger
-                        id='positions-display'
+                        id="positions-display"
                         onClick={() => {
                             dispatch(updateDisplay(Displays.POSITIONS));
                         }}
@@ -68,7 +68,7 @@ const DisplaySelector: React.FC = () => {
                 </div>
                 <div>
                     <TabsTrigger
-                        id='trades-display'
+                        id="trades-display"
                         onClick={() => {
                             dispatch(updateDisplay(Displays.TRADES));
                         }}
@@ -77,7 +77,7 @@ const DisplaySelector: React.FC = () => {
                         {Displays.TRADES}
                     </TabsTrigger>
                     <TabsTrigger
-                        id='analytics-display'
+                        id="analytics-display"
                         onClick={() => {
                             dispatch(updateDisplay(Displays.ANALYTICS));
                         }}
@@ -86,13 +86,13 @@ const DisplaySelector: React.FC = () => {
                         {Displays.ANALYTICS}
                     </TabsTrigger>
                     <TabsTrigger
-                        id='vision-display'
+                        id="vision-display"
                         onClick={() => {
-                            dispatch(updateDisplay(Displays.VISION));
+                            dispatch(updateDisplay(Displays.Vision));
                         }}
-                        value={Displays.VISION}
+                        value={Displays.Vision}
                     >
-                        {Displays.VISION}
+                        {Displays.Vision}
                     </TabsTrigger>
                 </div>
             </TabsList>
@@ -108,10 +108,10 @@ const PositionIcon: React.FC<{
     if (hasBothOpenAndPendingOrders) {
         return (
             <>
-                <span className='icon text-status-open ml-2 text-lg inline-block'>
+                <span className="icon text-status-open ml-2 text-lg inline-block">
                     ◖
                 </span>
-                <span className='icon second-half text-status-pending text-lg inline-block'>
+                <span className="icon second-half text-status-pending text-lg inline-block">
                     ◗
                 </span>
             </>
@@ -120,7 +120,7 @@ const PositionIcon: React.FC<{
 
     if (hasOpenOrders) {
         return (
-            <span className='icon text-status-open ml-2 text-lg inline-block'>
+            <span className="icon text-status-open ml-2 text-lg inline-block">
                 ●
             </span>
         );
@@ -128,7 +128,7 @@ const PositionIcon: React.FC<{
 
     if (hasPendingOrders) {
         return (
-            <span className='icon text-status-pending ml-2 text-lg inline-block'>
+            <span className="icon text-status-pending ml-2 text-lg inline-block">
                 ●
             </span>
         );

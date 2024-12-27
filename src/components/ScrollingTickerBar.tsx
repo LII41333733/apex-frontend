@@ -15,7 +15,6 @@ const ScrollingTickerBar: React.FC = () => {
 
     React.useEffect(() => {
         if (scrollRef.current) {
-            // console.log(scrollRef.current);
         }
     }, [scrollRef]);
 

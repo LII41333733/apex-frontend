@@ -10,6 +10,9 @@ thead tr {
     padding-bottom: 0.6rem;
     margin-bottom: 2rem;
 }
+.option-box + div {
+    width: 500px;
+}
 
 .search-btn {
     background: hsl(12deg 6.49% 15.1%);

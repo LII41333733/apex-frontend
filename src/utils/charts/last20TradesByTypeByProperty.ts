@@ -23,10 +23,10 @@ export default function (arr: Trade[], property: string) {
 
     for (let i = 0; i < 20; i++) {
         data.push({
-            Base: result.BASE[i][property],
-            Lotto: result.LOTTO[i][property],
-            Vision: result.VISION[i][property],
-            Hero: result.HERO[i][property],
+            Base: result.Base[i][property],
+            Lotto: result.Lotto[i][property],
+            Vision: result.Vision[i][property],
+            Hero: result.Hero[i][property],
             Trade: i + 1,
         });
     }

@@ -37,39 +37,39 @@ const chartConfig = {
 
 const EquityChart: React.FC = () => {
     return (
-        <div className='apex-card card'>
-            <CardHeader className='equity-chart w-full pt-4'>
-                <div className='flex-1'>
-                    <CardTitle className='text-md'>Net Account Value</CardTitle>
-                    <CardDescription className='text-sm'>
+        <div className="apex-card card">
+            <CardHeader className="equity-chart w-full pt-4">
+                <div className="flex-1">
+                    <CardTitle className="text-md">Net Account Value</CardTitle>
+                    <CardDescription className="text-sm">
                         Total P/L
                     </CardDescription>
                 </div>
                 <Badge
                     onClick={async () => {}}
-                    className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
-                    variant='outline'
+                    className="equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini"
+                    variant="outline"
                 >
                     Yearly
                 </Badge>
                 <Badge
                     onClick={async () => {}}
-                    className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
-                    variant='outline'
+                    className="equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini"
+                    variant="outline"
                 >
                     Monthly
                 </Badge>
                 <Badge
                     onClick={async () => {}}
-                    className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
-                    variant='outline'
+                    className="equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini"
+                    variant="outline"
                 >
                     Weekly
                 </Badge>
                 <Badge
                     onClick={async () => {}}
-                    className='equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini'
-                    variant='outline'
+                    className="equity-chart-btn mr-2 bg-background rounded badge text-sm apex-button text-foreground symbol-badge mini"
+                    variant="outline"
                 >
                     Daily
                 </Badge>
@@ -77,7 +77,7 @@ const EquityChart: React.FC = () => {
             <CardContent>
                 <ChartContainer
                     config={chartConfig}
-                    className='rounded-xl bg-background pt-6 pb-4 px-6 w-full'
+                    className="rounded-xl bg-background pt-6 pb-4 px-6 w-full"
                 >
                     <LineChart
                         accessibilityLayer
@@ -89,7 +89,7 @@ const EquityChart: React.FC = () => {
                     >
                         <CartesianGrid vertical={false} />
                         <XAxis
-                            dataKey='month'
+                            dataKey="month"
                             tickLine={false}
                             axisLine={false}
                             tickMargin={8}
@@ -100,16 +100,16 @@ const EquityChart: React.FC = () => {
                             content={<ChartTooltipContent />}
                         />
                         <Line
-                            dataKey='desktop'
-                            type='monotone'
-                            stroke='var(--color-desktop)'
+                            dataKey="desktop"
+                            type="monotone"
+                            stroke="var(--color-desktop)"
                             strokeWidth={2}
                             dot={false}
                         />
                         <Line
-                            dataKey='mobile'
-                            type='monotone'
-                            stroke='var(--color-mobile)'
+                            dataKey="mobile"
+                            type="monotone"
+                            stroke="var(--color-mobile)"
                             strokeWidth={2}
                             dot={false}
                         />
@@ -117,14 +117,14 @@ const EquityChart: React.FC = () => {
                 </ChartContainer>
             </CardContent>
             <CardFooter>
-                <div className='flex w-full items-start gap-2 text-sm'>
-                    <div className='grid gap-2'>
-                        <div className='flex items-center gap-2 font-medium leading-none text-sm'>
-                            Trending up by 5.2% this month{' '}
-                            <TrendingUp className='h-4 w-4' />
-                            <TrendingDown className='h-4 w-4' />
+                <div className="flex w-full items-start gap-2 text-sm">
+                    <div className="grid gap-2">
+                        <div className="flex items-center gap-2 font-medium leading-none text-sm">
+                            {' '}
+                            <TrendingUp className="h-4 w-4" />
+                            <TrendingDown className="h-4 w-4" />
                         </div>
-                        <div className='flex items-center gap-2 leading-none text-muted-foreground text-sm'>
+                        <div className="flex items-center gap-2 leading-none text-muted-foreground text-sm">
                             Showing total visitors for the last 6 months
                         </div>
                     </div>

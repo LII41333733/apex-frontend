@@ -19,10 +19,10 @@ type PhasesData = {
 };
 
 const phasesByRiskType: PhasesData = {
-    BASE: [STOP, T1, T2],
-    VISION: [STOP, T1, T2, RUNNERS],
-    LOTTO: [STOP, T1, RUNNERS],
-    HERO: [STOP, RUNNERS],
+    Base: [STOP, T1, T2],
+    Vision: [STOP, T1, T2],
+    Lotto: [STOP, T1],
+    Hero: [STOP],
 };
 
 const DemoPositions: React.FC = () => {
@@ -62,7 +62,10 @@ const DemoPositions: React.FC = () => {
         >
             <OrderFilter />
             <div className="md:flex md:py-4 md:flex-row md:flex-wrap md:justify-center w-full m-auto">
-                <DemoPosition riskType="BASE" />
+                <DemoPosition riskType="Base" />
+            </div>
+            <div className="md:flex md:py-4 md:flex-row md:flex-wrap md:justify-center w-full m-auto">
+                <DemoPosition riskType="Lotto" />
             </div>
         </div>
     );
@@ -70,39 +73,74 @@ const DemoPositions: React.FC = () => {
 
 export default React.memo(DemoPositions);
 
-const HandleDemoTradeState = (trade: Trade, riskType: string) => {
-    const [trades, setTrades] = React.useState<Trade[]>([]);
-    // console.log('trades: ' + trades);
-    const [prices, setPrices] = React.useState<number[][]>([]);
-    // console.log('prices: ' + prices);
-    const [currentIndex, setCurrentIndex] = React.useState<number[]>([]);
-    // console.log('currentIndex: ' + currentIndex);
-
-    React.useEffect(() => {
-        const t = { ...trade };
-        t.lastPrice = t.fillPrice;
-        setTrades(phasesByRiskType[riskType].map(() => t));
-        setCurrentIndex(phasesByRiskType[riskType].map(() => 0));
-        const prices = phasesByRiskType[riskType].map((e: Phases) => {
-            let max, min;
+const getMultipliers = (t: Trade, e: any) => {
+    let max, min, max2, min2, limit;
+    switch (t.riskType) {
+        case RiskType.Base:
             switch (e) {
                 case STOP:
                     max = round(t.fillPrice * 1.2);
                     min = round(t.stopPrice);
                     break;
                 case T1:
-                    max = round(t.fillPrice * 1.5);
-                    min = round(t.fillPrice);
+                    limit = 1.5;
+                    max = round(t.fillPrice * limit);
+                    min = round(
+                        t.fillPrice * limit - t.fillPrice * limit * 0.3
+                    );
                     break;
                 case T2:
-                    max = round(t.fillPrice * 2);
-                    min = round(t.fillPrice);
+                    limit = 2;
+                    max = round(t.fillPrice * limit);
+                    min = round(
+                        t.fillPrice * limit - t.fillPrice * limit * 0.2
+                    );
                     break;
                 default:
                     max = 0;
                     min = 0;
             }
+            break;
+        case RiskType.Lotto:
+            switch (e) {
+                case STOP:
+                    max = round(t.fillPrice * 1.2);
+                    min = round(t.stopPrice);
+                    break;
+                case T1:
+                    limit = 3;
+                    max = round(t.fillPrice * limit);
+                    min = round(
+                        t.fillPrice * limit - t.fillPrice * limit * 0.2
+                    );
+                    max2 = round(t.fillPrice * limit);
+                    min2 = round(
+                        t.fillPrice * limit - t.fillPrice * limit * 0.2
+                    );
+                    break;
+                default:
+                    max = 0;
+                    min = 0;
+                    break;
+            }
+    }
+    return [max, min, max2, min2];
+};
 
+const HandleDemoTradeState = (trade: Trade, riskType: string) => {
+    const [trades, setTrades] = React.useState<Trade[]>([]);
+    const [prices, setPrices] = React.useState<number[][]>([]);
+    const [max, setMax] = React.useState<number[]>([]);
+    const [currentIndex, setCurrentIndex] = React.useState<number[]>([]);
+
+    React.useEffect(() => {
+        const t = { ...trade };
+        t.lastPrice = t.fillPrice;
+        setMax(phasesByRiskType[riskType].map(() => 0));
+        setTrades(phasesByRiskType[riskType].map(() => t));
+        setCurrentIndex(phasesByRiskType[riskType].map(() => 0));
+        const prices = phasesByRiskType[riskType].map((e: Phases) => {
+            const [max, min] = getMultipliers(t, e);
             const p = [t.fillPrice];
             while (p[p.length - 1] < max) {
                 p.push(round(p[p.length - 1] + 0.01));
@@ -120,10 +158,10 @@ const HandleDemoTradeState = (trade: Trade, riskType: string) => {
 
     React.useEffect(() => {
         if (prices.length && currentIndex.length) {
-            const intervalId = setInterval(handleTimer, 500);
+            const intervalId = setInterval(handleTimer, 300);
             return () => clearInterval(intervalId);
         }
-    }, [prices, currentIndex]);
+    }, [prices, currentIndex, trades]);
 
     const handleTimer = () => {
         const indexes: number[] = currentIndex.map((e: number, i: number) => {
@@ -134,10 +172,24 @@ const HandleDemoTradeState = (trade: Trade, riskType: string) => {
         });
 
         setCurrentIndex(indexes);
+        const newMax = trades.map((e: Trade, i: number, a) => {
+            const index = indexes[i];
+            if (index === 0) {
+                return prices[i][0];
+            }
+            const newPrice = prices[i][index];
+            return Math.max(max[i], newPrice);
+        });
+        setMax(newMax);
         setTrades(
             trades.map((e: Trade, i: number) => {
                 const index = indexes[i];
-                const newLastPrice = prices[i][index];
+                const newPrice =
+                    prices[i][index] <= trade.stopPrice
+                        ? trade.stopPrice
+                        : prices[i][index];
+                console.log(prices[i][index]);
+                console.log(trade.stopPrice);
                 const trim1Index = prices[i].findIndex(
                     (pr) => 'trim1Price' in e && pr === e.trim1Price
                 );
@@ -146,26 +198,43 @@ const HandleDemoTradeState = (trade: Trade, riskType: string) => {
                 );
                 const trim1Hit = index >= trim1Index && trim1Index > -1;
                 const trim2Hit = index >= trim2Index && trim2Index > -1;
+                const originalStopPrice = defaultDemos[riskType].stopPrice;
+
+                const handleStopPrice = (trade: Trade) => {
+                    if ('trim1Price' in e) {
+                        if (trim2Hit) {
+                            if (newPrice <= prices[i][index - 1]) {
+                                return trade.stopPrice;
+                            }
+                            return newPrice - newPrice * 0.2;
+                        }
+                        if (trim1Hit) {
+                            if (newPrice <= prices[i][index - 1]) {
+                                return trade.stopPrice;
+                            }
+                            return newPrice - newPrice * 0.2;
+                        }
+                    }
+                    return originalStopPrice;
+                };
+
+                const stop = handleStopPrice(e);
+
+                console.log(stop);
+                console.log(newPrice);
                 return {
                     ...e,
-                    lastPrice: newLastPrice,
+                    lastPrice: newPrice,
                     status:
-                        index === prices[i].length - 1 ||
-                        index === prices[i].length - 2 ||
-                        index === prices[i].length - 3 ||
-                        index === prices[i].length - 4 ||
-                        index === prices[i].length - 5
+                        ('trim2Price' in e && trim2Hit) ||
+                        (!('trim2Price' in e) && trim1Hit)
+                            ? TradeStatus.RUNNERS
+                            : newPrice <= stop
                             ? TradeStatus.FILLED
                             : TradeStatus.OPEN,
-                    stopPrice:
-                        e.riskType === RiskType.HERO
-                            ? e.stopPrice
-                            : trim2Hit
-                            ? e.trim1Price
-                            : trim1Hit
-                            ? e.fillPrice
-                            : e.stopPrice,
+                    stopPrice: stop,
                     trimStatus: trim2Hit ? 2 : trim1Hit ? 1 : 0,
+                    maxPrice: newMax[i],
                 };
             })
         );
@@ -175,10 +244,10 @@ const HandleDemoTradeState = (trade: Trade, riskType: string) => {
 };
 
 const defaultDemos: { [key: string]: Trade } = {
-    BASE: {
+    Base: {
         id: 101220172496,
         fillOrderId: 0,
-        riskType: RiskType.BASE,
+        riskType: RiskType.Base,
         preTradeBalance: 15977,
         postTradeBalance: 16381,
         optionSymbol: 'PYPL241004C00270000',
@@ -207,10 +276,10 @@ const defaultDemos: { [key: string]: Trade } = {
         trim2PriceFinal: 1.44,
         trim2Quantity: 5,
     },
-    VISION: {
+    Vision: {
         id: 101220172576,
         fillOrderId: 1,
-        riskType: RiskType.VISION,
+        riskType: RiskType.Vision,
         preTradeBalance: 31759,
         postTradeBalance: 31787,
         optionSymbol: 'MMM241011C00043000',
@@ -239,10 +308,10 @@ const defaultDemos: { [key: string]: Trade } = {
         trim2PriceFinal: 0.21,
         trim2Quantity: 2,
     },
-    LOTTO: {
+    Lotto: {
         id: 101220172554,
         fillOrderId: 2,
-        riskType: RiskType.LOTTO,
+        riskType: RiskType.Lotto,
         preTradeBalance: 25800,
         postTradeBalance: 26157,
         optionSymbol: 'DAL241011C00047000',
@@ -268,10 +337,10 @@ const defaultDemos: { [key: string]: Trade } = {
         trim1PriceFinal: 0.51,
         trim1Quantity: 21,
     },
-    HERO: {
+    Hero: {
         id: 101220172639,
         fillOrderId: 3,
-        riskType: RiskType.HERO,
+        riskType: RiskType.Hero,
         preTradeBalance: 46512,
         postTradeBalance: 49151,
         optionSymbol: 'SPY241001P00567000',

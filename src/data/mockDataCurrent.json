@@ -1,6 +1,6 @@
 [
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "796970506624367",
         "openDate": "2024-02-01",
         "closeDate": "2024-02-01 03:00:00",
@@ -27,7 +27,7 @@
         "stopPriceFinal": "0.27"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "697155202894214",
         "openDate": "2024-02-02",
         "closeDate": "2024-02-02 04:00:00",
@@ -54,7 +54,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "146134383987820",
         "openDate": "2024-02-05",
         "closeDate": "2024-02-05 07:00:00",
@@ -81,7 +81,7 @@
         "stopPriceFinal": "0.58"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "396907689369937",
         "openDate": "2024-02-06",
         "closeDate": "2024-02-06 06:00:00",
@@ -108,7 +108,7 @@
         "stopPriceFinal": "1.62"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "126472439470938",
         "openDate": "2024-02-07",
         "closeDate": "2024-02-07 07:00:00",
@@ -135,7 +135,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "746049591196697",
         "openDate": "2024-02-08",
         "closeDate": "2024-02-08 06:00:00",
@@ -162,7 +162,7 @@
         "stopPriceFinal": "2.5"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "283155260938773",
         "openDate": "2024-02-09",
         "closeDate": "2024-02-09 03:00:00",
@@ -189,7 +189,7 @@
         "stopPriceFinal": "0.48"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "528043706331138",
         "openDate": "2024-02-12",
         "closeDate": "2024-02-12 05:00:00",
@@ -216,7 +216,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "475545787581201",
         "openDate": "2024-02-13",
         "closeDate": "2024-02-13 03:00:00",
@@ -243,7 +243,7 @@
         "stopPriceFinal": "2.35"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "266298649802674",
         "openDate": "2024-02-14",
         "closeDate": "2024-02-14 04:00:00",
@@ -270,7 +270,7 @@
         "stopPriceFinal": "1.04"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "246162979553161",
         "openDate": "2024-02-15",
         "closeDate": "2024-02-15 01:00:00",
@@ -297,7 +297,7 @@
         "stopPriceFinal": "1.24"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "519093635205936",
         "openDate": "2024-02-16",
         "closeDate": "2024-02-16 05:00:00",
@@ -324,7 +324,7 @@
         "stopPriceFinal": "0.87"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "540559473940191",
         "openDate": "2024-02-19",
         "closeDate": "2024-02-19 02:00:00",
@@ -351,7 +351,7 @@
         "stopPriceFinal": "0.59"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "832814013649955",
         "openDate": "2024-02-20",
         "closeDate": "2024-02-20 07:00:00",
@@ -378,7 +378,7 @@
         "stopPriceFinal": "1.33"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "182679349775129",
         "openDate": "2024-02-21",
         "closeDate": "2024-02-21 04:00:00",
@@ -405,7 +405,7 @@
         "stopPriceFinal": "0.45"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "867352992870558",
         "openDate": "2024-02-22",
         "closeDate": "2024-02-22 06:00:00",
@@ -432,7 +432,7 @@
         "stopPriceFinal": "1.43"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "150220500239085",
         "openDate": "2024-02-23",
         "closeDate": "2024-02-23 01:00:00",
@@ -459,7 +459,7 @@
         "stopPriceFinal": "2.46"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "202159273984766",
         "openDate": "2024-02-26",
         "closeDate": "2024-02-26 05:00:00",
@@ -486,7 +486,7 @@
         "stopPriceFinal": "1.53"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "893796276326817",
         "openDate": "2024-02-27",
         "closeDate": "2024-02-27 07:00:00",
@@ -513,7 +513,7 @@
         "stopPriceFinal": "1.47"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "924832410623269",
         "openDate": "2024-02-28",
         "closeDate": "2024-02-28 02:00:00",
@@ -540,7 +540,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "435333620001556",
         "openDate": "2024-02-29",
         "closeDate": "2024-02-29 04:00:00",
@@ -567,7 +567,7 @@
         "stopPriceFinal": "1.19"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "947083982689503",
         "openDate": "2024-03-01",
         "closeDate": "2024-03-01 01:00:00",
@@ -594,7 +594,7 @@
         "stopPriceFinal": "2.14"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "922124527598042",
         "openDate": "2024-03-04",
         "closeDate": "2024-03-04 01:00:00",
@@ -621,7 +621,7 @@
         "stopPriceFinal": "3.99"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "122320961988884",
         "openDate": "2024-03-05",
         "closeDate": "2024-03-05 03:00:00",
@@ -648,7 +648,7 @@
         "stopPriceFinal": "1.31"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "563391466377488",
         "openDate": "2024-03-06",
         "closeDate": "2024-03-06 05:00:00",
@@ -675,7 +675,7 @@
         "stopPriceFinal": "2.98"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "238349837736848",
         "openDate": "2024-03-07",
         "closeDate": "2024-03-07 01:00:00",
@@ -702,7 +702,7 @@
         "stopPriceFinal": "4.6"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "951066506864802",
         "openDate": "2024-03-08",
         "closeDate": "2024-03-08 04:00:00",
@@ -729,7 +729,7 @@
         "stopPriceFinal": "0.31"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "381686917791551",
         "openDate": "2024-03-11",
         "closeDate": "2024-03-11 06:00:00",
@@ -756,7 +756,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "554054906902714",
         "openDate": "2024-03-12",
         "closeDate": "2024-03-12 06:00:00",
@@ -783,7 +783,7 @@
         "stopPriceFinal": "3.23"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "458564322535736",
         "openDate": "2024-03-13",
         "closeDate": "2024-03-13 03:00:00",
@@ -810,7 +810,7 @@
         "stopPriceFinal": "-0.41"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "882583775776606",
         "openDate": "2024-03-14",
         "closeDate": "2024-03-14 06:00:00",
@@ -837,7 +837,7 @@
         "stopPriceFinal": "0.05"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "141371750719049",
         "openDate": "2024-03-15",
         "closeDate": "2024-03-15 07:00:00",
@@ -864,7 +864,7 @@
         "stopPriceFinal": "2.41"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "422801323017919",
         "openDate": "2024-03-18",
         "closeDate": "2024-03-18 06:00:00",
@@ -891,7 +891,7 @@
         "stopPriceFinal": "2.51"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "558490110519581",
         "openDate": "2024-03-19",
         "closeDate": "2024-03-19 03:00:00",
@@ -918,7 +918,7 @@
         "stopPriceFinal": "0.32"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "797189778503373",
         "openDate": "2024-03-20",
         "closeDate": "2024-03-20 06:00:00",
@@ -945,7 +945,7 @@
         "stopPriceFinal": "1.64"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "132449760259507",
         "openDate": "2024-03-21",
         "closeDate": "2024-03-21 01:00:00",
@@ -972,7 +972,7 @@
         "stopPriceFinal": "1.56"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "141065471456736",
         "openDate": "2024-03-22",
         "closeDate": "2024-03-22 06:00:00",
@@ -999,7 +999,7 @@
         "stopPriceFinal": "2.12"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "153909664732749",
         "openDate": "2024-03-25",
         "closeDate": "2024-03-25 07:00:00",
@@ -1026,7 +1026,7 @@
         "stopPriceFinal": "1.7"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "269631801276555",
         "openDate": "2024-03-26",
         "closeDate": "2024-03-26 02:00:00",
@@ -1053,7 +1053,7 @@
         "stopPriceFinal": "1.95"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "103536084459669",
         "openDate": "2024-03-27",
         "closeDate": "2024-03-27 04:00:00",
@@ -1080,7 +1080,7 @@
         "stopPriceFinal": "3.35"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "428525005603684",
         "openDate": "2024-03-28",
         "closeDate": "2024-03-28 07:00:00",
@@ -1107,7 +1107,7 @@
         "stopPriceFinal": "1.21"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "814145018455738",
         "openDate": "2024-03-29",
         "closeDate": "2024-03-29 03:00:00",
@@ -1134,7 +1134,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "851517149536450",
         "openDate": "2024-04-01",
         "closeDate": "2024-04-01 07:00:00",
@@ -1161,7 +1161,7 @@
         "stopPriceFinal": "3.03"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "567090214155530",
         "openDate": "2024-04-02",
         "closeDate": "2024-04-02 06:00:00",
@@ -1188,7 +1188,7 @@
         "stopPriceFinal": "0.17"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "276124456954972",
         "openDate": "2024-04-03",
         "closeDate": "2024-04-03 05:00:00",
@@ -1215,7 +1215,7 @@
         "stopPriceFinal": "3.58"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "384078764189218",
         "openDate": "2024-04-04",
         "closeDate": "2024-04-04 07:00:00",
@@ -1242,7 +1242,7 @@
         "stopPriceFinal": "2.17"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "818294534428935",
         "openDate": "2024-04-05",
         "closeDate": "2024-04-05 03:00:00",
@@ -1269,7 +1269,7 @@
         "stopPriceFinal": "0.27"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "235247238349880",
         "openDate": "2024-04-08",
         "closeDate": "2024-04-08 05:00:00",
@@ -1296,7 +1296,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "729154111125114",
         "openDate": "2024-04-09",
         "closeDate": "2024-04-09 01:00:00",
@@ -1323,7 +1323,7 @@
         "stopPriceFinal": "0.87"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "709666323129296",
         "openDate": "2024-04-10",
         "closeDate": "2024-04-10 06:00:00",
@@ -1350,7 +1350,7 @@
         "stopPriceFinal": "-0.02"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "820674048469104",
         "openDate": "2024-04-11",
         "closeDate": "2024-04-11 04:00:00",
@@ -1377,7 +1377,7 @@
         "stopPriceFinal": "0.69"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "616738170679749",
         "openDate": "2024-04-12",
         "closeDate": "2024-04-12 04:00:00",
@@ -1404,7 +1404,7 @@
         "stopPriceFinal": "0.23"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "269041185652082",
         "openDate": "2024-04-15",
         "closeDate": "2024-04-15 05:00:00",
@@ -1431,7 +1431,7 @@
         "stopPriceFinal": "0.47"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "326058849532361",
         "openDate": "2024-04-16",
         "closeDate": "2024-04-16 04:00:00",
@@ -1458,7 +1458,7 @@
         "stopPriceFinal": "0.56"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "383114996114460",
         "openDate": "2024-04-17",
         "closeDate": "2024-04-17 07:00:00",
@@ -1485,7 +1485,7 @@
         "stopPriceFinal": "2.35"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "325687548990005",
         "openDate": "2024-04-18",
         "closeDate": "2024-04-18 06:00:00",
@@ -1512,7 +1512,7 @@
         "stopPriceFinal": "1.92"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "844908918959595",
         "openDate": "2024-04-19",
         "closeDate": "2024-04-19 02:00:00",
@@ -1539,7 +1539,7 @@
         "stopPriceFinal": "0.13"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "815560595327714",
         "openDate": "2024-04-22",
         "closeDate": "2024-04-22 02:00:00",
@@ -1566,7 +1566,7 @@
         "stopPriceFinal": "2.98"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "362410676058085",
         "openDate": "2024-04-23",
         "closeDate": "2024-04-23 03:00:00",
@@ -1593,7 +1593,7 @@
         "stopPriceFinal": "1.36"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "896385896072092",
         "openDate": "2024-04-24",
         "closeDate": "2024-04-24 06:00:00",
@@ -1620,7 +1620,7 @@
         "stopPriceFinal": "3.37"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "795944908807316",
         "openDate": "2024-04-25",
         "closeDate": "2024-04-25 02:00:00",
@@ -1647,7 +1647,7 @@
         "stopPriceFinal": "2.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "622945897265468",
         "openDate": "2024-04-26",
         "closeDate": "2024-04-26 05:00:00",
@@ -1674,7 +1674,7 @@
         "stopPriceFinal": "0.95"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "195051518151701",
         "openDate": "2024-04-29",
         "closeDate": "2024-04-29 04:00:00",
@@ -1701,7 +1701,7 @@
         "stopPriceFinal": "2.63"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "433865652056703",
         "openDate": "2024-04-30",
         "closeDate": "2024-04-30 04:00:00",
@@ -1728,7 +1728,7 @@
         "stopPriceFinal": "2.18"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "462504496052999",
         "openDate": "2024-05-01",
         "closeDate": "2024-05-01 07:00:00",
@@ -1755,7 +1755,7 @@
         "stopPriceFinal": "1.26"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "888335728803618",
         "openDate": "2024-05-02",
         "closeDate": "2024-05-02 02:00:00",
@@ -1782,7 +1782,7 @@
         "stopPriceFinal": "1.17"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "739439682232442",
         "openDate": "2024-05-03",
         "closeDate": "2024-05-03 04:00:00",
@@ -1809,7 +1809,7 @@
         "stopPriceFinal": "2.67"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "962759052024495",
         "openDate": "2024-05-06",
         "closeDate": "2024-05-06 04:00:00",
@@ -1836,7 +1836,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "596478727374713",
         "openDate": "2024-05-07",
         "closeDate": "2024-05-07 01:00:00",
@@ -1863,7 +1863,7 @@
         "stopPriceFinal": "0.22"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "268647506532995",
         "openDate": "2024-05-08",
         "closeDate": "2024-05-08 02:00:00",
@@ -1890,7 +1890,7 @@
         "stopPriceFinal": "1.07"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "895855868037566",
         "openDate": "2024-05-09",
         "closeDate": "2024-05-09 05:00:00",
@@ -1917,7 +1917,7 @@
         "stopPriceFinal": "2.16"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "878780278149119",
         "openDate": "2024-05-10",
         "closeDate": "2024-05-10 05:00:00",
@@ -1944,7 +1944,7 @@
         "stopPriceFinal": "-0.33"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "455704624791652",
         "openDate": "2024-05-13",
         "closeDate": "2024-05-13 03:00:00",
@@ -1971,7 +1971,7 @@
         "stopPriceFinal": "1.54"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "846745471719952",
         "openDate": "2024-05-14",
         "closeDate": "2024-05-14 05:00:00",
@@ -1998,7 +1998,7 @@
         "stopPriceFinal": "1.07"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "897201712983438",
         "openDate": "2024-05-15",
         "closeDate": "2024-05-15 06:00:00",
@@ -2025,7 +2025,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "314030204505428",
         "openDate": "2024-05-16",
         "closeDate": "2024-05-16 06:00:00",
@@ -2052,7 +2052,7 @@
         "stopPriceFinal": "1.38"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "766835054341930",
         "openDate": "2024-05-17",
         "closeDate": "2024-05-17 02:00:00",
@@ -2079,7 +2079,7 @@
         "stopPriceFinal": "0.85"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "315122547347615",
         "openDate": "2024-05-20",
         "closeDate": "2024-05-20 07:00:00",
@@ -2106,7 +2106,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "466483061828793",
         "openDate": "2024-05-21",
         "closeDate": "2024-05-21 03:00:00",
@@ -2133,7 +2133,7 @@
         "stopPriceFinal": "2.08"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "542351174852582",
         "openDate": "2024-05-22",
         "closeDate": "2024-05-22 02:00:00",
@@ -2160,7 +2160,7 @@
         "stopPriceFinal": "0.17"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "541574235738692",
         "openDate": "2024-05-23",
         "closeDate": "2024-05-23 02:00:00",
@@ -2187,7 +2187,7 @@
         "stopPriceFinal": "1.55"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "303389107898426",
         "openDate": "2024-05-24",
         "closeDate": "2024-05-24 05:00:00",
@@ -2214,7 +2214,7 @@
         "stopPriceFinal": "0.16"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "682408066775157",
         "openDate": "2024-05-27",
         "closeDate": "2024-05-27 01:00:00",
@@ -2241,7 +2241,7 @@
         "stopPriceFinal": "1.21"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "741133768001753",
         "openDate": "2024-05-28",
         "closeDate": "2024-05-28 03:00:00",
@@ -2268,7 +2268,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "982126425535389",
         "openDate": "2024-05-29",
         "closeDate": "2024-05-29 06:00:00",
@@ -2295,7 +2295,7 @@
         "stopPriceFinal": "0.92"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "294985941121555",
         "openDate": "2024-05-30",
         "closeDate": "2024-05-30 06:00:00",
@@ -2322,7 +2322,7 @@
         "stopPriceFinal": "1.43"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "907922645332453",
         "openDate": "2024-05-31",
         "closeDate": "2024-05-31 06:00:00",
@@ -2349,7 +2349,7 @@
         "stopPriceFinal": "0.94"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "452555123011984",
         "openDate": "2024-06-03",
         "closeDate": "2024-06-03 01:00:00",
@@ -2376,7 +2376,7 @@
         "stopPriceFinal": "2.79"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "615650642818091",
         "openDate": "2024-06-04",
         "closeDate": "2024-06-04 05:00:00",
@@ -2403,7 +2403,7 @@
         "stopPriceFinal": "1.94"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "709185828893618",
         "openDate": "2024-06-05",
         "closeDate": "2024-06-05 07:00:00",
@@ -2430,7 +2430,7 @@
         "stopPriceFinal": "1.19"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "909141238229771",
         "openDate": "2024-06-06",
         "closeDate": "2024-06-06 04:00:00",
@@ -2457,7 +2457,7 @@
         "stopPriceFinal": "3.18"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "326390627069696",
         "openDate": "2024-06-07",
         "closeDate": "2024-06-07 04:00:00",
@@ -2484,7 +2484,7 @@
         "stopPriceFinal": "2.34"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "312300858933877",
         "openDate": "2024-06-10",
         "closeDate": "2024-06-10 02:00:00",
@@ -2511,7 +2511,7 @@
         "stopPriceFinal": "2.43"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "126752421022029",
         "openDate": "2024-06-11",
         "closeDate": "2024-06-11 06:00:00",
@@ -2538,7 +2538,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "399997847950368",
         "openDate": "2024-06-12",
         "closeDate": "2024-06-12 03:00:00",
@@ -2565,7 +2565,7 @@
         "stopPriceFinal": "0.22"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "735142036540861",
         "openDate": "2024-06-13",
         "closeDate": "2024-06-13 04:00:00",
@@ -2592,7 +2592,7 @@
         "stopPriceFinal": "1.36"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "549917592242753",
         "openDate": "2024-06-14",
         "closeDate": "2024-06-14 03:00:00",
@@ -2619,7 +2619,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "611344768810253",
         "openDate": "2024-06-17",
         "closeDate": "2024-06-17 02:00:00",
@@ -2646,7 +2646,7 @@
         "stopPriceFinal": "0.17"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "260328020920132",
         "openDate": "2024-06-18",
         "closeDate": "2024-06-18 05:00:00",
@@ -2673,7 +2673,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "360864566002009",
         "openDate": "2024-06-19",
         "closeDate": "2024-06-19 04:00:00",
@@ -2700,7 +2700,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "270719898594326",
         "openDate": "2024-06-20",
         "closeDate": "2024-06-20 06:00:00",
@@ -2727,7 +2727,7 @@
         "stopPriceFinal": "1.59"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "188223940055965",
         "openDate": "2024-06-21",
         "closeDate": "2024-06-21 04:00:00",
@@ -2754,7 +2754,7 @@
         "stopPriceFinal": "0.36"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "195007534396341",
         "openDate": "2024-06-24",
         "closeDate": "2024-06-24 06:00:00",
@@ -2781,7 +2781,7 @@
         "stopPriceFinal": "0.03"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "701687142440053",
         "openDate": "2024-06-25",
         "closeDate": "2024-06-25 04:00:00",
@@ -2808,7 +2808,7 @@
         "stopPriceFinal": "0.68"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "153246151275459",
         "openDate": "2024-06-26",
         "closeDate": "2024-06-26 03:00:00",
@@ -2835,7 +2835,7 @@
         "stopPriceFinal": "0.94"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "827426989046315",
         "openDate": "2024-06-27",
         "closeDate": "2024-06-27 06:00:00",
@@ -2862,7 +2862,7 @@
         "stopPriceFinal": "0.19"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "807752291172520",
         "openDate": "2024-06-28",
         "closeDate": "2024-06-28 01:00:00",
@@ -2889,7 +2889,7 @@
         "stopPriceFinal": "-0.16"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "190239385941787",
         "openDate": "2024-07-01",
         "closeDate": "2024-07-01 04:00:00",
@@ -2916,7 +2916,7 @@
         "stopPriceFinal": "1.05"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "698784463187990",
         "openDate": "2024-07-02",
         "closeDate": "2024-07-02 05:00:00",
@@ -2943,7 +2943,7 @@
         "stopPriceFinal": "3.4"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "945527015107347",
         "openDate": "2024-07-03",
         "closeDate": "2024-07-03 01:00:00",
@@ -2970,7 +2970,7 @@
         "stopPriceFinal": "1.24"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "460100091956653",
         "openDate": "2024-07-04",
         "closeDate": "2024-07-04 02:00:00",
@@ -2997,7 +2997,7 @@
         "stopPriceFinal": "1.8"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "175343794787468",
         "openDate": "2024-07-05",
         "closeDate": "2024-07-05 07:00:00",
@@ -3024,7 +3024,7 @@
         "stopPriceFinal": "0.03"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "796121708805428",
         "openDate": "2024-07-08",
         "closeDate": "2024-07-08 03:00:00",
@@ -3051,7 +3051,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "474727251404039",
         "openDate": "2024-07-09",
         "closeDate": "2024-07-09 05:00:00",
@@ -3078,7 +3078,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "815573273237493",
         "openDate": "2024-07-10",
         "closeDate": "2024-07-10 06:00:00",
@@ -3105,7 +3105,7 @@
         "stopPriceFinal": "2.52"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "793169032493127",
         "openDate": "2024-07-11",
         "closeDate": "2024-07-11 03:00:00",
@@ -3132,7 +3132,7 @@
         "stopPriceFinal": "2.23"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "121074775544820",
         "openDate": "2024-07-12",
         "closeDate": "2024-07-12 03:00:00",
@@ -3159,7 +3159,7 @@
         "stopPriceFinal": "0.91"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "325638475438031",
         "openDate": "2024-07-15",
         "closeDate": "2024-07-15 05:00:00",
@@ -3186,7 +3186,7 @@
         "stopPriceFinal": "1.26"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "736412740610837",
         "openDate": "2024-07-16",
         "closeDate": "2024-07-16 02:00:00",
@@ -3213,7 +3213,7 @@
         "stopPriceFinal": "2.77"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "192170389642749",
         "openDate": "2024-07-17",
         "closeDate": "2024-07-17 01:00:00",
@@ -3240,7 +3240,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "707257516523420",
         "openDate": "2024-07-18",
         "closeDate": "2024-07-18 06:00:00",
@@ -3267,7 +3267,7 @@
         "stopPriceFinal": "0.45"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "373615399096147",
         "openDate": "2024-07-19",
         "closeDate": "2024-07-19 01:00:00",
@@ -3294,7 +3294,7 @@
         "stopPriceFinal": "1.51"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "215326500103131",
         "openDate": "2024-07-22",
         "closeDate": "2024-07-22 02:00:00",
@@ -3321,7 +3321,7 @@
         "stopPriceFinal": "2.28"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "123107813489975",
         "openDate": "2024-07-23",
         "closeDate": "2024-07-23 03:00:00",
@@ -3348,7 +3348,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "240732700295820",
         "openDate": "2024-07-24",
         "closeDate": "2024-07-24 06:00:00",
@@ -3375,7 +3375,7 @@
         "stopPriceFinal": "1.83"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "348730019580718",
         "openDate": "2024-07-25",
         "closeDate": "2024-07-25 06:00:00",
@@ -3402,7 +3402,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "106732878265292",
         "openDate": "2024-07-26",
         "closeDate": "2024-07-26 02:00:00",
@@ -3429,7 +3429,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "189845152314397",
         "openDate": "2024-07-29",
         "closeDate": "2024-07-29 04:00:00",
@@ -3456,7 +3456,7 @@
         "stopPriceFinal": "0.37"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "773573714811264",
         "openDate": "2024-07-30",
         "closeDate": "2024-07-30 01:00:00",
@@ -3483,7 +3483,7 @@
         "stopPriceFinal": "2.81"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "362405572868433",
         "openDate": "2024-07-31",
         "closeDate": "2024-07-31 04:00:00",
@@ -3510,7 +3510,7 @@
         "stopPriceFinal": "2.6"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "409169599863378",
         "openDate": "2024-08-01",
         "closeDate": "2024-08-01 06:00:00",
@@ -3537,7 +3537,7 @@
         "stopPriceFinal": "3.37"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "866637032598866",
         "openDate": "2024-08-02",
         "closeDate": "2024-08-02 01:00:00",
@@ -3564,7 +3564,7 @@
         "stopPriceFinal": "0.17"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "250495223563356",
         "openDate": "2024-08-05",
         "closeDate": "2024-08-05 04:00:00",
@@ -3591,7 +3591,7 @@
         "stopPriceFinal": "0.34"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "931174734508615",
         "openDate": "2024-08-06",
         "closeDate": "2024-08-06 01:00:00",
@@ -3618,7 +3618,7 @@
         "stopPriceFinal": "3.35"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "676405660705584",
         "openDate": "2024-08-07",
         "closeDate": "2024-08-07 04:00:00",
@@ -3645,7 +3645,7 @@
         "stopPriceFinal": "2.21"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "267519547554235",
         "openDate": "2024-08-08",
         "closeDate": "2024-08-08 06:00:00",
@@ -3672,7 +3672,7 @@
         "stopPriceFinal": "2.43"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "180900467717436",
         "openDate": "2024-08-09",
         "closeDate": "2024-08-09 07:00:00",
@@ -3699,7 +3699,7 @@
         "stopPriceFinal": "2.21"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "954070398578142",
         "openDate": "2024-08-12",
         "closeDate": "2024-08-12 01:00:00",
@@ -3726,7 +3726,7 @@
         "stopPriceFinal": "2.26"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "256095661590736",
         "openDate": "2024-08-13",
         "closeDate": "2024-08-13 05:00:00",
@@ -3753,7 +3753,7 @@
         "stopPriceFinal": "1.1"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "339306205811706",
         "openDate": "2024-08-14",
         "closeDate": "2024-08-14 06:00:00",
@@ -3780,7 +3780,7 @@
         "stopPriceFinal": "1.36"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "393563544441385",
         "openDate": "2024-08-15",
         "closeDate": "2024-08-15 07:00:00",
@@ -3807,7 +3807,7 @@
         "stopPriceFinal": "2.57"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "949689903802630",
         "openDate": "2024-08-16",
         "closeDate": "2024-08-16 06:00:00",
@@ -3834,7 +3834,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "509222233545409",
         "openDate": "2024-08-19",
         "closeDate": "2024-08-19 03:00:00",
@@ -3861,7 +3861,7 @@
         "stopPriceFinal": "0.75"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "702646768583574",
         "openDate": "2024-08-20",
         "closeDate": "2024-08-20 07:00:00",
@@ -3888,7 +3888,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "633257470717801",
         "openDate": "2024-08-21",
         "closeDate": "2024-08-21 05:00:00",
@@ -3915,7 +3915,7 @@
         "stopPriceFinal": "2.86"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "344673954986593",
         "openDate": "2024-08-22",
         "closeDate": "2024-08-22 04:00:00",
@@ -3942,7 +3942,7 @@
         "stopPriceFinal": "2.86"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "827572976891561",
         "openDate": "2024-08-23",
         "closeDate": "2024-08-23 05:00:00",
@@ -3969,7 +3969,7 @@
         "stopPriceFinal": "0.25"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "308210065816650",
         "openDate": "2024-08-26",
         "closeDate": "2024-08-26 01:00:00",
@@ -3996,7 +3996,7 @@
         "stopPriceFinal": "0.59"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "230125344181875",
         "openDate": "2024-08-27",
         "closeDate": "2024-08-27 02:00:00",
@@ -4023,7 +4023,7 @@
         "stopPriceFinal": "3.06"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "410755931657479",
         "openDate": "2024-08-28",
         "closeDate": "2024-08-28 07:00:00",
@@ -4050,7 +4050,7 @@
         "stopPriceFinal": "2.27"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "239635754561837",
         "openDate": "2024-08-29",
         "closeDate": "2024-08-29 01:00:00",
@@ -4077,7 +4077,7 @@
         "stopPriceFinal": "3.24"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "809472631471779",
         "openDate": "2024-08-30",
         "closeDate": "2024-08-30 01:00:00",
@@ -4104,7 +4104,7 @@
         "stopPriceFinal": "-0.28"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "550272545037117",
         "openDate": "2024-09-02",
         "closeDate": "2024-09-02 05:00:00",
@@ -4131,7 +4131,7 @@
         "stopPriceFinal": "0.24"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "284884231451920",
         "openDate": "2024-09-03",
         "closeDate": "2024-09-03 03:00:00",
@@ -4158,7 +4158,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "516491440562863",
         "openDate": "2024-09-04",
         "closeDate": "2024-09-04 05:00:00",
@@ -4185,7 +4185,7 @@
         "stopPriceFinal": "3.2"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "370181191043499",
         "openDate": "2024-09-05",
         "closeDate": "2024-09-05 06:00:00",
@@ -4212,7 +4212,7 @@
         "stopPriceFinal": "-0.12"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "817977892590032",
         "openDate": "2024-09-06",
         "closeDate": "2024-09-06 03:00:00",
@@ -4239,7 +4239,7 @@
         "stopPriceFinal": "1.24"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "895076974493721",
         "openDate": "2024-09-09",
         "closeDate": "2024-09-09 02:00:00",
@@ -4266,7 +4266,7 @@
         "stopPriceFinal": "0.19"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "136875351364720",
         "openDate": "2024-09-10",
         "closeDate": "2024-09-10 03:00:00",
@@ -4293,7 +4293,7 @@
         "stopPriceFinal": "2.03"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "450987814940919",
         "openDate": "2024-09-11",
         "closeDate": "2024-09-11 03:00:00",
@@ -4320,7 +4320,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "366332639943829",
         "openDate": "2024-09-12",
         "closeDate": "2024-09-12 01:00:00",
@@ -4347,7 +4347,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "765887255529776",
         "openDate": "2024-09-13",
         "closeDate": "2024-09-13 01:00:00",
@@ -4374,7 +4374,7 @@
         "stopPriceFinal": "2.06"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "626832810851644",
         "openDate": "2024-09-16",
         "closeDate": "2024-09-16 07:00:00",
@@ -4401,7 +4401,7 @@
         "stopPriceFinal": "2.26"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "357673719312900",
         "openDate": "2024-09-17",
         "closeDate": "2024-09-17 06:00:00",
@@ -4428,7 +4428,7 @@
         "stopPriceFinal": "1.48"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "877196204341783",
         "openDate": "2024-09-18",
         "closeDate": "2024-09-18 03:00:00",
@@ -4455,7 +4455,7 @@
         "stopPriceFinal": "2.89"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "591674816361521",
         "openDate": "2024-09-19",
         "closeDate": "2024-09-19 03:00:00",
@@ -4482,7 +4482,7 @@
         "stopPriceFinal": "1.17"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "781187905922190",
         "openDate": "2024-09-20",
         "closeDate": "2024-09-20 04:00:00",
@@ -4509,7 +4509,7 @@
         "stopPriceFinal": "2.02"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "526571491617856",
         "openDate": "2024-09-23",
         "closeDate": "2024-09-23 05:00:00",
@@ -4536,7 +4536,7 @@
         "stopPriceFinal": "2.3"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "187994222477624",
         "openDate": "2024-09-24",
         "closeDate": "2024-09-24 06:00:00",
@@ -4563,7 +4563,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "714902084094615",
         "openDate": "2024-09-25",
         "closeDate": "2024-09-25 05:00:00",
@@ -4590,7 +4590,7 @@
         "stopPriceFinal": "3.01"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "445865889722430",
         "openDate": "2024-09-26",
         "closeDate": "2024-09-26 06:00:00",
@@ -4617,7 +4617,7 @@
         "stopPriceFinal": "1.26"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "479809153083808",
         "openDate": "2024-09-27",
         "closeDate": "2024-09-27 07:00:00",
@@ -4644,7 +4644,7 @@
         "stopPriceFinal": "3.28"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "391614077539035",
         "openDate": "2024-09-30",
         "closeDate": "2024-09-30 03:00:00",
@@ -4671,7 +4671,7 @@
         "stopPriceFinal": "2.65"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "414659784605739",
         "openDate": "2024-10-01",
         "closeDate": "2024-10-01 04:00:00",
@@ -4698,7 +4698,7 @@
         "stopPriceFinal": "0.18"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "745228189335992",
         "openDate": "2024-10-02",
         "closeDate": "2024-10-02 07:00:00",
@@ -4725,7 +4725,7 @@
         "stopPriceFinal": "1.12"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "910047067704361",
         "openDate": "2024-10-03",
         "closeDate": "2024-10-03 05:00:00",
@@ -4752,7 +4752,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "652051975236216",
         "openDate": "2024-10-04",
         "closeDate": "2024-10-04 04:00:00",
@@ -4779,7 +4779,7 @@
         "stopPriceFinal": "0.14"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "928747402630360",
         "openDate": "2024-10-07",
         "closeDate": "2024-10-07 04:00:00",
@@ -4806,7 +4806,7 @@
         "stopPriceFinal": "1.17"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "849461297326797",
         "openDate": "2024-10-08",
         "closeDate": "2024-10-08 06:00:00",
@@ -4833,7 +4833,7 @@
         "stopPriceFinal": "3.26"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "483712077034026",
         "openDate": "2024-10-09",
         "closeDate": "2024-10-09 07:00:00",
@@ -4860,7 +4860,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "705439704126288",
         "openDate": "2024-10-10",
         "closeDate": "2024-10-10 03:00:00",
@@ -4887,7 +4887,7 @@
         "stopPriceFinal": "3.4"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "600887281906182",
         "openDate": "2024-10-11",
         "closeDate": "2024-10-11 02:00:00",
@@ -4914,7 +4914,7 @@
         "stopPriceFinal": "3.13"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "355277015624028",
         "openDate": "2024-10-14",
         "closeDate": "2024-10-14 04:00:00",
@@ -4941,7 +4941,7 @@
         "stopPriceFinal": "2.74"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "277181046241323",
         "openDate": "2024-10-15",
         "closeDate": "2024-10-15 07:00:00",
@@ -4968,7 +4968,7 @@
         "stopPriceFinal": "0.78"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "740519155116461",
         "openDate": "2024-10-16",
         "closeDate": "2024-10-16 05:00:00",
@@ -4995,7 +4995,7 @@
         "stopPriceFinal": "1.57"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "631285825972024",
         "openDate": "2024-10-17",
         "closeDate": "2024-10-17 06:00:00",
@@ -5022,7 +5022,7 @@
         "stopPriceFinal": "2.79"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "403793299034111",
         "openDate": "2024-10-18",
         "closeDate": "2024-10-18 02:00:00",
@@ -5049,7 +5049,7 @@
         "stopPriceFinal": "0.88"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "263634087537481",
         "openDate": "2024-10-21",
         "closeDate": "2024-10-21 02:00:00",
@@ -5076,7 +5076,7 @@
         "stopPriceFinal": "2.33"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "501791238681456",
         "openDate": "2024-10-22",
         "closeDate": "2024-10-22 04:00:00",
@@ -5103,7 +5103,7 @@
         "stopPriceFinal": "1.17"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "888435668753040",
         "openDate": "2024-10-23",
         "closeDate": "2024-10-23 02:00:00",
@@ -5130,7 +5130,7 @@
         "stopPriceFinal": "1.81"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "625676537248718",
         "openDate": "2024-10-24",
         "closeDate": "2024-10-24 04:00:00",
@@ -5157,7 +5157,7 @@
         "stopPriceFinal": "0.0"
     },
     {
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "id": "239549047369864",
         "openDate": "2024-10-25",
         "closeDate": "2024-10-25 03:00:00",
@@ -5184,7 +5184,7 @@
         "stopPriceFinal": "1.41"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "232644938352918",
         "openDate": "2024-10-28",
         "closeDate": "2024-10-28 01:00:00",
@@ -5211,7 +5211,7 @@
         "stopPriceFinal": "2.38"
     },
     {
-        "riskType": "VISION",
+        "riskType": "Vision",
         "id": "796888762604669",
         "openDate": "2024-10-29",
         "closeDate": "2024-10-29 06:00:00",
@@ -5238,7 +5238,7 @@
         "stopPriceFinal": "4.51"
     },
     {
-        "riskType": "BASE",
+        "riskType": "Base",
         "id": "708488164843957",
         "openDate": "2024-10-30",
         "closeDate": "2024-10-30 06:00:00",

@@ -1,14 +1,6 @@
-import { TrendingUp } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Cell, LabelList, XAxis } from 'recharts';
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from '@/components/ui/card';
+import { CardContent } from '@/components/ui/card';
 import {
     ChartConfig,
     ChartContainer,
@@ -17,7 +9,6 @@ import {
 } from '@/components/ui/chart';
 import { useAppSelector } from '@/state/hooks';
 import ChartHeader from '../ChartHeader';
-import last20TradesByTypeByProperty from '@/utils/charts/last20TradesByTypeByProperty';
 import Trade from '@/interfaces/Trade';
 import getRiskTypeColor from '@/utils/charts/getRiskTypeColor';
 import convertDateToShort from '@/utils/convertDateToShort';
@@ -52,16 +43,20 @@ const Label: React.FC = (props) => {
 
 export function NegativeBarChartAll() {
     const allTrades = useAppSelector((state) => state.trades.trades);
-    const last20Trades = useAppSelector((state) => state.trades.last20Trades);
+    const chartType = useAppSelector((state) => state.charts.chartType);
+    const last20Trades = allTrades
+        .filter((e) => chartType === 'All' || chartType === e.riskType)
+        .slice(-14);
+
+    console.log(last20Trades);
 
     return (
         <>
             <ChartHeader
-                mainTitle="Profit/Loss"
-                mainSubtitle="Last 20 Trades By Type"
-                secondaryTitle="Trending up by 5.2% this month"
-                secondarySubtitle="January - June 2024"
-                trendIsUp
+                mainTitle="Profit/Loss on Recent Trades"
+                mainSubtitle="Last 14 Trades"
+                secondaryTitle=""
+                secondarySubtitle=""
             />
             <CardContent>
                 {allTrades.length && (
@@ -70,7 +65,10 @@ export function NegativeBarChartAll() {
                         className="h-[200px] w-full"
                     >
                         <BarChart accessibilityLayer data={last20Trades}>
-                            <CartesianGrid vertical={false} />
+                            <CartesianGrid
+                                strokeDasharray="0.3"
+                                vertical={false}
+                            />
                             <ChartTooltip
                                 cursor={false}
                                 content={
@@ -84,7 +82,7 @@ export function NegativeBarChartAll() {
                                 dataKey="closeDate"
                                 tickLine={false}
                                 axisLine={false}
-                                minTickGap={30}
+                                minTickGap={100}
                                 tickMargin={20}
                                 tickFormatter={convertDateToShort}
                             />

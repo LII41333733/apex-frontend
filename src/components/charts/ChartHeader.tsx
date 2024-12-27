@@ -7,7 +7,7 @@ const ChartHeader: React.FC<{
     mainSubtitle: string;
     secondaryTitle: string;
     secondarySubtitle: string;
-    trendIsUp: boolean;
+    trendIsUp?: boolean;
 }> = ({
     mainTitle,
     mainSubtitle,
@@ -16,21 +16,23 @@ const ChartHeader: React.FC<{
     trendIsUp,
 }) => {
     return (
-        <div className='grid grid-cols-2 px-6'>
-            <CardHeader className='col-span-1 px-0'>
+        <div className="grid grid-cols-4 px-6">
+            <CardHeader className="col-span-3 px-0">
                 <CardTitle>{mainTitle}</CardTitle>
                 <CardDescription>{mainSubtitle}</CardDescription>
             </CardHeader>
-            <CardHeader className='col-span-1 px-0 italic'>
-                <div className='flex items-center gap-2 font-medium leading-none justify-end text-sm'>
+            <CardHeader className="col-span-1 px-0 italic">
+                <div className="flex items-center gap-2 font-medium leading-none justify-end text-sm">
                     {secondaryTitle}
-                    {trendIsUp ? (
-                        <TrendingUp className='h-4 w-4' />
+                    {trendIsUp === undefined ? (
+                        <></>
+                    ) : trendIsUp ? (
+                        <TrendingUp className="h-4 w-4" />
                     ) : (
-                        <TrendingDown className='h-4 w-4' />
+                        <TrendingDown className="h-4 w-4" />
                     )}
                 </div>
-                <div className='flex items-center gap-2 leading-none text-muted-foreground justify-end text-sm'>
+                <div className="flex items-center gap-2 leading-none text-muted-foreground justify-end text-sm">
                     {secondarySubtitle}
                 </div>
             </CardHeader>

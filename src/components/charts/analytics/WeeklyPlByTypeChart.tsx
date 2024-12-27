@@ -1,6 +1,6 @@
 'use client';
 
-import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 import { CardContent } from '@/components/ui/card';
 import {
@@ -13,51 +13,35 @@ import { useAppSelector } from '@/state/hooks';
 import ChartHeader from './../ChartHeader';
 import { getTradeBreakdown } from '@/state/tradeSlice';
 import React from 'react';
+import convertDateToShort from '@/utils/convertDateToShort';
+import { RiskType } from '@/constants';
+import Trade from '@/types/Trade';
+import { dollar } from '@/utils/dollar';
 
-function getLast10OfEachType(arr) {
-    if (!arr.length) return [];
-    // Group objects by riskType
-    const grouped = arr.reduce((acc, obj) => {
-        if (!acc[obj.riskType]) acc[obj.riskType] = [];
-        acc[obj.riskType].push(obj);
-        return acc;
-    }, {});
+const { Base, Vision, Lotto, Hero } = RiskType;
 
-    // Limit each group to the last 10 entries
-    const result = {};
-    for (const [key, value] of Object.entries(grouped)) {
-        result[key] = value.slice(-20);
-    }
-
-    const data = [];
-
-    for (let i = 0; i < 20; i++) {
-        data.push({
-            Base: result.BASE[i].postTradeBalance,
-            Lotto: result.LOTTO[i].postTradeBalance,
-            Vision: result.VISION[i].postTradeBalance,
-            Hero: result.HERO[i].postTradeBalance,
-            Trade: i + 1,
-        });
-    }
-
-    return data;
-}
+type Config = {
+    date: string;
+    Base: number;
+    Vision: number;
+    Lotto: number;
+    Hero: number;
+};
 
 const chartConfig = {
-    BASE: {
+    Base: {
         label: 'Base',
         color: 'hsl(var(--base-chart))',
     },
-    LOTTO: {
+    Lotto: {
         label: 'Lotto',
         color: 'hsl(var(--lotto-chart))',
     },
-    VISION: {
+    Vision: {
         label: 'Vision',
         color: 'hsl(var(--vision-chart))',
     },
-    HERO: {
+    Hero: {
         label: 'Hero',
         color: 'hsl(var(--hero-chart))',
     },
@@ -65,12 +49,61 @@ const chartConfig = {
 
 export function WeeklyPlByTypeChart() {
     const tradeBreakdown = useAppSelector(getTradeBreakdown);
-    const { trades } = tradeBreakdown;
+    const { trades, tradesByWeek } = tradeBreakdown;
+    const chartType = useAppSelector((state) => state.charts.chartType);
 
-    React.useEffect(() => {
+    const [chartData, chartConfig]: any = React.useMemo(() => {
         if (tradeBreakdown.trades.length) {
-            console.log(tradeBreakdown);
+            const keys = Object.keys(tradesByWeek).slice(-10);
+            const cd = keys.map((date) =>
+                tradesByWeek[date].reduce(
+                    (p: Config, c: Trade) => {
+                        switch (c.riskType) {
+                            case Base:
+                                p[Base] = p[Base] + c.pl;
+                                break;
+                            case Vision:
+                                p[Vision] = p[Vision] + c.pl;
+                                break;
+                            case Lotto:
+                                p[Lotto] = p[Lotto] + c.pl;
+                                break;
+                            case Hero:
+                                p[Hero] = p[Hero] + c.pl;
+                                break;
+                        }
+                        return p;
+                    },
+                    {
+                        date,
+                        Base: 0,
+                        Vision: 0,
+                        Lotto: 0,
+                        Hero: 0,
+                    }
+                )
+            );
+            const cf = {
+                Base: {
+                    label: 'Base',
+                    color: 'hsl(var(--base-chart))',
+                },
+                Vision: {
+                    label: 'Vision',
+                    color: 'hsl(var(--vision-chart))',
+                },
+                Hero: {
+                    label: 'Hero',
+                    color: 'hsl(var(--hero-chart))',
+                },
+                Lotto: {
+                    label: 'Lotto',
+                    color: 'hsl(var(--lotto-chart))',
+                },
+            };
+            return [cd, cf];
         }
+        return [];
     }, [tradeBreakdown.trades]);
 
     return (
@@ -78,9 +111,8 @@ export function WeeklyPlByTypeChart() {
             <ChartHeader
                 mainTitle="Weekly Profit/Loss"
                 mainSubtitle="By Trade Type"
-                secondaryTitle="Trending up by 5.2% this month"
-                secondarySubtitle="January - June 2024"
-                trendIsUp
+                secondaryTitle=""
+                secondarySubtitle=""
             />
             <CardContent>
                 {trades.length && (
@@ -90,19 +122,23 @@ export function WeeklyPlByTypeChart() {
                     >
                         <AreaChart
                             accessibilityLayer
-                            data={getLast10OfEachType(trades)}
+                            data={chartData}
                             margin={{
                                 left: 12,
                                 right: 12,
                             }}
                         >
-                            <CartesianGrid vertical={false} />
+                            <CartesianGrid
+                                strokeDasharray="0.3"
+                                vertical={false}
+                            />
+                            <YAxis tickFormatter={(x) => dollar(x, true)} />
                             <XAxis
-                                dataKey="Trade"
+                                dataKey="date"
                                 tickLine={false}
                                 axisLine={false}
-                                tickMargin={8}
-                                // tickFormatter={(value) => value.slice(0, 3)}
+                                tickMargin={14}
+                                tickFormatter={convertDateToShort}
                             />
                             <ChartTooltip
                                 cursor={false}
@@ -110,38 +146,50 @@ export function WeeklyPlByTypeChart() {
                                     <ChartTooltipContent indicator="dot" />
                                 }
                             />
-                            <Area
-                                dataKey="Base"
-                                type="natural"
-                                fill="hsl(var(--base-chart))"
-                                fillOpacity={0.4}
-                                stroke="hsl(var(--base-chart))"
-                                stackId="a"
-                            />
-                            <Area
-                                dataKey="Lotto"
-                                type="natural"
-                                fill="hsl(var(--lotto-chart))"
-                                fillOpacity={0.4}
-                                stroke="hsl(var(--lotto-chart))"
-                                stackId="a"
-                            />
-                            <Area
-                                dataKey="Vision"
-                                type="natural"
-                                fill="hsl(var(--vision-chart))"
-                                fillOpacity={0.4}
-                                stroke="hsl(var(--vision-chart))"
-                                stackId="a"
-                            />
-                            <Area
-                                dataKey="Hero"
-                                type="natural"
-                                fill="hsl(var(--hero-chart))"
-                                fillOpacity={0.4}
-                                stroke="hsl(var(--hero-chart))"
-                                stackId="a"
-                            />
+                            {(chartType === 'All' ||
+                                chartType === RiskType.Base) && (
+                                <Area
+                                    dataKey="Base"
+                                    type="natural"
+                                    fill="hsl(var(--base-chart))"
+                                    fillOpacity={0.4}
+                                    stroke="hsl(var(--base-chart))"
+                                    stackId="a"
+                                />
+                            )}
+                            {(chartType === 'All' ||
+                                chartType === RiskType.Lotto) && (
+                                <Area
+                                    dataKey="Lotto"
+                                    type="natural"
+                                    fill="hsl(var(--lotto-chart))"
+                                    fillOpacity={0.4}
+                                    stroke="hsl(var(--lotto-chart))"
+                                    stackId="a"
+                                />
+                            )}
+                            {(chartType === 'All' ||
+                                chartType === RiskType.Vision) && (
+                                <Area
+                                    dataKey="Vision"
+                                    type="natural"
+                                    fill="hsl(var(--vision-chart))"
+                                    fillOpacity={0.4}
+                                    stroke="hsl(var(--vision-chart))"
+                                    stackId="a"
+                                />
+                            )}
+                            {(chartType === 'All' ||
+                                chartType === RiskType.Hero) && (
+                                <Area
+                                    dataKey="Hero"
+                                    type="natural"
+                                    fill="hsl(var(--hero-chart))"
+                                    fillOpacity={0.4}
+                                    stroke="hsl(var(--hero-chart))"
+                                    stackId="a"
+                                />
+                            )}
                         </AreaChart>
                     </ChartContainer>
                 )}

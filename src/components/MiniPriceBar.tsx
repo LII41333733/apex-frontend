@@ -105,13 +105,13 @@ const calculateHeroTradePercentages = (trade: Trade) => {
 
 const calculatePercentagePositionsByTrade = (trade: Trade) => {
     switch (trade.riskType as RiskType) {
-        case RiskType.BASE:
+        case RiskType.Base:
             return calculateBaseTradePercentages(trade as BaseTrade);
-        case RiskType.VISION:
+        case RiskType.Vision:
             return calculateVisionTradePercentages(trade as VisionTrade);
-        case RiskType.LOTTO:
+        case RiskType.Lotto:
             return calculateLottoTradePercentages(trade as LottoTrade);
-        case RiskType.HERO:
+        case RiskType.Hero:
             return calculateHeroTradePercentages(trade as HeroTrade);
     }
 };

@@ -317,14 +317,14 @@ const PriceBar: React.FC<{
                                                     .toUpperCase(),
                                             });
                                         }}
-                                        className="rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1 sell"
+                                        className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1 sell"
                                         variant="outline"
                                     >
                                         Yes
                                     </Badge>
                                     <Badge
                                         onClick={() => setConfirmSellId(0)}
-                                        className="rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1 sell"
+                                        className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1 sell"
                                         variant="outline"
                                     >
                                         No
@@ -341,7 +341,7 @@ const PriceBar: React.FC<{
                                                 riskType: trade.riskType,
                                             });
                                         }}
-                                        className="rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
+                                        className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                         variant="outline"
                                     >
                                         Modify Stop
@@ -355,12 +355,9 @@ const PriceBar: React.FC<{
                                                 riskType: trade.riskType,
                                             });
 
-                                            console.log(res);
-                                            debugger;
-
                                             sendToast();
                                         }}
-                                        className="rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
+                                        className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                         variant="outline"
                                     >
                                         Modify Trim 1
@@ -375,7 +372,7 @@ const PriceBar: React.FC<{
                                                     riskType: trade.riskType,
                                                 });
                                             }}
-                                            className="rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
+                                            className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                             variant="outline"
                                         >
                                             Modify Trim 2
@@ -387,7 +384,7 @@ const PriceBar: React.FC<{
                         <div className="order-actions-buttons">
                             <Badge
                                 onClick={async () => setConfirmSellId(trade.id)}
-                                className="rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
+                                className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                 variant="outline"
                             >
                                 Market Sell
@@ -399,7 +396,7 @@ const PriceBar: React.FC<{
                                             id: trade.fillOrderId,
                                         });
                                     }}
-                                    className="rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
+                                    className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                     variant="outline"
                                 >
                                     Cancel Trade

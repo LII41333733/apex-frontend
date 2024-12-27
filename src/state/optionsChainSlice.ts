@@ -24,7 +24,7 @@ const initialState: OptionsChainState = {
     activeSymbol: '',
     confirmedSymbol: '',
     expirationDate: '',
-    riskType: RiskType.BASE,
+    riskType: RiskType.Base,
 };
 
 export const optionsChainSlice = createSlice({
@@ -50,10 +50,6 @@ export const optionsChainSlice = createSlice({
         ) => {
             const quotesPrices = JSON.parse(JSON.stringify(state.quotesPrices));
 
-            if (!quotesPrices[symbol]) {
-                state.quotesPrices[symbol] = float(ask);
-            }
-
             state.quotesMap = {
                 ...state.quotesMap,
                 [symbol]: {
@@ -62,13 +58,16 @@ export const optionsChainSlice = createSlice({
                     bid,
                 },
             };
+
+            if (!quotesPrices[symbol]) {
+                state.quotesPrices[symbol] = float(ask);
+            }
         },
         updateOptionType: (state, action: PayloadAction<OptionType>) => {
             state.optionType = action.payload;
         },
         updateRiskType: (state, action: PayloadAction<string>) => {
-            const type =
-                RiskType[action.payload as keyof typeof RiskType].toUpperCase();
+            const type = RiskType[action.payload as keyof typeof RiskType];
             state.riskType = type;
         },
         updateConfirmedSymbol: (state, action: PayloadAction<string>) => {

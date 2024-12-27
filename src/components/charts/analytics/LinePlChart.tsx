@@ -1,15 +1,7 @@
 import React from 'react';
-import { TrendingUp } from 'lucide-react';
-import { LineChart, CartesianGrid, Line, XAxis } from 'recharts';
+import { LineChart, CartesianGrid, Line, XAxis, YAxis } from 'recharts';
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from '@/components/ui/card';
+import { CardContent, CardFooter } from '@/components/ui/card';
 import {
     ChartConfig,
     ChartContainer,
@@ -21,21 +13,23 @@ import sortDataByRiskType from '@/utils/charts/sortDataByRiskType';
 import mapChartDataByProperty from '@/utils/charts/mapChartDataByProperty';
 import ChartHeader from './../ChartHeader';
 import convertDateToShort from '@/utils/convertDateToShort';
+import { dollar } from '@/utils/dollar';
+import { RiskType } from '@/constants';
 
 const chartConfig = {
-    BASE: {
+    Base: {
         label: 'Base',
         color: 'hsl(var(--base-chart))',
     },
-    LOTTO: {
+    Lotto: {
         label: 'Lotto',
         color: 'hsl(var(--lotto-chart))',
     },
-    VISION: {
+    Vision: {
         label: 'Vision',
         color: 'hsl(var(--vision-chart))',
     },
-    HERO: {
+    Hero: {
         label: 'Hero',
         color: 'hsl(var(--hero-chart))',
     },
@@ -43,20 +37,18 @@ const chartConfig = {
 
 const LinePlChart = () => {
     const allTrades = useAppSelector((state) => state.trades.trades);
-
-    const tradeData = React.useMemo(
-        () => mapChartDataByProperty(sortDataByRiskType(allTrades, 20), 'pl'),
-        [allTrades]
-    );
+    const chartType = useAppSelector((state) => state.charts.chartType);
+    const tradeData = React.useMemo(() => {
+        return mapChartDataByProperty(sortDataByRiskType(allTrades, 20), 'pl');
+    }, [allTrades]);
 
     return (
         <>
             <ChartHeader
-                mainTitle="Area Chart - Stacked"
-                mainSubtitle="P/L Over Time"
-                secondaryTitle="Trending up by 5.2% this month"
-                secondarySubtitle="January - June 2024"
-                trendIsUp
+                mainTitle="Profit/Loss By Trade Type"
+                mainSubtitle="Last 20 Trades"
+                secondaryTitle=""
+                secondarySubtitle=""
             />
             <CardContent>
                 {allTrades.length && (
@@ -72,51 +64,67 @@ const LinePlChart = () => {
                                 right: 16,
                             }}
                         >
-                            <CartesianGrid vertical={false} />
+                            <CartesianGrid
+                                strokeDasharray="0.3"
+                                vertical={false}
+                            />
+                            <YAxis tickFormatter={(x) => dollar(x, true)} />
                             <XAxis
                                 dataKey="closeDate"
                                 tickLine={false}
                                 axisLine={false}
                                 minTickGap={30}
-                                tickMargin={16}
+                                tickMargin={14}
                                 tickFormatter={convertDateToShort}
                             />
                             <ChartTooltip
                                 cursor={false}
                                 content={<ChartTooltipContent />}
                             />
-                            <Line
-                                dataKey="BASE"
-                                type="monotone"
-                                fill="hsl(var(--base-chart))"
-                                stroke="hsl(var(--base-chart))"
-                                strokeWidth={2}
-                                dot={false}
-                            />
-                            <Line
-                                dataKey="LOTTO"
-                                type="monotone"
-                                fill="hsl(var(--lotto-chart))"
-                                stroke="hsl(var(--lotto-chart))"
-                                strokeWidth={2}
-                                dot={false}
-                            />
-                            <Line
-                                dataKey="VISION"
-                                type="monotone"
-                                fill="hsl(var(--vision-chart))"
-                                stroke="hsl(var(--vision-chart))"
-                                strokeWidth={2}
-                                dot={false}
-                            />
-                            <Line
-                                dataKey="HERO"
-                                type="monotone"
-                                fill="hsl(var(--hero-chart))"
-                                stroke="hsl(var(--hero-chart))"
-                                strokeWidth={2}
-                                dot={false}
-                            />
+                            {(chartType === 'All' ||
+                                chartType === RiskType.Base) && (
+                                <Line
+                                    dataKey="Base"
+                                    type="monotone"
+                                    fill="hsl(var(--base-chart))"
+                                    stroke="hsl(var(--base-chart))"
+                                    strokeWidth={2}
+                                    dot={false}
+                                />
+                            )}
+                            {(chartType === 'All' ||
+                                chartType === RiskType.Lotto) && (
+                                <Line
+                                    dataKey="Lotto"
+                                    type="monotone"
+                                    fill="hsl(var(--lotto-chart))"
+                                    stroke="hsl(var(--lotto-chart))"
+                                    strokeWidth={2}
+                                    dot={false}
+                                />
+                            )}
+                            {(chartType === 'All' ||
+                                chartType === RiskType.Vision) && (
+                                <Line
+                                    dataKey="Vision"
+                                    type="monotone"
+                                    fill="hsl(var(--vision-chart))"
+                                    stroke="hsl(var(--vision-chart))"
+                                    strokeWidth={2}
+                                    dot={false}
+                                />
+                            )}
+                            {(chartType === 'All' ||
+                                chartType === RiskType.Hero) && (
+                                <Line
+                                    dataKey="Hero"
+                                    type="monotone"
+                                    fill="hsl(var(--hero-chart))"
+                                    stroke="hsl(var(--hero-chart))"
+                                    strokeWidth={2}
+                                    dot={false}
+                                />
+                            )}
                         </LineChart>
                     </ChartContainer>
                 )}

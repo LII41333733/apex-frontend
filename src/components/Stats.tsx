@@ -14,10 +14,47 @@ import SquareLetterA from '@/assets/svg/SquareLetterA';
 import SquareLetterH from '@/assets/svg/SquareLetterH';
 
 const Stats: React.FC = () => {
+    const isDemoMode = useAppSelector((state) => state.main.isDemoMode);
+    const trades = useAppSelector((state) => state.trades.trades);
     const balance = useAppSelector((state) => state.balance);
-    const lastFilledBeforeToday = useAppSelector(
-        (state) => state.trades.lastFilledBeforeToday
+
+    const statDailyTotalPl = useAppSelector(
+        (state) => state.trades.statDailyTotalPl
     );
+    const statDailyHighPl = useAppSelector(
+        (state) => state.trades.statDailyHighPl
+    );
+    const statDailyAveragePl = useAppSelector(
+        (state) => state.trades.statDailyAveragePl
+    );
+    const statWeeklyTotalPl = useAppSelector(
+        (state) => state.trades.statWeeklyTotalPl
+    );
+    const statWeeklyHighPl = useAppSelector(
+        (state) => state.trades.statWeeklyHighPl
+    );
+    const statWeeklyAveragePl = useAppSelector(
+        (state) => state.trades.statWeeklyAveragePl
+    );
+    const statMonthlyTotalPl = useAppSelector(
+        (state) => state.trades.statMonthlyTotalPl
+    );
+    const statMonthlyHighPl = useAppSelector(
+        (state) => state.trades.statMonthlyHighPl
+    );
+    const statMonthlyAveragePl = useAppSelector(
+        (state) => state.trades.statMonthlyAveragePl
+    );
+    const statYearlyTotalPl = useAppSelector(
+        (state) => state.trades.statYearlyTotalPl
+    );
+    const statYearlyHighPl = useAppSelector(
+        (state) => state.trades.statYearlyHighPl
+    );
+    const statYearlyAveragePl = useAppSelector(
+        (state) => state.trades.statYearlyAveragePl
+    );
+
     const { totalEquity, openPl, closePl } = balance;
 
     const [currentTime, setCurrentTime] = React.useState<Date | null>(null);
@@ -30,37 +67,42 @@ const Stats: React.FC = () => {
         <div className="grid grid-cols-5 gap-4">
             <StatBox
                 label="Total Equity"
-                value={dollar(totalEquity, false)}
+                value={dollar(
+                    isDemoMode && trades.length
+                        ? trades.slice(-1)[0].postTradeBalance
+                        : totalEquity,
+                    false
+                )}
                 icon={<DollarSign className="h-5 w-5" />}
                 currentTime={currentTime}
             />
             <StatBox
                 label="Today's P/L"
-                value="+$12,234"
+                value={dollar(statDailyTotalPl)}
                 icon={<Calendar1 className="h-5 w-5" />}
-                high="$12,234"
-                average="$24,000"
+                high={dollar(statDailyHighPl)}
+                average={dollar(statDailyAveragePl)}
             />
             <StatBox
                 label="Weekly P/L"
-                value="+$12,234"
+                value={dollar(statWeeklyTotalPl)}
                 icon={<CalendarMinus2 className="h-5 w-5" />}
-                high="$12,000"
-                average="$24,000"
+                high={dollar(statWeeklyHighPl)}
+                average={dollar(statWeeklyAveragePl)}
             />
             <StatBox
                 label="Monthly P/L"
-                value="+$12,234"
+                value={dollar(statMonthlyTotalPl)}
                 icon={<CalendarRange className="h-5 w-5" />}
-                high="$12,000"
-                average="$24,000"
+                high={dollar(statMonthlyHighPl)}
+                average={dollar(statMonthlyAveragePl)}
             />
             <StatBox
                 label="Yearly P/L"
-                value="+$12,234"
+                value={dollar(statYearlyTotalPl)}
                 icon={<CalendarDays className="h-5 w-5" />}
-                high="$12,000"
-                average="$24,000"
+                high={dollar(statYearlyHighPl)}
+                average={dollar(statYearlyAveragePl)}
             />
         </div>
     );
@@ -98,10 +140,10 @@ const StatBox = ({
                 ) : (
                     <>
                         <SquareLetterH className="float-left" />
-                        <span className="ml-1 float-left relative w-15 top-[0.18rem] text-xs">
+                        <span className="ml-1 float-left relative w-15 top-[0.09rem] text-xs">
                             {high}
                         </span>
-                        <span className="ml-1 float-right relative w-15 top-[0.18rem] text-xs">
+                        <span className="ml-1 float-right relative w-15 top-[0.09rem] text-xs">
                             {average}
                         </span>
                         <SquareLetterA className="float-right" />

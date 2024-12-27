@@ -1,7 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@/state/hooks';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Displays, RiskType } from '@/constants';
-import { updateDisplay } from '@/state/mainSlice';
+import { RiskType } from '@/constants';
 import React from 'react';
 import { updateChartType } from '@/state/chartsSlice';
 import getProperCasing from '@/utils/getProperCasing';
@@ -11,52 +10,64 @@ const AnalyticsDisplaySelector: React.FC = () => {
     const chartType = useAppSelector((state) => state.charts.chartType);
 
     return (
-        <Tabs defaultValue={chartType} className='display-tab mb-6'>
-            <TabsList className='w-[100%] md:w-[400px] flex justify-center card display-selector-list'>
+        <Tabs defaultValue={chartType} className="display-tab mb-6">
+            <TabsList className="w-[100%] md:w-[575px] flex justify-center card display-selector-list items-center text-center">
                 <TabsTrigger
-                    id='chart-select'
+                    id="chart-select"
                     onClick={() => {
                         dispatch(updateChartType('All'));
                     }}
                     value={'All'}
                 >
-                    All
+                    <div className="w-20">{'All'}</div>
                 </TabsTrigger>
                 <TabsTrigger
-                    id='base-charts'
+                    id="base-charts"
                     onClick={() => {
-                        dispatch(updateChartType(RiskType.BASE));
+                        dispatch(updateChartType(RiskType.Base));
                     }}
-                    value={RiskType.BASE}
+                    value={RiskType.Base}
                 >
-                    {getProperCasing(RiskType.BASE)}
+                    <div className="w-20 flex items-center justify-center">
+                        {getProperCasing(RiskType.Base)}
+                        <div className="bg-[hsl(var(--base-chart))] h-[0.6rem] w-[0.6rem] ml-2"></div>
+                    </div>
                 </TabsTrigger>
                 <TabsTrigger
-                    id='lotto-charts'
+                    id="lotto-charts"
                     onClick={() => {
-                        dispatch(updateChartType(RiskType.LOTTO));
+                        dispatch(updateChartType(RiskType.Lotto));
                     }}
-                    value={RiskType.LOTTO}
+                    value={RiskType.Lotto}
                 >
-                    {getProperCasing(RiskType.LOTTO)}
+                    <div className="w-20 flex items-center justify-center">
+                        {getProperCasing(RiskType.Lotto)}
+                        <div className="bg-[hsl(var(--lotto-chart))] h-[0.6rem] w-[0.6rem] ml-2"></div>
+                    </div>
                 </TabsTrigger>
                 <TabsTrigger
-                    id='vision-charts'
+                    id="vision-charts"
                     onClick={() => {
-                        dispatch(updateChartType(RiskType.LOTTO));
+                        dispatch(updateChartType(RiskType.Vision));
                     }}
-                    value={RiskType.VISION}
+                    value={RiskType.Vision}
                 >
-                    {getProperCasing(RiskType.VISION)}
+                    <div className="w-20 flex items-center justify-center">
+                        {getProperCasing(RiskType.Vision)}
+                        <div className="bg-[hsl(var(--vision-chart))] h-[0.6rem] w-[0.6rem] ml-2"></div>
+                    </div>
                 </TabsTrigger>
                 <TabsTrigger
-                    id='hero-charts'
+                    id="hero-charts"
                     onClick={() => {
-                        dispatch(updateChartType(RiskType.HERO));
+                        dispatch(updateChartType(RiskType.Hero));
                     }}
-                    value={RiskType.HERO}
+                    value={RiskType.Hero}
                 >
-                    {getProperCasing(RiskType.HERO)}
+                    <div className="w-20 flex items-center justify-center">
+                        {getProperCasing(RiskType.Hero)}
+                        <div className="bg-[hsl(var(--hero-chart))] h-[0.6rem] w-[0.6rem] ml-2"></div>
+                    </div>
                 </TabsTrigger>
             </TabsList>
         </Tabs>

@@ -28,5 +28,4 @@ csv()
     .fromFile(inputFile)
     .then((jsonObj) => {
         fs.writeFileSync(outputFile, JSON.stringify(jsonObj, null, 2));
-        console.log(`File converted successfully! Saved as ${outputFile}`);
     });

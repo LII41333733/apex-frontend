@@ -17,7 +17,7 @@
                     "pl": null,
                     "tradeAmount": 2376,
                     "lastPrice": 2.87,
-                    "riskType": "BASE",
+                    "riskType": "Base",
                     "initialAsk": 2.97,
                     "trim1Price": 3.71,
                     "trim1Quantity": 3,

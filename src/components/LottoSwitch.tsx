@@ -20,14 +20,14 @@ const LottoSwitch: React.FC = () => {
             }}
             defaultValue={riskType}
         >
-            <SelectTrigger className='h-8 flex-1 mr-4 risk-select bg-background transparent-ring text-foreground'>
-                <SelectValue placeholder='Theme' />
+            <SelectTrigger className="h-8 flex-1 mr-4 risk-select bg-background transparent-ring text-foreground">
+                <SelectValue placeholder="Theme" />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value='BASE'>Base</SelectItem>
-                <SelectItem value='LOTTO'>Lotto</SelectItem>
-                <SelectItem value='HERO'>Hero</SelectItem>
-                <SelectItem value='VISION'>Vision</SelectItem>
+                <SelectItem value="Base">Base</SelectItem>
+                <SelectItem value="Lotto">Lotto</SelectItem>
+                <SelectItem value="Hero">Hero</SelectItem>
+                <SelectItem value="Vision">Vision</SelectItem>
             </SelectContent>
         </Select>
     );

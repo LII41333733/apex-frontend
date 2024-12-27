@@ -1,7 +1,7 @@
 [
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 10000.0,
         "postTradeBalance": 10013.0,
         "optionSymbol": "NKE241018P00182500",
@@ -32,7 +32,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 10013.0,
         "postTradeBalance": 10197.0,
         "optionSymbol": "AMD241025C00230000",
@@ -60,7 +60,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 10197.0,
         "postTradeBalance": 10407.0,
         "optionSymbol": "AAPL241004C00039500",
@@ -91,7 +91,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 10407.0,
         "postTradeBalance": 10437.0,
         "optionSymbol": "DAL241025C00230000",
@@ -122,7 +122,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 10437.0,
         "postTradeBalance": 11241.0,
         "optionSymbol": "ARM241018C00139000",
@@ -152,7 +152,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 11241.0,
         "postTradeBalance": 11472.0,
         "optionSymbol": "MCD241025C00048000",
@@ -180,7 +180,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 11472.0,
         "postTradeBalance": 11700.0,
         "optionSymbol": "XOM241025C00230000",
@@ -208,7 +208,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 11700.0,
         "postTradeBalance": 12824.0,
         "optionSymbol": "MSFT241004C00122000",
@@ -238,7 +238,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 12824.0,
         "postTradeBalance": 12338.0,
         "optionSymbol": "DAL241004C00043250",
@@ -268,7 +268,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 12338.0,
         "postTradeBalance": 13059.0,
         "optionSymbol": "IBM241018C00139000",
@@ -298,7 +298,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 13059.0,
         "postTradeBalance": 13327.0,
         "optionSymbol": "NVDA241011C00047000",
@@ -329,7 +329,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 13327.0,
         "postTradeBalance": 13597.0,
         "optionSymbol": "AAPL240919C00574000",
@@ -360,7 +360,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 13597.0,
         "postTradeBalance": 13558.0,
         "optionSymbol": "UAL240920C00232500",
@@ -391,7 +391,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 13558.0,
         "postTradeBalance": 13108.0,
         "optionSymbol": "PEP240919C00574000",
@@ -422,7 +422,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 13108.0,
         "postTradeBalance": 13129.0,
         "optionSymbol": "NKE241018P00028000",
@@ -453,7 +453,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 13129.0,
         "postTradeBalance": 13150.0,
         "optionSymbol": "GOOGL241018C00082500",
@@ -484,7 +484,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 13150.0,
         "postTradeBalance": 13406.0,
         "optionSymbol": "AAL241001C00571000",
@@ -515,7 +515,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 13406.0,
         "postTradeBalance": 13666.0,
         "optionSymbol": "DIS240927C00165000",
@@ -546,7 +546,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 13666.0,
         "postTradeBalance": 13172.0,
         "optionSymbol": "MCD241025C00230000",
@@ -576,7 +576,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 13172.0,
         "postTradeBalance": 13425.0,
         "optionSymbol": "CVX241018C00139000",
@@ -607,7 +607,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 13425.0,
         "postTradeBalance": 13104.0,
         "optionSymbol": "NKE241018C00139000",
@@ -635,7 +635,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 13104.0,
         "postTradeBalance": 13062.0,
         "optionSymbol": "AFRM241004C00270000",
@@ -666,7 +666,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 13062.0,
         "postTradeBalance": 13311.0,
         "optionSymbol": "PEP240927C00405000",
@@ -694,7 +694,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 13311.0,
         "postTradeBalance": 14747.0,
         "optionSymbol": "NKE241025C00148000",
@@ -724,7 +724,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 14747.0,
         "postTradeBalance": 15035.0,
         "optionSymbol": "MMM241025C00083000",
@@ -755,7 +755,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 15035.0,
         "postTradeBalance": 15562.0,
         "optionSymbol": "XOM241011C00043000",
@@ -783,7 +783,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 15562.0,
         "postTradeBalance": 15844.0,
         "optionSymbol": "IBM240919C00572000",
@@ -814,7 +814,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 15844.0,
         "postTradeBalance": 15277.0,
         "optionSymbol": "LUV241018C00139000",
@@ -844,7 +844,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 15277.0,
         "postTradeBalance": 15373.0,
         "optionSymbol": "AAPL241011C00043000",
@@ -875,7 +875,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 15373.0,
         "postTradeBalance": 15391.0,
         "optionSymbol": "MSFT240927C00255000",
@@ -906,7 +906,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 15391.0,
         "postTradeBalance": 16399.0,
         "optionSymbol": "DIS241004C00039500",
@@ -936,7 +936,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 16399.0,
         "postTradeBalance": 16752.0,
         "optionSymbol": "SMCI241004C00039500",
@@ -964,7 +964,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 16752.0,
         "postTradeBalance": 16711.0,
         "optionSymbol": "NVDA241018C00051500",
@@ -995,7 +995,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 16711.0,
         "postTradeBalance": 16179.0,
         "optionSymbol": "SMCI241018C00232500",
@@ -1026,7 +1026,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 16179.0,
         "postTradeBalance": 16284.0,
         "optionSymbol": "LUV240927C00260000",
@@ -1057,7 +1057,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 16284.0,
         "postTradeBalance": 16644.0,
         "optionSymbol": "CAT241025C00083000",
@@ -1085,7 +1085,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 16644.0,
         "postTradeBalance": 16678.0,
         "optionSymbol": "AFRM241018C00051500",
@@ -1116,7 +1116,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 16678.0,
         "postTradeBalance": 16192.0,
         "optionSymbol": "CVX241018P00028000",
@@ -1144,7 +1144,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 16192.0,
         "postTradeBalance": 17776.0,
         "optionSymbol": "PEP240919P00564000",
@@ -1174,7 +1174,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 17776.0,
         "postTradeBalance": 18892.0,
         "optionSymbol": "DAL241025C00160000",
@@ -1204,7 +1204,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 18892.0,
         "postTradeBalance": 18900.0,
         "optionSymbol": "XOM241004C00580000",
@@ -1235,7 +1235,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 18900.0,
         "postTradeBalance": 19745.0,
         "optionSymbol": "IBM240920C00232500",
@@ -1265,7 +1265,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 19745.0,
         "postTradeBalance": 20933.0,
         "optionSymbol": "GOOGL241001P00567000",
@@ -1295,7 +1295,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 20933.0,
         "postTradeBalance": 20262.0,
         "optionSymbol": "MSFT241004C00165000",
@@ -1326,7 +1326,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 20262.0,
         "postTradeBalance": 20662.0,
         "optionSymbol": "AFRM241011C00195000",
@@ -1357,7 +1357,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 20662.0,
         "postTradeBalance": 23022.0,
         "optionSymbol": "MMM241025C00230000",
@@ -1387,7 +1387,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 23022.0,
         "postTradeBalance": 22117.0,
         "optionSymbol": "TSLA241018C00192500",
@@ -1417,7 +1417,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 22117.0,
         "postTradeBalance": 23337.0,
         "optionSymbol": "TSLA241018P00182500",
@@ -1445,7 +1445,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 23337.0,
         "postTradeBalance": 25937.0,
         "optionSymbol": "UAL241011C00252500",
@@ -1475,7 +1475,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 25937.0,
         "postTradeBalance": 27114.0,
         "optionSymbol": "CAT240919C00574000",
@@ -1505,7 +1505,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 27114.0,
         "postTradeBalance": 26394.0,
         "optionSymbol": "MCD241018P00222500",
@@ -1533,7 +1533,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 26394.0,
         "postTradeBalance": 26359.0,
         "optionSymbol": "AAPL241018C00232500",
@@ -1564,7 +1564,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 26359.0,
         "postTradeBalance": 25397.0,
         "optionSymbol": "DAL240927C00260000",
@@ -1594,7 +1594,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 25397.0,
         "postTradeBalance": 24602.0,
         "optionSymbol": "GOOGL241025C00083000",
@@ -1625,7 +1625,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 24602.0,
         "postTradeBalance": 26778.0,
         "optionSymbol": "XOM241025C00148000",
@@ -1655,7 +1655,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 26778.0,
         "postTradeBalance": 29396.0,
         "optionSymbol": "PYPL240927C00260000",
@@ -1685,7 +1685,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 29396.0,
         "postTradeBalance": 30650.0,
         "optionSymbol": "MSFT240927C00165000",
@@ -1715,7 +1715,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 30650.0,
         "postTradeBalance": 30673.0,
         "optionSymbol": "SPY241011C00047000",
@@ -1746,7 +1746,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 30673.0,
         "postTradeBalance": 29773.0,
         "optionSymbol": "AAL241025C00160000",
@@ -1774,7 +1774,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 29773.0,
         "postTradeBalance": 30355.0,
         "optionSymbol": "PYPL241011C00252500",
@@ -1805,7 +1805,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 30355.0,
         "postTradeBalance": 30364.0,
         "optionSymbol": "XOM241004C00165000",
@@ -1836,7 +1836,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 30364.0,
         "postTradeBalance": 29566.0,
         "optionSymbol": "LUV241018P00182500",
@@ -1864,7 +1864,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 29566.0,
         "postTradeBalance": 29598.0,
         "optionSymbol": "GOOGL241025C00230000",
@@ -1895,7 +1895,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 29598.0,
         "postTradeBalance": 30170.0,
         "optionSymbol": "SMCI240927C00405000",
@@ -1926,7 +1926,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 30170.0,
         "postTradeBalance": 31466.0,
         "optionSymbol": "AAL241011C00252500",
@@ -1956,7 +1956,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 31466.0,
         "postTradeBalance": 32110.0,
         "optionSymbol": "NKE241018P00222500",
@@ -1987,7 +1987,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 32110.0,
         "postTradeBalance": 31148.0,
         "optionSymbol": "MSFT241025C00148000",
@@ -2018,7 +2018,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 31148.0,
         "postTradeBalance": 31768.0,
         "optionSymbol": "GOOGL241018C00232500",
@@ -2049,7 +2049,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 31768.0,
         "postTradeBalance": 31865.0,
         "optionSymbol": "AAL241025C00083000",
@@ -2080,7 +2080,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 31865.0,
         "postTradeBalance": 33447.0,
         "optionSymbol": "MSFT241004C00039500",
@@ -2110,7 +2110,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 33447.0,
         "postTradeBalance": 34113.0,
         "optionSymbol": "AMD240927C00405000",
@@ -2141,7 +2141,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 34113.0,
         "postTradeBalance": 34077.0,
         "optionSymbol": "PEP241004C00165000",
@@ -2172,7 +2172,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 34077.0,
         "postTradeBalance": 32816.0,
         "optionSymbol": "GOOGL241018P00028000",
@@ -2202,7 +2202,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 32816.0,
         "postTradeBalance": 32841.0,
         "optionSymbol": "NVDA241011C00257500",
@@ -2233,7 +2233,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 32841.0,
         "postTradeBalance": 33530.0,
         "optionSymbol": "GOOGL241018P00028000",
@@ -2261,7 +2261,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 33530.0,
         "postTradeBalance": 34155.0,
         "optionSymbol": "LUV241018C00051500",
@@ -2289,7 +2289,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 34155.0,
         "postTradeBalance": 34179.0,
         "optionSymbol": "ARM240920P00565000",
@@ -2320,7 +2320,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 34179.0,
         "postTradeBalance": 34149.0,
         "optionSymbol": "PYPL241004C00122000",
@@ -2351,7 +2351,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 34149.0,
         "postTradeBalance": 35637.0,
         "optionSymbol": "TSLA241004C00039500",
@@ -2379,7 +2379,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 35637.0,
         "postTradeBalance": 36377.0,
         "optionSymbol": "SPY241025C00083000",
@@ -2410,7 +2410,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 36377.0,
         "postTradeBalance": 37098.0,
         "optionSymbol": "PEP241004C00043250",
@@ -2441,7 +2441,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 37098.0,
         "postTradeBalance": 37847.0,
         "optionSymbol": "NKE240927C00260000",
@@ -2469,7 +2469,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 37847.0,
         "postTradeBalance": 38594.0,
         "optionSymbol": "SMCI241004C00122000",
@@ -2500,7 +2500,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 38594.0,
         "postTradeBalance": 38618.0,
         "optionSymbol": "NVDA241004C00262500",
@@ -2531,7 +2531,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 38618.0,
         "postTradeBalance": 39379.0,
         "optionSymbol": "UAL240927C00255000",
@@ -2559,7 +2559,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 39379.0,
         "postTradeBalance": 39399.0,
         "optionSymbol": "AMD240920C00232500",
@@ -2590,7 +2590,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 39399.0,
         "postTradeBalance": 37887.0,
         "optionSymbol": "QQQ241011C00047000",
@@ -2620,7 +2620,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 37887.0,
         "postTradeBalance": 36495.0,
         "optionSymbol": "CAT241018P00222500",
@@ -2650,7 +2650,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 36495.0,
         "postTradeBalance": 36751.0,
         "optionSymbol": "PEP241011C00043000",
@@ -2681,7 +2681,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 36751.0,
         "postTradeBalance": 35340.0,
         "optionSymbol": "QQQ241025C00083000",
@@ -2711,7 +2711,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 35340.0,
         "postTradeBalance": 38140.0,
         "optionSymbol": "DIS241001P00567000",
@@ -2741,7 +2741,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 38140.0,
         "postTradeBalance": 42148.0,
         "optionSymbol": "CAT240919C00572000",
@@ -2771,7 +2771,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 42148.0,
         "postTradeBalance": 43000.0,
         "optionSymbol": "LUV241018C00232500",
@@ -2802,7 +2802,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 43000.0,
         "postTradeBalance": 41362.0,
         "optionSymbol": "DIS241018C00232500",
@@ -2832,7 +2832,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 41362.0,
         "postTradeBalance": 43218.0,
         "optionSymbol": "NKE241011C00257500",
@@ -2860,7 +2860,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 43218.0,
         "postTradeBalance": 43504.0,
         "optionSymbol": "AFRM241018P00182500",
@@ -2891,7 +2891,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 43504.0,
         "postTradeBalance": 43523.0,
         "optionSymbol": "MMM241004C00262500",
@@ -2922,7 +2922,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 43523.0,
         "postTradeBalance": 46511.0,
         "optionSymbol": "DAL241004C00122000",
@@ -2952,7 +2952,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 46511.0,
         "postTradeBalance": 46536.0,
         "optionSymbol": "LUV241004C00039500",
@@ -2983,7 +2983,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 46536.0,
         "postTradeBalance": 47472.0,
         "optionSymbol": "SMCI240927C00405000",
@@ -3014,7 +3014,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 47472.0,
         "postTradeBalance": 47492.0,
         "optionSymbol": "CAT241018C00051500",
@@ -3045,7 +3045,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 47492.0,
         "postTradeBalance": 48443.0,
         "optionSymbol": "GOOGL240919C00572000",
@@ -3076,7 +3076,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 48443.0,
         "postTradeBalance": 49371.0,
         "optionSymbol": "NKE240919C00572000",
@@ -3104,7 +3104,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 49371.0,
         "postTradeBalance": 49397.0,
         "optionSymbol": "AAPL240920C00232500",
@@ -3135,7 +3135,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 49397.0,
         "postTradeBalance": 50371.0,
         "optionSymbol": "MSFT241004C00262500",
@@ -3166,7 +3166,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 50371.0,
         "postTradeBalance": 51371.0,
         "optionSymbol": "TSLA241018C00232500",
@@ -3197,7 +3197,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 51371.0,
         "postTradeBalance": 56875.0,
         "optionSymbol": "IBM241004C00270000",
@@ -3227,7 +3227,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 56875.0,
         "postTradeBalance": 56899.0,
         "optionSymbol": "TSLA241004C00270000",
@@ -3258,7 +3258,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 56899.0,
         "postTradeBalance": 59467.0,
         "optionSymbol": "CAT241018C00192500",
@@ -3286,7 +3286,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 59467.0,
         "postTradeBalance": 60662.0,
         "optionSymbol": "AFRM241018C00192500",
@@ -3317,7 +3317,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 60662.0,
         "postTradeBalance": 60623.0,
         "optionSymbol": "DAL241011C00257500",
@@ -3348,7 +3348,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 60623.0,
         "postTradeBalance": 58733.0,
         "optionSymbol": "SPY241018P00182500",
@@ -3379,7 +3379,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 58733.0,
         "postTradeBalance": 58752.0,
         "optionSymbol": "XOM240919C00572000",
@@ -3410,7 +3410,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 58752.0,
         "postTradeBalance": 60712.0,
         "optionSymbol": "NKE241011C00195000",
@@ -3438,7 +3438,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 60712.0,
         "postTradeBalance": 60734.0,
         "optionSymbol": "UAL241018C00192500",
@@ -3469,7 +3469,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 60734.0,
         "postTradeBalance": 58442.0,
         "optionSymbol": "AFRM240920P00565000",
@@ -3499,7 +3499,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 58442.0,
         "postTradeBalance": 58450.0,
         "optionSymbol": "AFRM241018P00182500",
@@ -3530,7 +3530,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 58450.0,
         "postTradeBalance": 56140.0,
         "optionSymbol": "AAPL241018P00028000",
@@ -3560,7 +3560,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 56140.0,
         "postTradeBalance": 57260.0,
         "optionSymbol": "TSLA241001P00567000",
@@ -3591,7 +3591,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 57260.0,
         "postTradeBalance": 58430.0,
         "optionSymbol": "PYPL241011C00257500",
@@ -3619,7 +3619,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 58430.0,
         "postTradeBalance": 61635.0,
         "optionSymbol": "IBM240927C00255000",
@@ -3647,7 +3647,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 61635.0,
         "postTradeBalance": 67564.0,
         "optionSymbol": "MSFT241001P00567000",
@@ -3677,7 +3677,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 67564.0,
         "postTradeBalance": 70179.0,
         "optionSymbol": "QQQ241004C00039500",
@@ -3705,7 +3705,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 70179.0,
         "postTradeBalance": 76731.0,
         "optionSymbol": "AFRM240927C00165000",
@@ -3735,7 +3735,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 76731.0,
         "postTradeBalance": 78265.0,
         "optionSymbol": "SMCI241004C00165000",
@@ -3763,7 +3763,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 78265.0,
         "postTradeBalance": 78287.0,
         "optionSymbol": "SMCI241004C00043250",
@@ -3794,7 +3794,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 78287.0,
         "postTradeBalance": 81006.0,
         "optionSymbol": "ARM240919P00564000",
@@ -3822,7 +3822,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 81006.0,
         "postTradeBalance": 81031.0,
         "optionSymbol": "SMCI241011C00257500",
@@ -3853,7 +3853,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 81031.0,
         "postTradeBalance": 81059.0,
         "optionSymbol": "QQQ241018P00028000",
@@ -3884,7 +3884,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 81059.0,
         "postTradeBalance": 81088.0,
         "optionSymbol": "IBM241018C00192500",
@@ -3915,7 +3915,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 81088.0,
         "postTradeBalance": 84124.0,
         "optionSymbol": "AFRM240927C00165000",
@@ -3943,7 +3943,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 84124.0,
         "postTradeBalance": 84700.0,
         "optionSymbol": "XOM241025C00083000",
@@ -3974,7 +3974,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 84700.0,
         "postTradeBalance": 86416.0,
         "optionSymbol": "AFRM240927C00260000",
@@ -4005,7 +4005,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 86416.0,
         "postTradeBalance": 90243.0,
         "optionSymbol": "SMCI241018C00139000",
@@ -4033,7 +4033,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 90243.0,
         "postTradeBalance": 90260.0,
         "optionSymbol": "QQQ241001C00571000",
@@ -4064,7 +4064,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 90260.0,
         "postTradeBalance": 92061.0,
         "optionSymbol": "SMCI241025C00148000",
@@ -4095,7 +4095,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 92061.0,
         "postTradeBalance": 95805.0,
         "optionSymbol": "CVX241004C00122000",
@@ -4123,7 +4123,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 95805.0,
         "postTradeBalance": 97794.0,
         "optionSymbol": "AAL241018C00232500",
@@ -4151,7 +4151,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 97794.0,
         "postTradeBalance": 94069.0,
         "optionSymbol": "GOOGL240919C00572000",
@@ -4181,7 +4181,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 94069.0,
         "postTradeBalance": 90429.0,
         "optionSymbol": "AAPL241004C00039500",
@@ -4211,7 +4211,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 90429.0,
         "postTradeBalance": 99608.0,
         "optionSymbol": "XOM241025C00048000",
@@ -4241,7 +4241,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 99608.0,
         "postTradeBalance": 96415.0,
         "optionSymbol": "AAPL241011C00047000",
@@ -4272,7 +4272,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 96415.0,
         "postTradeBalance": 92815.0,
         "optionSymbol": "XOM240927C00255000",
@@ -4302,7 +4302,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 92815.0,
         "postTradeBalance": 89904.0,
         "optionSymbol": "NVDA241004C00122000",
@@ -4333,7 +4333,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 89904.0,
         "postTradeBalance": 91728.0,
         "optionSymbol": "MCD241018C00232500",
@@ -4364,7 +4364,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 91728.0,
         "postTradeBalance": 92342.0,
         "optionSymbol": "IBM241025C00160000",
@@ -4395,7 +4395,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 92342.0,
         "postTradeBalance": 94190.0,
         "optionSymbol": "DAL241004C00165000",
@@ -4426,7 +4426,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 94190.0,
         "postTradeBalance": 94205.0,
         "optionSymbol": "NVDA241011C00257500",
@@ -4457,7 +4457,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 94205.0,
         "postTradeBalance": 94832.0,
         "optionSymbol": "SPY241004C00580000",
@@ -4488,7 +4488,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 94832.0,
         "postTradeBalance": 96704.0,
         "optionSymbol": "AAPL241018C00051000",
@@ -4516,7 +4516,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 96704.0,
         "postTradeBalance": 102467.0,
         "optionSymbol": "AMD241004C00122000",
@@ -4546,7 +4546,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 102467.0,
         "postTradeBalance": 104506.0,
         "optionSymbol": "LUV240927C00260000",
@@ -4577,7 +4577,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 104506.0,
         "postTradeBalance": 100459.0,
         "optionSymbol": "LUV241018C00232500",
@@ -4607,7 +4607,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 100459.0,
         "postTradeBalance": 102559.0,
         "optionSymbol": "MCD241001P00567000",
@@ -4635,7 +4635,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 102559.0,
         "postTradeBalance": 99309.0,
         "optionSymbol": "GOOGL241018P00028000",
@@ -4666,7 +4666,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 99309.0,
         "postTradeBalance": 95589.0,
         "optionSymbol": "PEP241018P00182500",
@@ -4696,7 +4696,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 95589.0,
         "postTradeBalance": 99713.0,
         "optionSymbol": "DAL241004C00039500",
@@ -4724,7 +4724,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 99713.0,
         "postTradeBalance": 109112.0,
         "optionSymbol": "DAL241025C00048000",
@@ -4755,7 +4755,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 109112.0,
         "postTradeBalance": 105104.0,
         "optionSymbol": "NVDA241018C00139000",
@@ -4785,7 +4785,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 105104.0,
         "postTradeBalance": 105115.0,
         "optionSymbol": "QQQ241004C00262500",
@@ -4816,7 +4816,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 105115.0,
         "postTradeBalance": 107291.0,
         "optionSymbol": "SPY241025C00048000",
@@ -4844,7 +4844,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 107291.0,
         "postTradeBalance": 109411.0,
         "optionSymbol": "AFRM241025C00048000",
@@ -4875,7 +4875,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 109411.0,
         "postTradeBalance": 105240.0,
         "optionSymbol": "PYPL241004C00039500",
@@ -4905,7 +4905,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 105240.0,
         "postTradeBalance": 105264.0,
         "optionSymbol": "CVX241018P00222500",
@@ -4936,7 +4936,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 105264.0,
         "postTradeBalance": 107350.0,
         "optionSymbol": "MSFT240920P00565000",
@@ -4967,7 +4967,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 107350.0,
         "postTradeBalance": 109466.0,
         "optionSymbol": "ARM241018P00182500",
@@ -4998,7 +4998,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 109466.0,
         "postTradeBalance": 110214.0,
         "optionSymbol": "QQQ241018C00139000",
@@ -5029,7 +5029,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 110214.0,
         "postTradeBalance": 106002.0,
         "optionSymbol": "ARM241025C00083000",
@@ -5059,7 +5059,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 106002.0,
         "postTradeBalance": 108118.0,
         "optionSymbol": "CAT241011C00047000",
@@ -5090,7 +5090,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 108118.0,
         "postTradeBalance": 110328.0,
         "optionSymbol": "AAL241004C00580000",
@@ -5118,7 +5118,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 110328.0,
         "postTradeBalance": 116217.0,
         "optionSymbol": "AAL240919C00572000",
@@ -5148,7 +5148,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 116217.0,
         "postTradeBalance": 127934.0,
         "optionSymbol": "NKE241018P00028000",
@@ -5178,7 +5178,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 127934.0,
         "postTradeBalance": 123117.0,
         "optionSymbol": "SMCI240927C00260000",
@@ -5208,7 +5208,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 123117.0,
         "postTradeBalance": 118301.0,
         "optionSymbol": "CVX241011C00047000",
@@ -5238,7 +5238,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 118301.0,
         "postTradeBalance": 120641.0,
         "optionSymbol": "MMM241025C00160000",
@@ -5269,7 +5269,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 120641.0,
         "postTradeBalance": 121451.0,
         "optionSymbol": "TSLA240927C00255000",
@@ -5300,7 +5300,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 121451.0,
         "postTradeBalance": 124026.0,
         "optionSymbol": "MCD240920C00232500",
@@ -5328,7 +5328,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 124026.0,
         "postTradeBalance": 124843.0,
         "optionSymbol": "LUV241001C00571000",
@@ -5359,7 +5359,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 124843.0,
         "postTradeBalance": 127435.0,
         "optionSymbol": "LUV241018P00222500",
@@ -5387,7 +5387,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 127435.0,
         "postTradeBalance": 130058.0,
         "optionSymbol": "TSLA240919P00564000",
@@ -5415,7 +5415,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 130058.0,
         "postTradeBalance": 132638.0,
         "optionSymbol": "LUV241011C00252500",
@@ -5446,7 +5446,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 132638.0,
         "postTradeBalance": 132645.0,
         "optionSymbol": "IBM241004C00039500",
@@ -5477,7 +5477,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 132645.0,
         "postTradeBalance": 127533.0,
         "optionSymbol": "NKE240919C00574000",
@@ -5507,7 +5507,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 127533.0,
         "postTradeBalance": 122489.0,
         "optionSymbol": "PYPL241018P00222500",
@@ -5537,7 +5537,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 122489.0,
         "postTradeBalance": 125053.0,
         "optionSymbol": "PYPL241004C00165000",
@@ -5565,7 +5565,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 125053.0,
         "postTradeBalance": 139645.0,
         "optionSymbol": "PYPL241018P00028000",
@@ -5595,7 +5595,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 139645.0,
         "postTradeBalance": 134185.0,
         "optionSymbol": "PYPL241004C00043250",
@@ -5625,7 +5625,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 134185.0,
         "postTradeBalance": 143887.0,
         "optionSymbol": "MMM240919P00564000",
@@ -5655,7 +5655,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 143887.0,
         "postTradeBalance": 143855.0,
         "optionSymbol": "LUV240919C00572000",
@@ -5686,7 +5686,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 143855.0,
         "postTradeBalance": 143863.0,
         "optionSymbol": "MMM240927C00260000",
@@ -5717,7 +5717,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 143863.0,
         "postTradeBalance": 150751.0,
         "optionSymbol": "PYPL241018P00182500",
@@ -5747,7 +5747,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 150751.0,
         "postTradeBalance": 153787.0,
         "optionSymbol": "XOM241004C00262500",
@@ -5775,7 +5775,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 153787.0,
         "postTradeBalance": 147809.0,
         "optionSymbol": "AAL240919C00572000",
@@ -5805,7 +5805,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 147809.0,
         "postTradeBalance": 143375.0,
         "optionSymbol": "ARM240927C00405000",
@@ -5833,7 +5833,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 143375.0,
         "postTradeBalance": 146443.0,
         "optionSymbol": "NKE240920C00232500",
@@ -5861,7 +5861,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 146443.0,
         "postTradeBalance": 149517.0,
         "optionSymbol": "CVX241011C00043000",
@@ -5889,7 +5889,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 149517.0,
         "postTradeBalance": 149540.0,
         "optionSymbol": "MCD241004C00043250",
@@ -5920,7 +5920,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 149540.0,
         "postTradeBalance": 149520.0,
         "optionSymbol": "CVX240919P00564000",
@@ -5951,7 +5951,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 149520.0,
         "postTradeBalance": 155767.0,
         "optionSymbol": "MCD241004C00262500",
@@ -5979,7 +5979,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 155767.0,
         "postTradeBalance": 159006.0,
         "optionSymbol": "AMD241004C00580000",
@@ -6007,7 +6007,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 159006.0,
         "postTradeBalance": 162257.0,
         "optionSymbol": "MMM241018C00192500",
@@ -6038,7 +6038,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 162257.0,
         "postTradeBalance": 165665.0,
         "optionSymbol": "CAT241018C00232500",
@@ -6066,7 +6066,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 165665.0,
         "postTradeBalance": 169023.0,
         "optionSymbol": "DIS241004C00122000",
@@ -6097,7 +6097,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 169023.0,
         "postTradeBalance": 169049.0,
         "optionSymbol": "PEP241004C00270000",
@@ -6128,7 +6128,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 169049.0,
         "postTradeBalance": 162457.0,
         "optionSymbol": "AAL241018C00232500",
@@ -6158,7 +6158,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 162457.0,
         "postTradeBalance": 162479.0,
         "optionSymbol": "IBM241004C00122000",
@@ -6189,7 +6189,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 162479.0,
         "postTradeBalance": 157669.0,
         "optionSymbol": "MMM241018C00082500",
@@ -6217,7 +6217,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 157669.0,
         "postTradeBalance": 160985.0,
         "optionSymbol": "DIS241025C00083000",
@@ -6245,7 +6245,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 160985.0,
         "postTradeBalance": 154745.0,
         "optionSymbol": "SPY241025C00083000",
@@ -6275,7 +6275,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 154745.0,
         "postTradeBalance": 149849.0,
         "optionSymbol": "UAL241011C00257500",
@@ -6306,7 +6306,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 149849.0,
         "postTradeBalance": 159161.0,
         "optionSymbol": "LUV240927C00260000",
@@ -6336,7 +6336,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 159161.0,
         "postTradeBalance": 159194.0,
         "optionSymbol": "IBM241018P00028000",
@@ -6367,7 +6367,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 159194.0,
         "postTradeBalance": 154494.0,
         "optionSymbol": "CAT240919C00574000",
@@ -6395,7 +6395,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 154494.0,
         "postTradeBalance": 149654.0,
         "optionSymbol": "ARM241011C00257500",
@@ -6426,7 +6426,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 149654.0,
         "postTradeBalance": 156585.0,
         "optionSymbol": "NVDA241011C00047000",
@@ -6456,7 +6456,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 156585.0,
         "postTradeBalance": 151853.0,
         "optionSymbol": "NVDA241004C00270000",
@@ -6484,7 +6484,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 151853.0,
         "postTradeBalance": 158531.0,
         "optionSymbol": "XOM240920C00232500",
@@ -6514,7 +6514,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 158531.0,
         "postTradeBalance": 161843.0,
         "optionSymbol": "DIS241001C00571000",
@@ -6542,7 +6542,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 161843.0,
         "postTradeBalance": 161872.0,
         "optionSymbol": "IBM241001P00567000",
@@ -6573,7 +6573,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 161872.0,
         "postTradeBalance": 161900.0,
         "optionSymbol": "AAL241018P00028000",
@@ -6604,7 +6604,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 161900.0,
         "postTradeBalance": 165302.0,
         "optionSymbol": "ARM240919C00574000",
@@ -6632,7 +6632,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 165302.0,
         "postTradeBalance": 170964.0,
         "optionSymbol": "UAL241018P00028000",
@@ -6660,7 +6660,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 170964.0,
         "postTradeBalance": 177654.0,
         "optionSymbol": "MMM241018C00051500",
@@ -6688,7 +6688,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 177654.0,
         "postTradeBalance": 177672.0,
         "optionSymbol": "SMCI241011C00257500",
@@ -6719,7 +6719,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 177672.0,
         "postTradeBalance": 181407.0,
         "optionSymbol": "UAL241025C00160000",
@@ -6747,7 +6747,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 181407.0,
         "postTradeBalance": 196418.0,
         "optionSymbol": "TSLA240927C00260000",
@@ -6777,7 +6777,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 196418.0,
         "postTradeBalance": 214644.0,
         "optionSymbol": "NKE241018C00139000",
@@ -6807,7 +6807,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 214644.0,
         "postTradeBalance": 233549.0,
         "optionSymbol": "GOOGL241011C00195000",
@@ -6837,7 +6837,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 233549.0,
         "postTradeBalance": 243898.0,
         "optionSymbol": "CVX241001C00571000",
@@ -6865,7 +6865,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 243898.0,
         "postTradeBalance": 243930.0,
         "optionSymbol": "SMCI240927C00165000",
@@ -6896,7 +6896,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 243930.0,
         "postTradeBalance": 234313.0,
         "optionSymbol": "IBM240919P00564000",
@@ -6926,7 +6926,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 234313.0,
         "postTradeBalance": 238977.0,
         "optionSymbol": "NKE240927C00405000",
@@ -6957,7 +6957,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 238977.0,
         "postTradeBalance": 238986.0,
         "optionSymbol": "XOM241011C00195000",
@@ -6988,7 +6988,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 238986.0,
         "postTradeBalance": 250964.0,
         "optionSymbol": "TSLA241011C00195000",
@@ -7018,7 +7018,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 250964.0,
         "postTradeBalance": 241136.0,
         "optionSymbol": "GOOGL241018C00051000",
@@ -7048,7 +7048,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 241136.0,
         "postTradeBalance": 242796.0,
         "optionSymbol": "SPY241018P00028000",
@@ -7079,7 +7079,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 242796.0,
         "postTradeBalance": 255252.0,
         "optionSymbol": "MCD241004C00270000",
@@ -7109,7 +7109,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 255252.0,
         "postTradeBalance": 255282.0,
         "optionSymbol": "MCD240919P00564000",
@@ -7140,7 +7140,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 255282.0,
         "postTradeBalance": 255295.0,
         "optionSymbol": "MCD241025C00230000",
@@ -7171,7 +7171,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 255295.0,
         "postTradeBalance": 264236.0,
         "optionSymbol": "IBM241018C00232500",
@@ -7199,7 +7199,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 264236.0,
         "postTradeBalance": 283994.0,
         "optionSymbol": "SMCI240927C00165000",
@@ -7229,7 +7229,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 283994.0,
         "postTradeBalance": 289934.0,
         "optionSymbol": "ARM241018C00051500",
@@ -7257,7 +7257,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 289934.0,
         "postTradeBalance": 301559.0,
         "optionSymbol": "CVX241001P00567000",
@@ -7287,7 +7287,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 301559.0,
         "postTradeBalance": 289779.0,
         "optionSymbol": "AAL241018P00182500",
@@ -7317,7 +7317,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 289779.0,
         "postTradeBalance": 295700.0,
         "optionSymbol": "CVX241011C00195000",
@@ -7348,7 +7348,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 295700.0,
         "postTradeBalance": 301891.0,
         "optionSymbol": "MMM241025C00148000",
@@ -7376,7 +7376,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 301891.0,
         "postTradeBalance": 328220.0,
         "optionSymbol": "DAL240927C00260000",
@@ -7406,7 +7406,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 328220.0,
         "postTradeBalance": 345322.0,
         "optionSymbol": "AFRM241018P00028000",
@@ -7434,7 +7434,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 345322.0,
         "postTradeBalance": 352201.0,
         "optionSymbol": "DIS241001P00567000",
@@ -7465,7 +7465,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 352201.0,
         "postTradeBalance": 354551.0,
         "optionSymbol": "ARM241025C00048000",
@@ -7496,7 +7496,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 354551.0,
         "postTradeBalance": 381151.0,
         "optionSymbol": "NVDA240919P00564000",
@@ -7526,7 +7526,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 381151.0,
         "postTradeBalance": 381160.0,
         "optionSymbol": "MSFT241018P00028000",
@@ -7557,7 +7557,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 381160.0,
         "postTradeBalance": 381182.0,
         "optionSymbol": "SMCI241004C00165000",
@@ -7588,7 +7588,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 381182.0,
         "postTradeBalance": 407996.0,
         "optionSymbol": "MCD240920P00565000",
@@ -7618,7 +7618,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 407996.0,
         "postTradeBalance": 407963.0,
         "optionSymbol": "MSFT241004C00270000",
@@ -7649,7 +7649,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 407963.0,
         "postTradeBalance": 407985.0,
         "optionSymbol": "XOM240927C00165000",
@@ -7680,7 +7680,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 407985.0,
         "postTradeBalance": 407994.0,
         "optionSymbol": "SPY241011C00195000",
@@ -7711,7 +7711,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 407994.0,
         "postTradeBalance": 395232.0,
         "optionSymbol": "PYPL241018P00182500",
@@ -7742,7 +7742,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 395232.0,
         "postTradeBalance": 383388.0,
         "optionSymbol": "QQQ240927C00165000",
@@ -7770,7 +7770,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 383388.0,
         "postTradeBalance": 390994.0,
         "optionSymbol": "MSFT241004C00580000",
@@ -7801,7 +7801,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 390994.0,
         "postTradeBalance": 408307.0,
         "optionSymbol": "AMD241011C00195000",
@@ -7831,7 +7831,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 408307.0,
         "postTradeBalance": 427601.0,
         "optionSymbol": "NKE240927C00165000",
@@ -7859,7 +7859,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 427601.0,
         "postTradeBalance": 427618.0,
         "optionSymbol": "MSFT241018P00028000",
@@ -7890,7 +7890,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 427618.0,
         "postTradeBalance": 474852.0,
         "optionSymbol": "TSLA240919C00574000",
@@ -7920,7 +7920,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 474852.0,
         "postTradeBalance": 499813.0,
         "optionSymbol": "QQQ241018P00182500",
@@ -7948,7 +7948,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 499813.0,
         "postTradeBalance": 555301.0,
         "optionSymbol": "UAL241001C00571000",
@@ -7978,7 +7978,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 555301.0,
         "postTradeBalance": 567021.0,
         "optionSymbol": "QQQ240920P00565000",
@@ -8006,7 +8006,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 567021.0,
         "postTradeBalance": 578950.0,
         "optionSymbol": "TSLA241004C00043250",
@@ -8034,7 +8034,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 578950.0,
         "postTradeBalance": 591140.0,
         "optionSymbol": "MSFT241018C00232500",
@@ -8062,7 +8062,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 591140.0,
         "postTradeBalance": 591161.0,
         "optionSymbol": "LUV241004C00039500",
@@ -8093,7 +8093,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 591161.0,
         "postTradeBalance": 619439.0,
         "optionSymbol": "MMM241004C00039500",
@@ -8121,7 +8121,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 619439.0,
         "postTradeBalance": 595139.0,
         "optionSymbol": "DIS241004C00041000",
@@ -8151,7 +8151,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 595139.0,
         "postTradeBalance": 595161.0,
         "optionSymbol": "CAT241018C00082500",
@@ -8182,7 +8182,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 595161.0,
         "postTradeBalance": 575779.0,
         "optionSymbol": "DAL240919C00574000",
@@ -8213,7 +8213,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 575779.0,
         "postTradeBalance": 557501.0,
         "optionSymbol": "PYPL241004C00262500",
@@ -8244,7 +8244,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 557501.0,
         "postTradeBalance": 568550.0,
         "optionSymbol": "GOOGL240927C00165000",
@@ -8275,7 +8275,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 568550.0,
         "postTradeBalance": 568578.0,
         "optionSymbol": "SPY241004C00043250",
@@ -8306,7 +8306,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 568578.0,
         "postTradeBalance": 580496.0,
         "optionSymbol": "XOM240927C00255000",
@@ -8334,7 +8334,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 580496.0,
         "postTradeBalance": 624204.0,
         "optionSymbol": "LUV241018C00232500",
@@ -8364,7 +8364,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 624204.0,
         "postTradeBalance": 637323.0,
         "optionSymbol": "MMM241018C00051500",
@@ -8392,7 +8392,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 637323.0,
         "postTradeBalance": 641539.0,
         "optionSymbol": "IBM240927C00405000",
@@ -8423,7 +8423,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 641539.0,
         "postTradeBalance": 698239.0,
         "optionSymbol": "DIS241018P00028000",
@@ -8453,7 +8453,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 698239.0,
         "postTradeBalance": 698262.0,
         "optionSymbol": "QQQ241004C00262500",
@@ -8484,7 +8484,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 698262.0,
         "postTradeBalance": 698278.0,
         "optionSymbol": "UAL241004C00041000",
@@ -8515,7 +8515,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 698278.0,
         "postTradeBalance": 671256.0,
         "optionSymbol": "QQQ241001P00567000",
@@ -8545,7 +8545,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 671256.0,
         "postTradeBalance": 685298.0,
         "optionSymbol": "XOM241018P00028000",
@@ -8573,7 +8573,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 685298.0,
         "postTradeBalance": 664691.0,
         "optionSymbol": "CAT240920P00565000",
@@ -8601,7 +8601,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 664691.0,
         "postTradeBalance": 664712.0,
         "optionSymbol": "AMD241018C00051000",
@@ -8632,7 +8632,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 664712.0,
         "postTradeBalance": 678012.0,
         "optionSymbol": "AFRM241004C00122000",
@@ -8663,7 +8663,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 678012.0,
         "postTradeBalance": 677973.0,
         "optionSymbol": "CAT240919P00564000",
@@ -8694,7 +8694,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 677973.0,
         "postTradeBalance": 656427.0,
         "optionSymbol": "CVX241004C00270000",
@@ -8725,7 +8725,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 656427.0,
         "postTradeBalance": 656451.0,
         "optionSymbol": "GOOGL241004C00122000",
@@ -8756,7 +8756,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 656451.0,
         "postTradeBalance": 720201.0,
         "optionSymbol": "UAL241004C00043250",
@@ -8786,7 +8786,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 720201.0,
         "postTradeBalance": 720266.0,
         "optionSymbol": "MCD241004C00262500",
@@ -8817,7 +8817,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 720266.0,
         "postTradeBalance": 720238.0,
         "optionSymbol": "AFRM241018P00028000",
@@ -8848,7 +8848,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 720238.0,
         "postTradeBalance": 720254.0,
         "optionSymbol": "QQQ241018P00182500",
@@ -8879,7 +8879,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 720254.0,
         "postTradeBalance": 746848.0,
         "optionSymbol": "SPY241004C00262500",
@@ -8907,7 +8907,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 746848.0,
         "postTradeBalance": 761779.0,
         "optionSymbol": "GOOGL240927C00255000",
@@ -8938,7 +8938,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 761779.0,
         "postTradeBalance": 761814.0,
         "optionSymbol": "NKE241011C00252500",
@@ -8969,7 +8969,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 761814.0,
         "postTradeBalance": 732703.0,
         "optionSymbol": "GOOGL240920P00565000",
@@ -8999,7 +8999,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 732703.0,
         "postTradeBalance": 737643.0,
         "optionSymbol": "IBM240919C00574000",
@@ -9030,7 +9030,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 737643.0,
         "postTradeBalance": 742635.0,
         "optionSymbol": "NKE241018C00082500",
@@ -9061,7 +9061,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 742635.0,
         "postTradeBalance": 742656.0,
         "optionSymbol": "ARM241018C00139000",
@@ -9092,7 +9092,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 742656.0,
         "postTradeBalance": 742680.0,
         "optionSymbol": "PYPL241004C00039500",
@@ -9123,7 +9123,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 742680.0,
         "postTradeBalance": 719176.0,
         "optionSymbol": "XOM241011C00257500",
@@ -9154,7 +9154,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 719176.0,
         "postTradeBalance": 743452.0,
         "optionSymbol": "QQQ241018C00139000",
@@ -9182,7 +9182,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 743452.0,
         "postTradeBalance": 779424.0,
         "optionSymbol": "AMD241018C00192500",
@@ -9212,7 +9212,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 779424.0,
         "postTradeBalance": 779444.0,
         "optionSymbol": "AAL241018C00051500",
@@ -9243,7 +9243,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 779444.0,
         "postTradeBalance": 816376.0,
         "optionSymbol": "AAPL241018C00232500",
@@ -9271,7 +9271,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 816376.0,
         "postTradeBalance": 816405.0,
         "optionSymbol": "IBM241011C00257500",
@@ -9302,7 +9302,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 816405.0,
         "postTradeBalance": 784275.0,
         "optionSymbol": "AMD240919P00564000",
@@ -9332,7 +9332,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "LOTTO",
+        "riskType": "Lotto",
         "preTradeBalance": 784275.0,
         "postTradeBalance": 800744.0,
         "optionSymbol": "PYPL241011C00047000",
@@ -9360,7 +9360,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 800744.0,
         "postTradeBalance": 865648.0,
         "optionSymbol": "AMD241004C00041000",
@@ -9391,7 +9391,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 865648.0,
         "postTradeBalance": 865667.0,
         "optionSymbol": "AFRM241018C00051000",
@@ -9422,7 +9422,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 865667.0,
         "postTradeBalance": 882947.0,
         "optionSymbol": "GOOGL241004C00043250",
@@ -9453,7 +9453,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 882947.0,
         "postTradeBalance": 882961.0,
         "optionSymbol": "NKE240927C00255000",
@@ -9484,7 +9484,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 882961.0,
         "postTradeBalance": 882996.0,
         "optionSymbol": "NVDA241018C00232500",
@@ -9515,7 +9515,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 882996.0,
         "postTradeBalance": 883006.0,
         "optionSymbol": "AFRM241004C00122000",
@@ -9546,7 +9546,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 883006.0,
         "postTradeBalance": 883028.0,
         "optionSymbol": "DAL240927C00255000",
@@ -9577,7 +9577,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 883028.0,
         "postTradeBalance": 883049.0,
         "optionSymbol": "AFRM241018C00232500",
@@ -9608,7 +9608,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "HERO",
+        "riskType": "Hero",
         "preTradeBalance": 883049.0,
         "postTradeBalance": 932569.0,
         "optionSymbol": "QQQ241011C00252500",
@@ -9638,7 +9638,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "BASE",
+        "riskType": "Base",
         "preTradeBalance": 932569.0,
         "postTradeBalance": 950881.0,
         "optionSymbol": "AAPL241004C00039500",
@@ -9669,7 +9669,7 @@
     },
     {
         "id": 91104342419,
-        "riskType": "VISION",
+        "riskType": "Vision",
         "preTradeBalance": 950881.0,
         "postTradeBalance": 950848.0,
         "optionSymbol": "AAPL241018C00232500",

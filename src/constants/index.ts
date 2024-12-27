@@ -17,6 +17,7 @@ export enum WebSocketData {
     QUOTE = 'QUOTE',
     SYMBOLS = 'SYMBOLS',
     TRADES = 'TRADES',
+    TradeProfiles = 'TradeProfiles',
 }
 
 export enum AppStateKey {
@@ -29,10 +30,10 @@ export enum OptionType {
 }
 
 export enum RiskType {
-    BASE = 'BASE',
-    LOTTO = 'LOTTO',
-    HERO = 'HERO',
-    VISION = 'VISION',
+    Base = 'Base',
+    Lotto = 'Lotto',
+    Hero = 'Hero',
+    Vision = 'Vision',
 }
 
 export enum TradeLeg {
@@ -48,7 +49,7 @@ export enum Displays {
     POSITIONS = 'Positions',
     TRADES = 'Trades',
     ANALYTICS = 'Analytics',
-    VISION = 'Vision',
+    Vision = 'Vision',
 }
 
 export enum OrderStatuses {
@@ -131,5 +132,5 @@ export enum DashboardView {
     HOME,
     TRADES,
     ANALYTICS,
-    VISION,
+    Vision,
 }

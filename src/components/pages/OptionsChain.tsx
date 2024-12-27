@@ -32,14 +32,25 @@ import stringToFloat from '@/utils/stringToFloat';
 
 const OptionsChain: React.FC = () => {
     const dispatch = useAppDispatch();
-    const {
-        quotesMap,
-        quotesPrices,
-        activeSymbol,
-        confirmedSymbol,
-        expirationDate,
-        riskType,
-    } = useAppSelector((state) => state.optionsChain);
+    const tradeProfiles = useAppSelector((state) => state.trades.tradeProfiles);
+    const quotesMap = useAppSelector((state) => state.optionsChain.quotesMap);
+    const totalEquity = useAppSelector((state) => state.balance.totalEquity);
+    const cashAvailable = useAppSelector(
+        (state) => state.balance.cashAvailable
+    );
+    const quotesPrices = useAppSelector(
+        (state) => state.optionsChain.quotesPrices
+    );
+    const activeSymbol = useAppSelector(
+        (state) => state.optionsChain.activeSymbol
+    );
+    const confirmedSymbol = useAppSelector(
+        (state) => state.optionsChain.confirmedSymbol
+    );
+    const expirationDate = useAppSelector(
+        (state) => state.optionsChain.expirationDate
+    );
+    const riskType = useAppSelector((state) => state.optionsChain.riskType);
     const [placeTrade, { isLoading }] = usePlaceTradeMutation();
     const [stopOptionsChain] = useStopOptionsChainMutation();
     const quotes: [string, Quote][] = Object.entries(quotesMap);
@@ -58,14 +69,28 @@ const OptionsChain: React.FC = () => {
         }
     };
 
+    const handleCheckTradeAfforability = (cost: number) => {
+        console.log(tradeProfiles[riskType]);
+        const tradeAllotment =
+            riskType === RiskType.Vision
+                ? 100
+                : Math.floor(
+                      totalEquity *
+                          tradeProfiles[riskType].tradeAmountPercentage
+                  );
+
+        return (
+            tradeAllotment < cashAvailable &&
+            Math.floor(tradeAllotment / cost) > 0
+        );
+    };
+
     return (
-        <div className="dashboard flex w-full flex-col">
+        <div className="flex flex-row justify-around w-[1100px] m-auto mt-8">
             <SymbolSelectorWithLotto />
             <Table
                 id="options-chain-table"
-                className={`${
-                    activeSymbol ? '' : 'hide-oc'
-                } text-xs md:text-sm options-chain-table border-0 w-full min-w-[320px] max-w-[320px] md:max-w-[500px] card apex-card mx-auto`}
+                className={`text-xs md:text-sm options-chain-table border-0 w-full card apex-card`}
             >
                 <TableHeader className="text-xs">
                     <TableRow className="border-none">
@@ -107,8 +132,8 @@ const OptionsChain: React.FC = () => {
                         const showConfirm = confirmedSymbol === symbol;
                         const currentPrice = quotesPrices[symbol];
                         const ask = data?.ask ?? 0;
-                        const askIsLottoPrice =
-                            ask < 0.15 && riskType === RiskType.BASE;
+
+                        console.log(quotesPrices);
 
                         if (symbol) {
                             return (
@@ -205,7 +230,36 @@ const OptionsChain: React.FC = () => {
                                                 </div>
                                             </TableCell>
                                             <TableCell>
-                                                {askIsLottoPrice ? (
+                                                {handleCheckTradeAfforability(
+                                                    Number(currentPrice)
+                                                ) ? (
+                                                    <svg
+                                                        onClick={() =>
+                                                            dispatch(
+                                                                updateConfirmedSymbol(
+                                                                    symbol
+                                                                )
+                                                            )
+                                                        }
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        className="icon icon-tabler icon-tabler-check"
+                                                        width="22"
+                                                        height="22"
+                                                        viewBox="0 0 24 24"
+                                                        strokeWidth="2.5"
+                                                        stroke={primary()}
+                                                        fill="none"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                    >
+                                                        <path
+                                                            stroke="none"
+                                                            d="M0 0h24v24H0z"
+                                                            fill="none"
+                                                        />
+                                                        <path d="M5 12l5 5l10 -10" />
+                                                    </svg>
+                                                ) : (
                                                     <TooltipProvider>
                                                         <Tooltip>
                                                             <TooltipTrigger>
@@ -235,43 +289,15 @@ const OptionsChain: React.FC = () => {
                                                             </TooltipTrigger>
                                                             <TooltipContent>
                                                                 <p>
-                                                                    Contracts
-                                                                    under 0.15
-                                                                    must be
-                                                                    placed as
-                                                                    Lotto
-                                                                    trades.
+                                                                    There is not
+                                                                    enough
+                                                                    buying power
+                                                                    for this
+                                                                    trade.
                                                                 </p>
                                                             </TooltipContent>
                                                         </Tooltip>
                                                     </TooltipProvider>
-                                                ) : (
-                                                    <svg
-                                                        onClick={() =>
-                                                            dispatch(
-                                                                updateConfirmedSymbol(
-                                                                    symbol
-                                                                )
-                                                            )
-                                                        }
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        className="icon icon-tabler icon-tabler-check"
-                                                        width="22"
-                                                        height="22"
-                                                        viewBox="0 0 24 24"
-                                                        strokeWidth="2.5"
-                                                        stroke={primary()}
-                                                        fill="none"
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                    >
-                                                        <path
-                                                            stroke="none"
-                                                            d="M0 0h24v24H0z"
-                                                            fill="none"
-                                                        />
-                                                        <path d="M5 12l5 5l10 -10" />
-                                                    </svg>
                                                 )}
                                             </TableCell>
                                         </>

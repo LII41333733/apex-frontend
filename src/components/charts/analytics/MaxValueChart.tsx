@@ -59,9 +59,8 @@ export default function () {
             <ChartHeader
                 mainTitle="Max Value"
                 mainSubtitle="Last 20 Trades By Type"
-                secondaryTitle="Trending up by 5.2% this month"
-                secondarySubtitle="January - June 2024"
-                trendIsUp
+                secondaryTitle=""
+                secondarySubtitle=""
             />
             <CardContent>
                 {allTrades.length && (

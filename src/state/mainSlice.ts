@@ -12,7 +12,7 @@ export interface MainState {
 
 export const initialState: MainState = {
     token: localStorage.getItem('token'),
-    display: Displays.POSITIONS,
+    display: Displays.PORTFOLIO,
     symbols: [],
     isDemoMode: true,
 };

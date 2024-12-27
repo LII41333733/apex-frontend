@@ -65,7 +65,7 @@ const Protected: React.FC = () => {
                 setLoginView={setLoginView}
             />
             <div
-                className={`fade-container ${
+                className={`fade-container h-[100vh] overflow-y-scroll ${
                     loginView === LoginView.MAIN ? 'show' : 'hide'
                 } overflow-y-hidden`}
             >
@@ -108,7 +108,7 @@ const RenderDisplay: React.FC = React.memo(() => {
         case Displays.ANALYTICS: {
             return <Analytics />;
         }
-        case Displays.VISION: {
+        case Displays.Vision: {
             return <Vision />;
         }
         default:

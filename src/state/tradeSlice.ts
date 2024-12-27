@@ -6,6 +6,7 @@ import LottoTrade from '@/interfaces/LottoTrade';
 import VisionTrade from '@/interfaces/VisionTrade';
 import consumeTrades from '@/utils/consumeTrades';
 import { RiskType } from '@/constants';
+import { TradeProfile } from '@/types/TradeProfile';
 
 const initialSummary = {
     allTrades: [],
@@ -29,6 +30,23 @@ export interface TradeState {
     tradesByRiskType: { [key: string]: Trade[] };
     last20Trades: Trade[];
     tradeSummary: TradeSummary;
+    tradeProfiles: TradeProfile;
+    todaysTrades: [];
+    thisWeeksTrades: [];
+    thisMonthsTrades: [];
+    thisYearsTrades: [];
+    statDailyTotalPl: number;
+    statDailyHighPl: number;
+    statDailyAveragePl: number;
+    statWeeklyTotalPl: number;
+    statWeeklyHighPl: number;
+    statWeeklyAveragePl: number;
+    statMonthlyTotalPl: number;
+    statMonthlyHighPl: number;
+    statMonthlyAveragePl: number;
+    statYearlyTotalPl: number;
+    statYearlyHighPl: number;
+    statYearlyAveragePl: number;
 }
 
 export const initialState: TradeState = {
@@ -47,6 +65,24 @@ export const initialState: TradeState = {
     tradesByWeek: {},
     tradesByMonth: {},
     last20Trades: [],
+    tradeProfiles: {},
+
+    todaysTrades: [],
+    thisWeeksTrades: [],
+    thisMonthsTrades: [],
+    thisYearsTrades: [],
+    statDailyTotalPl: 0,
+    statDailyHighPl: 0,
+    statDailyAveragePl: 0,
+    statWeeklyTotalPl: 0,
+    statWeeklyHighPl: 0,
+    statWeeklyAveragePl: 0,
+    statMonthlyTotalPl: 0,
+    statMonthlyHighPl: 0,
+    statMonthlyAveragePl: 0,
+    statYearlyTotalPl: 0,
+    statYearlyHighPl: 0,
+    statYearlyAveragePl: 0,
 };
 
 export const tradeSlice = createSlice({
@@ -56,6 +92,9 @@ export const tradeSlice = createSlice({
         updateTrades: consumeTrades,
         updateTradeSummary: (state, action: PayloadAction<TradeSummary>) => {
             state.tradeSummary = action.payload;
+        },
+        updateTradeProfiles: (state, action: PayloadAction<TradeProfile>) => {
+            state.tradeProfiles = action.payload;
         },
     },
 });
@@ -67,8 +106,10 @@ export const getTradeBreakdown = ({ trades }: any) => ({
     tradesByWeek: trades.tradesByWeek,
     tradesByMonth: trades.tradesByMonth,
     tradesByRiskType: trades.tradesByRiskType,
+    tradeProfiles: trades.tradeProfiles,
 });
 
-export const { updateTrades, updateTradeSummary } = tradeSlice.actions;
+export const { updateTrades, updateTradeSummary, updateTradeProfiles } =
+    tradeSlice.actions;
 
 export default tradeSlice.reducer;

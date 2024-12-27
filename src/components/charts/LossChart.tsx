@@ -8,11 +8,8 @@ import {
 
 export const description = 'A donut chart with text';
 import data from '../../data/demoTrades.json';
-import { dollar } from '@/utils/dollar';
 import Trade from '@/types/Trade';
 import TradeCard from '../TradeCard';
-
-// console.log(colors); // Array of 1561 colors covering the full spectrum
 
 export const ONE_MILLION = 1_000_000;
 const filteredData: Trade[] = (data as Trade[])
@@ -52,14 +49,11 @@ chartConfig['Target'] = {
     color: 'gray',
 };
 
-console.log(chartConfig);
-
 const LossChart: React.FC = () => {
     const hovref = React.useRef(null);
 
     React.useEffect(() => {
         if (hovref.current) {
-            console.log(hovref.current);
         }
     }, [hovref]);
 
@@ -72,18 +66,18 @@ const LossChart: React.FC = () => {
     const [activeSlice, setActiveSlice] = React.useState(null);
 
     return (
-        <div className='loss-container'>
+        <div className="loss-container">
             <ChartContainer
                 config={chartConfig}
-                className='mx-auto chart-container h-[900px] w-full'
+                className="mx-auto chart-container h-[900px] w-full"
             >
                 {activeSlice && (
-                    <div className='absolute'>
+                    <div className="absolute">
                         <TradeCard trade={activeSlice} isLossChart />
                     </div>
                 )}
                 <PieChart
-                    className='m-o p-0'
+                    className="m-o p-0"
                     margin={{ top: -90, right: 0, left: -0, bottom: 0 }}
                 >
                     <ChartTooltip
@@ -93,12 +87,10 @@ const LossChart: React.FC = () => {
                     <Pie
                         minAngle={1}
                         data={chartData}
-                        dataKey='pl'
-                        nameKey='optionSymbol'
+                        dataKey="pl"
+                        nameKey="optionSymbol"
                         innerRadius={330}
                         onMouseOver={(e) => {
-                            console.log(e);
-
                             e.name === 'Target'
                                 ? setActiveSlice(null)
                                 : setActiveSlice(e);

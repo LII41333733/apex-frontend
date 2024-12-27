@@ -4,7 +4,11 @@ import { useAppDispatch } from '@/state/hooks';
 import { updateAll } from '@/state/balanceSlice';
 import { updateQuotesMap } from '@/state/optionsChainSlice';
 import { updateOrderSummary } from '@/state/orderSlice';
-import { updateTrades, updateTradeSummary } from '@/state/tradeSlice';
+import {
+    updateTradeProfiles,
+    updateTrades,
+    updateTradeSummary,
+} from '@/state/tradeSlice';
 import { updateSymbolData } from '@/state/mainSlice';
 
 const getPriceData = (data: {
@@ -51,6 +55,9 @@ const WebSocketComponent: React.FC = () => {
             switch (type) {
                 case WebSocketData.BALANCE:
                     dispatch(updateAll(data));
+                    break;
+                case WebSocketData.TradeProfiles:
+                    dispatch(updateTradeProfiles(data));
                     break;
                 case WebSocketData.QUOTE:
                     dispatch(updateQuotesMap(data));

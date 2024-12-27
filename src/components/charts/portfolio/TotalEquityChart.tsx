@@ -51,9 +51,8 @@ export function TotalEquityChart() {
                 <ChartHeader
                     mainTitle="Total Equity"
                     mainSubtitle="Net Account Balance"
-                    secondaryTitle="Trending up by 5.2% this month"
-                    secondarySubtitle="January - June 2024"
-                    trendIsUp
+                    secondaryTitle=""
+                    secondarySubtitle=""
                 />
                 <div className="flex justify-between items-center mr-4 pb-4">
                     <Badge
