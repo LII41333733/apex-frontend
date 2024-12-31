@@ -1,4 +1,5 @@
 export const ONE_MILLION = 1_000_000;
+export const goal = 100_000;
 
 export enum SYMBOLS {
     SPY = 'SPY',

@@ -48,7 +48,7 @@ export function NegativeBarChartAll() {
         .filter((e) => chartType === 'All' || chartType === e.riskType)
         .slice(-14);
 
-    console.log(last20Trades);
+    console.log(allTrades);
 
     return (
         <>

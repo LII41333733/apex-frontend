@@ -71,8 +71,12 @@ const Login: React.FC<{
                                 <h1 className="text-3xl font-bold">
                                     Official Trading Platform
                                 </h1>
-                                <p className="text-balance text-muted-foreground mb-4">
-                                    Embark on your trading future.
+                                <p className="text-balance text-muted-foreground mb-4 mt-2 text-xl">
+                                    turn your{' '}
+                                    <strong className="text-white tracking-wide">
+                                        vision
+                                    </strong>{' '}
+                                    into reality.
                                 </p>
                             </div>
                             <div className="grid gap-4">
@@ -95,7 +99,7 @@ const Login: React.FC<{
                                 <Button
                                     onClick={handleSubmit}
                                     type="submit"
-                                    className="w-full"
+                                    className="w-full text-black"
                                 >
                                     Login
                                 </Button>

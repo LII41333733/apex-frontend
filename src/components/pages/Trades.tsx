@@ -50,7 +50,7 @@ const Trades: React.FC = () => {
             >
                 <TableHeader>
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow className="border-none">
+                        <TableRow key={headerGroup.id} className="border-none">
                             {headerGroup.headers.map((header) => {
                                 return (
                                     <TableCell

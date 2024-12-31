@@ -82,7 +82,7 @@ div[role='tablist'] button {
 }
 
 .main-container {
-    min-height: 80vh;
+    padding-bottom: 10rem;
 }
 
 .position-container {
@@ -91,7 +91,6 @@ div[role='tablist'] button {
 
     @media (min-width: 345px) {
         padding: 0.6rem 0.8rem 1.3rem 0.8rem;
-        margin-bottom: 2rem;
         width: 24rem;
     }
 }

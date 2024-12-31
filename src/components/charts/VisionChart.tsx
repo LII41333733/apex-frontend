@@ -9,7 +9,7 @@ import { dollar } from '@/utils/dollar';
 import TradeCard from '../TradeCard';
 import { useAppSelector } from '@/state/hooks';
 import getVisionChartColors from '@/utils/getVisionChartColors';
-import { ONE_MILLION, RiskType } from '@/constants';
+import { goal, ONE_MILLION, RiskType } from '@/constants';
 import { background, muted } from '@/utils/colors';
 import VisionChartStats from '../stats/VisionChartStats';
 import { CardDescription, CardHeader, CardTitle } from '../ui/card';
@@ -38,7 +38,7 @@ const VisionChart: React.FC = React.memo(() => {
     const visionChartColors = getVisionChartColors(positiveTrades.length);
     const total =
         positiveTrades[positiveTrades.length - 1].postTradeBalance ?? 0;
-    const diff = ONE_MILLION - total;
+    const diff = goal - total;
     const positiveTradesData = positiveTrades.map((e, i) => {
         return {
             ...e,
@@ -170,7 +170,7 @@ const VisionChart: React.FC = React.memo(() => {
                     <CardHeader className="top-stat p-0 flex justify-center items-center col-span-1 px-0">
                         <CardTitle className="text-xl">Target Goal</CardTitle>
                         <CardDescription className="text-3xl text-apex-light-yellow tracking-wide">
-                            {dollar(ONE_MILLION)}
+                            {dollar(goal)}
                         </CardDescription>
                     </CardHeader>
                 )}

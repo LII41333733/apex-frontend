@@ -15,6 +15,7 @@ type TradeCard = {
     confirmSellId?: number;
     zIndex?: number;
     isVisionChart?: boolean;
+    openDemo?: boolean;
 };
 
 const TradeCard: React.FC<TradeCard> = ({
@@ -25,11 +26,16 @@ const TradeCard: React.FC<TradeCard> = ({
     showButtonsId,
     zIndex,
     isVisionChart,
+    openDemo,
 }) => {
     const id = Number(trade.id);
-    const showButtons = showButtonsId === trade.id;
+    const showButtons = openDemo || showButtonsId === trade.id;
     const showSellConfirm = confirmSellId === id;
     const symbolLabel: string = convertTickerWithExpiration(trade.optionSymbol);
+    const [demoTrade, setDemoTrade] = React.useState<Trade>({
+        ...trade,
+        lastPrice: trade.fillPrice,
+    });
 
     if (trade.status === TradeStatus.REJECTED) {
         return <div key={trade.id}></div>;
@@ -70,10 +76,6 @@ const TradeCard: React.FC<TradeCard> = ({
                         <span className="text-bottom-value mx-1">
                             {float(trade.fillPrice)}
                         </span>
-                        {/* <span className="text-bottom-label text-xs">Last</span>
-                        <span className="text-bottom-value ml-1">
-                            {float(trade.lastPrice)}
-                        </span> */}
                         <span className="text-bottom-label text-xs">Stop</span>
                         <span className="text-bottom-value ml-1">
                             {float(trade.stopPrice)}
@@ -83,15 +85,17 @@ const TradeCard: React.FC<TradeCard> = ({
                 <PositionPl trade={trade} />
             </div>
             <div className="risk-type mb-3 mt-2">
-                <span className="text-foreground">{`${trade.riskType} TRADE`}</span>
+                <span className="text-foreground">{`${trade.riskType.toUpperCase()} TRADE`}</span>
                 <StatusBadge status={trade.status} />
             </div>
             <PriceBar
-                trade={trade}
+                trade={openDemo ? demoTrade : trade}
                 showButtons={showButtons}
                 showSellConfirm={showSellConfirm}
                 setConfirmSellId={setConfirmSellId}
                 isVisionChart={isVisionChart}
+                openDemo
+                setDemoTrade={setDemoTrade}
             />
         </div>
     );

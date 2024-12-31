@@ -58,12 +58,16 @@ const PriceBar: React.FC<{
     showSellConfirm: boolean;
     setConfirmSellId: (id: number) => void;
     isVisionChart?: boolean;
+    openDemo?: boolean;
+    setDemoTrade: (trade: Trade) => void;
 }> = ({
     trade,
     showButtons,
     showSellConfirm,
     setConfirmSellId,
     isVisionChart,
+    openDemo,
+    setDemoTrade,
 }) => {
     const { toast } = useToast();
     const [modifyTrade] = useModifyTradeMutation();
@@ -78,7 +82,7 @@ const PriceBar: React.FC<{
         fill: trade.fillPrice,
         last: trade.lastPrice,
         runnerLimit: trade.fillPrice * 2,
-        max: isVisionChart ? trade.fillPrice * 2 : trade.maxPrice,
+        max: trade.maxPrice,
         trim1: hasTrim1 ? trade.trim1Price : trade.fillPrice,
         trim2: hasTrim2 ? trade.trim2Price : trade.fillPrice,
     };
@@ -133,24 +137,26 @@ const PriceBar: React.FC<{
                         </>
                     )}
                 </section>
-                <section>
-                    <div
-                        className="price-bar-last"
-                        style={{ left: `${percentagePositions.last}%` }}
-                    ></div>
-                    <div
-                        className="text-xxs price-bar-label-top absolute top-[-8%] above"
-                        style={{ left: `${percentagePositions.last}%` }}
-                    >
-                        {`Last`}
-                    </div>
-                    <div
-                        className="text-apex-light-yellow text-xxs price-bar-label-bottom above absolute top-[11%]"
-                        style={{ left: `${percentagePositions.last}%` }}
-                    >
-                        {`${float(values.last)}`}
-                    </div>
-                </section>
+                {!openDemo && (
+                    <section>
+                        <div
+                            className="price-bar-last"
+                            style={{ left: `${percentagePositions.last}%` }}
+                        ></div>
+                        <div
+                            className="text-xxs price-bar-label-top absolute top-[-8%] above"
+                            style={{ left: `${percentagePositions.last}%` }}
+                        >
+                            {`Last`}
+                        </div>
+                        <div
+                            className="text-apex-light-yellow text-xxs price-bar-label-bottom above absolute top-[11%]"
+                            style={{ left: `${percentagePositions.last}%` }}
+                        >
+                            {`${float(values.last)}`}
+                        </div>
+                    </section>
+                )}
                 <section>
                     <div
                         className="price-bar-fill"
@@ -169,7 +175,7 @@ const PriceBar: React.FC<{
                         {`${float(values.fill)}`}
                     </div>
                 </section>
-                {!isVisionChart && (
+                {!isVisionChart && !openDemo && (
                     <section>
                         <div
                             className="price-bar-max"
@@ -334,12 +340,19 @@ const PriceBar: React.FC<{
                                 <>
                                     <Badge
                                         onClick={async () => {
-                                            await modifyTrade({
-                                                id: trade.id,
-                                                tradeLeg: TradeLeg.STOP,
-                                                price: sliderValue,
-                                                riskType: trade.riskType,
-                                            });
+                                            if (openDemo) {
+                                                setDemoTrade({
+                                                    ...trade,
+                                                    stopPrice: sliderValue,
+                                                });
+                                            } else {
+                                                await modifyTrade({
+                                                    id: trade.id,
+                                                    tradeLeg: TradeLeg.STOP,
+                                                    price: sliderValue,
+                                                    riskType: trade.riskType,
+                                                });
+                                            }
                                         }}
                                         className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                         variant="outline"
@@ -348,14 +361,20 @@ const PriceBar: React.FC<{
                                     </Badge>
                                     <Badge
                                         onClick={async () => {
-                                            const res = await modifyTrade({
-                                                id: trade.id,
-                                                tradeLeg: TradeLeg.TRIM1,
-                                                price: sliderValue,
-                                                riskType: trade.riskType,
-                                            });
-
-                                            sendToast();
+                                            if (openDemo) {
+                                                setDemoTrade({
+                                                    ...trade,
+                                                    trim1Price: sliderValue,
+                                                });
+                                            } else {
+                                                const res = await modifyTrade({
+                                                    id: trade.id,
+                                                    tradeLeg: TradeLeg.TRIM1,
+                                                    price: sliderValue,
+                                                    riskType: trade.riskType,
+                                                });
+                                            }
+                                            // sendToast();
                                         }}
                                         className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                         variant="outline"
@@ -365,12 +384,21 @@ const PriceBar: React.FC<{
                                     {hasTrim2 && (
                                         <Badge
                                             onClick={async () => {
-                                                await modifyTrade({
-                                                    id: trade.id,
-                                                    tradeLeg: TradeLeg.TRIM2,
-                                                    price: sliderValue,
-                                                    riskType: trade.riskType,
-                                                });
+                                                if (openDemo) {
+                                                    setDemoTrade({
+                                                        ...trade,
+                                                        trim2Price: sliderValue,
+                                                    });
+                                                } else {
+                                                    await modifyTrade({
+                                                        id: trade.id,
+                                                        tradeLeg:
+                                                            TradeLeg.TRIM2,
+                                                        price: sliderValue,
+                                                        riskType:
+                                                            trade.riskType,
+                                                    });
+                                                }
                                             }}
                                             className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                             variant="outline"
@@ -387,7 +415,7 @@ const PriceBar: React.FC<{
                                 className="bg-background rounded badge apex-button text-xs text-foreground w-[90px] symbol-badge mx-1"
                                 variant="outline"
                             >
-                                Market Sell
+                                Sell Position
                             </Badge>
                             {isPending && (
                                 <Badge

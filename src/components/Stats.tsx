@@ -70,8 +70,7 @@ const Stats: React.FC = () => {
                 value={dollar(
                     isDemoMode && trades.length
                         ? trades.slice(-1)[0].postTradeBalance
-                        : totalEquity,
-                    false
+                        : totalEquity
                 )}
                 icon={<DollarSign className="h-5 w-5" />}
                 currentTime={currentTime}

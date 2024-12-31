@@ -11,7 +11,7 @@ import data from '../../data/demoTrades.json';
 import Trade from '@/types/Trade';
 import TradeCard from '../TradeCard';
 
-export const ONE_MILLION = 1_000_000;
+export const goal = 100_000;
 const filteredData: Trade[] = (data as Trade[])
     .filter((e) => e.pl > 0)
     .slice(0, 40);
@@ -37,7 +37,7 @@ const chartConfig = chartData.reduce((p: any, { pl, optionSymbol }: any, i) => {
 }, {});
 
 const total = chartData[chartData.length - 1].postTradeBalance;
-const diff = ONE_MILLION - total;
+const diff = goal - total;
 
 chartData.push({
     pl: diff,

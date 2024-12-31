@@ -47,7 +47,7 @@ const LatestTrades: React.FC = () => {
                                     )}
                                 </p>
                                 <p className="italic text-xs text-foreground tracking-wide">
-                                    {`${trade.riskType} TRADE`}
+                                    {`${trade.riskType.toUpperCase()} TRADE`}
                                 </p>
                             </div>
                             <div className="col-span-4 ml-1">

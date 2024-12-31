@@ -8,19 +8,19 @@ export default (
     { payload: trades }: PayloadAction<Trade[]>
 ) => {
     state.trades = trades;
+    state.last20Trades = trades.slice(-20);
     state.todaysTrades = getTradesToday(trades);
     state.tradesByDay = groupTradesByDay(trades);
     state.tradesByMonth = groupTradesByMonth(trades);
     state.tradesByYear = groupTradesByYear(trades);
     state.tradesByRiskType = groupTradesByRiskType(trades);
     state.lastFilledBeforeToday = getLastFilledTradeBeforeToday(trades);
-    state.last20Trades = trades.slice(-20);
     state.thisWeeksTrades = getTradesWeek(trades);
     state.thisMonthsTrades = getCurrentMonthTrades(trades);
     state.thisYearsTrades = getCurrentYearTrades(trades);
     state.tradesByWeek = groupTradesByWeek(trades);
     state.statDailyTotalPl = state.todaysTrades.reduce((p, c) => p + c.pl, 0);
-    state.statDailyHighPl = trades.sort((a, b) => b.pl - a.pl)[0].pl;
+    state.statDailyHighPl = [...trades].sort((a, b) => b.pl - a.pl)[0].pl;
     state.statDailyAveragePl = calculateAverage(trades, 'pl');
     state.statWeeklyTotalPl = state.thisWeeksTrades.reduce(
         (p, c) => p + c.pl,
@@ -318,33 +318,3 @@ function getCurrentYearTrades(trades: Trade[]): Trade[] {
         return openYear === currentYear || closeYear === currentYear;
     });
 }
-
-// Example usage:
-const trades: Trade[] = [
-    {
-        id: 271210442701,
-        fillOrderId: null,
-        preTradeBalance: 561192,
-        postTradeBalance: 621540,
-        optionSymbol: 'IWM240920P00565000',
-        symbol: 'IWM',
-        fillPrice: 1.19,
-        initialAsk: 1.19,
-        openDate: '2024-12-27T09:30:00',
-        closeDate: '2024-12-27T16:00:00',
-        maxPrice: 4.58,
-        pl: 60348,
-        tradeAmount: 22372,
-        lastPrice: 4.4,
-        finalAmount: 82720,
-        status: 'FILLED',
-        trimStatus: 1,
-        stopPrice: 0.02,
-        stopPriceFinal: 4.4,
-        quantity: 188,
-        runnersQuantity: 188,
-        stopPercentage: 0,
-        runnersFloorIsActive: false,
-        riskType: 'Hero',
-    },
-];

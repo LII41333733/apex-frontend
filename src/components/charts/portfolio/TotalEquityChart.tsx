@@ -161,6 +161,8 @@ const ProcessTrades = (tradeBreakdown: any, chartView: PortfolioChartView) => {
     const { trades, tradesByWeek, tradesByMonth, tradesByYear } =
         tradeBreakdown;
 
+    console.log(trades);
+
     const defaultChartData = {
         chartData: trades,
         minTickGap: 50,
@@ -173,6 +175,7 @@ const ProcessTrades = (tradeBreakdown: any, chartView: PortfolioChartView) => {
 
     React.useEffect(() => {
         if (trades.length && !chartData) {
+            console.log(chartView);
             switch (chartView) {
                 case PortfolioChartView.YEARLY:
                     setChartData({
@@ -199,10 +202,7 @@ const ProcessTrades = (tradeBreakdown: any, chartView: PortfolioChartView) => {
                     });
                     break;
                 case PortfolioChartView.DAILY:
-                    setChartData({
-                        chartData: trades.slice(-14),
-                        minTickGap: 0,
-                    });
+                    setChartData(defaultChartData);
                     break;
             }
         }
